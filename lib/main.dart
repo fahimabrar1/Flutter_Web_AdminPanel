@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'package:flutter/material.dart';
-import 'Pages/LangingPage.dart';
+import 'package:flutterweb/Components/Mycolor.dart';
+import 'Screen/Langing_Screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Web',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: MyColor.White,
       ),
       home: LandingPage(title: 'Flutter Demo Home Page'),
     );
