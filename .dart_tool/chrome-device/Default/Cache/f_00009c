@@ -1,0 +1,930 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/syncfusion_flutter_charts/src/sparkline/plot_band.dart', 'packages/syncfusion_flutter_charts/src/sparkline/utils/helper.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/intl/src/intl/date_format.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/rendering/layer.dart'], (function load__packages__syncfusion_flutter_charts__src__sparkline__renderers__renderer_base_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__syncfusion_flutter_charts__src__sparkline__plot_band$46dart, packages__syncfusion_flutter_charts__src__sparkline__utils__helper$46dart, packages__flutter__src__material__icon_button$46dart, packages__intl__src__intl__date_format$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__rendering__layer$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const _interceptors = dart_sdk._interceptors;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const plot_band = packages__syncfusion_flutter_charts__src__sparkline__plot_band$46dart.src__sparkline__plot_band;
+  const helper = packages__syncfusion_flutter_charts__src__sparkline__utils__helper$46dart.src__sparkline__utils__helper;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const date_format = packages__intl__src__intl__date_format$46dart.src__intl__date_format;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  var renderer_base = Object.create(dart.library);
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $clear = dartx.clear;
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var $add = dartx.add;
+  var $toString = dartx.toString;
+  var $toDouble = dartx.toDouble;
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $split = dartx.split;
+  var $round = dartx.round;
+  var $roundToDouble = dartx.roundToDouble;
+  var $reversed = dartx.reversed;
+  var $toList = dartx.toList;
+  var $addAll = dartx.addAll;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    doubleN: () => (T.doubleN = dart.constFn(dart.nullable(core.double)))(),
+    JSArrayOfString: () => (T.JSArrayOfString = dart.constFn(_interceptors.JSArray$(core.String)))(),
+    ListOfnum: () => (T.ListOfnum = dart.constFn(core.List$(core.num)))(),
+    VoidToString: () => (T.VoidToString = dart.constFn(dart.fnType(core.String, [])))(),
+    StringTodynamic: () => (T.StringTodynamic = dart.constFn(dart.fnType(dart.dynamic, [core.String])))(),
+    ListOfString: () => (T.ListOfString = dart.constFn(core.List$(core.String)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = ["package:syncfusion_flutter_charts/src/sparkline/renderers/renderer_base.dart"];
+  var data$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.data");
+  var xValueMapper$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.xValueMapper");
+  var yValueMapper$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.yValueMapper");
+  var dataCount$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.dataCount");
+  var isInversed$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.isInversed");
+  var axisCrossesAt$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.axisCrossesAt");
+  var axisLineWidth$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.axisLineWidth");
+  var axisLineColor$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.axisLineColor");
+  var axisLineDashArray$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.axisLineDashArray");
+  var highPointColor$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.highPointColor");
+  var lowPointColor$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.lowPointColor");
+  var negativePointColor$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.negativePointColor");
+  var firstPointColor$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.firstPointColor");
+  var lastPointColor$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.lastPointColor");
+  var color$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.color");
+  var plotBand$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.plotBand");
+  var sparkChartDataDetails$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.sparkChartDataDetails");
+  var themeData$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.themeData");
+  var coordinatePoints$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.coordinatePoints");
+  var dataPoints$ = dart.privateName(renderer_base, "SfSparkChartRenderObjectWidget.dataPoints");
+  renderer_base.SfSparkChartRenderObjectWidget = class SfSparkChartRenderObjectWidget extends framework.LeafRenderObjectWidget {
+    get data() {
+      return this[data$];
+    }
+    set data(value) {
+      super.data = value;
+    }
+    get xValueMapper() {
+      return this[xValueMapper$];
+    }
+    set xValueMapper(value) {
+      super.xValueMapper = value;
+    }
+    get yValueMapper() {
+      return this[yValueMapper$];
+    }
+    set yValueMapper(value) {
+      super.yValueMapper = value;
+    }
+    get dataCount() {
+      return this[dataCount$];
+    }
+    set dataCount(value) {
+      super.dataCount = value;
+    }
+    get isInversed() {
+      return this[isInversed$];
+    }
+    set isInversed(value) {
+      super.isInversed = value;
+    }
+    get axisCrossesAt() {
+      return this[axisCrossesAt$];
+    }
+    set axisCrossesAt(value) {
+      super.axisCrossesAt = value;
+    }
+    get axisLineWidth() {
+      return this[axisLineWidth$];
+    }
+    set axisLineWidth(value) {
+      super.axisLineWidth = value;
+    }
+    get axisLineColor() {
+      return this[axisLineColor$];
+    }
+    set axisLineColor(value) {
+      super.axisLineColor = value;
+    }
+    get axisLineDashArray() {
+      return this[axisLineDashArray$];
+    }
+    set axisLineDashArray(value) {
+      super.axisLineDashArray = value;
+    }
+    get highPointColor() {
+      return this[highPointColor$];
+    }
+    set highPointColor(value) {
+      super.highPointColor = value;
+    }
+    get lowPointColor() {
+      return this[lowPointColor$];
+    }
+    set lowPointColor(value) {
+      super.lowPointColor = value;
+    }
+    get negativePointColor() {
+      return this[negativePointColor$];
+    }
+    set negativePointColor(value) {
+      super.negativePointColor = value;
+    }
+    get firstPointColor() {
+      return this[firstPointColor$];
+    }
+    set firstPointColor(value) {
+      super.firstPointColor = value;
+    }
+    get lastPointColor() {
+      return this[lastPointColor$];
+    }
+    set lastPointColor(value) {
+      super.lastPointColor = value;
+    }
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get plotBand() {
+      return this[plotBand$];
+    }
+    set plotBand(value) {
+      super.plotBand = value;
+    }
+    get sparkChartDataDetails() {
+      return this[sparkChartDataDetails$];
+    }
+    set sparkChartDataDetails(value) {
+      super.sparkChartDataDetails = value;
+    }
+    get themeData() {
+      return this[themeData$];
+    }
+    set themeData(value) {
+      super.themeData = value;
+    }
+    get coordinatePoints() {
+      return this[coordinatePoints$];
+    }
+    set coordinatePoints(value) {
+      super.coordinatePoints = value;
+    }
+    get dataPoints() {
+      return this[dataPoints$];
+    }
+    set dataPoints(value) {
+      super.dataPoints = value;
+    }
+  };
+  (renderer_base.SfSparkChartRenderObjectWidget.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let data = opts && 'data' in opts ? opts.data : null;
+    let dataCount = opts && 'dataCount' in opts ? opts.dataCount : null;
+    let xValueMapper = opts && 'xValueMapper' in opts ? opts.xValueMapper : null;
+    let yValueMapper = opts && 'yValueMapper' in opts ? opts.yValueMapper : null;
+    let isInversed = opts && 'isInversed' in opts ? opts.isInversed : null;
+    let axisCrossesAt = opts && 'axisCrossesAt' in opts ? opts.axisCrossesAt : null;
+    let axisLineColor = opts && 'axisLineColor' in opts ? opts.axisLineColor : null;
+    let axisLineWidth = opts && 'axisLineWidth' in opts ? opts.axisLineWidth : null;
+    let axisLineDashArray = opts && 'axisLineDashArray' in opts ? opts.axisLineDashArray : null;
+    let firstPointColor = opts && 'firstPointColor' in opts ? opts.firstPointColor : null;
+    let lowPointColor = opts && 'lowPointColor' in opts ? opts.lowPointColor : null;
+    let highPointColor = opts && 'highPointColor' in opts ? opts.highPointColor : null;
+    let lastPointColor = opts && 'lastPointColor' in opts ? opts.lastPointColor : null;
+    let negativePointColor = opts && 'negativePointColor' in opts ? opts.negativePointColor : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let plotBand = opts && 'plotBand' in opts ? opts.plotBand : null;
+    let sparkChartDataDetails = opts && 'sparkChartDataDetails' in opts ? opts.sparkChartDataDetails : null;
+    let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+    let dataPoints = opts && 'dataPoints' in opts ? opts.dataPoints : null;
+    let coordinatePoints = opts && 'coordinatePoints' in opts ? opts.coordinatePoints : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[data$] = data;
+    this[dataCount$] = dataCount;
+    this[xValueMapper$] = xValueMapper;
+    this[yValueMapper$] = yValueMapper;
+    this[isInversed$] = isInversed;
+    this[axisCrossesAt$] = axisCrossesAt;
+    this[axisLineColor$] = axisLineColor;
+    this[axisLineWidth$] = axisLineWidth;
+    this[axisLineDashArray$] = axisLineDashArray;
+    this[firstPointColor$] = firstPointColor;
+    this[lowPointColor$] = lowPointColor;
+    this[highPointColor$] = highPointColor;
+    this[lastPointColor$] = lastPointColor;
+    this[negativePointColor$] = negativePointColor;
+    this[color$] = color;
+    this[plotBand$] = plotBand;
+    this[sparkChartDataDetails$] = sparkChartDataDetails;
+    this[themeData$] = themeData;
+    this[dataPoints$] = dataPoints;
+    this[coordinatePoints$] = coordinatePoints;
+    renderer_base.SfSparkChartRenderObjectWidget.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = renderer_base.SfSparkChartRenderObjectWidget.prototype;
+  dart.addTypeTests(renderer_base.SfSparkChartRenderObjectWidget);
+  dart.addTypeCaches(renderer_base.SfSparkChartRenderObjectWidget);
+  dart.setLibraryUri(renderer_base.SfSparkChartRenderObjectWidget, I[0]);
+  dart.setFieldSignature(renderer_base.SfSparkChartRenderObjectWidget, () => ({
+    __proto__: dart.getFields(renderer_base.SfSparkChartRenderObjectWidget.__proto__),
+    data: dart.finalFieldType(dart.nullable(core.List)),
+    xValueMapper: dart.finalFieldType(dart.nullable(dart.fnType(dart.dynamic, [core.int]))),
+    yValueMapper: dart.finalFieldType(dart.nullable(dart.fnType(core.num, [core.int]))),
+    dataCount: dart.finalFieldType(dart.nullable(core.int)),
+    isInversed: dart.finalFieldType(dart.nullable(core.bool)),
+    axisCrossesAt: dart.finalFieldType(dart.nullable(core.double)),
+    axisLineWidth: dart.finalFieldType(dart.nullable(core.double)),
+    axisLineColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    axisLineDashArray: dart.finalFieldType(dart.nullable(core.List$(core.double))),
+    highPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    lowPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    negativePointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    firstPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    lastPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    color: dart.finalFieldType(dart.nullable(ui.Color)),
+    plotBand: dart.finalFieldType(dart.nullable(plot_band.SparkChartPlotBand)),
+    sparkChartDataDetails: dart.finalFieldType(dart.nullable(helper.SparkChartDataDetails)),
+    themeData: dart.finalFieldType(dart.nullable(theme_data.ThemeData)),
+    coordinatePoints: dart.finalFieldType(dart.nullable(core.List$(ui.Offset))),
+    dataPoints: dart.finalFieldType(dart.nullable(core.List$(helper.SparkChartPoint)))
+  }));
+  var plotBandStartHeight = dart.privateName(renderer_base, "RenderSparkChart.plotBandStartHeight");
+  var plotBandEndHeight = dart.privateName(renderer_base, "RenderSparkChart.plotBandEndHeight");
+  var minX = dart.privateName(renderer_base, "RenderSparkChart.minX");
+  var maxX = dart.privateName(renderer_base, "RenderSparkChart.maxX");
+  var minY = dart.privateName(renderer_base, "RenderSparkChart.minY");
+  var maxY = dart.privateName(renderer_base, "RenderSparkChart.maxY");
+  var diffY = dart.privateName(renderer_base, "RenderSparkChart.diffY");
+  var diffX = dart.privateName(renderer_base, "RenderSparkChart.diffX");
+  var axisHeight = dart.privateName(renderer_base, "RenderSparkChart.axisHeight");
+  var areaSize = dart.privateName(renderer_base, "RenderSparkChart.areaSize");
+  var dataLabels = dart.privateName(renderer_base, "RenderSparkChart.dataLabels");
+  var reversedDataLabels = dart.privateName(renderer_base, "RenderSparkChart.reversedDataLabels");
+  var _data = dart.privateName(renderer_base, "_data");
+  var _dataCount = dart.privateName(renderer_base, "_dataCount");
+  var _xValueMapper = dart.privateName(renderer_base, "_xValueMapper");
+  var _yValueMapper = dart.privateName(renderer_base, "_yValueMapper");
+  var _isInversed = dart.privateName(renderer_base, "_isInversed");
+  var _axisCrossesAt = dart.privateName(renderer_base, "_axisCrossesAt");
+  var _axisLineWidth = dart.privateName(renderer_base, "_axisLineWidth");
+  var _axisLineDashArray = dart.privateName(renderer_base, "_axisLineDashArray");
+  var _axisLineColor = dart.privateName(renderer_base, "_axisLineColor");
+  var _color = dart.privateName(renderer_base, "_color");
+  var _firstPointColor = dart.privateName(renderer_base, "_firstPointColor");
+  var _lastPointColor = dart.privateName(renderer_base, "_lastPointColor");
+  var _highPointColor = dart.privateName(renderer_base, "_highPointColor");
+  var _lowPointColor = dart.privateName(renderer_base, "_lowPointColor");
+  var _negativePointColor = dart.privateName(renderer_base, "_negativePointColor");
+  var _plotBand = dart.privateName(renderer_base, "_plotBand");
+  var _sparkChartDataDetails = dart.privateName(renderer_base, "_sparkChartDataDetails");
+  var _themeData = dart.privateName(renderer_base, "_themeData");
+  var _dataPoints = dart.privateName(renderer_base, "_dataPoints");
+  var _coordinatePoints = dart.privateName(renderer_base, "_coordinatePoints");
+  var _refreshSparkChart = dart.privateName(renderer_base, "_refreshSparkChart");
+  var _calculateMinimumMaximumXY = dart.privateName(renderer_base, "_calculateMinimumMaximumXY");
+  var _getDataLabel = dart.privateName(renderer_base, "_getDataLabel");
+  renderer_base.RenderSparkChart = class RenderSparkChart extends box.RenderBox {
+    get plotBandStartHeight() {
+      return this[plotBandStartHeight];
+    }
+    set plotBandStartHeight(value) {
+      this[plotBandStartHeight] = value;
+    }
+    get plotBandEndHeight() {
+      return this[plotBandEndHeight];
+    }
+    set plotBandEndHeight(value) {
+      this[plotBandEndHeight] = value;
+    }
+    get minX() {
+      return this[minX];
+    }
+    set minX(value) {
+      this[minX] = value;
+    }
+    get maxX() {
+      return this[maxX];
+    }
+    set maxX(value) {
+      this[maxX] = value;
+    }
+    get minY() {
+      return this[minY];
+    }
+    set minY(value) {
+      this[minY] = value;
+    }
+    get maxY() {
+      return this[maxY];
+    }
+    set maxY(value) {
+      this[maxY] = value;
+    }
+    get diffY() {
+      return this[diffY];
+    }
+    set diffY(value) {
+      this[diffY] = value;
+    }
+    get diffX() {
+      return this[diffX];
+    }
+    set diffX(value) {
+      this[diffX] = value;
+    }
+    get axisHeight() {
+      return this[axisHeight];
+    }
+    set axisHeight(value) {
+      this[axisHeight] = value;
+    }
+    get areaSize() {
+      return this[areaSize];
+    }
+    set areaSize(value) {
+      this[areaSize] = value;
+    }
+    get dataLabels() {
+      return this[dataLabels];
+    }
+    set dataLabels(value) {
+      this[dataLabels] = value;
+    }
+    get reversedDataLabels() {
+      return this[reversedDataLabels];
+    }
+    set reversedDataLabels(value) {
+      this[reversedDataLabels] = value;
+    }
+    get data() {
+      return this[_data];
+    }
+    set data(value) {
+      if (this[_data] != null && !dart.equals(this[_data], value)) {
+        this[_data] = value;
+        this[_refreshSparkChart]();
+        this.markNeedsPaint();
+      }
+    }
+    get dataCount() {
+      return this[_dataCount];
+    }
+    set dataCount(value) {
+      if (this[_dataCount] != null && this[_dataCount] != value) {
+        this[_dataCount] = value;
+        this[_refreshSparkChart]();
+        this.markNeedsPaint();
+      }
+    }
+    get xValueMapper() {
+      return this[_xValueMapper];
+    }
+    set xValueMapper(value) {
+      if (this[_xValueMapper] != null && !dart.equals(this[_xValueMapper], value)) {
+        this[_xValueMapper] = value;
+        this[_refreshSparkChart]();
+        this.markNeedsPaint();
+      }
+    }
+    get yValueMapper() {
+      return this[_yValueMapper];
+    }
+    set yValueMapper(value) {
+      if (this[_yValueMapper] != null && !dart.equals(this[_yValueMapper], value)) {
+        this[_yValueMapper] = value;
+        this[_refreshSparkChart]();
+        this.markNeedsPaint();
+      }
+    }
+    get isInversed() {
+      return this[_isInversed];
+    }
+    set isInversed(value) {
+      if (this[_isInversed] != value) {
+        this[_isInversed] = value;
+        this.inverseDataPoints();
+        this.calculateRenderingPoints();
+        this.markNeedsPaint();
+      }
+    }
+    get axisCrossesAt() {
+      return this[_axisCrossesAt];
+    }
+    set axisCrossesAt(value) {
+      if (this[_axisCrossesAt] != value) {
+        this[_axisCrossesAt] = value;
+        this.axisHeight = this.getAxisHeight();
+        this.markNeedsPaint();
+      }
+    }
+    get axisLineWidth() {
+      return this[_axisLineWidth];
+    }
+    set axisLineWidth(value) {
+      if (this[_axisLineWidth] != value) {
+        this[_axisLineWidth] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get axisLineColor() {
+      return this[_axisLineColor];
+    }
+    set axisLineColor(value) {
+      if (!dart.equals(this[_axisLineColor], value)) {
+        this[_axisLineColor] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get themeData() {
+      return this[_themeData];
+    }
+    set themeData(value) {
+      if (!dart.equals(this[_themeData], value)) {
+        this[_themeData] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get coordinatePoints() {
+      return this[_coordinatePoints];
+    }
+    set coordinatePoints(value) {
+      if (!dart.equals(this[_coordinatePoints], value)) {
+        this[_coordinatePoints] = value;
+      }
+    }
+    get dataPoints() {
+      return this[_dataPoints];
+    }
+    set dataPoints(value) {
+      if (!dart.equals(this[_dataPoints], value)) {
+        this[_dataPoints] = value;
+      }
+    }
+    get axisLineDashArray() {
+      return this[_axisLineDashArray];
+    }
+    set axisLineDashArray(value) {
+      if (!dart.equals(this[_axisLineDashArray], value)) {
+        this[_axisLineDashArray] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get firstPointColor() {
+      return this[_firstPointColor];
+    }
+    set firstPointColor(value) {
+      if (!dart.equals(this[_firstPointColor], value)) {
+        this[_firstPointColor] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get lastPointColor() {
+      return this[_lastPointColor];
+    }
+    set lastPointColor(value) {
+      if (!dart.equals(this[_lastPointColor], value)) {
+        this[_lastPointColor] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get highPointColor() {
+      return this[_highPointColor];
+    }
+    set highPointColor(value) {
+      if (!dart.equals(this[_highPointColor], value)) {
+        this[_highPointColor] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get lowPointColor() {
+      return this[_lowPointColor];
+    }
+    set lowPointColor(value) {
+      if (!dart.equals(this[_lowPointColor], value)) {
+        this[_lowPointColor] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get negativePointColor() {
+      return this[_negativePointColor];
+    }
+    set negativePointColor(value) {
+      if (!dart.equals(this[_negativePointColor], value)) {
+        this[_negativePointColor] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get color() {
+      return this[_color];
+    }
+    set color(value) {
+      if (!dart.equals(this[_color], value)) {
+        this[_color] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get plotBand() {
+      return this[_plotBand];
+    }
+    set plotBand(value) {
+      if (!dart.equals(this[_plotBand], value)) {
+        this[_plotBand] = value;
+        this.calculatePlotBandPosition();
+        this.markNeedsPaint();
+      }
+    }
+    get sparkChartDataDetails() {
+      return this[_sparkChartDataDetails];
+    }
+    set sparkChartDataDetails(value) {
+      if (!dart.equals(this[_sparkChartDataDetails], value)) {
+        this[_sparkChartDataDetails] = value;
+      }
+    }
+    [_calculateMinimumMaximumXY](currentPoint) {
+      this.minX == null ? this.minX = T.doubleN().as(dart.dsend(currentPoint.x, 'toDouble', [])) : null;
+      this.maxX == null ? this.maxX = T.doubleN().as(dart.dsend(currentPoint.x, 'toDouble', [])) : null;
+      this.minX = math.min(core.double, dart.nullCheck(this.minX), core.double.as(dart.dsend(currentPoint.x, 'toDouble', [])));
+      this.maxX = math.max(core.double, dart.nullCheck(this.maxX), core.double.as(dart.dsend(currentPoint.x, 'toDouble', [])));
+      this.minY == null ? this.minY = T.doubleN().as(dart.dsend(currentPoint.y, 'toDouble', [])) : null;
+      this.maxY == null ? this.maxY = T.doubleN().as(dart.dsend(currentPoint.y, 'toDouble', [])) : null;
+      this.minY = math.min(core.double, dart.nullCheck(this.minY), core.double.as(dart.dsend(currentPoint.y, 'toDouble', [])));
+      this.maxY = math.max(core.double, dart.nullCheck(this.maxY), core.double.as(dart.dsend(currentPoint.y, 'toDouble', [])));
+    }
+    processDataSource() {
+      if (dart.nullCheck(this.dataPoints)[$isNotEmpty]) {
+        dart.nullCheck(this.dataPoints)[$clear]();
+      }
+      this.dataLabels = T.JSArrayOfString().of([]);
+      this.reversedDataLabels = T.JSArrayOfString().of([]);
+      this.minX = this.maxX = this.minY = this.maxY = null;
+      let currentPoint = null;
+      let labelY = null;
+      if (this.data != null && dart.nullCheck(this.data)[$isNotEmpty] && T.ListOfnum().is(this.data)) {
+        for (let i = 0; i < dart.nullCheck(this.data)[$length]; i = i + 1) {
+          if (dart.nullCheck(this.data)[$_get](i) != null) {
+            currentPoint = new helper.SparkChartPoint.new({x: i, y: dart.nullCheck(this.data)[$_get](i)});
+            labelY = this[_getDataLabel](core.num.as(dart.nullCheck(this.data)[$_get](i)));
+            currentPoint.labelY = labelY;
+            this[_calculateMinimumMaximumXY](currentPoint);
+            dart.nullCheck(this.dataPoints)[$add](currentPoint);
+            dart.nullCheck(this.dataLabels)[$add](this[_getDataLabel](core.num.as(dart.nullCheck(this.data)[$_get](i))));
+          }
+        }
+      } else {
+        let xValue = null;
+        let yValue = null;
+        let labelX = null;
+        function labelX$35get() {
+          let t1;
+          t1 = labelX;
+          return t1 == null ? dart.throw(new _internal.LateError.localNI("labelX")) : t1;
+        }
+        dart.fn(labelX$35get, T.VoidToString());
+        function labelX$35set(t2) {
+          return labelX = t2;
+        }
+        dart.fn(labelX$35set, T.StringTodynamic());
+        let actualX = null;
+        if (this.xValueMapper != null && this.yValueMapper != null && this.dataCount != null && dart.nullCheck(this.dataCount) > 0) {
+          for (let i = 0; i < dart.nullCheck(this.dataCount); i = i + 1) {
+            xValue = dart.nullCheck(this.xValueMapper)(i);
+            actualX = xValue;
+            if (typeof xValue == 'string') {
+              labelX$35set(dart.toString(xValue));
+              xValue = i[$toDouble]();
+            } else if (core.DateTime.is(xValue)) {
+              xValue = xValue.millisecondsSinceEpoch;
+              labelX$35set(new date_format.DateFormat.yMd().format(new core.DateTime.fromMillisecondsSinceEpoch(core.int.as(xValue))));
+            } else if (typeof xValue == 'number') {
+              labelX$35set(this[_getDataLabel](xValue));
+            }
+            yValue = dart.nullCheck(this.yValueMapper)(i);
+            labelY = this[_getDataLabel](core.num.as(yValue));
+            if (xValue != null && yValue != null) {
+              currentPoint = new helper.SparkChartPoint.new({x: xValue, y: yValue});
+              currentPoint.actualX = actualX;
+              currentPoint.labelX = labelX$35get();
+              currentPoint.labelY = labelY;
+              this[_calculateMinimumMaximumXY](currentPoint);
+              dart.nullCheck(this.dataPoints)[$add](currentPoint);
+              dart.nullCheck(this.dataLabels)[$add](this[_getDataLabel](core.num.as(currentPoint.y)));
+            }
+          }
+        }
+      }
+    }
+    [_getDataLabel](value) {
+      let dataLabel = value[$toString]();
+      if (typeof value == 'number') {
+        value = core.double.parse(value[$toStringAsFixed](3));
+        let list = dataLabel[$split](".");
+        if (list[$length] > 1 && core.num.parse(list[$_get](1)) === 0) {
+          value = value[$round]();
+        }
+      }
+      dataLabel = value[$toString]();
+      return dataLabel;
+    }
+    getAxisHeight() {
+      let value = dart.nullCheck(this.axisCrossesAt);
+      let axisLineHeight = dart.nullCheck(this.areaSize).height - dart.nullCheck(this.areaSize).height / dart.nullCheck(this.diffY) * -dart.nullCheck(this.minY);
+      axisLineHeight = dart.nullCheck(this.minY) < 0 && dart.nullCheck(this.maxY) <= 0 ? 0.0 : dart.nullCheck(this.minY) < 0 && dart.nullCheck(this.maxY) > 0 ? this.axisHeight : dart.nullCheck(this.areaSize).height;
+      if (value >= dart.nullCheck(this.minY) && value <= dart.nullCheck(this.maxY)) {
+        axisLineHeight = dart.nullCheck(this.areaSize).height - (dart.nullCheck(this.areaSize).height * ((value - dart.nullCheck(this.minY)) / dart.nullCheck(this.diffY)))[$roundToDouble]();
+      }
+      return axisLineHeight;
+    }
+    inverseDataPoints() {
+      let temp = dart.nullCheck(this.dataPoints)[$reversed][$toList]();
+      this.reversedDataLabels = T.ListOfString().from(dart.nullCheck(this.dataLabels)[$reversed]);
+      dart.nullCheck(this.dataLabels)[$clear]();
+      dart.nullCheck(this.dataLabels)[$addAll](dart.nullCheck(this.reversedDataLabels));
+      dart.nullCheck(this.dataPoints)[$clear]();
+      dart.nullCheck(this.dataPoints)[$addAll](temp);
+      let tempX = dart.nullCheck(this.minX);
+      this.minX = this.maxX;
+      this.maxX = tempX;
+    }
+    calculateRenderingPoints() {
+      if (this.minX != null && this.maxX != null && this.minY != null && this.maxY != null) {
+        this.diffX = dart.nullCheck(this.maxX) - dart.nullCheck(this.minX);
+        this.diffY = dart.nullCheck(this.maxY) - dart.nullCheck(this.minY);
+        this.diffX = this.diffX === 0 ? 1.0 : this.diffX;
+        this.diffY = this.diffY === 0 ? 1.0 : this.diffY;
+        this.axisHeight = this.getAxisHeight();
+        if (dart.nullCheck(this.coordinatePoints)[$isNotEmpty]) {
+          dart.nullCheck(this.coordinatePoints)[$clear]();
+        }
+        let x = null;
+        let y = null;
+        let visiblePoint = null;
+        for (let i = 0; i < dart.nullCheck(this.dataPoints)[$length]; i = i + 1) {
+          x = core.double.as(dart.dsend(dart.nullCheck(this.dataPoints)[$_get](i).x, 'toDouble', []));
+          y = core.double.as(dart.dsend(dart.nullCheck(this.dataPoints)[$_get](i).y, 'toDouble', []));
+          visiblePoint = helper.transformToCoordinatePoint(dart.nullCheck(this.minX), dart.nullCheck(this.maxX), dart.nullCheck(this.minY), dart.nullCheck(this.maxY), dart.nullCheck(this.diffX), dart.nullCheck(this.diffY), dart.nullCheck(this.areaSize), x, y, dart.nullCheck(this.dataPoints)[$length]);
+          dart.nullCheck(this.coordinatePoints)[$add](visiblePoint);
+        }
+        this.coordinatePoints = helper.sortScreenCoordiantePoints(dart.nullCheck(this.coordinatePoints));
+      }
+    }
+    calculatePlotBandPosition() {
+      let t4, t4$, t4$0, t4$1;
+      let height = dart.nullCheck(this.areaSize).height;
+      let start = this.plotBand == null ? 0.0 : dart.notNull((t4 = dart.nullCheck(this.plotBand).start, t4 == null ? dart.nullCheck(this.minY) : t4)) < dart.nullCheck(this.minY) ? this.minY : (t4$ = dart.nullCheck(this.plotBand).start, t4$ == null ? this.minY : t4$);
+      let end = this.plotBand == null ? 0.0 : dart.notNull((t4$0 = dart.nullCheck(this.plotBand).end, t4$0 == null ? dart.nullCheck(this.maxY) : t4$0)) > dart.nullCheck(this.maxY) ? this.maxY : (t4$1 = dart.nullCheck(this.plotBand).end, t4$1 == null ? this.maxY : t4$1);
+      this.plotBandStartHeight = height - height / dart.nullCheck(this.diffY) * (dart.nullCheck(start) - dart.nullCheck(this.minY));
+      this.plotBandEndHeight = height - height / dart.nullCheck(this.diffY) * (dart.nullCheck(end) - dart.nullCheck(this.minY));
+    }
+    renderAxisline(canvas, offset) {
+      let t4;
+      if (dart.nullCheck(this.axisLineWidth) > 0 && this.axisHeight != null) {
+        let x1 = offset.dx;
+        let y1 = offset.dy + dart.nullCheck(this.axisHeight);
+        let x2 = offset.dx + dart.nullCheck(this.areaSize).width;
+        let point1 = new ui.Offset.new(x1, y1);
+        let point2 = new ui.Offset.new(x2, y1);
+        let paint = (t4 = ui.Paint.new(), (() => {
+          t4.strokeWidth = dart.nullCheck(this.axisLineWidth);
+          t4.style = ui.PaintingStyle.stroke;
+          t4.color = dart.nullCheck(this.axisLineColor);
+          return t4;
+        })());
+        if (this.axisLineDashArray != null && dart.nullCheck(this.axisLineDashArray)[$isNotEmpty]) {
+          helper.drawDashedPath(canvas, paint, point1, point2, dart.nullCheck(this.axisLineDashArray));
+        } else {
+          canvas.drawLine(point1, point2, paint);
+        }
+      }
+    }
+    renderPlotBand(canvas, offset) {
+      let t4, t4$, t4$0;
+      if (this.plotBandStartHeight != this.plotBandEndHeight) {
+        let paint = (t4 = ui.Paint.new(), (() => {
+          t4.color = dart.nullCheck(this.plotBand).color;
+          return t4;
+        })());
+        let plotBandRect = new ui.Rect.fromLTRB(offset.dx, offset.dy + dart.nullCheck(this.plotBandStartHeight), offset.dx + dart.nullCheck(this.areaSize).width, offset.dy + dart.nullCheck(this.plotBandEndHeight));
+        canvas.drawRect(plotBandRect, paint);
+        if (!dart.equals(dart.nullCheck(this.plotBand).borderColor, colors.Colors.transparent) && dart.nullCheck(this.plotBand).borderWidth > 0) {
+          let borderPaint = (t4$ = ui.Paint.new(), (() => {
+            t4$.style = ui.PaintingStyle.stroke;
+            t4$.strokeWidth = dart.nullCheck(this.plotBand).borderWidth;
+            t4$.color = dart.nullCheck(dart.nullCheck(this.plotBand).borderColor);
+            return t4$;
+          })());
+          canvas.drawRect(plotBandRect, borderPaint);
+        }
+      } else {
+        let paint = (t4$0 = ui.Paint.new(), (() => {
+          t4$0.color = dart.nullCheck(this.plotBand).color;
+          t4$0.style = ui.PaintingStyle.stroke;
+          t4$0.strokeWidth = 3.0;
+          return t4$0;
+        })());
+        let point1 = new ui.Offset.new(offset.dx, offset.dy + dart.nullCheck(this.plotBandStartHeight));
+        let point2 = new ui.Offset.new(offset.dx + dart.nullCheck(this.areaSize).width, offset.dy + dart.nullCheck(this.plotBandStartHeight));
+        canvas.drawLine(point1, point2, paint);
+      }
+    }
+    [_refreshSparkChart]() {
+      this.processDataSource();
+      if (dart.nullCheck(this.isInversed)) {
+        this.inverseDataPoints();
+      }
+      this.calculateRenderingPoints();
+      if (this.plotBand != null) {
+        this.calculatePlotBandPosition();
+      }
+    }
+    performLayout() {
+      this.size = new ui.Size.new(this.constraints.maxWidth, this.constraints.maxHeight);
+      this.areaSize = this.size;
+      this.calculateRenderingPoints();
+      if (this.plotBand != null) {
+        this.calculatePlotBandPosition();
+      }
+    }
+    paint(context, offset) {
+      this.renderAxisline(context.canvas, offset);
+      if (this.plotBand != null) {
+        this.renderPlotBand(context.canvas, offset);
+      }
+    }
+  };
+  (renderer_base.RenderSparkChart.new = function(opts) {
+    let child = opts && 'child' in opts ? opts.child : null;
+    let data = opts && 'data' in opts ? opts.data : null;
+    let dataCount = opts && 'dataCount' in opts ? opts.dataCount : null;
+    let xValueMapper = opts && 'xValueMapper' in opts ? opts.xValueMapper : null;
+    let yValueMapper = opts && 'yValueMapper' in opts ? opts.yValueMapper : null;
+    let isInversed = opts && 'isInversed' in opts ? opts.isInversed : null;
+    let axisCrossesAt = opts && 'axisCrossesAt' in opts ? opts.axisCrossesAt : null;
+    let axisLineWidth = opts && 'axisLineWidth' in opts ? opts.axisLineWidth : null;
+    let axisLineColor = opts && 'axisLineColor' in opts ? opts.axisLineColor : null;
+    let axisLineDashArray = opts && 'axisLineDashArray' in opts ? opts.axisLineDashArray : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let firstPointColor = opts && 'firstPointColor' in opts ? opts.firstPointColor : null;
+    let lastPointColor = opts && 'lastPointColor' in opts ? opts.lastPointColor : null;
+    let highPointColor = opts && 'highPointColor' in opts ? opts.highPointColor : null;
+    let lowPointColor = opts && 'lowPointColor' in opts ? opts.lowPointColor : null;
+    let negativePointColor = opts && 'negativePointColor' in opts ? opts.negativePointColor : null;
+    let plotBand = opts && 'plotBand' in opts ? opts.plotBand : null;
+    let sparkChartDataDetails = opts && 'sparkChartDataDetails' in opts ? opts.sparkChartDataDetails : null;
+    let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+    let coordinatePoints = opts && 'coordinatePoints' in opts ? opts.coordinatePoints : null;
+    let dataPoints = opts && 'dataPoints' in opts ? opts.dataPoints : null;
+    this[plotBandStartHeight] = null;
+    this[plotBandEndHeight] = null;
+    this[minX] = null;
+    this[maxX] = null;
+    this[minY] = null;
+    this[maxY] = null;
+    this[diffY] = null;
+    this[diffX] = null;
+    this[axisHeight] = null;
+    this[areaSize] = null;
+    this[dataLabels] = null;
+    this[reversedDataLabels] = null;
+    this[_data] = data;
+    this[_dataCount] = dataCount;
+    this[_xValueMapper] = xValueMapper;
+    this[_yValueMapper] = yValueMapper;
+    this[_isInversed] = isInversed;
+    this[_axisCrossesAt] = axisCrossesAt;
+    this[_axisLineWidth] = axisLineWidth;
+    this[_axisLineDashArray] = axisLineDashArray;
+    this[_axisLineColor] = axisLineColor;
+    this[_color] = color;
+    this[_firstPointColor] = firstPointColor;
+    this[_lastPointColor] = lastPointColor;
+    this[_highPointColor] = highPointColor;
+    this[_lowPointColor] = lowPointColor;
+    this[_negativePointColor] = negativePointColor;
+    this[_plotBand] = plotBand;
+    this[_sparkChartDataDetails] = sparkChartDataDetails;
+    this[_themeData] = themeData;
+    this[_dataPoints] = dataPoints;
+    this[_coordinatePoints] = coordinatePoints;
+    renderer_base.RenderSparkChart.__proto__.new.call(this);
+    this.processDataSource();
+    if (isInversed === true) {
+      this.inverseDataPoints();
+    }
+  }).prototype = renderer_base.RenderSparkChart.prototype;
+  dart.addTypeTests(renderer_base.RenderSparkChart);
+  dart.addTypeCaches(renderer_base.RenderSparkChart);
+  dart.setMethodSignature(renderer_base.RenderSparkChart, () => ({
+    __proto__: dart.getMethods(renderer_base.RenderSparkChart.__proto__),
+    [_calculateMinimumMaximumXY]: dart.fnType(dart.void, [helper.SparkChartPoint]),
+    processDataSource: dart.fnType(dart.void, []),
+    [_getDataLabel]: dart.fnType(core.String, [core.num]),
+    getAxisHeight: dart.fnType(dart.nullable(core.double), []),
+    inverseDataPoints: dart.fnType(dart.void, []),
+    calculateRenderingPoints: dart.fnType(dart.void, []),
+    calculatePlotBandPosition: dart.fnType(dart.void, []),
+    renderAxisline: dart.fnType(dart.void, [ui.Canvas, ui.Offset]),
+    renderPlotBand: dart.fnType(dart.void, [ui.Canvas, ui.Offset]),
+    [_refreshSparkChart]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(renderer_base.RenderSparkChart, () => ({
+    __proto__: dart.getGetters(renderer_base.RenderSparkChart.__proto__),
+    data: dart.nullable(core.List),
+    dataCount: dart.nullable(core.int),
+    xValueMapper: dart.nullable(dart.fnType(dart.dynamic, [core.int])),
+    yValueMapper: dart.nullable(dart.fnType(core.num, [core.int])),
+    isInversed: dart.nullable(core.bool),
+    axisCrossesAt: dart.nullable(core.double),
+    axisLineWidth: dart.nullable(core.double),
+    axisLineColor: dart.nullable(ui.Color),
+    themeData: dart.nullable(theme_data.ThemeData),
+    coordinatePoints: dart.nullable(core.List$(ui.Offset)),
+    dataPoints: dart.nullable(core.List$(helper.SparkChartPoint)),
+    axisLineDashArray: dart.nullable(core.List$(core.double)),
+    firstPointColor: dart.nullable(ui.Color),
+    lastPointColor: dart.nullable(ui.Color),
+    highPointColor: dart.nullable(ui.Color),
+    lowPointColor: dart.nullable(ui.Color),
+    negativePointColor: dart.nullable(ui.Color),
+    color: dart.nullable(ui.Color),
+    plotBand: dart.nullable(plot_band.SparkChartPlotBand),
+    sparkChartDataDetails: dart.nullable(helper.SparkChartDataDetails)
+  }));
+  dart.setSetterSignature(renderer_base.RenderSparkChart, () => ({
+    __proto__: dart.getSetters(renderer_base.RenderSparkChart.__proto__),
+    data: dart.nullable(core.List),
+    dataCount: dart.nullable(core.int),
+    xValueMapper: dart.nullable(dart.fnType(dart.dynamic, [core.int])),
+    yValueMapper: dart.nullable(dart.fnType(core.num, [core.int])),
+    isInversed: dart.nullable(core.bool),
+    axisCrossesAt: dart.nullable(core.double),
+    axisLineWidth: dart.nullable(core.double),
+    axisLineColor: dart.nullable(ui.Color),
+    themeData: dart.nullable(theme_data.ThemeData),
+    coordinatePoints: dart.nullable(core.List$(ui.Offset)),
+    dataPoints: dart.nullable(core.List$(helper.SparkChartPoint)),
+    axisLineDashArray: dart.nullable(core.List$(core.double)),
+    firstPointColor: dart.nullable(ui.Color),
+    lastPointColor: dart.nullable(ui.Color),
+    highPointColor: dart.nullable(ui.Color),
+    lowPointColor: dart.nullable(ui.Color),
+    negativePointColor: dart.nullable(ui.Color),
+    color: dart.nullable(ui.Color),
+    plotBand: dart.nullable(plot_band.SparkChartPlotBand),
+    sparkChartDataDetails: dart.nullable(helper.SparkChartDataDetails)
+  }));
+  dart.setLibraryUri(renderer_base.RenderSparkChart, I[0]);
+  dart.setFieldSignature(renderer_base.RenderSparkChart, () => ({
+    __proto__: dart.getFields(renderer_base.RenderSparkChart.__proto__),
+    [_data]: dart.fieldType(dart.nullable(core.List)),
+    [_dataCount]: dart.fieldType(dart.nullable(core.int)),
+    [_xValueMapper]: dart.fieldType(dart.nullable(dart.fnType(dart.dynamic, [core.int]))),
+    [_yValueMapper]: dart.fieldType(dart.nullable(dart.fnType(core.num, [core.int]))),
+    [_isInversed]: dart.fieldType(dart.nullable(core.bool)),
+    [_axisCrossesAt]: dart.fieldType(dart.nullable(core.double)),
+    [_axisLineWidth]: dart.fieldType(dart.nullable(core.double)),
+    [_axisLineColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_themeData]: dart.fieldType(dart.nullable(theme_data.ThemeData)),
+    [_coordinatePoints]: dart.fieldType(dart.nullable(core.List$(ui.Offset))),
+    [_dataPoints]: dart.fieldType(dart.nullable(core.List$(helper.SparkChartPoint))),
+    [_axisLineDashArray]: dart.fieldType(dart.nullable(core.List$(core.double))),
+    [_firstPointColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_lastPointColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_highPointColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_lowPointColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_negativePointColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_color]: dart.fieldType(dart.nullable(ui.Color)),
+    [_plotBand]: dart.fieldType(dart.nullable(plot_band.SparkChartPlotBand)),
+    [_sparkChartDataDetails]: dart.fieldType(dart.nullable(helper.SparkChartDataDetails)),
+    plotBandStartHeight: dart.fieldType(dart.nullable(core.double)),
+    plotBandEndHeight: dart.fieldType(dart.nullable(core.double)),
+    minX: dart.fieldType(dart.nullable(core.double)),
+    maxX: dart.fieldType(dart.nullable(core.double)),
+    minY: dart.fieldType(dart.nullable(core.double)),
+    maxY: dart.fieldType(dart.nullable(core.double)),
+    diffY: dart.fieldType(dart.nullable(core.double)),
+    diffX: dart.fieldType(dart.nullable(core.double)),
+    axisHeight: dart.fieldType(dart.nullable(core.double)),
+    areaSize: dart.fieldType(dart.nullable(ui.Size)),
+    dataLabels: dart.fieldType(dart.nullable(core.List$(core.String))),
+    reversedDataLabels: dart.fieldType(dart.nullable(core.List$(core.String)))
+  }));
+  dart.trackLibraries("packages/syncfusion_flutter_charts/src/sparkline/renderers/renderer_base.dart", {
+    "package:syncfusion_flutter_charts/src/sparkline/renderers/renderer_base.dart": renderer_base
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["renderer_base.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../D:/packages/syncfusion_flutter_charts/src/sparkline/renderers/renderer_base.dart.lib.js"}');
+  // Exports:
+  return {
+    src__sparkline__renderers__renderer_base: renderer_base
+  };
+}));
+
+//# sourceMappingURL=renderer_base.dart.lib.js.map

@@ -1,0 +1,415 @@
+define(['dart_sdk', 'packages/syncfusion_flutter_charts/src/sparkline/renderers/renderer_base.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/syncfusion_flutter_charts/src/sparkline/marker.dart', 'packages/syncfusion_flutter_charts/src/sparkline/utils/enum.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/syncfusion_flutter_charts/src/sparkline/utils/helper.dart', 'packages/flutter/src/material/colors.dart'], (function load__packages__syncfusion_flutter_charts__src__sparkline__renderers__spark_area_renderer_dart(dart_sdk, packages__syncfusion_flutter_charts__src__sparkline__renderers__renderer_base$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__syncfusion_flutter_charts__src__sparkline__marker$46dart, packages__syncfusion_flutter_charts__src__sparkline__utils__enum$46dart, packages__flutter__src__painting__strut_style$46dart, packages__syncfusion_flutter_charts__src__sparkline__utils__helper$46dart, packages__flutter__src__material__colors$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const renderer_base = packages__syncfusion_flutter_charts__src__sparkline__renderers__renderer_base$46dart.src__sparkline__renderers__renderer_base;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const marker = packages__syncfusion_flutter_charts__src__sparkline__marker$46dart.src__sparkline__marker;
+  const $enum = packages__syncfusion_flutter_charts__src__sparkline__utils__enum$46dart.src__sparkline__utils__enum;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const helper = packages__syncfusion_flutter_charts__src__sparkline__utils__helper$46dart.src__sparkline__utils__helper;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  var spark_area_renderer = Object.create(dart.library);
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $clear = dartx.clear;
+  var $_get = dartx._get;
+  var $add = dartx.add;
+  var $addAll = dartx.addAll;
+  var $length = dartx.length;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    ListOfSparkChartPoint: () => (T.ListOfSparkChartPoint = dart.constFn(core.List$(helper.SparkChartPoint)))(),
+    ListOfString: () => (T.ListOfString = dart.constFn(core.List$(core.String)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var I = ["package:syncfusion_flutter_charts/src/sparkline/renderers/spark_area_renderer.dart"];
+  var borderWidth$ = dart.privateName(spark_area_renderer, "SfSparkAreaChartRenderObjectWidget.borderWidth");
+  var borderColor$ = dart.privateName(spark_area_renderer, "SfSparkAreaChartRenderObjectWidget.borderColor");
+  var marker$ = dart.privateName(spark_area_renderer, "SfSparkAreaChartRenderObjectWidget.marker");
+  var labelDisplayMode$ = dart.privateName(spark_area_renderer, "SfSparkAreaChartRenderObjectWidget.labelDisplayMode");
+  var labelStyle$ = dart.privateName(spark_area_renderer, "SfSparkAreaChartRenderObjectWidget.labelStyle");
+  spark_area_renderer.SfSparkAreaChartRenderObjectWidget = class SfSparkAreaChartRenderObjectWidget extends renderer_base.SfSparkChartRenderObjectWidget {
+    get borderWidth() {
+      return this[borderWidth$];
+    }
+    set borderWidth(value) {
+      super.borderWidth = value;
+    }
+    get borderColor() {
+      return this[borderColor$];
+    }
+    set borderColor(value) {
+      super.borderColor = value;
+    }
+    get marker() {
+      return this[marker$];
+    }
+    set marker(value) {
+      super.marker = value;
+    }
+    get labelDisplayMode() {
+      return this[labelDisplayMode$];
+    }
+    set labelDisplayMode(value) {
+      super.labelDisplayMode = value;
+    }
+    get labelStyle() {
+      return this[labelStyle$];
+    }
+    set labelStyle(value) {
+      super.labelStyle = value;
+    }
+    createRenderObject(context) {
+      return new spark_area_renderer._RenderSparkAreaChart.new({dataCount: this.dataCount, data: this.data, xValueMapper: this.xValueMapper, yValueMapper: this.yValueMapper, isInversed: this.isInversed, axisCrossesAt: this.axisCrossesAt, axisLineColor: this.axisLineColor, axisLineWidth: this.axisLineWidth, axisLineDashArray: this.axisLineDashArray, firstPointColor: this.firstPointColor, lastPointColor: this.lastPointColor, highPointColor: this.highPointColor, lowPointColor: this.lowPointColor, negativePointColor: this.negativePointColor, color: this.color, plotBand: this.plotBand, borderColor: this.borderColor, borderWidth: this.borderWidth, marker: this.marker, labelDisplayMode: this.labelDisplayMode, labelStyle: this.labelStyle, sparkChartDataDetails: this.sparkChartDataDetails, themeData: this.themeData, dataPoints: this.dataPoints, coordinatePoints: this.coordinatePoints});
+    }
+    updateRenderObject(context, renderObject) {
+      let t0;
+      spark_area_renderer._RenderSparkAreaChart.as(renderObject);
+      t0 = renderObject;
+      (() => {
+        t0.dataCount = this.dataCount;
+        t0.data = this.data;
+        t0.xValueMapper = this.xValueMapper;
+        t0.yValueMapper = this.yValueMapper;
+        t0.isInversed = this.isInversed;
+        t0.axisCrossesAt = this.axisCrossesAt;
+        t0.axisLineColor = this.axisLineColor;
+        t0.axisLineWidth = this.axisLineWidth;
+        t0.axisLineDashArray = this.axisLineDashArray;
+        t0.firstPointColor = this.firstPointColor;
+        t0.lastPointColor = this.lastPointColor;
+        t0.highPointColor = this.highPointColor;
+        t0.lowPointColor = this.lowPointColor;
+        t0.negativePointColor = this.negativePointColor;
+        t0.color = this.color;
+        t0.plotBand = this.plotBand;
+        t0.borderColor = this.borderColor;
+        t0.borderWidth = this.borderWidth;
+        t0.marker = this.marker;
+        t0.labelDisplayMode = this.labelDisplayMode;
+        t0.labelStyle = this.labelStyle;
+        t0.themeData = this.themeData;
+        t0.dataPoints = this.dataPoints;
+        t0.coordinatePoints = this.coordinatePoints;
+        return t0;
+      })();
+    }
+  };
+  (spark_area_renderer.SfSparkAreaChartRenderObjectWidget.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let borderWidth = opts && 'borderWidth' in opts ? opts.borderWidth : null;
+    let borderColor = opts && 'borderColor' in opts ? opts.borderColor : null;
+    let data = opts && 'data' in opts ? opts.data : null;
+    let dataCount = opts && 'dataCount' in opts ? opts.dataCount : null;
+    let xValueMapper = opts && 'xValueMapper' in opts ? opts.xValueMapper : null;
+    let yValueMapper = opts && 'yValueMapper' in opts ? opts.yValueMapper : null;
+    let isInversed = opts && 'isInversed' in opts ? opts.isInversed : null;
+    let axisCrossesAt = opts && 'axisCrossesAt' in opts ? opts.axisCrossesAt : null;
+    let axisLineColor = opts && 'axisLineColor' in opts ? opts.axisLineColor : null;
+    let axisLineWidth = opts && 'axisLineWidth' in opts ? opts.axisLineWidth : null;
+    let axisLineDashArray = opts && 'axisLineDashArray' in opts ? opts.axisLineDashArray : null;
+    let firstPointColor = opts && 'firstPointColor' in opts ? opts.firstPointColor : null;
+    let lowPointColor = opts && 'lowPointColor' in opts ? opts.lowPointColor : null;
+    let highPointColor = opts && 'highPointColor' in opts ? opts.highPointColor : null;
+    let lastPointColor = opts && 'lastPointColor' in opts ? opts.lastPointColor : null;
+    let negativePointColor = opts && 'negativePointColor' in opts ? opts.negativePointColor : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let plotBand = opts && 'plotBand' in opts ? opts.plotBand : null;
+    let marker = opts && 'marker' in opts ? opts.marker : null;
+    let labelDisplayMode = opts && 'labelDisplayMode' in opts ? opts.labelDisplayMode : null;
+    let labelStyle = opts && 'labelStyle' in opts ? opts.labelStyle : null;
+    let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+    let sparkChartDataDetails = opts && 'sparkChartDataDetails' in opts ? opts.sparkChartDataDetails : null;
+    let coordinatePoints = opts && 'coordinatePoints' in opts ? opts.coordinatePoints : null;
+    let dataPoints = opts && 'dataPoints' in opts ? opts.dataPoints : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[borderWidth$] = borderWidth;
+    this[borderColor$] = borderColor;
+    this[marker$] = marker;
+    this[labelDisplayMode$] = labelDisplayMode;
+    this[labelStyle$] = labelStyle;
+    spark_area_renderer.SfSparkAreaChartRenderObjectWidget.__proto__.new.call(this, {key: key, data: data, dataCount: dataCount, xValueMapper: xValueMapper, yValueMapper: yValueMapper, isInversed: isInversed, axisCrossesAt: axisCrossesAt, axisLineColor: axisLineColor, axisLineWidth: axisLineWidth, axisLineDashArray: axisLineDashArray, firstPointColor: firstPointColor, lowPointColor: lowPointColor, highPointColor: highPointColor, lastPointColor: lastPointColor, negativePointColor: negativePointColor, color: color, plotBand: plotBand, sparkChartDataDetails: sparkChartDataDetails, themeData: themeData, dataPoints: dataPoints, coordinatePoints: coordinatePoints, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = spark_area_renderer.SfSparkAreaChartRenderObjectWidget.prototype;
+  dart.addTypeTests(spark_area_renderer.SfSparkAreaChartRenderObjectWidget);
+  dart.addTypeCaches(spark_area_renderer.SfSparkAreaChartRenderObjectWidget);
+  dart.setMethodSignature(spark_area_renderer.SfSparkAreaChartRenderObjectWidget, () => ({
+    __proto__: dart.getMethods(spark_area_renderer.SfSparkAreaChartRenderObjectWidget.__proto__),
+    createRenderObject: dart.fnType(object.RenderObject, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(spark_area_renderer.SfSparkAreaChartRenderObjectWidget, I[0]);
+  dart.setFieldSignature(spark_area_renderer.SfSparkAreaChartRenderObjectWidget, () => ({
+    __proto__: dart.getFields(spark_area_renderer.SfSparkAreaChartRenderObjectWidget.__proto__),
+    borderWidth: dart.finalFieldType(dart.nullable(core.double)),
+    borderColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    marker: dart.finalFieldType(dart.nullable(marker.SparkChartMarker)),
+    labelDisplayMode: dart.finalFieldType(dart.nullable($enum.SparkChartLabelDisplayMode)),
+    labelStyle: dart.finalFieldType(dart.nullable(text_style.TextStyle))
+  }));
+  var ___RenderSparkAreaChart__lowPoint = dart.privateName(spark_area_renderer, "_#_RenderSparkAreaChart#_lowPoint");
+  var ___RenderSparkAreaChart__lowPoint_isSet = dart.privateName(spark_area_renderer, "_#_RenderSparkAreaChart#_lowPoint#isSet");
+  var ___RenderSparkAreaChart__highPoint = dart.privateName(spark_area_renderer, "_#_RenderSparkAreaChart#_highPoint");
+  var ___RenderSparkAreaChart__highPoint_isSet = dart.privateName(spark_area_renderer, "_#_RenderSparkAreaChart#_highPoint#isSet");
+  var _borderWidth = dart.privateName(spark_area_renderer, "_borderWidth");
+  var _borderColor = dart.privateName(spark_area_renderer, "_borderColor");
+  var _marker = dart.privateName(spark_area_renderer, "_marker");
+  var _labelDisplayMode = dart.privateName(spark_area_renderer, "_labelDisplayMode");
+  var _labelStyle = dart.privateName(spark_area_renderer, "_labelStyle");
+  var _lowPoint = dart.privateName(spark_area_renderer, "_lowPoint");
+  var _highPoint = dart.privateName(spark_area_renderer, "_highPoint");
+  var _renderAreaSeriesBorder = dart.privateName(spark_area_renderer, "_renderAreaSeriesBorder");
+  var _renderAreaSeries = dart.privateName(spark_area_renderer, "_renderAreaSeries");
+  spark_area_renderer._RenderSparkAreaChart = class _RenderSparkAreaChart extends renderer_base.RenderSparkChart {
+    get borderWidth() {
+      return this[_borderWidth];
+    }
+    set borderWidth(value) {
+      if (this[_borderWidth] != value) {
+        this[_borderWidth] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get borderColor() {
+      return this[_borderColor];
+    }
+    set borderColor(value) {
+      if (!dart.equals(this[_borderColor], value)) {
+        this[_borderColor] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get marker() {
+      return this[_marker];
+    }
+    set marker(value) {
+      if (!dart.equals(this[_marker], value)) {
+        this[_marker] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get labelDisplayMode() {
+      return this[_labelDisplayMode];
+    }
+    set labelDisplayMode(value) {
+      if (this[_labelDisplayMode] != value) {
+        this[_labelDisplayMode] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get labelStyle() {
+      return this[_labelStyle];
+    }
+    set labelStyle(value) {
+      if (!dart.equals(this[_labelStyle], value)) {
+        this[_labelStyle] = value;
+        this.markNeedsPaint();
+      }
+    }
+    get [_lowPoint]() {
+      return this[___RenderSparkAreaChart__lowPoint_isSet] ? this[___RenderSparkAreaChart__lowPoint] : dart.throw(new _internal.LateError.fieldNI("_lowPoint"));
+    }
+    set [_lowPoint](t0) {
+      this[___RenderSparkAreaChart__lowPoint_isSet] = true;
+      this[___RenderSparkAreaChart__lowPoint] = t0;
+    }
+    get [_highPoint]() {
+      return this[___RenderSparkAreaChart__highPoint_isSet] ? this[___RenderSparkAreaChart__highPoint] : dart.throw(new _internal.LateError.fieldNI("_highPoint"));
+    }
+    set [_highPoint](t1) {
+      this[___RenderSparkAreaChart__highPoint_isSet] = true;
+      this[___RenderSparkAreaChart__highPoint] = t1;
+    }
+    processDataSource() {
+      super.processDataSource();
+      if (this.dataPoints != null && dart.nullCheck(this.dataPoints)[$isNotEmpty]) {
+        let temp = T.ListOfSparkChartPoint().from(dart.nullCheck(this.dataPoints));
+        let tempDataLabels = T.ListOfString().from(dart.nullCheck(this.dataLabels));
+        dart.nullCheck(this.dataLabels)[$clear]();
+        dart.nullCheck(this.dataPoints)[$clear]();
+        let point1 = new helper.SparkChartPoint.new({x: temp[$_get](0).x, y: this.minY});
+        point1.labelX = temp[$_get](0).labelX;
+        point1.labelY = temp[$_get](0).labelY;
+        dart.nullCheck(this.dataPoints)[$add](point1);
+        dart.nullCheck(this.dataPoints)[$addAll](temp);
+        let point2 = new helper.SparkChartPoint.new({x: temp[$_get](temp[$length] - 1).x, y: this.minY});
+        point2.labelX = temp[$_get](temp[$length] - 1).labelX;
+        point2.labelY = temp[$_get](temp[$length] - 1).labelY;
+        dart.nullCheck(this.dataPoints)[$add](point2);
+        dart.nullCheck(this.dataLabels)[$add]("0");
+        dart.nullCheck(this.dataLabels)[$addAll](tempDataLabels);
+        dart.nullCheck(this.dataLabels)[$add]("0");
+      }
+    }
+    [_renderAreaSeries](canvas, offset) {
+      let t2;
+      let paint = (t2 = ui.Paint.new(), (() => {
+        t2.color = dart.nullCheck(this.color);
+        t2.style = ui.PaintingStyle.fill;
+        return t2;
+      })());
+      let path = ui.Path.new();
+      let size = null;
+      this[_highPoint] = dart.nullCheck(this.coordinatePoints)[$_get](0).dy;
+      this[_lowPoint] = dart.nullCheck(this.coordinatePoints)[$_get](0).dy;
+      for (let i = 0; i < dart.nullCheck(this.coordinatePoints)[$length]; i = i + 1) {
+        if (dart.nullCheck(this[_highPoint]) < dart.nullCheck(this.coordinatePoints)[$_get](i).dy) {
+          this[_highPoint] = dart.nullCheck(this.coordinatePoints)[$_get](i).dy;
+        }
+        if (dart.nullCheck(this[_lowPoint]) > dart.nullCheck(this.coordinatePoints)[$_get](i).dy) {
+          this[_lowPoint] = dart.nullCheck(this.coordinatePoints)[$_get](i).dy;
+        }
+        if (i === 0) {
+          path.moveTo(offset.dx + dart.nullCheck(this.coordinatePoints)[$_get](i).dx, offset.dy + dart.nullCheck(this.coordinatePoints)[$_get](i).dy);
+        }
+        if (i < dart.nullCheck(this.coordinatePoints)[$length] - 1) {
+          path.lineTo(offset.dx + dart.nullCheck(this.coordinatePoints)[$_get](i + 1).dx, offset.dy + dart.nullCheck(this.coordinatePoints)[$_get](i + 1).dy);
+        }
+        if (i >= 1 && i <= dart.nullCheck(this.coordinatePoints)[$length] - 2 && this.labelDisplayMode !== $enum.SparkChartLabelDisplayMode.none && this.labelStyle != null) {
+          size = helper.getTextSize(dart.nullCheck(this.dataLabels)[$_get](i), dart.nullCheck(this.labelStyle));
+          dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset = new ui.Offset.new(offset.dx + dart.nullCheck(this.coordinatePoints)[$_get](i).dx - size.width / 2, offset.dy + (this.marker != null && dart.nullCheck(this.marker).displayMode !== $enum.SparkChartMarkerDisplayMode.none ? dart.equals(dart.dsend(dart.nullCheck(this.dataPoints)[$_get](i).y, '>', [0]), true) ? dart.nullCheck(this.coordinatePoints)[$_get](i).dy - size.height - dart.nullCheck(this.marker).size / 2 : dart.nullCheck(this.coordinatePoints)[$_get](i).dy + dart.nullCheck(this.marker).size / 2 : dart.equals(dart.dsend(dart.nullCheck(this.dataPoints)[$_get](i).y, '>', [0]), true) ? dart.nullCheck(this.coordinatePoints)[$_get](i).dy - size.height : dart.nullCheck(this.coordinatePoints)[$_get](i).dy + size.height));
+          if (dart.nullCheck(dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset).dx <= offset.dx) {
+            dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset = new ui.Offset.new(offset.dx, dart.nullCheck(dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset).dy);
+          }
+          if (dart.nullCheck(dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset).dx >= offset.dx + dart.nullCheck(this.areaSize).width) {
+            dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset = new ui.Offset.new(offset.dx + dart.nullCheck(this.areaSize).width - size.width, dart.nullCheck(dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset).dy);
+          }
+          if (dart.nullCheck(dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset).dy <= offset.dy) {
+            dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset = new ui.Offset.new(dart.nullCheck(dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset).dx, offset.dy + (this.marker != null && dart.nullCheck(this.marker).displayMode !== $enum.SparkChartMarkerDisplayMode.none ? dart.nullCheck(this.marker).size / 2 + size.height : size.height));
+          }
+          if (dart.nullCheck(dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset).dy >= offset.dy + dart.nullCheck(this.areaSize).height) {
+            dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset = new ui.Offset.new(dart.nullCheck(dart.nullCheck(this.dataPoints)[$_get](i).dataLabelOffset).dx, offset.dy + dart.nullCheck(this.areaSize).height - (this.marker != null && dart.nullCheck(this.marker).displayMode !== $enum.SparkChartMarkerDisplayMode.none ? dart.nullCheck(this.marker).size / 2 + size.height : size.height));
+          }
+        }
+      }
+      canvas.drawPath(path, paint);
+      if (this.borderColor != null && !dart.equals(this.borderColor, colors.Colors.transparent) && this.borderWidth != null && dart.nullCheck(this.borderWidth) > 0) {
+        this[_renderAreaSeriesBorder](canvas, offset);
+      }
+    }
+    [_renderAreaSeriesBorder](canvas, offset) {
+      let t2;
+      let strokePaint = (t2 = ui.Paint.new(), (() => {
+        t2.color = dart.nullCheck(this.borderColor);
+        t2.strokeWidth = dart.nullCheck(this.borderWidth);
+        t2.style = ui.PaintingStyle.stroke;
+        return t2;
+      })());
+      let strokePath = ui.Path.new();
+      for (let i = 1; i < dart.nullCheck(this.coordinatePoints)[$length] - 1; i = i + 1) {
+        if (i === 1) {
+          strokePath.moveTo(offset.dx + dart.nullCheck(this.coordinatePoints)[$_get](i).dx, offset.dy + dart.nullCheck(this.coordinatePoints)[$_get](i).dy);
+        }
+        if (i < dart.nullCheck(this.coordinatePoints)[$length] - 2) {
+          strokePath.lineTo(offset.dx + dart.nullCheck(this.coordinatePoints)[$_get](i + 1).dx, offset.dy + dart.nullCheck(this.coordinatePoints)[$_get](i + 1).dy);
+        }
+      }
+      canvas.drawPath(strokePath, strokePaint);
+    }
+    paint(context, offset) {
+      super.paint(context, offset);
+      if (this.coordinatePoints != null && dart.nullCheck(this.coordinatePoints)[$isNotEmpty] && this.dataPoints != null && dart.nullCheck(this.dataPoints)[$isNotEmpty]) {
+        this[_renderAreaSeries](context.canvas, offset);
+        if (this.marker != null && dart.nullCheck(this.marker).displayMode !== $enum.SparkChartMarkerDisplayMode.none && dart.nullCheck(this.marker).borderWidth > 0) {
+          helper.renderMarker(context.canvas, offset, dart.nullCheck(this.marker), dart.nullCheck(this.coordinatePoints), dart.nullCheck(this.dataPoints), dart.nullCheck(this.color), "Area", dart.nullCheck(this[_highPoint]), dart.nullCheck(this[_lowPoint]), dart.nullCheck(this.axisCrossesAt), dart.nullCheck(this.themeData), dart.nullCheck(this.lowPointColor), dart.nullCheck(this.highPointColor), dart.nullCheck(this.negativePointColor), dart.nullCheck(this.firstPointColor), dart.nullCheck(this.lastPointColor));
+        }
+        if (this.labelDisplayMode != null && this.labelDisplayMode !== $enum.SparkChartLabelDisplayMode.none) {
+          helper.renderDataLabel(context.canvas, dart.nullCheck(this.dataLabels), dart.nullCheck(this.dataPoints), dart.nullCheck(this.coordinatePoints), dart.nullCheck(this.labelStyle), dart.nullCheck(this.labelDisplayMode), "Area", dart.nullCheck(this.themeData), offset, dart.nullCheck(this.color), dart.nullCheck(this[_highPoint]), dart.nullCheck(this[_lowPoint]));
+        }
+      }
+    }
+  };
+  (spark_area_renderer._RenderSparkAreaChart.new = function(opts) {
+    let data = opts && 'data' in opts ? opts.data : null;
+    let dataCount = opts && 'dataCount' in opts ? opts.dataCount : null;
+    let xValueMapper = opts && 'xValueMapper' in opts ? opts.xValueMapper : null;
+    let yValueMapper = opts && 'yValueMapper' in opts ? opts.yValueMapper : null;
+    let isInversed = opts && 'isInversed' in opts ? opts.isInversed : null;
+    let axisCrossesAt = opts && 'axisCrossesAt' in opts ? opts.axisCrossesAt : null;
+    let axisLineWidth = opts && 'axisLineWidth' in opts ? opts.axisLineWidth : null;
+    let axisLineColor = opts && 'axisLineColor' in opts ? opts.axisLineColor : null;
+    let axisLineDashArray = opts && 'axisLineDashArray' in opts ? opts.axisLineDashArray : null;
+    let color = opts && 'color' in opts ? opts.color : null;
+    let firstPointColor = opts && 'firstPointColor' in opts ? opts.firstPointColor : null;
+    let lastPointColor = opts && 'lastPointColor' in opts ? opts.lastPointColor : null;
+    let highPointColor = opts && 'highPointColor' in opts ? opts.highPointColor : null;
+    let lowPointColor = opts && 'lowPointColor' in opts ? opts.lowPointColor : null;
+    let negativePointColor = opts && 'negativePointColor' in opts ? opts.negativePointColor : null;
+    let plotBand = opts && 'plotBand' in opts ? opts.plotBand : null;
+    let borderWidth = opts && 'borderWidth' in opts ? opts.borderWidth : null;
+    let borderColor = opts && 'borderColor' in opts ? opts.borderColor : null;
+    let marker = opts && 'marker' in opts ? opts.marker : null;
+    let labelDisplayMode = opts && 'labelDisplayMode' in opts ? opts.labelDisplayMode : null;
+    let labelStyle = opts && 'labelStyle' in opts ? opts.labelStyle : null;
+    let sparkChartDataDetails = opts && 'sparkChartDataDetails' in opts ? opts.sparkChartDataDetails : null;
+    let themeData = opts && 'themeData' in opts ? opts.themeData : null;
+    let coordinatePoints = opts && 'coordinatePoints' in opts ? opts.coordinatePoints : null;
+    let dataPoints = opts && 'dataPoints' in opts ? opts.dataPoints : null;
+    this[___RenderSparkAreaChart__lowPoint] = null;
+    this[___RenderSparkAreaChart__lowPoint_isSet] = false;
+    this[___RenderSparkAreaChart__highPoint] = null;
+    this[___RenderSparkAreaChart__highPoint_isSet] = false;
+    this[_borderWidth] = borderWidth;
+    this[_borderColor] = borderColor;
+    this[_marker] = marker;
+    this[_labelDisplayMode] = labelDisplayMode;
+    this[_labelStyle] = labelStyle;
+    spark_area_renderer._RenderSparkAreaChart.__proto__.new.call(this, {data: data, dataCount: dataCount, xValueMapper: xValueMapper, yValueMapper: yValueMapper, isInversed: isInversed, axisCrossesAt: axisCrossesAt, axisLineWidth: axisLineWidth, axisLineColor: axisLineColor, axisLineDashArray: axisLineDashArray, color: color, firstPointColor: firstPointColor, lastPointColor: lastPointColor, highPointColor: highPointColor, lowPointColor: lowPointColor, negativePointColor: negativePointColor, plotBand: plotBand, sparkChartDataDetails: sparkChartDataDetails, themeData: themeData, coordinatePoints: coordinatePoints, dataPoints: dataPoints});
+    ;
+  }).prototype = spark_area_renderer._RenderSparkAreaChart.prototype;
+  dart.addTypeTests(spark_area_renderer._RenderSparkAreaChart);
+  dart.addTypeCaches(spark_area_renderer._RenderSparkAreaChart);
+  dart.setMethodSignature(spark_area_renderer._RenderSparkAreaChart, () => ({
+    __proto__: dart.getMethods(spark_area_renderer._RenderSparkAreaChart.__proto__),
+    [_renderAreaSeries]: dart.fnType(dart.void, [ui.Canvas, ui.Offset]),
+    [_renderAreaSeriesBorder]: dart.fnType(dart.void, [ui.Canvas, ui.Offset])
+  }));
+  dart.setGetterSignature(spark_area_renderer._RenderSparkAreaChart, () => ({
+    __proto__: dart.getGetters(spark_area_renderer._RenderSparkAreaChart.__proto__),
+    borderWidth: dart.nullable(core.double),
+    borderColor: dart.nullable(ui.Color),
+    marker: dart.nullable(marker.SparkChartMarker),
+    labelDisplayMode: dart.nullable($enum.SparkChartLabelDisplayMode),
+    labelStyle: dart.nullable(text_style.TextStyle),
+    [_lowPoint]: dart.nullable(core.num),
+    [_highPoint]: dart.nullable(core.num)
+  }));
+  dart.setSetterSignature(spark_area_renderer._RenderSparkAreaChart, () => ({
+    __proto__: dart.getSetters(spark_area_renderer._RenderSparkAreaChart.__proto__),
+    borderWidth: dart.nullable(core.double),
+    borderColor: dart.nullable(ui.Color),
+    marker: dart.nullable(marker.SparkChartMarker),
+    labelDisplayMode: dart.nullable($enum.SparkChartLabelDisplayMode),
+    labelStyle: dart.nullable(text_style.TextStyle),
+    [_lowPoint]: dart.nullable(core.num),
+    [_highPoint]: dart.nullable(core.num)
+  }));
+  dart.setLibraryUri(spark_area_renderer._RenderSparkAreaChart, I[0]);
+  dart.setFieldSignature(spark_area_renderer._RenderSparkAreaChart, () => ({
+    __proto__: dart.getFields(spark_area_renderer._RenderSparkAreaChart.__proto__),
+    [_borderWidth]: dart.fieldType(dart.nullable(core.double)),
+    [_borderColor]: dart.fieldType(dart.nullable(ui.Color)),
+    [_marker]: dart.fieldType(dart.nullable(marker.SparkChartMarker)),
+    [_labelDisplayMode]: dart.fieldType(dart.nullable($enum.SparkChartLabelDisplayMode)),
+    [_labelStyle]: dart.fieldType(dart.nullable(text_style.TextStyle)),
+    [___RenderSparkAreaChart__lowPoint]: dart.fieldType(dart.nullable(core.num)),
+    [___RenderSparkAreaChart__lowPoint_isSet]: dart.fieldType(core.bool),
+    [___RenderSparkAreaChart__highPoint]: dart.fieldType(dart.nullable(core.num)),
+    [___RenderSparkAreaChart__highPoint_isSet]: dart.fieldType(core.bool)
+  }));
+  dart.trackLibraries("packages/syncfusion_flutter_charts/src/sparkline/renderers/spark_area_renderer.dart", {
+    "package:syncfusion_flutter_charts/src/sparkline/renderers/spark_area_renderer.dart": spark_area_renderer
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["spark_area_renderer.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../D:/packages/syncfusion_flutter_charts/src/sparkline/renderers/spark_area_renderer.dart.lib.js"}');
+  // Exports:
+  return {
+    src__sparkline__renderers__spark_area_renderer: spark_area_renderer
+  };
+}));
+
+//# sourceMappingURL=spark_area_renderer.dart.lib.js.map

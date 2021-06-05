@@ -1,0 +1,2472 @@
+define(['dart_sdk', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/syncfusion_flutter_charts/src/sparkline/utils/helper.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/syncfusion_flutter_charts/src/sparkline/plot_band.dart', 'packages/syncfusion_flutter_charts/src/sparkline/utils/enum.dart', 'packages/syncfusion_flutter_charts/src/sparkline/trackball/spark_chart_trackball.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/syncfusion_flutter_charts/src/sparkline/renderers/spark_bar_renderer.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/drag_details.dart', 'packages/flutter/src/gestures/tap.dart', 'packages/flutter/src/gestures/long_press.dart', 'packages/flutter/src/widgets/layout_builder.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/rendering/custom_paint.dart', 'packages/syncfusion_flutter_charts/src/sparkline/marker.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/syncfusion_flutter_charts/src/sparkline/renderers/spark_area_renderer.dart'], (function load__packages__syncfusion_flutter_charts__src__sparkline__series__spark_bar_base_dart(dart_sdk, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__painting__strut_style$46dart, packages__syncfusion_flutter_charts__src__sparkline__utils__helper$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__syncfusion_flutter_charts__src__sparkline__plot_band$46dart, packages__syncfusion_flutter_charts__src__sparkline__utils__enum$46dart, packages__syncfusion_flutter_charts__src__sparkline__trackball__spark_chart_trackball$46dart, packages__flutter__src__material__icon_button$46dart, packages__syncfusion_flutter_charts__src__sparkline__renderers__spark_bar_renderer$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__drag_details$46dart, packages__flutter__src__gestures__tap$46dart, packages__flutter__src__gestures__long_press$46dart, packages__flutter__src__widgets__layout_builder$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__rendering__custom_paint$46dart, packages__syncfusion_flutter_charts__src__sparkline__marker$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__syncfusion_flutter_charts__src__sparkline__renderers__spark_area_renderer$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const colors$ = packages__flutter__src__painting__colors$46dart.src__painting__colors;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const helper = packages__syncfusion_flutter_charts__src__sparkline__utils__helper$46dart.src__sparkline__utils__helper;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const plot_band = packages__syncfusion_flutter_charts__src__sparkline__plot_band$46dart.src__sparkline__plot_band;
+  const $enum = packages__syncfusion_flutter_charts__src__sparkline__utils__enum$46dart.src__sparkline__utils__enum;
+  const spark_chart_trackball = packages__syncfusion_flutter_charts__src__sparkline__trackball__spark_chart_trackball$46dart.src__sparkline__trackball__spark_chart_trackball;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const spark_bar_renderer = packages__syncfusion_flutter_charts__src__sparkline__renderers__spark_bar_renderer$46dart.src__sparkline__renderers__spark_bar_renderer;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const drag_details = packages__flutter__src__gestures__drag_details$46dart.src__gestures__drag_details;
+  const tap = packages__flutter__src__gestures__tap$46dart.src__gestures__tap;
+  const long_press = packages__flutter__src__gestures__long_press$46dart.src__gestures__long_press;
+  const layout_builder = packages__flutter__src__widgets__layout_builder$46dart.src__widgets__layout_builder;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const custom_paint = packages__flutter__src__rendering__custom_paint$46dart.src__rendering__custom_paint;
+  const marker = packages__syncfusion_flutter_charts__src__sparkline__marker$46dart.src__sparkline__marker;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const spark_area_renderer = packages__syncfusion_flutter_charts__src__sparkline__renderers__spark_area_renderer$46dart.src__sparkline__renderers__spark_area_renderer;
+  var spark_bar_base = Object.create(dart.library);
+  var trackball_renderer = Object.create(dart.library);
+  var spark_area_base = Object.create(dart.library);
+  var $toInt = dartx.toInt;
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var $abs = dartx.abs;
+  var $isNotEmpty = dartx.isNotEmpty;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    JSArrayOfOffset: () => (T.JSArrayOfOffset = dart.constFn(_interceptors.JSArray$(ui.Offset)))(),
+    JSArrayOfSparkChartPoint: () => (T.JSArrayOfSparkChartPoint = dart.constFn(_interceptors.JSArray$(helper.SparkChartPoint)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    ValueNotifierOfint: () => (T.ValueNotifierOfint = dart.constFn(change_notifier.ValueNotifier$(core.int)))(),
+    PointerHoverEventTovoid: () => (T.PointerHoverEventTovoid = dart.constFn(dart.fnType(dart.void, [events.PointerHoverEvent])))(),
+    PointerExitEventTovoid: () => (T.PointerExitEventTovoid = dart.constFn(dart.fnType(dart.void, [events.PointerExitEvent])))(),
+    PointerUpEventTovoid: () => (T.PointerUpEventTovoid = dart.constFn(dart.fnType(dart.void, [events.PointerUpEvent])))(),
+    DragStartDetailsTovoid: () => (T.DragStartDetailsTovoid = dart.constFn(dart.fnType(dart.void, [drag_details.DragStartDetails])))(),
+    DragUpdateDetailsTovoid: () => (T.DragUpdateDetailsTovoid = dart.constFn(dart.fnType(dart.void, [drag_details.DragUpdateDetails])))(),
+    TapDownDetailsTovoid: () => (T.TapDownDetailsTovoid = dart.constFn(dart.fnType(dart.void, [tap.TapDownDetails])))(),
+    LongPressStartDetailsTovoid: () => (T.LongPressStartDetailsTovoid = dart.constFn(dart.fnType(dart.void, [long_press.LongPressStartDetails])))(),
+    LongPressMoveUpdateDetailsTovoid: () => (T.LongPressMoveUpdateDetailsTovoid = dart.constFn(dart.fnType(dart.void, [long_press.LongPressMoveUpdateDetails])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    BuildContextAndBoxConstraintsToContainer: () => (T.BuildContextAndBoxConstraintsToContainer = dart.constFn(dart.fnType(container.Container, [framework.BuildContext, box.BoxConstraints])))(),
+    numN: () => (T.numN = dart.constFn(dart.nullable(core.num)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293128957.0
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4290502395.0
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4287679225.0
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4284790262.0
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4282557941.0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280391411.0
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4280191205.0
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279858898.0
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279592384.0
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4279060385.0
+      });
+    },
+    get C1() {
+      return C[1] = dart.constMap(core.int, ui.Color, [50, C[2] || CT.C2, 100, C[3] || CT.C3, 200, C[4] || CT.C4, 300, C[5] || CT.C5, 400, C[6] || CT.C6, 500, C[7] || CT.C7, 600, C[8] || CT.C8, 700, C[9] || CT.C9, 800, C[10] || CT.C10, 900, C[11] || CT.C11]);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: colors.MaterialColor.prototype,
+        [Color_value]: 4280391411.0,
+        [ColorSwatch__swatch]: C[1] || CT.C1
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4278190080.0
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: ui.FontStyle.prototype,
+        [_name]: "FontStyle.normal",
+        index: 0
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: ui.FontWeight.prototype,
+        [FontWeight_index]: 3
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: text_style.TextStyle.prototype,
+        [TextStyle_fontFeatures]: null,
+        [TextStyle_shadows]: null,
+        [TextStyle_debugLabel]: null,
+        [TextStyle_decorationThickness]: null,
+        [TextStyle_decorationStyle]: null,
+        [TextStyle_decorationColor]: null,
+        [TextStyle_decoration]: null,
+        [TextStyle_background]: null,
+        [TextStyle_foreground]: null,
+        [TextStyle_locale]: null,
+        [TextStyle_leadingDistribution]: null,
+        [TextStyle_height]: null,
+        [TextStyle_textBaseline]: null,
+        [TextStyle_wordSpacing]: null,
+        [TextStyle_letterSpacing]: null,
+        [TextStyle_fontStyle]: C[14] || CT.C14,
+        [TextStyle_fontWeight]: C[15] || CT.C15,
+        [TextStyle_fontSize]: 12,
+        [TextStyle__package]: null,
+        [TextStyle__fontFamilyFallback]: null,
+        [TextStyle_fontFamily]: "Roboto",
+        [TextStyle_backgroundColor]: null,
+        [TextStyle_color]: null,
+        [TextStyle_inherit]: true
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 11,
+        [_Location_line]: 605,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dataCount",
+        [_Location_column]: 11,
+        [_Location_line]: 606,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "xValueMapper",
+        [_Location_column]: 11,
+        [_Location_line]: 607,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "yValueMapper",
+        [_Location_column]: 11,
+        [_Location_line]: 608,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "isInversed",
+        [_Location_column]: 11,
+        [_Location_line]: 609,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisCrossesAt",
+        [_Location_column]: 11,
+        [_Location_line]: 610,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisLineColor",
+        [_Location_column]: 11,
+        [_Location_line]: 611,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisLineWidth",
+        [_Location_column]: 11,
+        [_Location_line]: 612,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisLineDashArray",
+        [_Location_column]: 11,
+        [_Location_line]: 613,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "highPointColor",
+        [_Location_column]: 11,
+        [_Location_line]: 614,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "lowPointColor",
+        [_Location_column]: 11,
+        [_Location_line]: 615,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "firstPointColor",
+        [_Location_column]: 11,
+        [_Location_line]: 616,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "lastPointColor",
+        [_Location_column]: 11,
+        [_Location_line]: 617,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "negativePointColor",
+        [_Location_column]: 11,
+        [_Location_line]: 618,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 619,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "borderColor",
+        [_Location_column]: 11,
+        [_Location_line]: 620,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "borderWidth",
+        [_Location_column]: 11,
+        [_Location_line]: 621,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "plotBand",
+        [_Location_column]: 11,
+        [_Location_line]: 622,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "labelDisplayMode",
+        [_Location_column]: 11,
+        [_Location_line]: 623,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "labelStyle",
+        [_Location_column]: 11,
+        [_Location_line]: 624,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "themeData",
+        [_Location_column]: 11,
+        [_Location_line]: 625,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "sparkChartDataDetails",
+        [_Location_column]: 11,
+        [_Location_line]: 626,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dataPoints",
+        [_Location_column]: 11,
+        [_Location_line]: 627,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "coordinatePoints",
+        [_Location_column]: 11,
+        [_Location_line]: 628,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35, C[36] || CT.C36, C[37] || CT.C37, C[38] || CT.C38, C[39] || CT.C39, C[40] || CT.C40, C[41] || CT.C41], widget_inspector._Location);
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 7,
+        [_Location_line]: 604,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_bar_base.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "trackball",
+        [_Location_column]: 9,
+        [_Location_line]: 630,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "coordinatePoints",
+        [_Location_column]: 9,
+        [_Location_line]: 631,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dataPoints",
+        [_Location_column]: 9,
+        [_Location_line]: 632,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "sparkChart",
+        [_Location_column]: 9,
+        [_Location_line]: 633,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45, C[46] || CT.C46, C[47] || CT.C47], widget_inspector._Location);
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 7,
+        [_Location_line]: 629,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_bar_base.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 26,
+        [_Location_line]: 603,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50], widget_inspector._Location);
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 603,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_bar_base.dart"
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 603,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.constList([C[53] || CT.C53], widget_inspector._Location);
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[52] || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 602,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_bar_base.dart"
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 602,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.constList([C[56] || CT.C56], widget_inspector._Location);
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[55] || CT.C55,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 601,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_bar_base.dart"
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onVerticalDragStart",
+        [_Location_column]: 15,
+        [_Location_line]: 122,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onVerticalDragUpdate",
+        [_Location_column]: 15,
+        [_Location_line]: 126,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHorizontalDragStart",
+        [_Location_column]: 15,
+        [_Location_line]: 130,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHorizontalDragUpdate",
+        [_Location_column]: 15,
+        [_Location_line]: 135,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTapDown",
+        [_Location_column]: 15,
+        [_Location_line]: 140,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onLongPressStart",
+        [_Location_column]: 15,
+        [_Location_line]: 144,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onLongPressMoveUpdate",
+        [_Location_column]: 15,
+        [_Location_line]: 148,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onDoubleTapDown",
+        [_Location_column]: 15,
+        [_Location_line]: 149,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onDoubleTap",
+        [_Location_column]: 15,
+        [_Location_line]: 150,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 151,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.constList([C[59] || CT.C59, C[60] || CT.C60, C[61] || CT.C61, C[62] || CT.C62, C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65, C[66] || CT.C66, C[67] || CT.C67, C[68] || CT.C68], widget_inspector._Location);
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[58] || CT.C58,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 121,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/trackball/trackball_renderer.dart"
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPointerUp",
+        [_Location_column]: 11,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 121,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.constList([C[71] || CT.C71, C[72] || CT.C72], widget_inspector._Location);
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[70] || CT.C70,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 119,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/trackball/trackball_renderer.dart"
+      });
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onHover",
+        [_Location_column]: 9,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onExit",
+        [_Location_column]: 9,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C74() {
+      return C[74] = dart.constList([C[75] || CT.C75, C[76] || CT.C76, C[77] || CT.C77], widget_inspector._Location);
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[74] || CT.C74,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 112,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/trackball/trackball_renderer.dart"
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "painter",
+        [_Location_column]: 17,
+        [_Location_line]: 178,
+        [_Location_file]: null
+      });
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 17,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.constList([C[80] || CT.C80, C[81] || CT.C81], widget_inspector._Location);
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[79] || CT.C79,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 177,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/trackball/trackball_renderer.dart"
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 177,
+        [_Location_file]: null
+      });
+    },
+    get C83() {
+      return C[83] = dart.constList([C[84] || CT.C84], widget_inspector._Location);
+    },
+    get C82() {
+      return C[82] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[83] || CT.C83,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 176,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/trackball/trackball_renderer.dart"
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 176,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.constList([C[87] || CT.C87], widget_inspector._Location);
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 175,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/trackball/trackball_renderer.dart"
+      });
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 7,
+        [_Location_line]: 174,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C[89] = dart.constList([C[90] || CT.C90], widget_inspector._Location);
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[89] || CT.C89,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 173,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/trackball/trackball_renderer.dart"
+      });
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4293256677.0
+      });
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4283387727.0
+      });
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294967295.0
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 15,
+        [_Location_line]: 648,
+        [_Location_file]: null
+      });
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 49,
+        [_Location_line]: 648,
+        [_Location_file]: null
+      });
+    },
+    get C95() {
+      return C[95] = dart.constList([C[96] || CT.C96, C[97] || CT.C97], widget_inspector._Location);
+    },
+    get C94() {
+      return C[94] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[95] || CT.C95,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 647,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_area_base.dart"
+      });
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 647,
+        [_Location_file]: null
+      });
+    },
+    get C99() {
+      return C[99] = dart.constList([C[100] || CT.C100], widget_inspector._Location);
+    },
+    get C98() {
+      return C[98] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[99] || CT.C99,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 646,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_area_base.dart"
+      });
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 30,
+        [_Location_line]: 650,
+        [_Location_file]: null
+      });
+    },
+    get C102() {
+      return C[102] = dart.constList([C[103] || CT.C103], widget_inspector._Location);
+    },
+    get C101() {
+      return C[101] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[102] || CT.C102,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 650,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_area_base.dart"
+      });
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 11,
+        [_Location_line]: 659,
+        [_Location_file]: null
+      });
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dataCount",
+        [_Location_column]: 11,
+        [_Location_line]: 660,
+        [_Location_file]: null
+      });
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "xValueMapper",
+        [_Location_column]: 11,
+        [_Location_line]: 661,
+        [_Location_file]: null
+      });
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "yValueMapper",
+        [_Location_column]: 11,
+        [_Location_line]: 662,
+        [_Location_file]: null
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "isInversed",
+        [_Location_column]: 11,
+        [_Location_line]: 663,
+        [_Location_file]: null
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisCrossesAt",
+        [_Location_column]: 11,
+        [_Location_line]: 664,
+        [_Location_file]: null
+      });
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisLineColor",
+        [_Location_column]: 11,
+        [_Location_line]: 665,
+        [_Location_file]: null
+      });
+    },
+    get C113() {
+      return C[113] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisLineWidth",
+        [_Location_column]: 11,
+        [_Location_line]: 666,
+        [_Location_file]: null
+      });
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisLineDashArray",
+        [_Location_column]: 11,
+        [_Location_line]: 667,
+        [_Location_file]: null
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "highPointColor",
+        [_Location_column]: 11,
+        [_Location_line]: 668,
+        [_Location_file]: null
+      });
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "lowPointColor",
+        [_Location_column]: 11,
+        [_Location_line]: 669,
+        [_Location_file]: null
+      });
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "firstPointColor",
+        [_Location_column]: 11,
+        [_Location_line]: 670,
+        [_Location_file]: null
+      });
+    },
+    get C118() {
+      return C[118] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "lastPointColor",
+        [_Location_column]: 11,
+        [_Location_line]: 671,
+        [_Location_file]: null
+      });
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "negativePointColor",
+        [_Location_column]: 11,
+        [_Location_line]: 672,
+        [_Location_file]: null
+      });
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 673,
+        [_Location_file]: null
+      });
+    },
+    get C121() {
+      return C[121] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "borderColor",
+        [_Location_column]: 11,
+        [_Location_line]: 674,
+        [_Location_file]: null
+      });
+    },
+    get C122() {
+      return C[122] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "borderWidth",
+        [_Location_column]: 11,
+        [_Location_line]: 675,
+        [_Location_file]: null
+      });
+    },
+    get C123() {
+      return C[123] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "plotBand",
+        [_Location_column]: 11,
+        [_Location_line]: 676,
+        [_Location_file]: null
+      });
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "marker",
+        [_Location_column]: 11,
+        [_Location_line]: 677,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C[125] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "labelDisplayMode",
+        [_Location_column]: 11,
+        [_Location_line]: 678,
+        [_Location_file]: null
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "labelStyle",
+        [_Location_column]: 11,
+        [_Location_line]: 679,
+        [_Location_file]: null
+      });
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "themeData",
+        [_Location_column]: 11,
+        [_Location_line]: 680,
+        [_Location_file]: null
+      });
+    },
+    get C128() {
+      return C[128] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "sparkChartDataDetails",
+        [_Location_column]: 11,
+        [_Location_line]: 681,
+        [_Location_file]: null
+      });
+    },
+    get C129() {
+      return C[129] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dataPoints",
+        [_Location_column]: 11,
+        [_Location_line]: 682,
+        [_Location_file]: null
+      });
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "coordinatePoints",
+        [_Location_column]: 11,
+        [_Location_line]: 683,
+        [_Location_file]: null
+      });
+    },
+    get C105() {
+      return C[105] = dart.constList([C[106] || CT.C106, C[107] || CT.C107, C[108] || CT.C108, C[109] || CT.C109, C[110] || CT.C110, C[111] || CT.C111, C[112] || CT.C112, C[113] || CT.C113, C[114] || CT.C114, C[115] || CT.C115, C[116] || CT.C116, C[117] || CT.C117, C[118] || CT.C118, C[119] || CT.C119, C[120] || CT.C120, C[121] || CT.C121, C[122] || CT.C122, C[123] || CT.C123, C[124] || CT.C124, C[125] || CT.C125, C[126] || CT.C126, C[127] || CT.C127, C[128] || CT.C128, C[129] || CT.C129, C[130] || CT.C130], widget_inspector._Location);
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[105] || CT.C105,
+        [_Location_name]: null,
+        [_Location_column]: 7,
+        [_Location_line]: 658,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_area_base.dart"
+      });
+    },
+    get C133() {
+      return C[133] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "trackball",
+        [_Location_column]: 11,
+        [_Location_line]: 685,
+        [_Location_file]: null
+      });
+    },
+    get C134() {
+      return C[134] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "coordinatePoints",
+        [_Location_column]: 11,
+        [_Location_line]: 686,
+        [_Location_file]: null
+      });
+    },
+    get C135() {
+      return C[135] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dataPoints",
+        [_Location_column]: 11,
+        [_Location_line]: 687,
+        [_Location_file]: null
+      });
+    },
+    get C136() {
+      return C[136] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "sparkChart",
+        [_Location_column]: 11,
+        [_Location_line]: 688,
+        [_Location_file]: null
+      });
+    },
+    get C132() {
+      return C[132] = dart.constList([C[133] || CT.C133, C[134] || CT.C134, C[135] || CT.C135, C[136] || CT.C136], widget_inspector._Location);
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[132] || CT.C132,
+        [_Location_name]: null,
+        [_Location_column]: 7,
+        [_Location_line]: 684,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_area_base.dart"
+      });
+    },
+    get C139() {
+      return C[139] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 22,
+        [_Location_line]: 657,
+        [_Location_file]: null
+      });
+    },
+    get C138() {
+      return C[138] = dart.constList([C[139] || CT.C139], widget_inspector._Location);
+    },
+    get C137() {
+      return C[137] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[138] || CT.C138,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 657,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_area_base.dart"
+      });
+    },
+    get C142() {
+      return C[142] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 657,
+        [_Location_file]: null
+      });
+    },
+    get C141() {
+      return C[141] = dart.constList([C[142] || CT.C142], widget_inspector._Location);
+    },
+    get C140() {
+      return C[140] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[141] || CT.C141,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 656,
+        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_charts-19.1.66+1/lib/src/sparkline/series/spark_area_base.dart"
+      });
+    }
+  }, false);
+  var C = Array(143).fill(void 0);
+  var I = [
+    "package:syncfusion_flutter_charts/src/sparkline/series/spark_bar_base.dart",
+    "package:syncfusion_flutter_charts/src/sparkline/trackball/trackball_renderer.dart",
+    "package:syncfusion_flutter_charts/src/sparkline/series/spark_area_base.dart"
+  ];
+  var isInversed$ = dart.privateName(spark_bar_base, "SfSparkBarChart.isInversed");
+  var axisCrossesAt$ = dart.privateName(spark_bar_base, "SfSparkBarChart.axisCrossesAt");
+  var axisLineWidth$ = dart.privateName(spark_bar_base, "SfSparkBarChart.axisLineWidth");
+  var axisLineColor$ = dart.privateName(spark_bar_base, "SfSparkBarChart.axisLineColor");
+  var axisLineDashArray$ = dart.privateName(spark_bar_base, "SfSparkBarChart.axisLineDashArray");
+  var highPointColor$ = dart.privateName(spark_bar_base, "SfSparkBarChart.highPointColor");
+  var lowPointColor$ = dart.privateName(spark_bar_base, "SfSparkBarChart.lowPointColor");
+  var negativePointColor$ = dart.privateName(spark_bar_base, "SfSparkBarChart.negativePointColor");
+  var firstPointColor$ = dart.privateName(spark_bar_base, "SfSparkBarChart.firstPointColor");
+  var lastPointColor$ = dart.privateName(spark_bar_base, "SfSparkBarChart.lastPointColor");
+  var color$ = dart.privateName(spark_bar_base, "SfSparkBarChart.color");
+  var plotBand$ = dart.privateName(spark_bar_base, "SfSparkBarChart.plotBand");
+  var borderWidth$ = dart.privateName(spark_bar_base, "SfSparkBarChart.borderWidth");
+  var borderColor$ = dart.privateName(spark_bar_base, "SfSparkBarChart.borderColor");
+  var labelDisplayMode$ = dart.privateName(spark_bar_base, "SfSparkBarChart.labelDisplayMode");
+  var labelStyle$ = dart.privateName(spark_bar_base, "SfSparkBarChart.labelStyle");
+  var trackball$ = dart.privateName(spark_bar_base, "SfSparkBarChart.trackball");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var ColorSwatch__swatch = dart.privateName(colors$, "ColorSwatch._swatch");
+  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
+  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
+  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
+  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
+  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
+  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
+  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
+  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
+  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
+  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
+  var TextStyle_leadingDistribution = dart.privateName(text_style, "TextStyle.leadingDistribution");
+  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
+  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
+  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
+  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
+  var _name = dart.privateName(ui, "_name");
+  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
+  var FontWeight_index = dart.privateName(ui, "FontWeight.index");
+  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
+  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
+  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
+  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
+  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
+  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
+  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
+  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
+  var _sparkChartDataDetails = dart.privateName(spark_bar_base, "_sparkChartDataDetails");
+  spark_bar_base.SfSparkBarChart = class SfSparkBarChart extends framework.StatefulWidget {
+    get isInversed() {
+      return this[isInversed$];
+    }
+    set isInversed(value) {
+      super.isInversed = value;
+    }
+    get axisCrossesAt() {
+      return this[axisCrossesAt$];
+    }
+    set axisCrossesAt(value) {
+      super.axisCrossesAt = value;
+    }
+    get axisLineWidth() {
+      return this[axisLineWidth$];
+    }
+    set axisLineWidth(value) {
+      super.axisLineWidth = value;
+    }
+    get axisLineColor() {
+      return this[axisLineColor$];
+    }
+    set axisLineColor(value) {
+      super.axisLineColor = value;
+    }
+    get axisLineDashArray() {
+      return this[axisLineDashArray$];
+    }
+    set axisLineDashArray(value) {
+      super.axisLineDashArray = value;
+    }
+    get highPointColor() {
+      return this[highPointColor$];
+    }
+    set highPointColor(value) {
+      super.highPointColor = value;
+    }
+    get lowPointColor() {
+      return this[lowPointColor$];
+    }
+    set lowPointColor(value) {
+      super.lowPointColor = value;
+    }
+    get negativePointColor() {
+      return this[negativePointColor$];
+    }
+    set negativePointColor(value) {
+      super.negativePointColor = value;
+    }
+    get firstPointColor() {
+      return this[firstPointColor$];
+    }
+    set firstPointColor(value) {
+      super.firstPointColor = value;
+    }
+    get lastPointColor() {
+      return this[lastPointColor$];
+    }
+    set lastPointColor(value) {
+      super.lastPointColor = value;
+    }
+    get color() {
+      return this[color$];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get plotBand() {
+      return this[plotBand$];
+    }
+    set plotBand(value) {
+      super.plotBand = value;
+    }
+    get borderWidth() {
+      return this[borderWidth$];
+    }
+    set borderWidth(value) {
+      super.borderWidth = value;
+    }
+    get borderColor() {
+      return this[borderColor$];
+    }
+    set borderColor(value) {
+      super.borderColor = value;
+    }
+    get labelDisplayMode() {
+      return this[labelDisplayMode$];
+    }
+    set labelDisplayMode(value) {
+      super.labelDisplayMode = value;
+    }
+    get labelStyle() {
+      return this[labelStyle$];
+    }
+    set labelStyle(value) {
+      super.labelStyle = value;
+    }
+    get trackball() {
+      return this[trackball$];
+    }
+    set trackball(value) {
+      super.trackball = value;
+    }
+    createState() {
+      return new spark_bar_base._SfSparkBarChartState.new();
+    }
+  };
+  (spark_bar_base.SfSparkBarChart.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let data = opts && 'data' in opts ? opts.data : null;
+    let plotBand = opts && 'plotBand' in opts ? opts.plotBand : null;
+    let borderWidth = opts && 'borderWidth' in opts ? opts.borderWidth : 0;
+    let borderColor = opts && 'borderColor' in opts ? opts.borderColor : null;
+    let color = opts && 'color' in opts ? opts.color : C[0] || CT.C0;
+    let isInversed = opts && 'isInversed' in opts ? opts.isInversed : false;
+    let axisCrossesAt = opts && 'axisCrossesAt' in opts ? opts.axisCrossesAt : 0;
+    let axisLineColor = opts && 'axisLineColor' in opts ? opts.axisLineColor : C[12] || CT.C12;
+    let axisLineWidth = opts && 'axisLineWidth' in opts ? opts.axisLineWidth : 2;
+    let axisLineDashArray = opts && 'axisLineDashArray' in opts ? opts.axisLineDashArray : null;
+    let highPointColor = opts && 'highPointColor' in opts ? opts.highPointColor : null;
+    let lowPointColor = opts && 'lowPointColor' in opts ? opts.lowPointColor : null;
+    let negativePointColor = opts && 'negativePointColor' in opts ? opts.negativePointColor : null;
+    let firstPointColor = opts && 'firstPointColor' in opts ? opts.firstPointColor : null;
+    let lastPointColor = opts && 'lastPointColor' in opts ? opts.lastPointColor : null;
+    let labelDisplayMode = opts && 'labelDisplayMode' in opts ? opts.labelDisplayMode : null;
+    let labelStyle = opts && 'labelStyle' in opts ? opts.labelStyle : C[13] || CT.C13;
+    let trackball = opts && 'trackball' in opts ? opts.trackball : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[plotBand$] = plotBand;
+    this[borderWidth$] = borderWidth;
+    this[borderColor$] = borderColor;
+    this[color$] = color;
+    this[isInversed$] = isInversed;
+    this[axisCrossesAt$] = axisCrossesAt;
+    this[axisLineColor$] = axisLineColor;
+    this[axisLineWidth$] = axisLineWidth;
+    this[axisLineDashArray$] = axisLineDashArray;
+    this[highPointColor$] = highPointColor;
+    this[lowPointColor$] = lowPointColor;
+    this[negativePointColor$] = negativePointColor;
+    this[firstPointColor$] = firstPointColor;
+    this[lastPointColor$] = lastPointColor;
+    this[labelDisplayMode$] = labelDisplayMode;
+    this[labelStyle$] = labelStyle;
+    this[trackball$] = trackball;
+    this[_sparkChartDataDetails] = new helper.SparkChartDataDetails.new({data: data});
+    spark_bar_base.SfSparkBarChart.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = spark_bar_base.SfSparkBarChart.prototype;
+  (spark_bar_base.SfSparkBarChart.custom = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let dataCount = opts && 'dataCount' in opts ? opts.dataCount : null;
+    let xValueMapper = opts && 'xValueMapper' in opts ? opts.xValueMapper : null;
+    let yValueMapper = opts && 'yValueMapper' in opts ? opts.yValueMapper : null;
+    let plotBand = opts && 'plotBand' in opts ? opts.plotBand : null;
+    let borderWidth = opts && 'borderWidth' in opts ? opts.borderWidth : 2;
+    let borderColor = opts && 'borderColor' in opts ? opts.borderColor : null;
+    let color = opts && 'color' in opts ? opts.color : C[0] || CT.C0;
+    let isInversed = opts && 'isInversed' in opts ? opts.isInversed : false;
+    let axisCrossesAt = opts && 'axisCrossesAt' in opts ? opts.axisCrossesAt : 0;
+    let axisLineColor = opts && 'axisLineColor' in opts ? opts.axisLineColor : C[12] || CT.C12;
+    let axisLineWidth = opts && 'axisLineWidth' in opts ? opts.axisLineWidth : 2;
+    let axisLineDashArray = opts && 'axisLineDashArray' in opts ? opts.axisLineDashArray : null;
+    let highPointColor = opts && 'highPointColor' in opts ? opts.highPointColor : null;
+    let lowPointColor = opts && 'lowPointColor' in opts ? opts.lowPointColor : null;
+    let negativePointColor = opts && 'negativePointColor' in opts ? opts.negativePointColor : null;
+    let firstPointColor = opts && 'firstPointColor' in opts ? opts.firstPointColor : null;
+    let lastPointColor = opts && 'lastPointColor' in opts ? opts.lastPointColor : null;
+    let labelDisplayMode = opts && 'labelDisplayMode' in opts ? opts.labelDisplayMode : null;
+    let labelStyle = opts && 'labelStyle' in opts ? opts.labelStyle : C[13] || CT.C13;
+    let trackball = opts && 'trackball' in opts ? opts.trackball : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[plotBand$] = plotBand;
+    this[borderWidth$] = borderWidth;
+    this[borderColor$] = borderColor;
+    this[color$] = color;
+    this[isInversed$] = isInversed;
+    this[axisCrossesAt$] = axisCrossesAt;
+    this[axisLineColor$] = axisLineColor;
+    this[axisLineWidth$] = axisLineWidth;
+    this[axisLineDashArray$] = axisLineDashArray;
+    this[highPointColor$] = highPointColor;
+    this[lowPointColor$] = lowPointColor;
+    this[negativePointColor$] = negativePointColor;
+    this[firstPointColor$] = firstPointColor;
+    this[lastPointColor$] = lastPointColor;
+    this[labelDisplayMode$] = labelDisplayMode;
+    this[labelStyle$] = labelStyle;
+    this[trackball$] = trackball;
+    this[_sparkChartDataDetails] = new helper.SparkChartDataDetails.new({dataCount: dataCount, xValueMapper: xValueMapper, yValueMapper: yValueMapper});
+    spark_bar_base.SfSparkBarChart.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = spark_bar_base.SfSparkBarChart.prototype;
+  dart.addTypeTests(spark_bar_base.SfSparkBarChart);
+  dart.addTypeCaches(spark_bar_base.SfSparkBarChart);
+  dart.setMethodSignature(spark_bar_base.SfSparkBarChart, () => ({
+    __proto__: dart.getMethods(spark_bar_base.SfSparkBarChart.__proto__),
+    createState: dart.fnType(framework.State$(framework.StatefulWidget), [])
+  }));
+  dart.setLibraryUri(spark_bar_base.SfSparkBarChart, I[0]);
+  dart.setFieldSignature(spark_bar_base.SfSparkBarChart, () => ({
+    __proto__: dart.getFields(spark_bar_base.SfSparkBarChart.__proto__),
+    isInversed: dart.finalFieldType(core.bool),
+    axisCrossesAt: dart.finalFieldType(core.double),
+    axisLineWidth: dart.finalFieldType(core.double),
+    axisLineColor: dart.finalFieldType(ui.Color),
+    axisLineDashArray: dart.finalFieldType(dart.nullable(core.List$(core.double))),
+    highPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    lowPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    negativePointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    firstPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    lastPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    color: dart.finalFieldType(ui.Color),
+    plotBand: dart.finalFieldType(dart.nullable(plot_band.SparkChartPlotBand)),
+    borderWidth: dart.finalFieldType(core.double),
+    borderColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    labelDisplayMode: dart.finalFieldType(dart.nullable($enum.SparkChartLabelDisplayMode)),
+    labelStyle: dart.finalFieldType(text_style.TextStyle),
+    trackball: dart.finalFieldType(dart.nullable(spark_chart_trackball.SparkChartTrackball)),
+    [_sparkChartDataDetails]: dart.finalFieldType(helper.SparkChartDataDetails)
+  }));
+  var ___SfSparkBarChartState__themeData = dart.privateName(spark_bar_base, "_#_SfSparkBarChartState#_themeData");
+  var ___SfSparkBarChartState__coordinatePoints = dart.privateName(spark_bar_base, "_#_SfSparkBarChartState#_coordinatePoints");
+  var ___SfSparkBarChartState__dataPoints = dart.privateName(spark_bar_base, "_#_SfSparkBarChartState#_dataPoints");
+  var _themeData = dart.privateName(spark_bar_base, "_themeData");
+  var _coordinatePoints = dart.privateName(spark_bar_base, "_coordinatePoints");
+  var _dataPoints = dart.privateName(spark_bar_base, "_dataPoints");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  spark_bar_base._SfSparkBarChartState = class _SfSparkBarChartState extends framework.State$(spark_bar_base.SfSparkBarChart) {
+    get [_themeData]() {
+      let t0;
+      t0 = this[___SfSparkBarChartState__themeData];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_themeData")) : t0;
+    }
+    set [_themeData](t0) {
+      this[___SfSparkBarChartState__themeData] = t0;
+    }
+    get [_coordinatePoints]() {
+      let t1;
+      t1 = this[___SfSparkBarChartState__coordinatePoints];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_coordinatePoints")) : t1;
+    }
+    set [_coordinatePoints](t1) {
+      this[___SfSparkBarChartState__coordinatePoints] = t1;
+    }
+    get [_dataPoints]() {
+      let t2;
+      t2 = this[___SfSparkBarChartState__dataPoints];
+      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_dataPoints")) : t2;
+    }
+    set [_dataPoints](t2) {
+      this[___SfSparkBarChartState__dataPoints] = t2;
+    }
+    initState() {
+      this[_coordinatePoints] = T.JSArrayOfOffset().of([]);
+      this[_dataPoints] = T.JSArrayOfSparkChartPoint().of([]);
+      super.initState();
+    }
+    didChangeDependencies() {
+      this[_themeData] = theme.Theme.of(this.context);
+      super.didChangeDependencies();
+    }
+    didUpdateWidget(oldWidget) {
+      spark_bar_base.SfSparkBarChart.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+    }
+    build(context) {
+      return new basic.RepaintBoundary.new({child: new helper.SparkChartContainer.new({child: new basic.Stack.new({children: T.JSArrayOfWidget().of([new spark_bar_renderer.SfSparkBarChartRenderObjectWidget.new({data: this.widget[_sparkChartDataDetails].data, dataCount: this.widget[_sparkChartDataDetails].dataCount, xValueMapper: this.widget[_sparkChartDataDetails].xValueMapper, yValueMapper: this.widget[_sparkChartDataDetails].yValueMapper, isInversed: this.widget.isInversed, axisCrossesAt: this.widget.axisCrossesAt, axisLineColor: this.widget.axisLineColor, axisLineWidth: this.widget.axisLineWidth, axisLineDashArray: this.widget.axisLineDashArray, highPointColor: this.widget.highPointColor, lowPointColor: this.widget.lowPointColor, firstPointColor: this.widget.firstPointColor, lastPointColor: this.widget.lastPointColor, negativePointColor: this.widget.negativePointColor, color: this.widget.color, borderColor: this.widget.borderColor, borderWidth: this.widget.borderWidth, plotBand: this.widget.plotBand, labelDisplayMode: this.widget.labelDisplayMode, labelStyle: this.widget.labelStyle, themeData: this[_themeData], sparkChartDataDetails: this.widget[_sparkChartDataDetails], dataPoints: this[_dataPoints], coordinatePoints: this[_coordinatePoints], $creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), new trackball_renderer.SparkChartTrackballRenderer.new({trackball: this.widget.trackball, coordinatePoints: this[_coordinatePoints], dataPoints: this[_dataPoints], sparkChart: this.widget, $creationLocationd_0dea112b090073317d4: C[42] || CT.C42})]), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48}), $creationLocationd_0dea112b090073317d4: C[51] || CT.C51}), $creationLocationd_0dea112b090073317d4: C[54] || CT.C54});
+    }
+  };
+  (spark_bar_base._SfSparkBarChartState.new = function() {
+    this[___SfSparkBarChartState__themeData] = null;
+    this[___SfSparkBarChartState__coordinatePoints] = null;
+    this[___SfSparkBarChartState__dataPoints] = null;
+    spark_bar_base._SfSparkBarChartState.__proto__.new.call(this);
+    ;
+  }).prototype = spark_bar_base._SfSparkBarChartState.prototype;
+  dart.addTypeTests(spark_bar_base._SfSparkBarChartState);
+  dart.addTypeCaches(spark_bar_base._SfSparkBarChartState);
+  dart.setMethodSignature(spark_bar_base._SfSparkBarChartState, () => ({
+    __proto__: dart.getMethods(spark_bar_base._SfSparkBarChartState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(spark_bar_base._SfSparkBarChartState, () => ({
+    __proto__: dart.getGetters(spark_bar_base._SfSparkBarChartState.__proto__),
+    [_themeData]: theme_data.ThemeData,
+    [_coordinatePoints]: core.List$(ui.Offset),
+    [_dataPoints]: core.List$(helper.SparkChartPoint)
+  }));
+  dart.setSetterSignature(spark_bar_base._SfSparkBarChartState, () => ({
+    __proto__: dart.getSetters(spark_bar_base._SfSparkBarChartState.__proto__),
+    [_themeData]: theme_data.ThemeData,
+    [_coordinatePoints]: core.List$(ui.Offset),
+    [_dataPoints]: core.List$(helper.SparkChartPoint)
+  }));
+  dart.setLibraryUri(spark_bar_base._SfSparkBarChartState, I[0]);
+  dart.setFieldSignature(spark_bar_base._SfSparkBarChartState, () => ({
+    __proto__: dart.getFields(spark_bar_base._SfSparkBarChartState.__proto__),
+    [___SfSparkBarChartState__themeData]: dart.fieldType(dart.nullable(theme_data.ThemeData)),
+    [___SfSparkBarChartState__coordinatePoints]: dart.fieldType(dart.nullable(core.List$(ui.Offset))),
+    [___SfSparkBarChartState__dataPoints]: dart.fieldType(dart.nullable(core.List$(helper.SparkChartPoint)))
+  }));
+  var trackball$0 = dart.privateName(trackball_renderer, "SparkChartTrackballRenderer.trackball");
+  var coordinatePoints$ = dart.privateName(trackball_renderer, "SparkChartTrackballRenderer.coordinatePoints");
+  var dataPoints$ = dart.privateName(trackball_renderer, "SparkChartTrackballRenderer.dataPoints");
+  var sparkChart$ = dart.privateName(trackball_renderer, "SparkChartTrackballRenderer.sparkChart");
+  trackball_renderer.SparkChartTrackballRenderer = class SparkChartTrackballRenderer extends framework.StatefulWidget {
+    get trackball() {
+      return this[trackball$0];
+    }
+    set trackball(value) {
+      super.trackball = value;
+    }
+    get coordinatePoints() {
+      return this[coordinatePoints$];
+    }
+    set coordinatePoints(value) {
+      super.coordinatePoints = value;
+    }
+    get dataPoints() {
+      return this[dataPoints$];
+    }
+    set dataPoints(value) {
+      super.dataPoints = value;
+    }
+    get sparkChart() {
+      return this[sparkChart$];
+    }
+    set sparkChart(value) {
+      super.sparkChart = value;
+    }
+    createState() {
+      return new trackball_renderer._SparckChartTrackballRendererState.new();
+    }
+  };
+  (trackball_renderer.SparkChartTrackballRenderer.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let trackball = opts && 'trackball' in opts ? opts.trackball : null;
+    let coordinatePoints = opts && 'coordinatePoints' in opts ? opts.coordinatePoints : null;
+    let dataPoints = opts && 'dataPoints' in opts ? opts.dataPoints : null;
+    let sparkChart = opts && 'sparkChart' in opts ? opts.sparkChart : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[trackball$0] = trackball;
+    this[coordinatePoints$] = coordinatePoints;
+    this[dataPoints$] = dataPoints;
+    this[sparkChart$] = sparkChart;
+    trackball_renderer.SparkChartTrackballRenderer.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = trackball_renderer.SparkChartTrackballRenderer.prototype;
+  dart.addTypeTests(trackball_renderer.SparkChartTrackballRenderer);
+  dart.addTypeCaches(trackball_renderer.SparkChartTrackballRenderer);
+  dart.setMethodSignature(trackball_renderer.SparkChartTrackballRenderer, () => ({
+    __proto__: dart.getMethods(trackball_renderer.SparkChartTrackballRenderer.__proto__),
+    createState: dart.fnType(framework.State$(framework.StatefulWidget), [])
+  }));
+  dart.setLibraryUri(trackball_renderer.SparkChartTrackballRenderer, I[1]);
+  dart.setFieldSignature(trackball_renderer.SparkChartTrackballRenderer, () => ({
+    __proto__: dart.getFields(trackball_renderer.SparkChartTrackballRenderer.__proto__),
+    trackball: dart.finalFieldType(dart.nullable(spark_chart_trackball.SparkChartTrackball)),
+    coordinatePoints: dart.finalFieldType(dart.nullable(core.List$(ui.Offset))),
+    dataPoints: dart.finalFieldType(dart.nullable(core.List$(helper.SparkChartPoint))),
+    sparkChart: dart.finalFieldType(dart.nullable(framework.Widget))
+  }));
+  var ___SparckChartTrackballRendererState__trackballRepaintNotifier = dart.privateName(trackball_renderer, "_#_SparckChartTrackballRendererState#_trackballRepaintNotifier");
+  var ___SparckChartTrackballRendererState__trackballRepaintNotifier_isSet = dart.privateName(trackball_renderer, "_#_SparckChartTrackballRendererState#_trackballRepaintNotifier#isSet");
+  var _isTrackballEnabled = dart.privateName(trackball_renderer, "_isTrackballEnabled");
+  var _touchPosition = dart.privateName(trackball_renderer, "_touchPosition");
+  var _areaBounds = dart.privateName(trackball_renderer, "_areaBounds");
+  var ___SparckChartTrackballRendererState__localBounds = dart.privateName(trackball_renderer, "_#_SparckChartTrackballRendererState#_localBounds");
+  var ___SparckChartTrackballRendererState__localBounds_isSet = dart.privateName(trackball_renderer, "_#_SparckChartTrackballRendererState#_localBounds#isSet");
+  var _currentIndex = dart.privateName(trackball_renderer, "_currentIndex");
+  var _globalPosition = dart.privateName(trackball_renderer, "_globalPosition");
+  var _themeData$ = dart.privateName(trackball_renderer, "_themeData");
+  var _currentDataPoint = dart.privateName(trackball_renderer, "_currentDataPoint");
+  var _currentCoordinatePoint = dart.privateName(trackball_renderer, "_currentCoordinatePoint");
+  var _timer = dart.privateName(trackball_renderer, "_timer");
+  var _isTop = dart.privateName(trackball_renderer, "_isTop");
+  var _enableMouseHover = dart.privateName(trackball_renderer, "_enableMouseHover");
+  var _trackballRepaintNotifier = dart.privateName(trackball_renderer, "_trackballRepaintNotifier");
+  var _localBounds = dart.privateName(trackball_renderer, "_localBounds");
+  var _enableAndUpdateTrackball = dart.privateName(trackball_renderer, "_enableAndUpdateTrackball");
+  var _hide = dart.privateName(trackball_renderer, "_hide");
+  var _updateDragValue = dart.privateName(trackball_renderer, "_updateDragValue");
+  var _addTrackballPainter = dart.privateName(trackball_renderer, "_addTrackballPainter");
+  var _endTrackballDragging = dart.privateName(trackball_renderer, "_endTrackballDragging");
+  var _enableTrackballBehavior = dart.privateName(trackball_renderer, "_enableTrackballBehavior");
+  trackball_renderer._SparckChartTrackballRendererState = class _SparckChartTrackballRendererState extends framework.State$(trackball_renderer.SparkChartTrackballRenderer) {
+    get [_trackballRepaintNotifier]() {
+      return this[___SparckChartTrackballRendererState__trackballRepaintNotifier_isSet] ? this[___SparckChartTrackballRendererState__trackballRepaintNotifier] : dart.throw(new _internal.LateError.fieldNI("_trackballRepaintNotifier"));
+    }
+    set [_trackballRepaintNotifier](t3) {
+      this[___SparckChartTrackballRendererState__trackballRepaintNotifier_isSet] = true;
+      this[___SparckChartTrackballRendererState__trackballRepaintNotifier] = t3;
+    }
+    get [_localBounds]() {
+      return this[___SparckChartTrackballRendererState__localBounds_isSet] ? this[___SparckChartTrackballRendererState__localBounds] : dart.throw(new _internal.LateError.fieldNI("_localBounds"));
+    }
+    set [_localBounds](t4) {
+      this[___SparckChartTrackballRendererState__localBounds_isSet] = true;
+      this[___SparckChartTrackballRendererState__localBounds] = t4;
+    }
+    initState() {
+      this[_trackballRepaintNotifier] = new (T.ValueNotifierOfint()).new(0);
+      super.initState();
+    }
+    didUpdateWidget(oldWidget) {
+      trackball_renderer.SparkChartTrackballRenderer.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+    }
+    didChangeDependencies() {
+      this[_themeData$] = theme.Theme.of(this.context);
+      super.didChangeDependencies();
+    }
+    dispose() {
+      if (this[_timer] != null) {
+        dart.nullCheck(this[_timer]).cancel();
+      }
+      super.dispose();
+    }
+    build(context) {
+      return new basic.MouseRegion.new({onHover: dart.fn(event => this[_enableMouseHover] ? this[_enableAndUpdateTrackball](context, event.position) : null, T.PointerHoverEventTovoid()), onExit: dart.fn(event => this[_hide](), T.PointerExitEventTovoid()), child: new basic.Listener.new({onPointerUp: dart.fn(event => this[_hide](), T.PointerUpEventTovoid()), child: new gesture_detector.GestureDetector.new({onVerticalDragStart: this.widget.trackball != null && dart.nullCheck(this.widget.trackball).activationMode !== $enum.SparkChartActivationMode.doubleTap ? dart.fn(details => this[_updateDragValue](context, details.globalPosition), T.DragStartDetailsTovoid()) : null, onVerticalDragUpdate: this.widget.trackball != null && dart.nullCheck(this.widget.trackball).activationMode !== $enum.SparkChartActivationMode.doubleTap ? dart.fn(details => this[_updateDragValue](context, details.globalPosition), T.DragUpdateDetailsTovoid()) : null, onHorizontalDragStart: this.widget.trackball != null && dart.nullCheck(this.widget.trackball).activationMode !== $enum.SparkChartActivationMode.doubleTap ? dart.fn(details => this[_updateDragValue](context, details.globalPosition), T.DragStartDetailsTovoid()) : null, onHorizontalDragUpdate: this.widget.trackball != null && dart.nullCheck(this.widget.trackball).activationMode !== $enum.SparkChartActivationMode.doubleTap ? dart.fn(details => this[_updateDragValue](context, details.globalPosition), T.DragUpdateDetailsTovoid()) : null, onTapDown: this.widget.trackball != null && dart.nullCheck(this.widget.trackball).activationMode === $enum.SparkChartActivationMode.tap ? dart.fn(details => this[_enableAndUpdateTrackball](context, details.globalPosition), T.TapDownDetailsTovoid()) : null, onLongPressStart: this.widget.trackball != null && dart.nullCheck(this.widget.trackball).activationMode === $enum.SparkChartActivationMode.longPress ? dart.fn(details => this[_enableAndUpdateTrackball](context, details.globalPosition), T.LongPressStartDetailsTovoid()) : null, onLongPressMoveUpdate: this.widget.trackball != null && dart.nullCheck(this.widget.trackball).activationMode === $enum.SparkChartActivationMode.longPress ? dart.fn(details => this[_updateDragValue](context, details.globalPosition), T.LongPressMoveUpdateDetailsTovoid()) : null, onDoubleTapDown: this.widget.trackball != null && dart.nullCheck(this.widget.trackball).activationMode === $enum.SparkChartActivationMode.doubleTap ? dart.fn(details => this[_enableAndUpdateTrackball](context, details.globalPosition), T.TapDownDetailsTovoid()) : null, onDoubleTap: this.widget.trackball != null && dart.nullCheck(this.widget.trackball).activationMode === $enum.SparkChartActivationMode.doubleTap ? dart.fn(() => this[_updateDragValue](context, dart.nullCheck(this[_globalPosition])), T.VoidTovoid()) : null, child: this[_addTrackballPainter](), $creationLocationd_0dea112b090073317d4: C[57] || CT.C57}), $creationLocationd_0dea112b090073317d4: C[69] || CT.C69}), $creationLocationd_0dea112b090073317d4: C[73] || CT.C73});
+    }
+    [_hide]() {
+      let t5;
+      if (this.widget.trackball != null && !dart.nullCheck(this.widget.trackball).shouldAlwaysShow) {
+        if (this[_timer] != null) {
+          dart.nullCheck(this[_timer]).cancel();
+        }
+        t5 = dart.nullCheck(this[_trackballRepaintNotifier]);
+        t5.value = t5.value + 1;
+        this[_timer] = async.Timer.new(new core.Duration.new({milliseconds: dart.nullCheck(this.widget.trackball).hideDelay[$toInt]()}), dart.fn(() => {
+          let t5;
+          t5 = dart.nullCheck(this[_trackballRepaintNotifier]);
+          t5.value = t5.value + 1;
+          this[_endTrackballDragging]();
+        }, T.VoidTovoid()));
+      }
+    }
+    [_addTrackballPainter]() {
+      return new layout_builder.LayoutBuilder.new({builder: dart.fn((context, constraints) => new container.Container.new({child: new basic.RepaintBoundary.new({child: new basic.CustomPaint.new({painter: new trackball_renderer.TrackballPainter.new(dart.nullCheck(this[_trackballRepaintNotifier]), this[_isTrackballEnabled], this.widget.trackball, this), size: new ui.Size.new(constraints.maxWidth, constraints.maxHeight), $creationLocationd_0dea112b090073317d4: C[78] || CT.C78}), $creationLocationd_0dea112b090073317d4: C[82] || CT.C82}), $creationLocationd_0dea112b090073317d4: C[85] || CT.C85}), T.BuildContextAndBoxConstraintsToContainer()), $creationLocationd_0dea112b090073317d4: C[88] || CT.C88});
+    }
+    [_enableTrackballBehavior](context, globalPosition) {
+      let renderBox = box.RenderBox.as(context.findRenderObject());
+      let renderBoxSize = renderBox.size;
+      let renderBoxOffset = renderBox.localToGlobal(ui.Offset.zero);
+      this[_areaBounds] = new ui.Rect.fromLTWH(renderBoxOffset.dx, renderBoxOffset.dy, renderBoxSize.width, renderBoxSize.height);
+      this[_localBounds] = new ui.Rect.fromLTWH(0.0, 0.0, renderBoxSize.width, renderBoxSize.height);
+      this[_globalPosition] = globalPosition;
+      this[_touchPosition] = renderBox.globalToLocal(globalPosition);
+      if (dart.nullCheck(this[_localBounds]).contains(dart.nullCheck(this[_touchPosition]))) {
+        this[_isTrackballEnabled] = true;
+      }
+    }
+    [_endTrackballDragging]() {
+      if (this[_isTrackballEnabled]) {
+        this[_isTrackballEnabled] = false;
+        this[_touchPosition] = null;
+        this[_globalPosition] = null;
+        this[_currentIndex] = null;
+        this[_currentDataPoint] = null;
+        this[_currentCoordinatePoint] = null;
+        this[_isTop] = false;
+      }
+    }
+    [_updateDragValue](context, globalPosition) {
+      let t5;
+      this[_currentIndex] = null;
+      this[_isTop] = false;
+      let index = null;
+      if (this[_isTrackballEnabled]) {
+        let renderBox = box.RenderBox.as(context.findRenderObject());
+        this[_touchPosition] = renderBox.globalToLocal(globalPosition);
+        let currentXPoint = dart.nullCheck(this[_touchPosition]).dx;
+        let xPoint = null;
+        let temp = null;
+        let diff = null;
+        for (let i = 0; i < dart.nullCheck(this.widget.coordinatePoints)[$length]; i = i + 1) {
+          xPoint = dart.nullCheck(this.widget.coordinatePoints)[$_get](i).dx;
+          diff = (currentXPoint - xPoint)[$abs]();
+          if (temp == null || dart.notNull(temp) > diff) {
+            temp = diff;
+            index = i;
+          }
+        }
+        if (index != null) {
+          if (index === 0 && spark_area_base.SfSparkAreaChart.is(this.widget.sparkChart)) {
+            index = 1;
+          } else if (spark_bar_base.SfSparkBarChart.is(this.widget.sparkChart)) {
+            this[_isTop] = true;
+          }
+          this[_currentDataPoint] = dart.nullCheck(this.widget.dataPoints)[$_get](index);
+          this[_currentCoordinatePoint] = dart.nullCheck(this.widget.coordinatePoints)[$_get](index);
+          t5 = dart.nullCheck(this[_trackballRepaintNotifier]);
+          t5.value = t5.value + 1;
+        }
+        this[_currentIndex] = index;
+      }
+    }
+    [_enableAndUpdateTrackball](context, globalPosition) {
+      this[_enableTrackballBehavior](context, globalPosition);
+      this[_updateDragValue](context, globalPosition);
+    }
+  };
+  (trackball_renderer._SparckChartTrackballRendererState.new = function() {
+    this[___SparckChartTrackballRendererState__trackballRepaintNotifier] = null;
+    this[___SparckChartTrackballRendererState__trackballRepaintNotifier_isSet] = false;
+    this[_isTrackballEnabled] = false;
+    this[_touchPosition] = null;
+    this[_areaBounds] = null;
+    this[___SparckChartTrackballRendererState__localBounds] = null;
+    this[___SparckChartTrackballRendererState__localBounds_isSet] = false;
+    this[_currentIndex] = null;
+    this[_globalPosition] = null;
+    this[_themeData$] = null;
+    this[_currentDataPoint] = null;
+    this[_currentCoordinatePoint] = null;
+    this[_timer] = null;
+    this[_isTop] = null;
+    this[_enableMouseHover] = true;
+    trackball_renderer._SparckChartTrackballRendererState.__proto__.new.call(this);
+    ;
+  }).prototype = trackball_renderer._SparckChartTrackballRendererState.prototype;
+  dart.addTypeTests(trackball_renderer._SparckChartTrackballRendererState);
+  dart.addTypeCaches(trackball_renderer._SparckChartTrackballRendererState);
+  dart.setMethodSignature(trackball_renderer._SparckChartTrackballRendererState, () => ({
+    __proto__: dart.getMethods(trackball_renderer._SparckChartTrackballRendererState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_hide]: dart.fnType(dart.void, []),
+    [_addTrackballPainter]: dart.fnType(framework.Widget, []),
+    [_enableTrackballBehavior]: dart.fnType(dart.void, [framework.BuildContext, ui.Offset]),
+    [_endTrackballDragging]: dart.fnType(dart.void, []),
+    [_updateDragValue]: dart.fnType(dart.void, [framework.BuildContext, ui.Offset]),
+    [_enableAndUpdateTrackball]: dart.fnType(dart.void, [framework.BuildContext, ui.Offset])
+  }));
+  dart.setGetterSignature(trackball_renderer._SparckChartTrackballRendererState, () => ({
+    __proto__: dart.getGetters(trackball_renderer._SparckChartTrackballRendererState.__proto__),
+    [_trackballRepaintNotifier]: dart.nullable(change_notifier.ValueNotifier$(core.int)),
+    [_localBounds]: dart.nullable(ui.Rect)
+  }));
+  dart.setSetterSignature(trackball_renderer._SparckChartTrackballRendererState, () => ({
+    __proto__: dart.getSetters(trackball_renderer._SparckChartTrackballRendererState.__proto__),
+    [_trackballRepaintNotifier]: dart.nullable(change_notifier.ValueNotifier$(core.int)),
+    [_localBounds]: dart.nullable(ui.Rect)
+  }));
+  dart.setLibraryUri(trackball_renderer._SparckChartTrackballRendererState, I[1]);
+  dart.setFieldSignature(trackball_renderer._SparckChartTrackballRendererState, () => ({
+    __proto__: dart.getFields(trackball_renderer._SparckChartTrackballRendererState.__proto__),
+    [___SparckChartTrackballRendererState__trackballRepaintNotifier]: dart.fieldType(dart.nullable(change_notifier.ValueNotifier$(core.int))),
+    [___SparckChartTrackballRendererState__trackballRepaintNotifier_isSet]: dart.fieldType(core.bool),
+    [_isTrackballEnabled]: dart.fieldType(core.bool),
+    [_touchPosition]: dart.fieldType(dart.nullable(ui.Offset)),
+    [_areaBounds]: dart.fieldType(dart.nullable(ui.Rect)),
+    [___SparckChartTrackballRendererState__localBounds]: dart.fieldType(dart.nullable(ui.Rect)),
+    [___SparckChartTrackballRendererState__localBounds_isSet]: dart.fieldType(core.bool),
+    [_currentIndex]: dart.fieldType(dart.nullable(core.int)),
+    [_globalPosition]: dart.fieldType(dart.nullable(ui.Offset)),
+    [_themeData$]: dart.fieldType(dart.nullable(theme_data.ThemeData)),
+    [_currentDataPoint]: dart.fieldType(dart.nullable(helper.SparkChartPoint)),
+    [_currentCoordinatePoint]: dart.fieldType(dart.nullable(ui.Offset)),
+    [_timer]: dart.fieldType(dart.nullable(async.Timer)),
+    [_isTop]: dart.fieldType(dart.nullable(core.bool)),
+    [_enableMouseHover]: dart.finalFieldType(core.bool)
+  }));
+  var _isRepaint$ = dart.privateName(trackball_renderer, "_isRepaint");
+  var _trackball$ = dart.privateName(trackball_renderer, "_trackball");
+  var _rendererState$ = dart.privateName(trackball_renderer, "_rendererState");
+  var _drawTrackLine = dart.privateName(trackball_renderer, "_drawTrackLine");
+  var _renderTrackballTooltip = dart.privateName(trackball_renderer, "_renderTrackballTooltip");
+  var _getTrackballLabel = dart.privateName(trackball_renderer, "_getTrackballLabel");
+  var _getTrackballLabelStyle = dart.privateName(trackball_renderer, "_getTrackballLabelStyle");
+  var _getBorderRadius = dart.privateName(trackball_renderer, "_getBorderRadius");
+  var _drawTrackballRect = dart.privateName(trackball_renderer, "_drawTrackballRect");
+  trackball_renderer.TrackballPainter = class TrackballPainter extends custom_paint.CustomPainter {
+    paint(canvas, size) {
+      let index = this[_rendererState$][_currentIndex];
+      if (index != null && this[_trackball$] != null) {
+        let screenPoint = dart.nullCheck(this[_rendererState$][_currentCoordinatePoint]);
+        this[_drawTrackLine](canvas, dart.nullCheck(this[_rendererState$][_areaBounds]), screenPoint, size);
+        this[_renderTrackballTooltip](canvas, screenPoint, index, size);
+      }
+    }
+    [_renderTrackballTooltip](canvas, screenPoint, index, size) {
+      let labelOffset = dart.nullCheck(screenPoint);
+      let dataLabel = this[_getTrackballLabel]();
+      let labelStyle = this[_getTrackballLabelStyle]();
+      let textSize = helper.getTextSize(dataLabel, labelStyle);
+      let areaBounds = dart.nullCheck(this[_rendererState$][_areaBounds]);
+      let borderRadius = dart.nullCheck(this[_trackball$]).borderRadius;
+      let rectWidth = textSize.width;
+      if (rectWidth < 10) {
+        rectWidth = 10.0;
+        borderRadius = this[_getBorderRadius](borderRadius, rectWidth / 2);
+      }
+      let textWidth = textSize.height / 2;
+      borderRadius = this[_getBorderRadius](borderRadius, textWidth);
+      let labelRect = new ui.Rect.fromLTWH(screenPoint.dx, screenPoint.dy, textSize.width + 15, textSize.height + 10);
+      let totalWidth = areaBounds.right - areaBounds.left;
+      let totalHeight = areaBounds.bottom - areaBounds.top;
+      let isTop = dart.nullCheck(this[_rendererState$][_isTop]);
+      let isRight = false;
+      let xPosition = null;
+      let yPosition = null;
+      let isBottom = false;
+      if (screenPoint != null) {
+        if (!isTop) {
+          xPosition = screenPoint.dx + 7 + 5;
+          yPosition = screenPoint.dy - labelRect.height / 2;
+          if (xPosition + labelRect.width > totalWidth) {
+            xPosition = xPosition - labelRect.width - 2 * 5 - 2 * 7;
+            isRight = true;
+          } else if (xPosition >= totalWidth) {
+            xPosition = totalWidth - (xPosition + labelRect.width);
+            isRight = true;
+          }
+          if (yPosition <= 0) {
+            yPosition = 0.0;
+          } else if (yPosition + labelRect.height >= totalHeight) {
+            yPosition = totalHeight - labelRect.height;
+          }
+        } else {
+          xPosition = screenPoint.dx - labelRect.width / 2;
+          let tooltipRight = screenPoint.dx + labelRect.width / 2;
+          if (screenPoint.dy > 7 + labelRect.height + 2 && screenPoint.dy > 0) {
+            yPosition = screenPoint.dy - labelRect.height - 2 - 7;
+          } else {
+            isBottom = true;
+            yPosition = (screenPoint.dy > 0 ? screenPoint.dy : 0) + 7 + 2;
+            if (yPosition + labelRect.height > size.height) {
+              let y = size.height - (yPosition + labelRect.height);
+              screenPoint = new ui.Offset.new(screenPoint.dx, y);
+              yPosition = (screenPoint.dy > 0 ? screenPoint.dy : 0) + 7 + 2;
+            }
+          }
+          xPosition = xPosition < 0 ? 0.0 : tooltipRight > totalWidth ? totalWidth - labelRect.width : xPosition;
+        }
+        labelRect = new ui.Rect.fromLTWH(xPosition, yPosition, labelRect.width, labelRect.height);
+        this[_drawTrackballRect](canvas, textSize, labelRect, isRight, borderRadius, 5, 7, screenPoint, isTop, isBottom);
+        let labelOffsetX = labelRect.left + labelRect.width / 2 - textSize.width / 2;
+        let labelOffsetY = labelRect.top + labelRect.height / 2 - textSize.height / 2;
+        labelOffset = new ui.Offset.new(labelOffsetX, labelOffsetY);
+        helper.drawText(canvas, dataLabel, labelOffset, labelStyle);
+      }
+    }
+    [_getTrackballLabel]() {
+      let currentPoint = dart.nullCheck(this[_rendererState$][_currentDataPoint]);
+      let dataLabel = dart.nullCheck(currentPoint.labelY);
+      let labelX = currentPoint.labelX;
+      dataLabel = labelX != null ? dart.notNull(labelX) + " : " + dataLabel : dataLabel;
+      if (dart.nullCheck(this[_trackball$]).tooltipFormatter != null) {
+        let tooltipFormatterDetails = new $enum.TooltipFormatterDetails.new({x: currentPoint.actualX, y: T.numN().as(currentPoint.y), label: dataLabel});
+        dataLabel = dart.nullCheck(dart.nullCheck(this[_trackball$]).tooltipFormatter)(tooltipFormatterDetails);
+      }
+      return dataLabel;
+    }
+    [_getTrackballLabelStyle]() {
+      let t5;
+      return dart.nullCheck(this[_trackball$]).labelStyle.copyWith({color: (t5 = dart.nullCheck(this[_trackball$]).labelStyle.color, t5 == null ? dart.nullCheck(this[_rendererState$][_themeData$]).brightness === ui.Brightness.light ? C[91] || CT.C91 : C[12] || CT.C12 : t5)});
+    }
+    [_getBorderRadius](borderRadius, value) {
+      return new border_radius.BorderRadius.only({topLeft: borderRadius.topLeft.x > value ? new border_radius.BorderRadius.circular(value).topLeft : borderRadius.topLeft, topRight: borderRadius.topRight.x > value ? new border_radius.BorderRadius.circular(value).topRight : borderRadius.topRight, bottomLeft: borderRadius.bottomLeft.x > value ? new border_radius.BorderRadius.circular(value).bottomLeft : borderRadius.bottomLeft, bottomRight: borderRadius.bottomRight.x > value ? new border_radius.BorderRadius.circular(value).bottomRight : borderRadius.bottomRight});
+    }
+    [_drawTrackballRect](canvas, textSize, rect, isRight, borderRadius, pointerWidth, pointerLength, screenPoint, isTop, isBottom) {
+      let t6, t5, t5$;
+      let backgroundColor = dart.nullCheck(this[_rendererState$][_themeData$]).brightness === ui.Brightness.light ? C[92] || CT.C92 : C[93] || CT.C93;
+      let paint = (t5 = ui.Paint.new(), (() => {
+        t5.color = (t6 = dart.nullCheck(this[_trackball$]).backgroundColor, t6 == null ? backgroundColor : t6);
+        return t5;
+      })());
+      let path = ui.Path.new();
+      if (!isTop) {
+        if (isRight) {
+          path.moveTo(rect.right, rect.top + rect.height / 2 - pointerWidth);
+          path.lineTo(rect.right, rect.bottom - rect.height / 2 + pointerWidth);
+          path.lineTo(rect.right + pointerLength, screenPoint.dy);
+          path.lineTo(rect.right + pointerLength, screenPoint.dy);
+          path.lineTo(rect.right, rect.top + rect.height / 2 - pointerWidth);
+        } else {
+          path.moveTo(rect.left, rect.top + rect.height / 2 - pointerWidth);
+          path.lineTo(rect.left, rect.bottom - rect.height / 2 + pointerWidth);
+          path.lineTo(rect.left - pointerLength, screenPoint.dy);
+          path.lineTo(rect.left, rect.top + rect.height / 2 - pointerWidth);
+        }
+      } else {
+        let yValue = isBottom ? rect.top : rect.bottom;
+        path.moveTo(rect.left + rect.width / 2 - pointerWidth, yValue);
+        path.lineTo(rect.left + rect.width / 2 + pointerWidth, yValue);
+        path.lineTo(screenPoint.dx, yValue + (isBottom ? -pointerLength : pointerLength));
+        path.lineTo(rect.left + rect.width / 2 - pointerWidth, yValue);
+      }
+      let roundedRect = new ui.RRect.fromRectAndCorners(rect, {bottomLeft: borderRadius.bottomLeft, bottomRight: borderRadius.bottomRight, topLeft: borderRadius.topLeft, topRight: borderRadius.topRight});
+      path.addRRect(roundedRect);
+      canvas.drawPath(path, paint);
+      if (dart.nullCheck(this[_trackball$]).borderColor != null && !dart.equals(dart.nullCheck(this[_trackball$]).borderColor, colors.Colors.transparent) && dart.nullCheck(this[_trackball$]).borderWidth > 0) {
+        let borderPaint = (t5$ = ui.Paint.new(), (() => {
+          t5$.color = dart.nullCheck(dart.nullCheck(this[_trackball$]).borderColor);
+          t5$.strokeWidth = dart.nullCheck(this[_trackball$]).borderWidth;
+          t5$.style = ui.PaintingStyle.stroke;
+          return t5$;
+        })());
+        canvas.drawPath(path, borderPaint);
+      }
+    }
+    [_drawTrackLine](canvas, areaBounds, screenPoint, size) {
+      let t6, t5;
+      let paint = (t5 = ui.Paint.new(), (() => {
+        t5.color = (t6 = dart.nullCheck(this[_trackball$]).color, t6 == null ? dart.nullCheck(this[_rendererState$][_themeData$]).brightness === ui.Brightness.light ? C[92] || CT.C92 : C[93] || CT.C93 : t6);
+        t5.strokeWidth = dart.nullCheck(this[_trackball$]).width;
+        t5.style = ui.PaintingStyle.stroke;
+        return t5;
+      })());
+      let point1 = new ui.Offset.new(screenPoint.dx, 0.0);
+      let point2 = new ui.Offset.new(screenPoint.dx, size.height);
+      if (dart.nullCheck(this[_trackball$]).dashArray != null && dart.nullCheck(dart.nullCheck(this[_trackball$]).dashArray)[$isNotEmpty]) {
+        helper.drawDashedPath(canvas, paint, point1, point2, dart.nullCheck(this[_trackball$]).dashArray);
+      } else {
+        canvas.drawLine(point1, point2, paint);
+      }
+    }
+    shouldRepaint(oldDelegate) {
+      trackball_renderer.TrackballPainter.as(oldDelegate);
+      return this[_isRepaint$];
+    }
+  };
+  (trackball_renderer.TrackballPainter.new = function(notifier, _isRepaint, _trackball, _rendererState) {
+    this[_isRepaint$] = _isRepaint;
+    this[_trackball$] = _trackball;
+    this[_rendererState$] = _rendererState;
+    trackball_renderer.TrackballPainter.__proto__.new.call(this, {repaint: notifier});
+    ;
+  }).prototype = trackball_renderer.TrackballPainter.prototype;
+  dart.addTypeTests(trackball_renderer.TrackballPainter);
+  dart.addTypeCaches(trackball_renderer.TrackballPainter);
+  dart.setMethodSignature(trackball_renderer.TrackballPainter, () => ({
+    __proto__: dart.getMethods(trackball_renderer.TrackballPainter.__proto__),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Size]),
+    [_renderTrackballTooltip]: dart.fnType(dart.void, [ui.Canvas, dart.nullable(ui.Offset), core.num, ui.Size]),
+    [_getTrackballLabel]: dart.fnType(core.String, []),
+    [_getTrackballLabelStyle]: dart.fnType(text_style.TextStyle, []),
+    [_getBorderRadius]: dart.fnType(border_radius.BorderRadius, [border_radius.BorderRadius, core.double]),
+    [_drawTrackballRect]: dart.fnType(dart.void, [ui.Canvas, ui.Size, ui.Rect, core.bool, border_radius.BorderRadius, core.double, core.double, ui.Offset, core.bool, core.bool]),
+    [_drawTrackLine]: dart.fnType(dart.void, [ui.Canvas, ui.Rect, ui.Offset, ui.Size]),
+    shouldRepaint: dart.fnType(core.bool, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(trackball_renderer.TrackballPainter, I[1]);
+  dart.setFieldSignature(trackball_renderer.TrackballPainter, () => ({
+    __proto__: dart.getFields(trackball_renderer.TrackballPainter.__proto__),
+    [_isRepaint$]: dart.finalFieldType(core.bool),
+    [_trackball$]: dart.finalFieldType(dart.nullable(spark_chart_trackball.SparkChartTrackball)),
+    [_rendererState$]: dart.finalFieldType(trackball_renderer._SparckChartTrackballRendererState)
+  }));
+  var isInversed$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.isInversed");
+  var axisCrossesAt$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.axisCrossesAt");
+  var axisLineWidth$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.axisLineWidth");
+  var axisLineColor$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.axisLineColor");
+  var axisLineDashArray$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.axisLineDashArray");
+  var highPointColor$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.highPointColor");
+  var lowPointColor$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.lowPointColor");
+  var negativePointColor$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.negativePointColor");
+  var firstPointColor$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.firstPointColor");
+  var lastPointColor$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.lastPointColor");
+  var color$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.color");
+  var plotBand$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.plotBand");
+  var borderWidth$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.borderWidth");
+  var borderColor$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.borderColor");
+  var marker$ = dart.privateName(spark_area_base, "SfSparkAreaChart.marker");
+  var labelDisplayMode$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.labelDisplayMode");
+  var labelStyle$0 = dart.privateName(spark_area_base, "SfSparkAreaChart.labelStyle");
+  var trackball$1 = dart.privateName(spark_area_base, "SfSparkAreaChart.trackball");
+  var _sparkChartDataDetails$ = dart.privateName(spark_area_base, "_sparkChartDataDetails");
+  spark_area_base.SfSparkAreaChart = class SfSparkAreaChart extends framework.StatefulWidget {
+    get isInversed() {
+      return this[isInversed$0];
+    }
+    set isInversed(value) {
+      super.isInversed = value;
+    }
+    get axisCrossesAt() {
+      return this[axisCrossesAt$0];
+    }
+    set axisCrossesAt(value) {
+      super.axisCrossesAt = value;
+    }
+    get axisLineWidth() {
+      return this[axisLineWidth$0];
+    }
+    set axisLineWidth(value) {
+      super.axisLineWidth = value;
+    }
+    get axisLineColor() {
+      return this[axisLineColor$0];
+    }
+    set axisLineColor(value) {
+      super.axisLineColor = value;
+    }
+    get axisLineDashArray() {
+      return this[axisLineDashArray$0];
+    }
+    set axisLineDashArray(value) {
+      super.axisLineDashArray = value;
+    }
+    get highPointColor() {
+      return this[highPointColor$0];
+    }
+    set highPointColor(value) {
+      super.highPointColor = value;
+    }
+    get lowPointColor() {
+      return this[lowPointColor$0];
+    }
+    set lowPointColor(value) {
+      super.lowPointColor = value;
+    }
+    get negativePointColor() {
+      return this[negativePointColor$0];
+    }
+    set negativePointColor(value) {
+      super.negativePointColor = value;
+    }
+    get firstPointColor() {
+      return this[firstPointColor$0];
+    }
+    set firstPointColor(value) {
+      super.firstPointColor = value;
+    }
+    get lastPointColor() {
+      return this[lastPointColor$0];
+    }
+    set lastPointColor(value) {
+      super.lastPointColor = value;
+    }
+    get color() {
+      return this[color$0];
+    }
+    set color(value) {
+      super.color = value;
+    }
+    get plotBand() {
+      return this[plotBand$0];
+    }
+    set plotBand(value) {
+      super.plotBand = value;
+    }
+    get borderWidth() {
+      return this[borderWidth$0];
+    }
+    set borderWidth(value) {
+      super.borderWidth = value;
+    }
+    get borderColor() {
+      return this[borderColor$0];
+    }
+    set borderColor(value) {
+      super.borderColor = value;
+    }
+    get marker() {
+      return this[marker$];
+    }
+    set marker(value) {
+      super.marker = value;
+    }
+    get labelDisplayMode() {
+      return this[labelDisplayMode$0];
+    }
+    set labelDisplayMode(value) {
+      super.labelDisplayMode = value;
+    }
+    get labelStyle() {
+      return this[labelStyle$0];
+    }
+    set labelStyle(value) {
+      super.labelStyle = value;
+    }
+    get trackball() {
+      return this[trackball$1];
+    }
+    set trackball(value) {
+      super.trackball = value;
+    }
+    createState() {
+      return new spark_area_base._SfSparkAreaChartState.new();
+    }
+  };
+  (spark_area_base.SfSparkAreaChart.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let data = opts && 'data' in opts ? opts.data : null;
+    let plotBand = opts && 'plotBand' in opts ? opts.plotBand : null;
+    let borderWidth = opts && 'borderWidth' in opts ? opts.borderWidth : 0;
+    let borderColor = opts && 'borderColor' in opts ? opts.borderColor : null;
+    let color = opts && 'color' in opts ? opts.color : C[0] || CT.C0;
+    let isInversed = opts && 'isInversed' in opts ? opts.isInversed : false;
+    let axisCrossesAt = opts && 'axisCrossesAt' in opts ? opts.axisCrossesAt : 0;
+    let axisLineColor = opts && 'axisLineColor' in opts ? opts.axisLineColor : C[12] || CT.C12;
+    let axisLineWidth = opts && 'axisLineWidth' in opts ? opts.axisLineWidth : 2;
+    let axisLineDashArray = opts && 'axisLineDashArray' in opts ? opts.axisLineDashArray : null;
+    let highPointColor = opts && 'highPointColor' in opts ? opts.highPointColor : null;
+    let lowPointColor = opts && 'lowPointColor' in opts ? opts.lowPointColor : null;
+    let negativePointColor = opts && 'negativePointColor' in opts ? opts.negativePointColor : null;
+    let firstPointColor = opts && 'firstPointColor' in opts ? opts.firstPointColor : null;
+    let lastPointColor = opts && 'lastPointColor' in opts ? opts.lastPointColor : null;
+    let marker = opts && 'marker' in opts ? opts.marker : null;
+    let labelDisplayMode = opts && 'labelDisplayMode' in opts ? opts.labelDisplayMode : null;
+    let labelStyle = opts && 'labelStyle' in opts ? opts.labelStyle : C[13] || CT.C13;
+    let trackball = opts && 'trackball' in opts ? opts.trackball : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[plotBand$0] = plotBand;
+    this[borderWidth$0] = borderWidth;
+    this[borderColor$0] = borderColor;
+    this[color$0] = color;
+    this[isInversed$0] = isInversed;
+    this[axisCrossesAt$0] = axisCrossesAt;
+    this[axisLineColor$0] = axisLineColor;
+    this[axisLineWidth$0] = axisLineWidth;
+    this[axisLineDashArray$0] = axisLineDashArray;
+    this[highPointColor$0] = highPointColor;
+    this[lowPointColor$0] = lowPointColor;
+    this[negativePointColor$0] = negativePointColor;
+    this[firstPointColor$0] = firstPointColor;
+    this[lastPointColor$0] = lastPointColor;
+    this[marker$] = marker;
+    this[labelDisplayMode$0] = labelDisplayMode;
+    this[labelStyle$0] = labelStyle;
+    this[trackball$1] = trackball;
+    this[_sparkChartDataDetails$] = new helper.SparkChartDataDetails.new({data: dart.nullCheck(data)});
+    spark_area_base.SfSparkAreaChart.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = spark_area_base.SfSparkAreaChart.prototype;
+  (spark_area_base.SfSparkAreaChart.custom = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let dataCount = opts && 'dataCount' in opts ? opts.dataCount : null;
+    let xValueMapper = opts && 'xValueMapper' in opts ? opts.xValueMapper : null;
+    let yValueMapper = opts && 'yValueMapper' in opts ? opts.yValueMapper : null;
+    let plotBand = opts && 'plotBand' in opts ? opts.plotBand : null;
+    let borderWidth = opts && 'borderWidth' in opts ? opts.borderWidth : 2;
+    let borderColor = opts && 'borderColor' in opts ? opts.borderColor : null;
+    let color = opts && 'color' in opts ? opts.color : C[0] || CT.C0;
+    let isInversed = opts && 'isInversed' in opts ? opts.isInversed : false;
+    let axisCrossesAt = opts && 'axisCrossesAt' in opts ? opts.axisCrossesAt : 0;
+    let axisLineColor = opts && 'axisLineColor' in opts ? opts.axisLineColor : C[12] || CT.C12;
+    let axisLineWidth = opts && 'axisLineWidth' in opts ? opts.axisLineWidth : 2;
+    let axisLineDashArray = opts && 'axisLineDashArray' in opts ? opts.axisLineDashArray : null;
+    let highPointColor = opts && 'highPointColor' in opts ? opts.highPointColor : null;
+    let lowPointColor = opts && 'lowPointColor' in opts ? opts.lowPointColor : null;
+    let negativePointColor = opts && 'negativePointColor' in opts ? opts.negativePointColor : null;
+    let firstPointColor = opts && 'firstPointColor' in opts ? opts.firstPointColor : null;
+    let lastPointColor = opts && 'lastPointColor' in opts ? opts.lastPointColor : null;
+    let marker = opts && 'marker' in opts ? opts.marker : null;
+    let labelDisplayMode = opts && 'labelDisplayMode' in opts ? opts.labelDisplayMode : null;
+    let labelStyle = opts && 'labelStyle' in opts ? opts.labelStyle : C[13] || CT.C13;
+    let trackball = opts && 'trackball' in opts ? opts.trackball : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[plotBand$0] = plotBand;
+    this[borderWidth$0] = borderWidth;
+    this[borderColor$0] = borderColor;
+    this[color$0] = color;
+    this[isInversed$0] = isInversed;
+    this[axisCrossesAt$0] = axisCrossesAt;
+    this[axisLineColor$0] = axisLineColor;
+    this[axisLineWidth$0] = axisLineWidth;
+    this[axisLineDashArray$0] = axisLineDashArray;
+    this[highPointColor$0] = highPointColor;
+    this[lowPointColor$0] = lowPointColor;
+    this[negativePointColor$0] = negativePointColor;
+    this[firstPointColor$0] = firstPointColor;
+    this[lastPointColor$0] = lastPointColor;
+    this[marker$] = marker;
+    this[labelDisplayMode$0] = labelDisplayMode;
+    this[labelStyle$0] = labelStyle;
+    this[trackball$1] = trackball;
+    this[_sparkChartDataDetails$] = new helper.SparkChartDataDetails.new({dataCount: dart.nullCheck(dataCount), xValueMapper: dart.nullCheck(xValueMapper), yValueMapper: dart.nullCheck(yValueMapper)});
+    spark_area_base.SfSparkAreaChart.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = spark_area_base.SfSparkAreaChart.prototype;
+  dart.addTypeTests(spark_area_base.SfSparkAreaChart);
+  dart.addTypeCaches(spark_area_base.SfSparkAreaChart);
+  dart.setMethodSignature(spark_area_base.SfSparkAreaChart, () => ({
+    __proto__: dart.getMethods(spark_area_base.SfSparkAreaChart.__proto__),
+    createState: dart.fnType(framework.State$(framework.StatefulWidget), [])
+  }));
+  dart.setLibraryUri(spark_area_base.SfSparkAreaChart, I[2]);
+  dart.setFieldSignature(spark_area_base.SfSparkAreaChart, () => ({
+    __proto__: dart.getFields(spark_area_base.SfSparkAreaChart.__proto__),
+    isInversed: dart.finalFieldType(core.bool),
+    axisCrossesAt: dart.finalFieldType(core.double),
+    axisLineWidth: dart.finalFieldType(core.double),
+    axisLineColor: dart.finalFieldType(ui.Color),
+    axisLineDashArray: dart.finalFieldType(dart.nullable(core.List$(core.double))),
+    highPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    lowPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    negativePointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    firstPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    lastPointColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    color: dart.finalFieldType(ui.Color),
+    plotBand: dart.finalFieldType(dart.nullable(plot_band.SparkChartPlotBand)),
+    borderWidth: dart.finalFieldType(core.double),
+    borderColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    marker: dart.finalFieldType(dart.nullable(marker.SparkChartMarker)),
+    labelDisplayMode: dart.finalFieldType(dart.nullable($enum.SparkChartLabelDisplayMode)),
+    labelStyle: dart.finalFieldType(text_style.TextStyle),
+    trackball: dart.finalFieldType(dart.nullable(spark_chart_trackball.SparkChartTrackball)),
+    [_sparkChartDataDetails$]: dart.finalFieldType(helper.SparkChartDataDetails)
+  }));
+  var ___SfSparkAreaChartState__themeData = dart.privateName(spark_area_base, "_#_SfSparkAreaChartState#_themeData");
+  var ___SfSparkAreaChartState__coordinatePoints = dart.privateName(spark_area_base, "_#_SfSparkAreaChartState#_coordinatePoints");
+  var ___SfSparkAreaChartState__dataPoints = dart.privateName(spark_area_base, "_#_SfSparkAreaChartState#_dataPoints");
+  var _themeData$0 = dart.privateName(spark_area_base, "_themeData");
+  var _coordinatePoints$ = dart.privateName(spark_area_base, "_coordinatePoints");
+  var _dataPoints$ = dart.privateName(spark_area_base, "_dataPoints");
+  var _getSparkAreaChart = dart.privateName(spark_area_base, "_getSparkAreaChart");
+  spark_area_base._SfSparkAreaChartState = class _SfSparkAreaChartState extends framework.State$(spark_area_base.SfSparkAreaChart) {
+    get [_themeData$0]() {
+      let t5;
+      t5 = this[___SfSparkAreaChartState__themeData];
+      return t5 == null ? dart.throw(new _internal.LateError.fieldNI("_themeData")) : t5;
+    }
+    set [_themeData$0](t5) {
+      this[___SfSparkAreaChartState__themeData] = t5;
+    }
+    get [_coordinatePoints$]() {
+      let t6;
+      t6 = this[___SfSparkAreaChartState__coordinatePoints];
+      return t6 == null ? dart.throw(new _internal.LateError.fieldNI("_coordinatePoints")) : t6;
+    }
+    set [_coordinatePoints$](t6) {
+      this[___SfSparkAreaChartState__coordinatePoints] = t6;
+    }
+    get [_dataPoints$]() {
+      let t7;
+      t7 = this[___SfSparkAreaChartState__dataPoints];
+      return t7 == null ? dart.throw(new _internal.LateError.fieldNI("_dataPoints")) : t7;
+    }
+    set [_dataPoints$](t7) {
+      this[___SfSparkAreaChartState__dataPoints] = t7;
+    }
+    initState() {
+      this[_coordinatePoints$] = T.JSArrayOfOffset().of([]);
+      this[_dataPoints$] = T.JSArrayOfSparkChartPoint().of([]);
+      super.initState();
+    }
+    didUpdateWidget(oldWidget) {
+      spark_area_base.SfSparkAreaChart.as(oldWidget);
+      super.didUpdateWidget(oldWidget);
+    }
+    didChangeDependencies() {
+      this[_themeData$0] = theme.Theme.of(this.context);
+      super.didChangeDependencies();
+    }
+    build(context) {
+      if (this.widget.marker != null && dart.nullCheck(this.widget.marker).displayMode !== $enum.SparkChartMarkerDisplayMode.none) {
+        let padding = dart.nullCheck(this.widget.marker).size / 2;
+        return new basic.RepaintBoundary.new({child: new basic.Padding.new({padding: new edge_insets.EdgeInsets.all(padding), child: this[_getSparkAreaChart](), $creationLocationd_0dea112b090073317d4: C[94] || CT.C94}), $creationLocationd_0dea112b090073317d4: C[98] || CT.C98});
+      } else {
+        return new basic.RepaintBoundary.new({child: this[_getSparkAreaChart](), $creationLocationd_0dea112b090073317d4: C[101] || CT.C101});
+      }
+    }
+    [_getSparkAreaChart]() {
+      return new helper.SparkChartContainer.new({child: new basic.Stack.new({children: T.JSArrayOfWidget().of([new spark_area_renderer.SfSparkAreaChartRenderObjectWidget.new({data: this.widget[_sparkChartDataDetails$].data, dataCount: this.widget[_sparkChartDataDetails$].dataCount, xValueMapper: this.widget[_sparkChartDataDetails$].xValueMapper, yValueMapper: this.widget[_sparkChartDataDetails$].yValueMapper, isInversed: this.widget.isInversed, axisCrossesAt: this.widget.axisCrossesAt, axisLineColor: this.widget.axisLineColor, axisLineWidth: this.widget.axisLineWidth, axisLineDashArray: this.widget.axisLineDashArray, highPointColor: this.widget.highPointColor, lowPointColor: this.widget.lowPointColor, firstPointColor: this.widget.firstPointColor, lastPointColor: this.widget.lastPointColor, negativePointColor: this.widget.negativePointColor, color: this.widget.color, borderColor: this.widget.borderColor, borderWidth: this.widget.borderWidth, plotBand: this.widget.plotBand, marker: this.widget.marker, labelDisplayMode: this.widget.labelDisplayMode, labelStyle: this.widget.labelStyle, themeData: this[_themeData$0], sparkChartDataDetails: this.widget[_sparkChartDataDetails$], dataPoints: this[_dataPoints$], coordinatePoints: this[_coordinatePoints$], $creationLocationd_0dea112b090073317d4: C[104] || CT.C104}), new trackball_renderer.SparkChartTrackballRenderer.new({trackball: this.widget.trackball, coordinatePoints: this[_coordinatePoints$], dataPoints: this[_dataPoints$], sparkChart: this.widget, $creationLocationd_0dea112b090073317d4: C[131] || CT.C131})]), $creationLocationd_0dea112b090073317d4: C[137] || CT.C137}), $creationLocationd_0dea112b090073317d4: C[140] || CT.C140});
+    }
+  };
+  (spark_area_base._SfSparkAreaChartState.new = function() {
+    this[___SfSparkAreaChartState__themeData] = null;
+    this[___SfSparkAreaChartState__coordinatePoints] = null;
+    this[___SfSparkAreaChartState__dataPoints] = null;
+    spark_area_base._SfSparkAreaChartState.__proto__.new.call(this);
+    ;
+  }).prototype = spark_area_base._SfSparkAreaChartState.prototype;
+  dart.addTypeTests(spark_area_base._SfSparkAreaChartState);
+  dart.addTypeCaches(spark_area_base._SfSparkAreaChartState);
+  dart.setMethodSignature(spark_area_base._SfSparkAreaChartState, () => ({
+    __proto__: dart.getMethods(spark_area_base._SfSparkAreaChartState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext]),
+    [_getSparkAreaChart]: dart.fnType(framework.Widget, [])
+  }));
+  dart.setGetterSignature(spark_area_base._SfSparkAreaChartState, () => ({
+    __proto__: dart.getGetters(spark_area_base._SfSparkAreaChartState.__proto__),
+    [_themeData$0]: theme_data.ThemeData,
+    [_coordinatePoints$]: core.List$(ui.Offset),
+    [_dataPoints$]: core.List$(helper.SparkChartPoint)
+  }));
+  dart.setSetterSignature(spark_area_base._SfSparkAreaChartState, () => ({
+    __proto__: dart.getSetters(spark_area_base._SfSparkAreaChartState.__proto__),
+    [_themeData$0]: theme_data.ThemeData,
+    [_coordinatePoints$]: core.List$(ui.Offset),
+    [_dataPoints$]: core.List$(helper.SparkChartPoint)
+  }));
+  dart.setLibraryUri(spark_area_base._SfSparkAreaChartState, I[2]);
+  dart.setFieldSignature(spark_area_base._SfSparkAreaChartState, () => ({
+    __proto__: dart.getFields(spark_area_base._SfSparkAreaChartState.__proto__),
+    [___SfSparkAreaChartState__themeData]: dart.fieldType(dart.nullable(theme_data.ThemeData)),
+    [___SfSparkAreaChartState__coordinatePoints]: dart.fieldType(dart.nullable(core.List$(ui.Offset))),
+    [___SfSparkAreaChartState__dataPoints]: dart.fieldType(dart.nullable(core.List$(helper.SparkChartPoint)))
+  }));
+  dart.trackLibraries("packages/syncfusion_flutter_charts/src/sparkline/series/spark_bar_base.dart", {
+    "package:syncfusion_flutter_charts/src/sparkline/series/spark_bar_base.dart": spark_bar_base,
+    "package:syncfusion_flutter_charts/src/sparkline/trackball/trackball_renderer.dart": trackball_renderer,
+    "package:syncfusion_flutter_charts/src/sparkline/series/spark_area_base.dart": spark_area_base
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["spark_bar_base.dart","../trackball/trackball_renderer.dart","spark_area_base.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;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","file":"../../../../../../../../../../../D:/packages/syncfusion_flutter_charts/src/sparkline/series/spark_bar_base.dart.lib.js"}');
+  // Exports:
+  return {
+    src__sparkline__series__spark_bar_base: spark_bar_base,
+    src__sparkline__trackball__trackball_renderer: trackball_renderer,
+    src__sparkline__series__spark_area_base: spark_area_base
+  };
+}));
+
+//# sourceMappingURL=spark_bar_base.dart.lib.js.map

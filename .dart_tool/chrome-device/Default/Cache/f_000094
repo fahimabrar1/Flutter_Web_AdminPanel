@@ -1,0 +1,785 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/shifted_box.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/placeholder_span.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/syncfusion_flutter_core/core.dart', 'packages/syncfusion_flutter_charts/src/sparkline/utils/enum.dart'], (function load__packages__syncfusion_flutter_charts__src__sparkline__utils__helper_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__shifted_box$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__placeholder_span$46dart, packages__flutter__src__painting__strut_style$46dart, packages__syncfusion_flutter_core__core$46dart, packages__syncfusion_flutter_charts__src__sparkline__utils__enum$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const shifted_box = packages__flutter__src__rendering__shifted_box$46dart.src__rendering__shifted_box;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const text_painter = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_painter;
+  const text_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_span;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const core$ = packages__syncfusion_flutter_core__core$46dart.core;
+  const $enum = packages__syncfusion_flutter_charts__src__sparkline__utils__enum$46dart.src__sparkline__utils__enum;
+  var helper = Object.create(dart.library);
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var $round = dartx.round;
+  var $toInt = dartx.toInt;
+  var $sort = dartx.sort;
+  var $compareTo = dartx.compareTo;
+  var $roundToDouble = dartx.roundToDouble;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    DashArrayIntervalListOfdouble: () => (T.DashArrayIntervalListOfdouble = dart.constFn(helper.DashArrayIntervalList$(core.double)))(),
+    ListOfSparkChartPoint: () => (T.ListOfSparkChartPoint = dart.constFn(core.List$(helper.SparkChartPoint)))(),
+    SparkChartPointAndSparkChartPointToint: () => (T.SparkChartPointAndSparkChartPointToint = dart.constFn(dart.fnType(core.int, [helper.SparkChartPoint, helper.SparkChartPoint])))(),
+    OffsetAndOffsetToint: () => (T.OffsetAndOffsetToint = dart.constFn(dart.fnType(core.int, [ui.Offset, ui.Offset])))(),
+    numN: () => (T.numN = dart.constFn(dart.nullable(core.num)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: $enum.SparkChartMarkerShape.prototype,
+        [_name]: "SparkChartMarkerShape.circle",
+        index: 0
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: $enum.SparkChartMarkerShape.prototype,
+        [_name]: "SparkChartMarkerShape.square",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: $enum.SparkChartMarkerShape.prototype,
+        [_name]: "SparkChartMarkerShape.invertedTriangle",
+        index: 4
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: $enum.SparkChartMarkerShape.prototype,
+        [_name]: "SparkChartMarkerShape.diamond",
+        index: 1
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: $enum.SparkChartMarkerShape.prototype,
+        [_name]: "SparkChartMarkerShape.triangle",
+        index: 3
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: $enum.SparkChartMarkerDisplayMode.prototype,
+        [_name]: "SparkChartMarkerDisplayMode.all",
+        index: 1
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: $enum.SparkChartMarkerDisplayMode.prototype,
+        [_name]: "SparkChartMarkerDisplayMode.first",
+        index: 4
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: $enum.SparkChartMarkerDisplayMode.prototype,
+        [_name]: "SparkChartMarkerDisplayMode.last",
+        index: 5
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: $enum.SparkChartMarkerDisplayMode.prototype,
+        [_name]: "SparkChartMarkerDisplayMode.low",
+        index: 3
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: $enum.SparkChartMarkerDisplayMode.prototype,
+        [_name]: "SparkChartMarkerDisplayMode.high",
+        index: 2
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: $enum.SparkChartMarkerDisplayMode.prototype,
+        [_name]: "SparkChartMarkerDisplayMode.none",
+        index: 0
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294967295.0
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: $enum.SparkChartLabelDisplayMode.prototype,
+        [_name]: "SparkChartLabelDisplayMode.all",
+        index: 1
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: $enum.SparkChartLabelDisplayMode.prototype,
+        [_name]: "SparkChartLabelDisplayMode.first",
+        index: 4
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: $enum.SparkChartLabelDisplayMode.prototype,
+        [_name]: "SparkChartLabelDisplayMode.last",
+        index: 5
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: $enum.SparkChartLabelDisplayMode.prototype,
+        [_name]: "SparkChartLabelDisplayMode.low",
+        index: 3
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: $enum.SparkChartLabelDisplayMode.prototype,
+        [_name]: "SparkChartLabelDisplayMode.high",
+        index: 2
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: $enum.SparkChartLabelDisplayMode.prototype,
+        [_name]: "SparkChartLabelDisplayMode.none",
+        index: 0
+      });
+    }
+  }, false);
+  var C = Array(19).fill(void 0);
+  var I = ["package:syncfusion_flutter_charts/src/sparkline/utils/helper.dart"];
+  var _index = dart.privateName(helper, "_index");
+  var _values$ = dart.privateName(helper, "_values");
+  const _is_DashArrayIntervalList_default = Symbol('_is_DashArrayIntervalList_default');
+  helper.DashArrayIntervalList$ = dart.generic(T => {
+    class DashArrayIntervalList extends core.Object {
+      get next() {
+        let t0;
+        if (this[_index] >= this[_values$][$length]) {
+          this[_index] = 0;
+        }
+        return this[_values$][$_get]((t0 = this[_index], this[_index] = t0 + 1, t0));
+      }
+    }
+    (DashArrayIntervalList.new = function(_values) {
+      this[_index] = 0;
+      this[_values$] = _values;
+      ;
+    }).prototype = DashArrayIntervalList.prototype;
+    dart.addTypeTests(DashArrayIntervalList);
+    DashArrayIntervalList.prototype[_is_DashArrayIntervalList_default] = true;
+    dart.addTypeCaches(DashArrayIntervalList);
+    dart.setGetterSignature(DashArrayIntervalList, () => ({
+      __proto__: dart.getGetters(DashArrayIntervalList.__proto__),
+      next: T
+    }));
+    dart.setLibraryUri(DashArrayIntervalList, I[0]);
+    dart.setFieldSignature(DashArrayIntervalList, () => ({
+      __proto__: dart.getFields(DashArrayIntervalList.__proto__),
+      [_values$]: dart.finalFieldType(core.List$(T)),
+      [_index]: dart.fieldType(core.int)
+    }));
+    return DashArrayIntervalList;
+  });
+  helper.DashArrayIntervalList = helper.DashArrayIntervalList$();
+  dart.addTypeTests(helper.DashArrayIntervalList, _is_DashArrayIntervalList_default);
+  var x$ = dart.privateName(helper, "SparkChartPoint.x");
+  var y$ = dart.privateName(helper, "SparkChartPoint.y");
+  var dataLabelOffset = dart.privateName(helper, "SparkChartPoint.dataLabelOffset");
+  var labelX = dart.privateName(helper, "SparkChartPoint.labelX");
+  var labelY = dart.privateName(helper, "SparkChartPoint.labelY");
+  var actualX = dart.privateName(helper, "SparkChartPoint.actualX");
+  var color = dart.privateName(helper, "SparkChartPoint.color");
+  helper.SparkChartPoint = class SparkChartPoint extends core.Object {
+    get x() {
+      return this[x$];
+    }
+    set x(value) {
+      this[x$] = value;
+    }
+    get y() {
+      return this[y$];
+    }
+    set y(value) {
+      this[y$] = value;
+    }
+    get dataLabelOffset() {
+      return this[dataLabelOffset];
+    }
+    set dataLabelOffset(value) {
+      this[dataLabelOffset] = value;
+    }
+    get labelX() {
+      return this[labelX];
+    }
+    set labelX(value) {
+      this[labelX] = value;
+    }
+    get labelY() {
+      return this[labelY];
+    }
+    set labelY(value) {
+      this[labelY] = value;
+    }
+    get actualX() {
+      return this[actualX];
+    }
+    set actualX(value) {
+      this[actualX] = value;
+    }
+    get color() {
+      return this[color];
+    }
+    set color(value) {
+      this[color] = value;
+    }
+  };
+  (helper.SparkChartPoint.new = function(opts) {
+    let x = opts && 'x' in opts ? opts.x : null;
+    let y = opts && 'y' in opts ? opts.y : null;
+    this[dataLabelOffset] = null;
+    this[labelX] = null;
+    this[labelY] = null;
+    this[actualX] = null;
+    this[color] = null;
+    this[x$] = x;
+    this[y$] = y;
+    ;
+  }).prototype = helper.SparkChartPoint.prototype;
+  dart.addTypeTests(helper.SparkChartPoint);
+  dart.addTypeCaches(helper.SparkChartPoint);
+  dart.setLibraryUri(helper.SparkChartPoint, I[0]);
+  dart.setFieldSignature(helper.SparkChartPoint, () => ({
+    __proto__: dart.getFields(helper.SparkChartPoint.__proto__),
+    x: dart.fieldType(dart.dynamic),
+    y: dart.fieldType(dart.dynamic),
+    dataLabelOffset: dart.fieldType(dart.nullable(ui.Offset)),
+    labelX: dart.fieldType(dart.nullable(core.String)),
+    labelY: dart.fieldType(dart.nullable(core.String)),
+    actualX: dart.fieldType(dart.dynamic),
+    color: dart.fieldType(dart.nullable(ui.Color))
+  }));
+  var data$ = dart.privateName(helper, "SparkChartDataDetails.data");
+  var dataCount$ = dart.privateName(helper, "SparkChartDataDetails.dataCount");
+  var xValueMapper$ = dart.privateName(helper, "SparkChartDataDetails.xValueMapper");
+  var yValueMapper$ = dart.privateName(helper, "SparkChartDataDetails.yValueMapper");
+  helper.SparkChartDataDetails = class SparkChartDataDetails extends core.Object {
+    get data() {
+      return this[data$];
+    }
+    set data(value) {
+      super.data = value;
+    }
+    get dataCount() {
+      return this[dataCount$];
+    }
+    set dataCount(value) {
+      super.dataCount = value;
+    }
+    get xValueMapper() {
+      return this[xValueMapper$];
+    }
+    set xValueMapper(value) {
+      super.xValueMapper = value;
+    }
+    get yValueMapper() {
+      return this[yValueMapper$];
+    }
+    set yValueMapper(value) {
+      super.yValueMapper = value;
+    }
+  };
+  (helper.SparkChartDataDetails.new = function(opts) {
+    let data = opts && 'data' in opts ? opts.data : null;
+    let dataCount = opts && 'dataCount' in opts ? opts.dataCount : null;
+    let xValueMapper = opts && 'xValueMapper' in opts ? opts.xValueMapper : null;
+    let yValueMapper = opts && 'yValueMapper' in opts ? opts.yValueMapper : null;
+    this[data$] = data;
+    this[dataCount$] = dataCount;
+    this[xValueMapper$] = xValueMapper;
+    this[yValueMapper$] = yValueMapper;
+    ;
+  }).prototype = helper.SparkChartDataDetails.prototype;
+  dart.addTypeTests(helper.SparkChartDataDetails);
+  dart.addTypeCaches(helper.SparkChartDataDetails);
+  dart.setLibraryUri(helper.SparkChartDataDetails, I[0]);
+  dart.setFieldSignature(helper.SparkChartDataDetails, () => ({
+    __proto__: dart.getFields(helper.SparkChartDataDetails.__proto__),
+    data: dart.finalFieldType(dart.nullable(core.List$(core.num))),
+    dataCount: dart.finalFieldType(dart.nullable(core.int)),
+    xValueMapper: dart.finalFieldType(dart.nullable(dart.fnType(dart.dynamic, [core.int]))),
+    yValueMapper: dart.finalFieldType(dart.nullable(dart.fnType(core.num, [core.int])))
+  }));
+  helper.SparkChartContainer = class SparkChartContainer extends framework.SingleChildRenderObjectWidget {
+    createRenderObject(context) {
+      return new helper._SparKChartContainerBox.new(context);
+    }
+  };
+  (helper.SparkChartContainer.new = function(opts) {
+    let child = opts && 'child' in opts ? opts.child : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    helper.SparkChartContainer.__proto__.new.call(this, {child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = helper.SparkChartContainer.prototype;
+  dart.addTypeTests(helper.SparkChartContainer);
+  dart.addTypeCaches(helper.SparkChartContainer);
+  dart.setMethodSignature(helper.SparkChartContainer, () => ({
+    __proto__: dart.getMethods(helper.SparkChartContainer.__proto__),
+    createRenderObject: dart.fnType(object.RenderObject, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(helper.SparkChartContainer, I[0]);
+  helper._SparKChartContainerBox = class _SparKChartContainerBox extends shifted_box.RenderShiftedBox {
+    performLayout() {
+      this.size = helper.getLayoutSize(this.constraints, this.context);
+      dart.nullCheck(this.child).layout(new box.BoxConstraints.new({minHeight: 0.0, maxHeight: this.size.height, minWidth: 0.0, maxWidth: this.size.width}), {parentUsesSize: false});
+    }
+  };
+  (helper._SparKChartContainerBox.new = function(context) {
+    this.context = context;
+    helper._SparKChartContainerBox.__proto__.new.call(this, null);
+    ;
+  }).prototype = helper._SparKChartContainerBox.prototype;
+  dart.addTypeTests(helper._SparKChartContainerBox);
+  dart.addTypeCaches(helper._SparKChartContainerBox);
+  dart.setLibraryUri(helper._SparKChartContainerBox, I[0]);
+  dart.setFieldSignature(helper._SparKChartContainerBox, () => ({
+    __proto__: dart.getFields(helper._SparKChartContainerBox.__proto__),
+    context: dart.finalFieldType(framework.BuildContext)
+  }));
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  var _name = dart.privateName($enum, "_name");
+  var Color_value = dart.privateName(ui, "Color.value");
+  helper.getSaturationColor = function getSaturationColor(color) {
+    let saturationColor = null;
+    let contrast = ((color.red * 299 + color.green * 587 + color.blue * 114) / 1000)[$round]();
+    saturationColor = contrast >= 128 ? colors.Colors.black : colors.Colors.white;
+    return saturationColor;
+  };
+  helper.getTextSize = function getTextSize(textValue, textStyle) {
+    let size = null;
+    let textPainter = new text_painter.TextPainter.new({textAlign: ui.TextAlign.center, textDirection: ui.TextDirection.ltr, text: new text_span.TextSpan.new({text: textValue, style: new text_style.TextStyle.new({color: textStyle.color, fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, fontStyle: textStyle.fontStyle, fontWeight: textStyle.fontWeight})})});
+    textPainter.layout();
+    size = new ui.Size.new(textPainter.width, textPainter.height);
+    return size;
+  };
+  helper.drawText = function drawText(canvas, dataLabel, point, style) {
+    let maxLines = core$.getMaxLinesContent(dataLabel);
+    let span = new text_span.TextSpan.new({text: dataLabel, style: style});
+    let tp = new text_painter.TextPainter.new({text: span, textDirection: ui.TextDirection.ltr, textAlign: ui.TextAlign.center, maxLines: maxLines[$toInt]()});
+    tp.layout();
+    canvas.save();
+    canvas.translate(point.dx, point.dy);
+    let labelOffset = C[0] || CT.C0;
+    tp.paint(canvas, labelOffset);
+    canvas.restore();
+  };
+  helper.drawDashedPath = function drawDashedPath(canvas, paint, moveToPoint, lineToPoint, dashArray = null) {
+    let even = false;
+    let path = ui.Path.new();
+    path.moveTo(moveToPoint.dx, moveToPoint.dy);
+    path.lineTo(lineToPoint.dx, lineToPoint.dy);
+    if (dashArray != null) {
+      for (let i = 1; i < dashArray[$length]; i = i + 2) {
+        if (dashArray[$_get](i) === 0) {
+          even = true;
+        }
+      }
+      if (even === false) {
+        canvas.drawPath(dart.nullCheck(helper._dashPath(path, {dashArray: new (T.DashArrayIntervalListOfdouble()).new(dashArray)})), paint);
+      }
+    } else {
+      canvas.drawPath(path, paint);
+    }
+  };
+  helper._dashPath = function _dashPath(source, opts) {
+    let dashArray = opts && 'dashArray' in opts ? opts.dashArray : null;
+    if (source == null) {
+      return null;
+    }
+    let path = ui.Path.new();
+    for (let measurePath of source.computeMetrics()) {
+      let distance = 0;
+      let draw = true;
+      while (distance < measurePath.length) {
+        let length = dart.nullCheck(dashArray).next;
+        if (draw) {
+          path.addPath(measurePath.extractPath(distance, distance + length), ui.Offset.zero);
+        }
+        distance = distance + length;
+        draw = !draw;
+      }
+    }
+    return path;
+  };
+  helper.drawRectangle = function drawRectangle(path, x, y, size) {
+    path.addRect(new ui.Rect.fromLTRB(x - size / 2, y - size / 2, x + size / 2, y + size / 2));
+    return path;
+  };
+  helper.drawCircle = function drawCircle(path, x, y, size) {
+    path.addArc(new ui.Rect.fromLTRB(x - size / 2, y - size / 2, x + size / 2, y + size / 2), 0.0, 2 * 3.141592653589793);
+    return path;
+  };
+  helper.drawInvertedTriangle = function drawInvertedTriangle(path, x, y, size) {
+    path.moveTo(x + size / 2, y - size / 2);
+    path.lineTo(x, y + size / 2);
+    path.lineTo(x - size / 2, y - size / 2);
+    path.lineTo(x + size / 2, y - size / 2);
+    path.close();
+    return path;
+  };
+  helper.drawDiamond = function drawDiamond(path, x, y, size) {
+    path.moveTo(x - size / 2, y);
+    path.lineTo(x, y + size / 2);
+    path.lineTo(x + size / 2, y);
+    path.lineTo(x, y - size / 2);
+    path.lineTo(x - size / 2, y);
+    path.close();
+    return path;
+  };
+  helper.drawTriangle = function drawTriangle(path, x, y, size) {
+    path.moveTo(x - size / 2, y + size / 2);
+    path.lineTo(x + size / 2, y + size / 2);
+    path.lineTo(x, y - size / 2);
+    path.lineTo(x - size / 2, y + size / 2);
+    path.close();
+    return path;
+  };
+  helper.sortSparkChartPoints = function sortSparkChartPoints(dataPoints) {
+    let sortedPoints = T.ListOfSparkChartPoint().from(dataPoints);
+    sortedPoints[$sort](dart.fn((firstPoint, secondPoint) => {
+      dart.dsend(firstPoint.x, 'compareTo', [secondPoint.x]);
+      if (dart.equals(dart.dsend(firstPoint.x, '<', [secondPoint.x]), true)) {
+        return -1;
+      } else if (dart.equals(dart.dsend(firstPoint.x, '>', [secondPoint.x]), true)) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }, T.SparkChartPointAndSparkChartPointToint()));
+    return sortedPoints;
+  };
+  helper.sortScreenCoordiantePoints = function sortScreenCoordiantePoints(coordinatePoints) {
+    coordinatePoints[$sort](dart.fn((firstPoint, secondPoint) => {
+      firstPoint.dx[$compareTo](secondPoint.dx);
+      if (firstPoint.dx < secondPoint.dx) {
+        return -1;
+      } else if (firstPoint.dx > secondPoint.dx) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }, T.OffsetAndOffsetToint()));
+    return coordinatePoints;
+  };
+  helper.transformToCoordinatePoint = function transformToCoordinatePoint(minX, maxX, minY, maxY, diffX, diffY, size, x, y, dataLength) {
+    let visibleYPoint = minY !== maxY && dataLength !== 1 ? (size.height * (1 - (y - minY) / diffY))[$roundToDouble]() : 0.0;
+    let visibleXPoint = minX !== maxX ? (size.width * ((x - minX) / diffX))[$roundToDouble]() : size.width / 2;
+    return new ui.Offset.new(visibleXPoint, visibleYPoint);
+  };
+  helper.getLayoutSize = function getLayoutSize(constraints, context) {
+    let height = constraints.maxHeight;
+    let width = constraints.maxWidth;
+    let deviceWidth = media_query.MediaQuery.of(context).size.width;
+    let deviceHeight = media_query.MediaQuery.of(context).size.height;
+    if (height === 1 / 0) {
+      if (width !== 1 / 0) {
+        height = width / 16 * 9;
+      } else {
+        height = 270;
+      }
+    }
+    if (width === 1 / 0) {
+      if (height !== 1 / 0) {
+        width = height / 9 * 16;
+      } else {
+        width = 480;
+      }
+    }
+    if (width > deviceWidth) {
+      width = deviceWidth;
+    }
+    if (height > deviceHeight) {
+      height = deviceHeight;
+    }
+    return new ui.Size.new(width, height);
+  };
+  helper.getMarkerShapes = function getMarkerShapes(markerShape, position, size) {
+    let path = ui.Path.new();
+    switch (markerShape) {
+      case C[1] || CT.C1:
+      {
+        {
+          helper.drawCircle(path, position.dx, position.dy, size);
+        }
+        break;
+      }
+      case C[2] || CT.C2:
+      {
+        {
+          helper.drawRectangle(path, position.dx, position.dy, size);
+        }
+        break;
+      }
+      case C[3] || CT.C3:
+      {
+        {
+          helper.drawInvertedTriangle(path, position.dx, position.dy, size);
+        }
+        break;
+      }
+      case C[4] || CT.C4:
+      {
+        {
+          helper.drawDiamond(path, position.dx, position.dy, size);
+        }
+        break;
+      }
+      case C[5] || CT.C5:
+      {
+        {
+          helper.drawTriangle(path, position.dx, position.dy, size);
+        }
+        break;
+      }
+      default:
+      {
+        break;
+      }
+    }
+    return path;
+  };
+  helper.renderMarker = function renderMarker(canvas, offset, marker, coordinatePoints, dataPoints, color, type, highPoint, lowPoint, axisCrossesAt, themeData, lowPointColor, highPointColor, negativePointColor, firstPointColor, lastPointColor) {
+    let t0, t1, t0$, t1$, t1$0, t1$1, t1$2, t1$3;
+    let fillPaint = (t0 = ui.Paint.new(), (() => {
+      t0.style = ui.PaintingStyle.fill;
+      return t0;
+    })());
+    let strokePaint = (t0$ = ui.Paint.new(), (() => {
+      t0$.color = (t1 = marker.borderColor, t1 == null ? color : t1);
+      t0$.style = ui.PaintingStyle.stroke;
+      t0$.strokeWidth = marker.borderWidth;
+      return t0$;
+    })());
+    let markerShape = marker.shape;
+    let markerSize = marker.size;
+    let markerDisplayMode = marker.displayMode;
+    let themeBasedColor = themeData.brightness === ui.Brightness.light ? colors.Colors.white : colors.Colors.black;
+    let markerPath = null;
+    let lastMarkerOffset = new ui.Offset.new(offset.dx + coordinatePoints[$_get](type === "Line" ? coordinatePoints[$length] - 1 : coordinatePoints[$length] - 2).dx, offset.dy + coordinatePoints[$_get](type === "Line" ? coordinatePoints[$length] - 1 : coordinatePoints[$length] - 2).dy);
+    let firstMarkerOffset = new ui.Offset.new(offset.dx + coordinatePoints[$_get](type === "Line" ? 0 : 1).dx, offset.dy + coordinatePoints[$_get](type === "Line" ? 0 : 1).dy);
+    switch (markerDisplayMode) {
+      case C[6] || CT.C6:
+      {
+        {
+          let length = type === "Line" ? coordinatePoints[$length] : coordinatePoints[$length] - 1;
+          let i = type === "Line" ? 0 : 1;
+          for (let t0$0 = i = i; i < length; i = i + 1) {
+            fillPaint.color = (t1$ = marker.color, t1$ == null ? themeBasedColor : t1$);
+            if (i === (type === "Line" ? 0 : 1)) {
+              firstPointColor != null ? fillPaint.color = firstPointColor : fillPaint.color = fillPaint.color;
+            } else if (i === (type === "Line" ? coordinatePoints[$length] - 1 : coordinatePoints[$length] - 2)) {
+              lastPointColor != null ? fillPaint.color = lastPointColor : fillPaint.color = fillPaint.color;
+            } else if (highPoint === coordinatePoints[$_get](i).dy) {
+              lowPointColor != null ? fillPaint.color = lowPointColor : fillPaint.color = fillPaint.color;
+            } else if (lowPoint === coordinatePoints[$_get](i).dy) {
+              highPointColor != null ? fillPaint.color = highPointColor : fillPaint.color = fillPaint.color;
+            } else if (negativePointColor != null && dart.equals(dart.dsend(dataPoints[$_get](i).y, '<', [axisCrossesAt]), true)) {
+              fillPaint.color = negativePointColor;
+            }
+            markerPath = helper.getMarkerShapes(markerShape, new ui.Offset.new(offset.dx + coordinatePoints[$_get](i).dx, offset.dy + coordinatePoints[$_get](i).dy), markerSize);
+            canvas.drawPath(markerPath, fillPaint);
+            canvas.drawPath(markerPath, strokePaint);
+          }
+        }
+        break;
+      }
+      case C[7] || CT.C7:
+      {
+        {
+          fillPaint.color = (t1$0 = marker.color, t1$0 == null ? themeBasedColor : t1$0);
+          firstPointColor != null ? fillPaint.color = firstPointColor : fillPaint.color = fillPaint.color;
+          if (negativePointColor != null && dart.equals(dart.dsend(dataPoints[$_get](type === "Line" ? 0 : 1).y, '<', [0]), true)) {
+            fillPaint.color = negativePointColor;
+          }
+          markerPath = helper.getMarkerShapes(markerShape, firstMarkerOffset, markerSize);
+          canvas.drawPath(markerPath, fillPaint);
+          canvas.drawPath(markerPath, strokePaint);
+        }
+        break;
+      }
+      case C[8] || CT.C8:
+      {
+        {
+          fillPaint.color = (t1$1 = marker.color, t1$1 == null ? themeBasedColor : t1$1);
+          lastPointColor != null ? fillPaint.color = lastPointColor : fillPaint.color = fillPaint.color;
+          if (negativePointColor != null && dart.equals(dart.dsend(dataPoints[$_get](type === "Line" ? coordinatePoints[$length] - 1 : coordinatePoints[$length] - 2).y, '<', [0]), true)) {
+            fillPaint.color = negativePointColor;
+          }
+          markerPath = helper.getMarkerShapes(markerShape, lastMarkerOffset, markerSize);
+          canvas.drawPath(markerPath, fillPaint);
+          canvas.drawPath(markerPath, strokePaint);
+        }
+        break;
+      }
+      case C[9] || CT.C9:
+      {
+        {
+          fillPaint.color = (t1$2 = marker.color, t1$2 == null ? themeBasedColor : t1$2);
+          lowPointColor != null ? fillPaint.color = lowPointColor : fillPaint.color = fillPaint.color;
+          let length = type === "Line" ? coordinatePoints[$length] : coordinatePoints[$length] - 1;
+          let index = type === "Line" ? 0 : 1;
+          for (let j = index; j < length; j = j + 1) {
+            if (negativePointColor != null && highPoint === coordinatePoints[$_get](j).dy && dart.equals(dart.dsend(dataPoints[$_get](j).y, '<', [0]), true)) {
+              fillPaint.color = negativePointColor;
+            }
+            if (highPoint === coordinatePoints[$_get](j).dy) {
+              markerPath = helper.getMarkerShapes(markerShape, new ui.Offset.new(offset.dx + coordinatePoints[$_get](j).dx, offset.dy + coordinatePoints[$_get](j).dy), markerSize);
+              canvas.drawPath(markerPath, fillPaint);
+              canvas.drawPath(markerPath, strokePaint);
+            }
+          }
+        }
+        break;
+      }
+      case C[10] || CT.C10:
+      {
+        {
+          fillPaint.color = (t1$3 = marker.color, t1$3 == null ? themeBasedColor : t1$3);
+          highPointColor != null ? fillPaint.color = highPointColor : fillPaint.color = fillPaint.color;
+          let length = type === "Line" ? coordinatePoints[$length] : coordinatePoints[$length] - 1;
+          let index = type === "Line" ? 0 : 1;
+          for (let j = index; j < length; j = j + 1) {
+            if (negativePointColor != null && lowPoint === coordinatePoints[$_get](j).dy && dart.equals(dart.dsend(dataPoints[$_get](j).y, '<', [0]), true)) {
+              fillPaint.color = negativePointColor;
+            }
+            if (lowPoint === coordinatePoints[$_get](j).dy) {
+              markerPath = helper.getMarkerShapes(markerShape, new ui.Offset.new(offset.dx + coordinatePoints[$_get](j).dx, offset.dy + coordinatePoints[$_get](j).dy), markerSize);
+              canvas.drawPath(markerPath, fillPaint);
+              canvas.drawPath(markerPath, strokePaint);
+            }
+          }
+        }
+        break;
+      }
+      case C[11] || CT.C11:
+      {
+        break;
+      }
+    }
+  };
+  helper._getDataLabelSaturationColor = function _getDataLabelSaturationColor(dataLabelOffset, coordinateOffset, theme, offset, seriesColor, type, segment = null, yValue = null) {
+    let color = null;
+    if (type === "Area") {
+      dataLabelOffset.dy >= offset.dy + coordinateOffset.dy ? color = seriesColor : color = theme.brightness === ui.Brightness.light ? C[12] || CT.C12 : colors.Colors.black;
+    } else if (type === "Line") {
+      color = theme.brightness === ui.Brightness.light ? C[12] || CT.C12 : colors.Colors.black;
+    } else {
+      dart.nullCheck(yValue) > 0 ? dataLabelOffset.dy > dart.nullCheck(segment).top + offset.dy ? color = seriesColor : color = theme.brightness === ui.Brightness.light ? C[12] || CT.C12 : colors.Colors.black : dataLabelOffset.dy < dart.nullCheck(segment).top + offset.dy ? color = seriesColor : color = theme.brightness === ui.Brightness.light ? C[12] || CT.C12 : colors.Colors.black;
+    }
+    color = helper.getSaturationColor(color);
+    return color;
+  };
+  helper._getTextStyle = function _getTextStyle(labelStyle, dataLabelOffset, coordinateOffset, offset, theme, seriesColor, type, segment = null, yValue = null) {
+    let t1;
+    let font = labelStyle;
+    let fontColor = (t1 = font.color, t1 == null ? helper._getDataLabelSaturationColor(dataLabelOffset, coordinateOffset, theme, offset, seriesColor, type, segment, yValue) : t1);
+    let _textStyle = new text_style.TextStyle.new({color: fontColor, fontFamily: font.fontFamily, fontSize: font.fontSize, fontStyle: font.fontStyle, fontWeight: font.fontWeight, inherit: font.inherit, backgroundColor: font.backgroundColor, letterSpacing: font.letterSpacing, wordSpacing: font.wordSpacing, textBaseline: font.textBaseline, height: font.height, locale: font.locale, foreground: font.foreground, background: font.background, shadows: font.shadows, fontFeatures: font.fontFeatures, decoration: font.decoration, decorationColor: font.decorationColor, decorationStyle: font.decorationStyle, decorationThickness: font.decorationThickness, debugLabel: font.debugLabel, fontFamilyFallback: font.fontFamilyFallback});
+    return _textStyle;
+  };
+  helper.renderDataLabel = function renderDataLabel(canvas, dataLabels, dataPoints, coordinatePoints, labelStyle, labelDisplayMode, type, theme, offset, seriesColor, highPoint, lowPoint, segments = null) {
+    let _textStyle = null;
+    switch (labelDisplayMode) {
+      case C[13] || CT.C13:
+      {
+        {
+          for (let i = type === "Area" ? 1 : 0; type === "Area" ? i < dataPoints[$length] - 1 : i < dataPoints[$length]; i = i + 1) {
+            _textStyle = helper._getTextStyle(labelStyle, dart.nullCheck(dataPoints[$_get](i).dataLabelOffset), coordinatePoints[$_get](i), offset, theme, type === "Bar" ? dart.nullCheck(dataPoints[$_get](i).color) : seriesColor, type, type === "Bar" ? dart.nullCheck(segments)[$_get](i) : null, T.numN().as(dataPoints[$_get](i).y));
+            helper.drawText(canvas, dataLabels[$_get](i), dart.nullCheck(dataPoints[$_get](i).dataLabelOffset), _textStyle);
+          }
+        }
+        break;
+      }
+      case C[14] || CT.C14:
+      {
+        {
+          _textStyle = helper._getTextStyle(labelStyle, dart.nullCheck(dataPoints[$_get](type === "Area" ? 1 : 0).dataLabelOffset), coordinatePoints[$_get](type === "Area" ? 1 : 0), offset, theme, type === "Bar" ? dart.nullCheck(dataPoints[$_get](0).color) : seriesColor, type, type === "Bar" ? dart.nullCheck(segments)[$_get](0) : null, T.numN().as(dataPoints[$_get](0).y));
+          helper.drawText(canvas, dataLabels[$_get](type === "Area" ? 1 : 0), dart.nullCheck(dataPoints[$_get](type === "Area" ? 1 : 0).dataLabelOffset), _textStyle);
+        }
+        break;
+      }
+      case C[15] || CT.C15:
+      {
+        {
+          _textStyle = helper._getTextStyle(labelStyle, dart.nullCheck(dataPoints[$_get](type === "Area" ? dataPoints[$length] - 2 : dataPoints[$length] - 1).dataLabelOffset), coordinatePoints[$_get](type === "Area" ? dataPoints[$length] - 2 : dataPoints[$length] - 1), offset, theme, type === "Bar" ? dart.nullCheck(dataPoints[$_get](dataPoints[$length] - 1).color) : seriesColor, type, type === "Bar" ? dart.nullCheck(segments)[$_get](dataPoints[$length] - 1) : null, T.numN().as(dataPoints[$_get](dataPoints[$length] - 1).y));
+          helper.drawText(canvas, dataLabels[$_get](type === "Area" ? dataPoints[$length] - 2 : dataPoints[$length] - 1), dart.nullCheck(dataPoints[$_get](type === "Area" ? dataPoints[$length] - 2 : dataPoints[$length] - 1).dataLabelOffset), _textStyle);
+        }
+        break;
+      }
+      case C[16] || CT.C16:
+      {
+        {
+          let length = type === "Area" ? coordinatePoints[$length] - 1 : coordinatePoints[$length];
+          let index = type === "Area" ? 1 : 0;
+          for (let j = index; j < length; j = j + 1) {
+            if (highPoint === coordinatePoints[$_get](j).dy) {
+              _textStyle = helper._getTextStyle(labelStyle, dart.nullCheck(dataPoints[$_get](j).dataLabelOffset), coordinatePoints[$_get](j), offset, theme, type === "Bar" ? dart.nullCheck(dataPoints[$_get](j).color) : seriesColor, type, type === "Bar" ? dart.nullCheck(segments)[$_get](j) : null, T.numN().as(dataPoints[$_get](j).y));
+              helper.drawText(canvas, dataLabels[$_get](j), dart.nullCheck(dataPoints[$_get](j).dataLabelOffset), _textStyle);
+            }
+          }
+        }
+        break;
+      }
+      case C[17] || CT.C17:
+      {
+        {
+          let length = type === "Area" ? coordinatePoints[$length] - 1 : coordinatePoints[$length];
+          let index = type === "Area" ? 1 : 0;
+          for (let j = index; j < length; j = j + 1) {
+            if (lowPoint === coordinatePoints[$_get](j).dy) {
+              _textStyle = helper._getTextStyle(labelStyle, dart.nullCheck(dataPoints[$_get](j).dataLabelOffset), coordinatePoints[$_get](j), offset, theme, type === "Bar" ? dart.nullCheck(dataPoints[$_get](j).color) : seriesColor, type, type === "Bar" ? dart.nullCheck(segments)[$_get](j) : null, T.numN().as(dataPoints[$_get](j).y));
+              helper.drawText(canvas, dataLabels[$_get](j), dart.nullCheck(dataPoints[$_get](j).dataLabelOffset), _textStyle);
+            }
+          }
+        }
+        break;
+      }
+      case C[18] || CT.C18:
+      {
+        break;
+      }
+    }
+  };
+  dart.trackLibraries("packages/syncfusion_flutter_charts/src/sparkline/utils/helper.dart", {
+    "package:syncfusion_flutter_charts/src/sparkline/utils/helper.dart": helper
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["helper.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAmQI,YAAI,AAAO,gBAAG,AAAQ;AACV,UAAV,eAAS;;AAEX,cAAO,AAAO,wBAAO,mBAAN,oBAAM;MACvB;;0CAd2B;MAMvB,eAAS;MANc;;IAAQ;;;;;;;;;;;;;;;;;;;;;;;;;;IAuB3B;;;;;;IAGA;;;;;;IAIA;;;;;;IAGA;;;;;;IAGA;;;;;;IAGA;;;;;;IAGD;;;;;;;;QAtBe;QAAQ;IAUtB;IAGA;IAGA;IAGA;IAGD;IAtBe;IAAQ;;EAAG;;;;;;;;;;;;;;;;;;;IAgChB;;;;;;IAGN;;;;;;IAGkC;;;;;;IAGJ;;;;;;;;QAZ/B;QAAW;QAAgB;QAAmB;IAA9C;IAAW;IAAgB;IAAmB;;EAAc;;;;;;;;;;;;uBAqBzB;AAC3C,YAAO,wCAAwB,OAAO;IACxC;;;QALmC;;AAAU,gEAAa,KAAK;;EAAC;;;;;;;;;;AAgBpB,MAA1C,YAAO,qBAAc,kBAAa;AAUpB,MART,AAAE,eAAP,mBACI,uCACa,gBACA,AAAK,4BACN,eACA,AAAK,oCAGb;IAGV;;;IAnB6B;AAAW,4DAAM;;EAAK;;;;;;;;;;;;0DA5TtB;AACvB;AACI,mBAC4D,CAAR,CAAxD,AAAM,AAAI,AAAM,AAAoB,KAA/B,OAAO,MAAM,AAAM,AAAM,KAAP,SAAS,MAAM,AAAM,AAAK,KAAN,QAAQ,OAAO;AACD,IAA/D,kBAAkB,AAAS,QAAD,IAAI,MAAa,sBAAe;AAC1D,UAAO,gBAAe;EACxB;4CAGwB,WAAqB;AACtC;AACa,sBAAc,6CACT,oCACQ,4BACvB,kCACI,SAAS,SACR,qCACI,AAAU,SAAD,kBACN,AAAU,SAAD,uBACP,AAAU,SAAD,wBACV,AAAU,SAAD,wBACR,AAAU,SAAD;AAEX,IAApB,AAAY,WAAD;AACuC,IAAlD,OAAO,gBAAK,AAAY,WAAD,QAAQ,AAAY,WAAD;AAC1C,UAAO,KAAI;EACb;sCAGqB,QAAe,WAAkB,OAAiB;AAC3D,mBAAW,yBAAmB,SAAS;AAClC,eAAO,kCAAe,SAAS,SAAS,KAAK;AAC1C,aAAK,wCACb,IAAI,iBACmB,iCACR,+BACX,AAAS,QAAD;AACX,IAAX,AAAG,EAAD;AACW,IAAb,AAAO,MAAD;AAC8B,IAApC,AAAO,MAAD,WAAW,AAAM,KAAD,KAAK,AAAM,KAAD;AACnB;AACgB,IAA7B,AAAG,EAAD,OAAO,MAAM,EAAE,WAAW;AACZ,IAAhB,AAAO,MAAD;EACR;kDAIW,QAAc,OAAc,aAAoB,aACxC;AACZ,eAAO;AACD,eAAO;AACyB,IAA3C,AAAK,IAAD,QAAQ,AAAY,WAAD,KAAK,AAAY,WAAD;AACI,IAA3C,AAAK,IAAD,QAAQ,AAAY,WAAD,KAAK,AAAY,WAAD;AAEvC,QAAI,SAAS;AACX,eAAS,IAAI,GAAG,AAAE,CAAD,GAAG,AAAU,SAAD,WAAS,IAAI,AAAE,CAAD,GAAG;AAC5C,YAAI,AAAS,AAAI,SAAJ,QAAC,CAAC,MAAK;AACP,UAAX,OAAO;;;AAGX,UAAI,AAAK,IAAD,KAAI;AAMA,QALV,AAAO,MAAD,UAID,eAHD,iBACE,IAAI,cACO,4CAA8B,SAAS,MAEpD,KAAK;;;AAGiB,MAA5B,AAAO,MAAD,UAAU,IAAI,EAAE,KAAK;;EAE/B;wCAIQ;QACmC;AAEzC,QAAI,AAAO,MAAD;AACR,YAAO;;AAGE,eAAO;AAClB,aAAsB,cAAe,AAAO,OAAD;AAClC;AACF,iBAAO;AACZ,aAAO,AAAS,QAAD,GAAG,AAAY,WAAD;AACd,qBAAkB,AAAE,eAAX,SAAS;AAC/B,YAAI,IAAI;AAEgE,UADtE,AAAK,IAAD,SACA,AAAY,WAAD,aAAa,QAAQ,EAAE,AAAS,QAAD,GAAG,MAAM,GAAU;;AAEjD,QAAlB,WAAA,AAAS,QAAD,GAAI,MAAM;AACN,QAAZ,OAAO,CAAC,IAAI;;;AAGhB,UAAO,KAAI;EACb;gDAGwB,MAAa,GAAU,GAAU;AAEmB,IAD1E,AAAK,IAAD,SACK,qBAAS,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AACvE,UAAO,KAAI;EACb;0CAGqB,MAAa,GAAU,GAAU;AAIpC,IAHhB,AAAK,IAAD,QACK,qBAAS,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,IACnE,KACA,AAAE;AACN,UAAO,KAAI;EACb;8DAG+B,MAAa,GAAU,GAAU;AACvB,IAAvC,AAAK,IAAD,QAAQ,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AAET,IAA5B,AAAK,IAAD,QAAQ,CAAC,EAAE,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AACa,IAAvC,AAAK,IAAD,QAAQ,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AACE,IAAvC,AAAK,IAAD,QAAQ,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AACzB,IAAZ,AAAK,IAAD;AACJ,UAAO,KAAI;EACb;4CAGsB,MAAa,GAAU,GAAU;AACzB,IAA5B,AAAK,IAAD,QAAQ,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,CAAC;AACC,IAA5B,AAAK,IAAD,QAAQ,CAAC,EAAE,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AACE,IAA5B,AAAK,IAAD,QAAQ,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,CAAC;AACC,IAA5B,AAAK,IAAD,QAAQ,CAAC,EAAE,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AACE,IAA5B,AAAK,IAAD,QAAQ,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,CAAC;AACf,IAAZ,AAAK,IAAD;AACJ,UAAO,KAAI;EACb;8CAGuB,MAAa,GAAU,GAAU;AACf,IAAvC,AAAK,IAAD,QAAQ,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AACE,IAAvC,AAAK,IAAD,QAAQ,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AACT,IAA5B,AAAK,IAAD,QAAQ,CAAC,EAAE,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AACa,IAAvC,AAAK,IAAD,QAAQ,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG,GAAG,AAAE,CAAD,GAAG,AAAK,IAAD,GAAG;AACzB,IAAZ,AAAK,IAAD;AACJ,UAAO,KAAI;EACb;8DAGiE;AACnC,uBACxB,+BAA2B,UAAU;AAUvC,IATF,AAAa,YAAD,QAAM,SAAiB,YAA4B;AACxB,MAAxB,WAAb,AAAW,UAAD,kBAAa,AAAY,WAAD;AAClC,UAAiC,YAAhB,WAAb,AAAW,UAAD,UAAK,AAAY,WAAD,MAAM;AAClC,cAAO,EAAC;YACH,KAAiC,YAAhB,WAAb,AAAW,UAAD,UAAK,AAAY,WAAD,MAAM;AACzC,cAAO;;AAEP,cAAO;;;AAIX,UAAO,aAAY;EACrB;0EAGqD;AAUjD,IATF,AAAiB,gBAAD,QAAM,SAAQ,YAAmB;AACR,MAAvC,AAAW,AAAG,UAAJ,gBAAc,AAAY,WAAD;AACnC,UAAI,AAAW,AAAG,UAAJ,MAAM,AAAY,WAAD;AAC7B,cAAO,EAAC;YACH,KAAI,AAAW,AAAG,UAAJ,MAAM,AAAY,WAAD;AACpC,cAAO;;AAEP,cAAO;;;AAIX,UAAO,iBAAgB;EACzB;0EAIW,MACA,MACA,MACA,MACA,OACA,OACF,MACE,GACA,GACH;AACO,wBAAiB,AAAa,IAAT,KAAI,IAAI,IAAI,UAAU,KAAI,IACX,CAA1C,AAAK,AAAO,IAAR,WAAW,AAAE,IAAc,CAAV,AAAE,CAAD,GAAG,IAAI,IAAI,KAAK,uBACvC;AACO,wBAAiB,AAAK,IAAD,KAAI,IAAI,GACA,CAAnC,AAAK,AAAM,IAAP,UAAqB,CAAV,AAAE,CAAD,GAAG,IAAI,IAAI,KAAK,uBACjC,AAAK,AAAM,IAAP,SAAS;AACnB,UAAO,mBAAO,aAAa,EAAE,aAAa;EAC5C;gDAGkC,aAA0B;AAGnD,iBAAS,AAAY,WAAD;AACpB,gBAAQ,AAAY,WAAD;AACb,sBAAyB,AAAY,AAAK,0BAAd,OAAO;AACnC,uBAA0B,AAAY,AAAK,0BAAd,OAAO;AACjD,QAAI,AAAO,MAAD;AACR,UAAI,KAAK;AACkB,QAAzB,SAAU,AAAM,AAAM,KAAP,GAAG,KAAM;;AAEN,QAAlB;;;AAIJ,QAAI,AAAM,KAAD;AACP,UAAI,MAAM;AACiB,QAAzB,QAAS,AAAO,AAAK,MAAN,GAAG,IAAK;;AAEP,QAAhB;;;AAIJ,QAAI,AAAM,KAAD,GAAG,WAAW;AACF,MAAnB,QAAQ,WAAW;;AAGrB,QAAI,AAAO,MAAD,GAAG,YAAY;AACF,MAArB,SAAS,YAAY;;AAEvB,UAAO,iBAAK,KAAK,EAAE,MAAM;EAC3B;oDA0G0B,aAAoB,UAAiB;AAClD,eAAO;AAClB,YAAQ,WAAW;;;;AAGmC,UAAhD,kBAAW,IAAI,EAAE,AAAS,QAAD,KAAK,AAAS,QAAD,KAAK,IAAI;;AAEjD;;;;;AAGqD,UAAnD,qBAAc,IAAI,EAAE,AAAS,QAAD,KAAK,AAAS,QAAD,KAAK,IAAI;;AAEpD;;;;;AAI4D,UAA1D,4BAAqB,IAAI,EAAE,AAAS,QAAD,KAAK,AAAS,QAAD,KAAK,IAAI;;AAE3D;;;;;AAImD,UAAjD,mBAAY,IAAI,EAAE,AAAS,QAAD,KAAK,AAAS,QAAD,KAAK,IAAI;;AAElD;;;;;AAGoD,UAAlD,oBAAa,IAAI,EAAE,AAAS,QAAD,KAAK,AAAS,QAAD,KAAK,IAAI;;AAEnD;;;;AAGA;;;AAGJ,UAAO,KAAI;EACb;8CAIW,QACA,QACU,QACJ,kBACS,YAChB,OACC,MACH,WACA,UACG,eACG,WACH,eACA,gBACA,oBACA,iBACA;;AACG,0CAAY;AAAS,iBAAsB;;;AAC3C,6CAAc;AACtB,mBAA2B,KAAnB,AAAO,MAAD,cAAC,aAAe,KAAK;AACnC,kBAAsB;AACtB,wBAAc,AAAO,MAAD;;;AACI,sBAAc,AAAO,MAAD;AACnC,qBAAa,AAAO,MAAD;AACE,4BAAoB,AAAO,MAAD;AAChD,0BACR,AAAU,AAAW,SAAZ,gBAA0B,sBAAe,sBAAe;AAChE;AACQ,2BAAmB,kBAC5B,AAAO,AAAG,MAAJ,MACF,AAAgB,AAGX,gBAHW,QAAC,AAAK,IAAD,KAAI,SACf,AAAiB,AAAO,gBAAR,YAAU,IAC1B,AAAiB,AAAO,gBAAR,YAAU,OAExC,AAAO,AAAG,MAAJ,MACF,AAAgB,AAGX,gBAHW,QAAC,AAAK,IAAD,KAAI,SACf,AAAiB,AAAO,gBAAR,YAAU,IAC1B,AAAiB,AAAO,gBAAR,YAAU;AAG/B,4BAAoB,kBAC7B,AAAO,AAAG,MAAJ,MAAM,AAAgB,AAAyB,gBAAzB,QAAC,AAAK,IAAD,KAAI,SAAS,IAAI,OAClD,AAAO,AAAG,MAAJ,MAAM,AAAgB,AAAyB,gBAAzB,QAAC,AAAK,IAAD,KAAI,SAAS,IAAI;AAEtD,YAAQ,iBAAiB;;;;AAGT,uBAAS,AAAK,IAAD,KAAI,SACrB,AAAiB,gBAAD,YAChB,AAAiB,AAAO,gBAAR,YAAU;AAC5B,kBAAI,AAAK,IAAD,KAAI,SAAS,IAAI;AAC7B,0BAAK,IAAI,CAAC,EAAE,AAAE,CAAD,GAAG,MAAM,EAAE,IAAA,AAAC,CAAA;AAC0B,YAAjD,AAAU,SAAD,UAAsB,MAAb,AAAO,MAAD,QAAC,cAAS,eAAe;AACjD,gBAAI,AAAE,CAAD,MAAK,AAAK,IAAD,KAAI,SAAS,IAAI;AAGU,cAFvC,AAAgB,eAAD,WACT,AAAU,SAAD,SAAS,eAAe,GACjC,AAAU,SAAD,SAAS,AAAU,SAAD;kBAC5B,KAAI,AAAE,CAAD,MACP,AAAK,IAAD,KAAI,SACH,AAAiB,AAAO,gBAAR,YAAU,IAC1B,AAAiB,AAAO,gBAAR,YAAU;AAGK,cAFvC,AAAe,cAAD,WACR,AAAU,SAAD,SAAS,cAAc,GAChC,AAAU,SAAD,SAAS,AAAU,SAAD;kBAC5B,KAAI,AAAU,SAAD,KAAI,AAAgB,AAAI,gBAAJ,QAAC,CAAC;AAGD,cAFvC,AAAc,aAAD,WACP,AAAU,SAAD,SAAS,aAAa,GAC/B,AAAU,SAAD,SAAS,AAAU,SAAD;kBAC5B,KAAI,AAAS,QAAD,KAAI,AAAgB,AAAI,gBAAJ,QAAC,CAAC;AAGA,cAFvC,AAAe,cAAD,WACR,AAAU,SAAD,SAAS,cAAc,GAChC,AAAU,SAAD,SAAS,AAAU,SAAD;kBAC5B,KAAI,kBAAkB,YACO,YAAhB,WAAhB,AAAU,AAAI,UAAJ,QAAC,CAAC,WAAM,aAAa,IAAI;AACD,cAApC,AAAU,SAAD,SAAS,kBAAkB;;AAOvB,YAJf,aAAa,uBACT,WAAW,EACX,kBAAO,AAAO,AAAG,MAAJ,MAAM,AAAgB,AAAI,gBAAJ,QAAC,CAAC,MACjC,AAAO,AAAG,MAAJ,MAAM,AAAgB,AAAI,gBAAJ,QAAC,CAAC,OAClC,UAAU;AACwB,YAAtC,AAAO,MAAD,UAAU,UAAU,EAAE,SAAS;AACG,YAAxC,AAAO,MAAD,UAAU,UAAU,EAAE,WAAW;;;AAG3C;;;;;AAGmD,UAAjD,AAAU,SAAD,UAAsB,OAAb,AAAO,MAAD,QAAC,eAAS,eAAe;AAGV,UAFvC,AAAgB,eAAD,WACT,AAAU,SAAD,SAAS,eAAe,GACjC,AAAU,SAAD,SAAS,AAAU,SAAD;AACjC,cAAI,kBAAkB,YACuB,YAAJ,WAArC,AAAU,AAAyB,UAAzB,QAAC,AAAK,IAAD,KAAI,SAAS,IAAI,YAAO,KAAK;AACV,YAApC,AAAU,SAAD,SAAS,kBAAkB;;AAGyB,UAD/D,aACI,uBAAgB,WAAW,EAAE,iBAAiB,EAAE,UAAU;AACxB,UAAtC,AAAO,MAAD,UAAU,UAAU,EAAE,SAAS;AACG,UAAxC,AAAO,MAAD,UAAU,UAAU,EAAE,WAAW;;AAEzC;;;;;AAImD,UAAjD,AAAU,SAAD,UAAsB,OAAb,AAAO,MAAD,QAAC,eAAS,eAAe;AAGV,UAFvC,AAAe,cAAD,WACR,AAAU,SAAD,SAAS,cAAc,GAChC,AAAU,SAAD,SAAS,AAAU,SAAD;AACjC,cAAI,kBAAkB,YAKR,YADK,WAHf,AAAU,AAGG,UAHH,QAAC,AAAK,IAAD,KAAI,SACD,AAAiB,AAAO,gBAAR,YAAU,IAC1B,AAAiB,AAAO,gBAAR,YAAU,YAEpC,KACJ;AAC8B,YAApC,AAAU,SAAD,SAAS,kBAAkB;;AAEiC,UAAvE,aAAa,uBAAgB,WAAW,EAAE,gBAAgB,EAAE,UAAU;AAChC,UAAtC,AAAO,MAAD,UAAU,UAAU,EAAE,SAAS;AACG,UAAxC,AAAO,MAAD,UAAU,UAAU,EAAE,WAAW;;AAEzC;;;;;AAImD,UAAjD,AAAU,SAAD,UAAsB,OAAb,AAAO,MAAD,QAAC,eAAS,eAAe;AAGV,UAFvC,AAAc,aAAD,WACP,AAAU,SAAD,SAAS,aAAa,GAC/B,AAAU,SAAD,SAAS,AAAU,SAAD;AAEvB,uBAAS,AAAK,IAAD,KAAI,SACrB,AAAiB,gBAAD,YAChB,AAAiB,AAAO,gBAAR,YAAU;AACtB,sBAAQ,AAAK,IAAD,KAAI,SAAS,IAAI;AAEvC,mBAAS,IAAI,KAAK,EAAE,AAAE,CAAD,GAAG,MAAM,EAAE,IAAA,AAAC,CAAA;AAC/B,gBAAI,kBAAkB,YAClB,AAAU,SAAD,KAAI,AAAgB,AAAI,gBAAJ,QAAC,CAAC,QACX,YAAJ,WAAhB,AAAU,AAAI,UAAJ,QAAC,CAAC,WAAM,KAAK;AACW,cAApC,AAAU,SAAD,SAAS,kBAAkB;;AAEtC,gBAAI,AAAU,SAAD,KAAI,AAAgB,AAAI,gBAAJ,QAAC,CAAC;AAKlB,cAJf,aAAa,uBACT,WAAW,EACX,kBAAO,AAAO,AAAG,MAAJ,MAAM,AAAgB,AAAI,gBAAJ,QAAC,CAAC,MACjC,AAAO,AAAG,MAAJ,MAAM,AAAgB,AAAI,gBAAJ,QAAC,CAAC,OAClC,UAAU;AACwB,cAAtC,AAAO,MAAD,UAAU,UAAU,EAAE,SAAS;AACG,cAAxC,AAAO,MAAD,UAAU,UAAU,EAAE,WAAW;;;;AAI7C;;;;;AAImD,UAAjD,AAAU,SAAD,UAAsB,OAAb,AAAO,MAAD,QAAC,eAAS,eAAe;AAGV,UAFvC,AAAe,cAAD,WACR,AAAU,SAAD,SAAS,cAAc,GAChC,AAAU,SAAD,SAAS,AAAU,SAAD;AAEvB,uBAAS,AAAK,IAAD,KAAI,SACrB,AAAiB,gBAAD,YAChB,AAAiB,AAAO,gBAAR,YAAU;AACtB,sBAAQ,AAAK,IAAD,KAAI,SAAS,IAAI;AACvC,mBAAS,IAAI,KAAK,EAAE,AAAE,CAAD,GAAG,MAAM,EAAE,IAAA,AAAC,CAAA;AAC/B,gBAAI,kBAAkB,YAClB,AAAS,QAAD,KAAI,AAAgB,AAAI,gBAAJ,QAAC,CAAC,QACV,YAAJ,WAAhB,AAAU,AAAI,UAAJ,QAAC,CAAC,WAAM,KAAK;AACW,cAApC,AAAU,SAAD,SAAS,kBAAkB;;AAEtC,gBAAI,AAAS,QAAD,KAAI,AAAgB,AAAI,gBAAJ,QAAC,CAAC;AAKjB,cAJf,aAAa,uBACT,WAAW,EACX,kBAAO,AAAO,AAAG,MAAJ,MAAM,AAAgB,AAAI,gBAAJ,QAAC,CAAC,MACjC,AAAO,AAAG,MAAJ,MAAM,AAAgB,AAAI,gBAAJ,QAAC,CAAC,OAClC,UAAU;AACwB,cAAtC,AAAO,MAAD,UAAU,UAAU,EAAE,SAAS;AACG,cAAxC,AAAO,MAAD,UAAU,UAAU,EAAE,WAAW;;;;AAI7C;;;;AAGA;;;EAEN;8EAGW,iBACA,kBACG,OACH,QACD,aACC,MACA,gBACF;AACD;AAEN,QAAI,AAAK,IAAD,KAAI;AAKY,MAJtB,AAAgB,AAAG,eAAJ,OAAQ,AAAO,AAAG,MAAJ,MAAM,AAAiB,gBAAD,MAC7C,QAAQ,WAAW,GACnB,QAAQ,AAAM,AAAW,KAAZ,gBAA0B,wCAE5B;UACZ,KAAI,AAAK,IAAD,KAAI;AAGC,MAFlB,QAAQ,AAAM,AAAW,KAAZ,gBAA0B,wCAE1B;;AAYa,MAVpB,AAAE,eAAR,MAAM,IAAI,IACJ,AAAgB,AAAG,eAAJ,MAAc,AAAE,AAAI,eAAb,OAAO,QAAQ,AAAO,MAAD,MACvC,QAAQ,WAAW,GACnB,QAAQ,AAAM,AAAW,KAAZ,gBAA0B,wCAE5B,sBACf,AAAgB,AAAG,eAAJ,MAAc,AAAE,AAAI,eAAb,OAAO,QAAQ,AAAO,MAAD,MACvC,QAAQ,WAAW,GACnB,QAAQ,AAAM,AAAW,KAAZ,gBAA0B,wCAE5B;;AAGU,IAAjC,QAAQ,0BAAmB,KAAK;AAEhC,UAAO,MAAK;EACd;gDAGc,YACH,iBACA,kBACA,QACG,OACJ,aACC,MACA,gBACF;;AACS,eAAO,UAAU;AACrB,qBAAuB,KAAX,AAAK,IAAD,QAAC,aACzB,oCAA6B,eAAe,EAAE,gBAAgB,EAAE,KAAK,EACjE,MAAM,EAAE,WAAW,EAAE,IAAI,EAAE,OAAO,EAAE,MAAM;AAElC,qBAAa,qCAClB,SAAS,cACJ,AAAK,IAAD,uBACN,AAAK,IAAD,sBACH,AAAK,IAAD,wBACH,AAAK,IAAD,sBACP,AAAK,IAAD,2BACI,AAAK,IAAD,iCACN,AAAK,IAAD,6BACN,AAAK,IAAD,4BACH,AAAK,IAAD,uBACV,AAAK,IAAD,iBACJ,AAAK,IAAD,qBACA,AAAK,IAAD,yBACJ,AAAK,IAAD,sBACP,AAAK,IAAD,wBACC,AAAK,IAAD,2BACN,AAAK,IAAD,8BACC,AAAK,IAAD,mCACJ,AAAK,IAAD,uCACA,AAAK,IAAD,kCACb,AAAK,IAAD,iCACI,AAAK,IAAD;AAE5B,UAAO,WAAU;EACnB;oDAIW,QACM,YACS,YACT,kBACH,YACiB,kBACpB,MACG,OACH,QACD,aACF,WACA,UACS;AACL;AAEV,YAAQ,gBAAgB;;;;AAGlB,mBAAS,IAAI,AAAK,IAAD,KAAI,SAAS,IAAI,GAC9B,AAAK,IAAD,KAAI,SAAS,AAAE,CAAD,GAAG,AAAW,AAAO,UAAR,YAAU,IAAI,AAAE,CAAD,GAAG,AAAW,UAAD,WAC3D,IAAA,AAAC,CAAA;AAUiB,YATpB,aAAa,qBACT,UAAU,EACmB,eAA7B,AAAU,AAAI,UAAJ,QAAC,CAAC,oBACZ,AAAgB,gBAAA,QAAC,CAAC,GAClB,MAAM,EACN,KAAK,EACL,AAAK,IAAD,KAAI,QAA2B,eAAnB,AAAU,AAAI,UAAJ,QAAC,CAAC,WAAW,WAAW,EAClD,IAAI,EACJ,AAAK,IAAD,KAAI,QAAgB,AAAC,eAAT,QAAQ,SAAE,CAAC,IAAI,kBAC/B,AAAU,AAAI,UAAJ,QAAC,CAAC;AAED,YADf,gBAAS,MAAM,EAAE,AAAU,UAAA,QAAC,CAAC,GAAgC,eAA7B,AAAU,AAAI,UAAJ,QAAC,CAAC,oBACxC,UAAU;;;AAIlB;;;;;AAasB,UATpB,aAAa,qBACT,UAAU,EACwC,eAAlD,AAAU,AAAyB,UAAzB,QAAC,AAAK,IAAD,KAAI,SAAS,IAAI,qBAChC,AAAgB,gBAAA,QAAC,AAAK,IAAD,KAAI,SAAS,IAAI,IACtC,MAAM,EACN,KAAK,EACL,AAAK,IAAD,KAAI,QAA2B,eAAnB,AAAU,AAAI,UAAJ,QAAC,YAAY,WAAW,EAClD,IAAI,EACJ,AAAK,IAAD,KAAI,QAAgB,AAAC,eAAT,QAAQ,SAAE,KAAK,kBAC/B,AAAU,AAAI,UAAJ,QAAC;AAEqD,UADpE,gBAAS,MAAM,EAAE,AAAU,UAAA,QAAC,AAAK,IAAD,KAAI,SAAS,IAAI,IACK,eAAlD,AAAU,AAAyB,UAAzB,QAAC,AAAK,IAAD,KAAI,SAAS,IAAI,qBAAqB,UAAU;;AAErE;;;;;AAmB0C,UAfxC,aAAa,qBACT,UAAU,EAIU,eAHpB,AAAU,AAGL,UAHK,QAAC,AAAK,IAAD,KAAI,SACT,AAAW,AAAO,UAAR,YAAU,IACpB,AAAW,AAAO,UAAR,YAAU,qBAE9B,AAAgB,gBAAA,QACZ,AAAK,IAAD,KAAI,SAAS,AAAW,AAAO,UAAR,YAAU,IAAI,AAAW,AAAO,UAAR,YAAU,IACjE,MAAM,EACN,KAAK,EACL,AAAK,IAAD,KAAI,QACqC,eAAvC,AAAU,AAAwB,UAAxB,QAAC,AAAW,AAAO,UAAR,YAAU,YAC/B,WAAW,EACjB,IAAI,EACJ,AAAK,IAAD,KAAI,QAAgB,AAAC,eAAT,QAAQ,SAAE,AAAW,AAAO,UAAR,YAAU,KAAK,kBACnD,AAAU,AAAwB,UAAxB,QAAC,AAAW,AAAO,UAAR,YAAU;AAUpB,UARf,gBACI,MAAM,EACN,AAAU,UAAA,QACN,AAAK,IAAD,KAAI,SAAS,AAAW,AAAO,UAAR,YAAU,IAAI,AAAW,AAAO,UAAR,YAAU,IAI7C,eAHpB,AAAU,AAGL,UAHK,QAAC,AAAK,IAAD,KAAI,SACT,AAAW,AAAO,UAAR,YAAU,IACpB,AAAW,AAAO,UAAR,YAAU,qBAE9B,UAAU;;AAGhB;;;;;AAIY,uBAAS,AAAK,IAAD,KAAI,SACrB,AAAiB,AAAO,gBAAR,YAAU,IAC1B,AAAiB,gBAAD;AACZ,sBAAQ,AAAK,IAAD,KAAI,SAAS,IAAI;AACvC,mBAAS,IAAI,KAAK,EAAE,AAAE,CAAD,GAAG,MAAM,EAAE,IAAA,AAAC,CAAA;AAC/B,gBAAI,AAAU,SAAD,KAAI,AAAgB,AAAI,gBAAJ,QAAC,CAAC;AAUb,cATpB,aAAa,qBACT,UAAU,EACmB,eAA7B,AAAU,AAAI,UAAJ,QAAC,CAAC,oBACZ,AAAgB,gBAAA,QAAC,CAAC,GAClB,MAAM,EACN,KAAK,EACL,AAAK,IAAD,KAAI,QAA2B,eAAnB,AAAU,AAAI,UAAJ,QAAC,CAAC,WAAW,WAAW,EAClD,IAAI,EACJ,AAAK,IAAD,KAAI,QAAgB,AAAC,eAAT,QAAQ,SAAE,CAAC,IAAI,kBAC/B,AAAU,AAAI,UAAJ,QAAC,CAAC;AAED,cADf,gBAAS,MAAM,EAAE,AAAU,UAAA,QAAC,CAAC,GAAgC,eAA7B,AAAU,AAAI,UAAJ,QAAC,CAAC,oBACxC,UAAU;;;;AAKpB;;;;;AAIY,uBAAS,AAAK,IAAD,KAAI,SACrB,AAAiB,AAAO,gBAAR,YAAU,IAC1B,AAAiB,gBAAD;AACZ,sBAAQ,AAAK,IAAD,KAAI,SAAS,IAAI;AAEvC,mBAAS,IAAI,KAAK,EAAE,AAAE,CAAD,GAAG,MAAM,EAAE,IAAA,AAAC,CAAA;AAC/B,gBAAI,AAAS,QAAD,KAAI,AAAgB,AAAI,gBAAJ,QAAC,CAAC;AAUZ,cATpB,aAAa,qBACT,UAAU,EACmB,eAA7B,AAAU,AAAI,UAAJ,QAAC,CAAC,oBACZ,AAAgB,gBAAA,QAAC,CAAC,GAClB,MAAM,EACN,KAAK,EACL,AAAK,IAAD,KAAI,QAA2B,eAAnB,AAAU,AAAI,UAAJ,QAAC,CAAC,WAAW,WAAW,EAClD,IAAI,EACJ,AAAK,IAAD,KAAI,QAAgB,AAAC,eAAT,QAAQ,SAAE,CAAC,IAAI,kBAC/B,AAAU,AAAI,UAAJ,QAAC,CAAC;AAED,cADf,gBAAS,MAAM,EAAE,AAAU,UAAA,QAAC,CAAC,GAAgC,eAA7B,AAAU,AAAI,UAAJ,QAAC,CAAC,oBACxC,UAAU;;;;AAKpB;;;;AAGA;;;EAEN","file":"../../../../../../../../../../../D:/packages/syncfusion_flutter_charts/src/sparkline/utils/helper.dart.lib.js"}');
+  // Exports:
+  return {
+    src__sparkline__utils__helper: helper
+  };
+}));
+
+//# sourceMappingURL=helper.dart.lib.js.map
