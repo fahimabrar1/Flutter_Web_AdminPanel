@@ -61,7 +61,9 @@ class SideMenu extends StatelessWidget {
                 ),
               ],
             ),
-            ListTile(),
+            SizedBox(
+              height: 25,
+            ),
             Container(
               padding: EdgeInsets.only(left: 10),
               child: Align(
@@ -89,7 +91,9 @@ class SideMenu extends StatelessWidget {
               icon: Icons.inventory_2_outlined,
               press: () {},
             ),
-            ListTile(),
+            SizedBox(
+              height: 25,
+            ),
             Container(
               padding: EdgeInsets.only(left: 10),
               child: Align(
