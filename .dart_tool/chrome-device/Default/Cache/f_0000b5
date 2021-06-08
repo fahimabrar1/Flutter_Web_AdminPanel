@@ -1,1996 +1,1344 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/painting/decoration.dart', 'packages/flutter/src/gestures/monodrag.dart', 'packages/flutter/src/rendering/stack.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter/src/gestures/drag_details.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/widgets/implicit_animations.dart', 'packages/flutter/src/painting/_network_image_web.dart', 'packages/flutter/src/cupertino/text_theme.dart', 'packages/flutter/src/cupertino/interface_level.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/cupertino/debug.dart'], (function load__packages__flutter__src__cupertino__route_dart(dart_sdk, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__painting__decoration$46dart, packages__flutter__src__gestures__monodrag$46dart, packages__flutter__src__rendering__stack$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter__src__gestures__drag_details$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__widgets__implicit_animations$46dart, packages__flutter__src__painting___network_image_web$46dart, packages__flutter__src__cupertino__text_theme$46dart, packages__flutter__src__cupertino__interface_level$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__cupertino__debug$46dart) {
+define(['dart_sdk', 'packages/intl/src/intl/intl_stream.dart', 'packages/intl/src/intl/constants.dart', 'packages/intl/number_symbols.dart', 'packages/intl/src/intl_helpers.dart', 'packages/intl/number_symbols_data.dart', 'packages/intl/src/intl/number_format_parser.dart'], (function load__packages__intl__src__intl__number_parser_dart(dart_sdk, packages__intl__src__intl__intl_stream$46dart, packages__intl__src__intl__constants$46dart, packages__intl__number_symbols$46dart, packages__intl__src__intl_helpers$46dart, packages__intl__number_symbols_data$46dart, packages__intl__src__intl__number_format_parser$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
-  const ui = dart_sdk.ui;
-  const _internal = dart_sdk._internal;
+  const _js_helper = dart_sdk._js_helper;
   const math = dart_sdk.math;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
-  const animation$ = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
-  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
-  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const pages = packages__flutter__src__widgets__widget_span$46dart.src__widgets__pages;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
-  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
-  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
-  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const routes = packages__flutter__src__widgets__widget_span$46dart.src__widgets__routes;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
-  const decoration = packages__flutter__src__painting__decoration$46dart.src__painting__decoration;
-  const monodrag = packages__flutter__src__gestures__monodrag$46dart.src__gestures__monodrag;
-  const stack = packages__flutter__src__rendering__stack$46dart.src__rendering__stack;
-  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
-  const drag_details = packages__flutter__src__gestures__drag_details$46dart.src__gestures__drag_details;
-  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
-  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
-  const implicit_animations = packages__flutter__src__widgets__implicit_animations$46dart.src__widgets__implicit_animations;
-  const image_provider = packages__flutter__src__painting___network_image_web$46dart.src__painting__image_provider;
-  const colors = packages__flutter__src__cupertino__text_theme$46dart.src__cupertino__colors;
-  const interface_level = packages__flutter__src__cupertino__interface_level$46dart.src__cupertino__interface_level;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const localizations = packages__flutter__src__cupertino__debug$46dart.src__cupertino__localizations;
-  var route$ = Object.create(dart.library);
-  var $abs = dartx.abs;
-  var $floor = dartx.floor;
-  var $map = dartx.map;
-  var $toList = dartx.toList;
-  var $length = dartx.length;
+  const intl_stream = packages__intl__src__intl__intl_stream$46dart.src__intl__intl_stream;
+  const constants = packages__intl__src__intl__constants$46dart.src__intl__constants;
+  const number_symbols = packages__intl__number_symbols$46dart.number_symbols;
+  const intl_helpers = packages__intl__src__intl_helpers$46dart.src__intl_helpers;
+  const number_symbols_data = packages__intl__number_symbols_data$46dart.number_symbols_data;
+  const number_format_parser = packages__intl__src__intl__number_format_parser$46dart.src__intl__number_format_parser;
+  var number_parser = Object.create(dart.library);
+  var number_format = Object.create(dart.library);
+  var $codeUnitAt = dartx.codeUnitAt;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $keys = dartx.keys;
   var $_get = dartx._get;
-  var $add = dartx.add;
-  var $runtimeType = dartx.runtimeType;
-  var $hashCode = dartx.hashCode;
-  var $truncate = dartx.truncate;
+  var $containsKey = dartx.containsKey;
+  var $floor = dartx.floor;
   var $modulo = dartx['%'];
+  var $toString = dartx.toString;
+  var $isInfinite = dartx.isInfinite;
+  var $isNaN = dartx.isNaN;
+  var $round = dartx.round;
+  var $ceil = dartx.ceil;
+  var $times = dartx['*'];
+  var $toInt = dartx.toInt;
+  var $truncate = dartx.truncate;
+  var $isEmpty = dartx.isEmpty;
+  var $padLeft = dartx.padLeft;
+  var $substring = dartx.substring;
+  var $startsWith = dartx.startsWith;
+  var $replaceAll = dartx.replaceAll;
+  var $contains = dartx.contains;
+  var $split = dartx.split;
+  var $first = dartx.first;
+  var $last = dartx.last;
+  var $add = dartx.add;
+  var $forEach = dartx.forEach;
+  var $reversed = dartx.reversed;
+  var $toList = dartx.toList;
+  var $replaceFirst = dartx.replaceFirst;
+  var $trim = dartx.trim;
+  var $expand = dartx.expand;
+  var $endsWith = dartx.endsWith;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    StringN: () => (T$.StringN = dart.constFn(dart.nullable(core.String)))(),
-    ValueNotifierOfStringN: () => (T$.ValueNotifierOfStringN = dart.constFn(change_notifier.ValueNotifier$(T$.StringN())))(),
-    JSArrayOfDiagnosticsNode: () => (T$.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    VoidTobool: () => (T$.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    JSArrayOfWidget: () => (T$.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
-    ObjectN: () => (T$.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
-    AnimationStatusTovoid: () => (T$.AnimationStatusTovoid = dart.constFn(dart.fnType(dart.void, [animation$.AnimationStatus])))(),
-    VoidToFn: () => (T$.VoidToFn = dart.constFn(dart.fnType(T$.AnimationStatusTovoid(), [])))(),
-    FnTodynamic: () => (T$.FnTodynamic = dart.constFn(dart.fnType(dart.dynamic, [T$.AnimationStatusTovoid()])))(),
-    ColorToColor: () => (T$.ColorToColor = dart.constFn(dart.fnType(ui.Color, [ui.Color])))(),
-    JSArrayOfColor: () => (T$.JSArrayOfColor = dart.constFn(_interceptors.JSArray$(ui.Color)))(),
-    IterablePropertyOfColor: () => (T$.IterablePropertyOfColor = dart.constFn(diagnostics.IterableProperty$(ui.Color)))(),
-    TweenOfOffset: () => (T$.TweenOfOffset = dart.constFn(tween.Tween$(ui.Offset)))(),
-    AnimationOfdouble: () => (T$.AnimationOfdouble = dart.constFn(animation$.Animation$(core.double)))(),
-    BuildContextAndAnimationOfdoubleAndAnimationOfdouble__ToWidget: () => (T$.BuildContextAndAnimationOfdoubleAndAnimationOfdouble__ToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, T$.AnimationOfdouble(), T$.AnimationOfdouble(), framework.Widget])))(),
-    BuildContextAndAnimationOfdoubleAndAnimationOfdoubleToWidget: () => (T$.BuildContextAndAnimationOfdoubleAndAnimationOfdoubleToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, T$.AnimationOfdouble(), T$.AnimationOfdouble()])))(),
-    TweenOfdouble: () => (T$.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))()
+  var T = {
+    VoidToString: () => (T.VoidToString = dart.constFn(dart.fnType(core.String, [])))(),
+    IdentityMapOfString$Function: () => (T.IdentityMapOfString$Function = dart.constFn(_js_helper.IdentityMap$(core.String, core.Function)))(),
+    StringTobool: () => (T.StringTobool = dart.constFn(dart.fnType(core.bool, [core.String])))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    NumberSymbolsToStringN: () => (T.NumberSymbolsToStringN = dart.constFn(dart.fnType(T.StringN(), [number_symbols.NumberSymbols])))(),
+    NumberSymbolsToString: () => (T.NumberSymbolsToString = dart.constFn(dart.fnType(core.String, [number_symbols.NumberSymbols])))(),
+    dynamicTobool: () => (T.dynamicTobool = dart.constFn(dart.fnType(core.bool, [dart.dynamic])))(),
+    JSArrayOf_CompactStyle: () => (T.JSArrayOf_CompactStyle = dart.constFn(_interceptors.JSArray$(number_format._CompactStyle)))(),
+    JSArrayOf_CompactStyleBase: () => (T.JSArrayOf_CompactStyleBase = dart.constFn(_interceptors.JSArray$(number_format._CompactStyleBase)))(),
+    intAndStringTovoid: () => (T.intAndStringTovoid = dart.constFn(dart.fnType(dart.void, [core.int, core.String])))(),
+    IterableOf_CompactStyle: () => (T.IterableOf_CompactStyle = dart.constFn(core.Iterable$(number_format._CompactStyle)))(),
+    _CompactStyleBaseToIterableOf_CompactStyle: () => (T._CompactStyleBaseToIterableOf_CompactStyle = dart.constFn(dart.fnType(T.IterableOf_CompactStyle(), [number_format._CompactStyleBase])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 400000
+      return C[0] = dart.fn(number_format.NumberFormat.localeExists, T.dynamicTobool());
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: number_format._CompactFormatType.prototype,
+        [_name$]: "_CompactFormatType.COMPACT_DECIMAL_SHORT_PATTERN",
+        index: 0
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: number_format._CompactFormatType.prototype,
+        [_name$]: "_CompactFormatType.COMPACT_DECIMAL_LONG_PATTERN",
+        index: 1
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scopesRoute",
-        [_Location_column]: 7,
-        [_Location_line]: 209,
-        [_Location_file]: null
+        __proto__: number_format._CompactFormatType.prototype,
+        [_name$]: "_CompactFormatType.COMPACT_DECIMAL_SHORT_CURRENCY_PATTERN",
+        index: 2
       });
     },
     get C4() {
-      return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "explicitChildNodes",
-        [_Location_column]: 7,
-        [_Location_line]: 210,
-        [_Location_file]: null
-      });
+      return C[4] = dart.constList([C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], number_format._CompactFormatType);
     },
     get C5() {
-      return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 211,
-        [_Location_file]: null
-      });
-    },
-    get C2() {
-      return C[2] = dart.constList([C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5], widget_inspector._Location);
-    },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[2] || CT.C2,
-        [_Location_name]: null,
-        [_Location_column]: 27,
-        [_Location_line]: 208,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "primaryRouteAnimation",
-        [_Location_column]: 9,
-        [_Location_line]: 266,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "secondaryRouteAnimation",
-        [_Location_column]: 9,
-        [_Location_line]: 267,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 268,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "linearTransition",
-        [_Location_column]: 9,
-        [_Location_line]: 269,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.constList([C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[7] || CT.C7,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 265,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "enabledCallback",
-        [_Location_column]: 11,
-        [_Location_line]: 277,
-        [_Location_file]: null
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onStartPopGesture",
-        [_Location_column]: 11,
-        [_Location_line]: 278,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 279,
-        [_Location_file]: null
-      });
-    },
-    get C13() {
-      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16], widget_inspector._Location);
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[13] || CT.C13,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 276,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "primaryRouteAnimation",
-        [_Location_column]: 9,
-        [_Location_line]: 273,
-        [_Location_file]: null
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "secondaryRouteAnimation",
-        [_Location_column]: 9,
-        [_Location_line]: 274,
-        [_Location_file]: null
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "linearTransition",
-        [_Location_column]: 9,
-        [_Location_line]: 275,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 276,
-        [_Location_file]: null
-      });
-    },
-    get C18() {
-      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22], widget_inspector._Location);
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[18] || CT.C18,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 272,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "decoration",
-        [_Location_column]: 11,
-        [_Location_line]: 503,
-        [_Location_file]: null
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 504,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26], widget_inspector._Location);
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[24] || CT.C24,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 502,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "position",
-        [_Location_column]: 9,
-        [_Location_line]: 500,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "textDirection",
-        [_Location_column]: 9,
-        [_Location_line]: 501,
-        [_Location_file]: null
-      });
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 502,
-        [_Location_file]: null
-      });
-    },
-    get C28() {
-      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31], widget_inspector._Location);
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[28] || CT.C28,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 499,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "position",
-        [_Location_column]: 7,
-        [_Location_line]: 496,
-        [_Location_file]: null
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "textDirection",
-        [_Location_column]: 7,
-        [_Location_line]: 497,
-        [_Location_file]: null
-      });
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "transformHitTests",
-        [_Location_column]: 7,
-        [_Location_line]: 498,
-        [_Location_file]: null
-      });
-    },
-    get C37() {
-      return C[37] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 499,
-        [_Location_file]: null
-      });
-    },
-    get C33() {
-      return C[33] = dart.constList([C[34] || CT.C34, C[35] || CT.C35, C[36] || CT.C36, C[37] || CT.C37], widget_inspector._Location);
-    },
-    get C32() {
-      return C[32] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[33] || CT.C33,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 495,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "position",
-        [_Location_column]: 9,
-        [_Location_line]: 564,
-        [_Location_file]: null
-      });
-    },
-    get C41() {
-      return C[41] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 565,
-        [_Location_file]: null
-      });
-    },
-    get C39() {
-      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], widget_inspector._Location);
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[39] || CT.C39,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 563,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "position",
-        [_Location_column]: 7,
-        [_Location_line]: 560,
-        [_Location_file]: null
-      });
-    },
-    get C45() {
-      return C[45] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "textDirection",
-        [_Location_column]: 7,
-        [_Location_line]: 561,
-        [_Location_file]: null
-      });
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "transformHitTests",
-        [_Location_column]: 7,
-        [_Location_line]: 562,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 563,
-        [_Location_file]: null
-      });
-    },
-    get C43() {
-      return C[43] = dart.constList([C[44] || CT.C44, C[45] || CT.C45, C[46] || CT.C46, C[47] || CT.C47], widget_inspector._Location);
-    },
-    get C42() {
-      return C[42] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[43] || CT.C43,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 559,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name]: "TextDirection.rtl",
-        index: 0
-      });
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: ui.TextDirection.prototype,
-        [_name]: "TextDirection.ltr",
-        index: 1
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPointerDown",
-        [_Location_column]: 13,
-        [_Location_line]: 684,
-        [_Location_file]: null
-      });
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "behavior",
-        [_Location_column]: 13,
-        [_Location_line]: 685,
-        [_Location_file]: null
-      });
-    },
-    get C51() {
-      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53], widget_inspector._Location);
-    },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[51] || CT.C51,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 683,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "start",
-        [_Location_column]: 11,
-        [_Location_line]: 679,
-        [_Location_file]: null
-      });
-    },
-    get C57() {
-      return C[57] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 11,
-        [_Location_line]: 680,
-        [_Location_file]: null
-      });
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "top",
-        [_Location_column]: 11,
-        [_Location_line]: 681,
-        [_Location_file]: null
-      });
-    },
-    get C59() {
-      return C[59] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "bottom",
-        [_Location_column]: 11,
-        [_Location_line]: 682,
-        [_Location_file]: null
-      });
-    },
-    get C60() {
-      return C[60] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 683,
-        [_Location_file]: null
-      });
-    },
-    get C55() {
-      return C[55] = dart.constList([C[56] || CT.C56, C[57] || CT.C57, C[58] || CT.C58, C[59] || CT.C59, C[60] || CT.C60], widget_inspector._Location);
-    },
-    get C54() {
-      return C[54] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[55] || CT.C55,
-        [_Location_name]: null,
-        [_Location_column]: 9,
-        [_Location_line]: 678,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C63() {
-      return C[63] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "fit",
-        [_Location_column]: 7,
-        [_Location_line]: 675,
-        [_Location_file]: null
-      });
-    },
-    get C64() {
-      return C[64] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 7,
-        [_Location_line]: 676,
-        [_Location_file]: null
-      });
-    },
-    get C62() {
-      return C[62] = dart.constList([C[63] || CT.C63, C[64] || CT.C64], widget_inspector._Location);
-    },
-    get C61() {
-      return C[61] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[62] || CT.C62,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 674,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C65() {
-      return C[65] = dart.const({
-        __proto__: curves.Cubic.prototype,
-        [Cubic_d]: 1,
-        [Cubic_c]: 0.04,
-        [Cubic_b]: 1,
-        [Cubic_a]: 0.18
-      });
-    },
-    get C66() {
-      return C[66] = dart.const({
-        __proto__: route$._CupertinoEdgeShadowDecoration.prototype,
-        [_colors$]: null
-      });
-    },
-    get C69() {
-      return C[69] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 939524096
-      });
-    },
-    get C70() {
-      return C[70] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 301989888
-      });
-    },
-    get C71() {
-      return C[71] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 67108864
-      });
-    },
-    get C72() {
-      return C[72] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 0
-      });
-    },
-    get C68() {
-      return C[68] = dart.constList([C[69] || CT.C69, C[70] || CT.C70, C[71] || CT.C71, C[72] || CT.C72], ui.Color);
-    },
-    get C67() {
-      return C[67] = dart.const({
-        __proto__: route$._CupertinoEdgeShadowDecoration.prototype,
-        [_colors$]: C[68] || CT.C68
-      });
-    },
-    get C74() {
-      return C[74] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 2046820352
-      });
-    },
-    get C75() {
-      return C[75] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 855638016
-      });
-    },
-    get C73() {
-      return C[73] = dart.const({
-        __proto__: colors.CupertinoDynamicColor.prototype,
-        [Color_value]: 0,
-        [CupertinoDynamicColor_darkHighContrastElevatedColor]: C[74] || CT.C74,
-        [CupertinoDynamicColor_highContrastElevatedColor]: C[75] || CT.C75,
-        [CupertinoDynamicColor_darkElevatedColor]: C[74] || CT.C74,
-        [CupertinoDynamicColor_elevatedColor]: C[75] || CT.C75,
-        [CupertinoDynamicColor_darkHighContrastColor]: C[74] || CT.C74,
-        [CupertinoDynamicColor_highContrastColor]: C[75] || CT.C75,
-        [CupertinoDynamicColor_darkColor]: C[74] || CT.C74,
-        [CupertinoDynamicColor_color]: C[75] || CT.C75,
-        [CupertinoDynamicColor__debugResolveContext]: null,
-        [CupertinoDynamicColor__debugLabel]: null,
-        [CupertinoDynamicColor__effectiveColor]: C[75] || CT.C75
-      });
-    },
-    get C76() {
-      return C[76] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 1,
-        [OffsetBase__dx]: 0
-      });
-    },
-    get C79() {
-      return C[79] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 22,
-        [_Location_line]: 1070,
-        [_Location_file]: null
-      });
-    },
-    get C78() {
-      return C[78] = dart.constList([C[79] || CT.C79], widget_inspector._Location);
-    },
-    get C77() {
-      return C[77] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[78] || CT.C78,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 1070,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 7,
-        [_Location_line]: 1069,
-        [_Location_file]: null
-      });
-    },
-    get C83() {
-      return C[83] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 1070,
-        [_Location_file]: null
-      });
-    },
-    get C81() {
-      return C[81] = dart.constList([C[82] || CT.C82, C[83] || CT.C83], widget_inspector._Location);
-    },
-    get C80() {
-      return C[80] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[81] || CT.C81,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 1068,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C86() {
-      return C[86] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "translation",
-        [_Location_column]: 9,
-        [_Location_line]: 1079,
-        [_Location_file]: null
-      });
-    },
-    get C87() {
-      return C[87] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 1080,
-        [_Location_file]: null
-      });
-    },
-    get C85() {
-      return C[85] = dart.constList([C[86] || CT.C86, C[87] || CT.C87], widget_inspector._Location);
-    },
-    get C84() {
-      return C[84] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[85] || CT.C85,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 1078,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C90() {
-      return C[90] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 7,
-        [_Location_line]: 1077,
-        [_Location_file]: null
-      });
-    },
-    get C91() {
-      return C[91] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 1078,
-        [_Location_file]: null
-      });
-    },
-    get C89() {
-      return C[89] = dart.constList([C[90] || CT.C90, C[91] || CT.C91], widget_inspector._Location);
-    },
-    get C88() {
-      return C[88] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[89] || CT.C89,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 1076,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C92() {
-      return C[92] = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 250000
-      });
-    },
-    get C93() {
-      return C[93] = dart.fn(route$._buildCupertinoDialogTransitions, T$.BuildContextAndAnimationOfdoubleAndAnimationOfdouble__ToWidget());
-    },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "opacity",
-        [_Location_column]: 7,
-        [_Location_line]: 1223,
-        [_Location_file]: null
-      });
-    },
-    get C97() {
-      return C[97] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 1224,
-        [_Location_file]: null
-      });
-    },
-    get C95() {
-      return C[95] = dart.constList([C[96] || CT.C96, C[97] || CT.C97], widget_inspector._Location);
-    },
-    get C94() {
-      return C[94] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[95] || CT.C95,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 1222,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C100() {
-      return C[100] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 1230,
-        [_Location_file]: null
-      });
-    },
-    get C101() {
-      return C[101] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "scale",
-        [_Location_column]: 7,
-        [_Location_line]: 1231,
-        [_Location_file]: null
-      });
-    },
-    get C99() {
-      return C[99] = dart.constList([C[100] || CT.C100, C[101] || CT.C101], widget_inspector._Location);
-    },
-    get C98() {
-      return C[98] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[99] || CT.C99,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 1229,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C104() {
-      return C[104] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "opacity",
-        [_Location_column]: 5,
-        [_Location_line]: 1228,
-        [_Location_file]: null
-      });
-    },
-    get C105() {
-      return C[105] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 5,
-        [_Location_line]: 1229,
-        [_Location_file]: null
-      });
-    },
-    get C103() {
-      return C[103] = dart.constList([C[104] || CT.C104, C[105] || CT.C105], widget_inspector._Location);
-    },
-    get C102() {
-      return C[102] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[103] || CT.C103,
-        [_Location_name]: null,
-        [_Location_column]: 10,
-        [_Location_line]: 1227,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart"
-      });
-    },
-    get C106() {
-      return C[106] = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 335000
-      });
-    },
-    get C107() {
-      return C[107] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: 1
-      });
-    },
-    get C108() {
-      return C[108] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: -0.3333333333333333
-      });
+      return C[5] = dart.fn(number_format._CompactNumberFormat._forDecimal, T.NumberSymbolsToString());
     }
   }, false);
-  var C = Array(109).fill(void 0);
+  var C = Array(6).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/cupertino/route.dart",
-    "package:flutter/src/cupertino/route.dart"
+    "package:intl/src/intl/number_parser.dart",
+    "package:intl/src/intl/number_format.dart"
   ];
-  var _previousTitle = dart.privateName(route$, "CupertinoRouteTransitionMixin._previousTitle");
-  var _previousTitle$ = dart.privateName(route$, "_previousTitle");
-  var Duration__duration = dart.privateName(core, "Duration._duration");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  const _is_CupertinoRouteTransitionMixin_default = Symbol('_is_CupertinoRouteTransitionMixin_default');
-  route$.CupertinoRouteTransitionMixin$ = dart.generic(T => {
-    class CupertinoRouteTransitionMixin extends pages.PageRoute$(T) {
-      static isPopGestureInProgress(route) {
-        return dart.nullCheck(route.navigator).userGestureInProgress;
-      }
-      static _isPopGestureEnabled(T, route) {
-        if (route.isFirst) return false;
-        if (route.willHandlePopInternally) return false;
-        if (route.hasScopedWillPopCallback) return false;
-        if (route.fullscreenDialog) return false;
-        if (dart.nullCheck(route.animation).status !== animation$.AnimationStatus.completed) return false;
-        if (dart.nullCheck(route.secondaryAnimation).status !== animation$.AnimationStatus.dismissed) return false;
-        if (route$.CupertinoRouteTransitionMixin.isPopGestureInProgress(route)) return false;
-        return true;
-      }
-      static _startPopGesture(T, route) {
-        if (!route$.CupertinoRouteTransitionMixin._isPopGestureEnabled(T, route)) dart.assertFailed(null, I[0], 229, 12, "_isPopGestureEnabled(route)");
-        return new (route$._CupertinoBackGestureController$(T)).new({navigator: dart.nullCheck(route.navigator), controller: dart.nullCheck(route.controller)});
-      }
-      static buildPageTransitions(T, route, context, animation, secondaryAnimation, child) {
-        let linearTransition = route$.CupertinoRouteTransitionMixin.isPopGestureInProgress(route);
-        if (route.fullscreenDialog) {
-          return new route$.CupertinoFullscreenDialogTransition.new({primaryRouteAnimation: animation, secondaryRouteAnimation: secondaryAnimation, child: child, linearTransition: linearTransition, $creationLocationd_0dea112b090073317d4: C[6] || CT.C6});
-        } else {
-          return new route$.CupertinoPageTransition.new({primaryRouteAnimation: animation, secondaryRouteAnimation: secondaryAnimation, linearTransition: linearTransition, child: new (route$._CupertinoBackGestureDetector$(T)).new({enabledCallback: dart.fn(() => route$.CupertinoRouteTransitionMixin._isPopGestureEnabled(T, route), T$.VoidTobool()), onStartPopGesture: dart.fn(() => route$.CupertinoRouteTransitionMixin._startPopGesture(T, route), dart.fnType(route$._CupertinoBackGestureController$(T), [])), child: child, $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17});
-        }
-      }
+  var format$ = dart.privateName(number_parser, "NumberParser.format");
+  var text$ = dart.privateName(number_parser, "NumberParser.text");
+  var input = dart.privateName(number_parser, "NumberParser.input");
+  var value$ = dart.privateName(number_parser, "NumberParser.value");
+  var gotPositive = dart.privateName(number_parser, "NumberParser.gotPositive");
+  var gotNegative = dart.privateName(number_parser, "NumberParser.gotNegative");
+  var gotPositiveSuffix = dart.privateName(number_parser, "NumberParser.gotPositiveSuffix");
+  var gotNegativeSuffix = dart.privateName(number_parser, "NumberParser.gotNegativeSuffix");
+  var done = dart.privateName(number_parser, "NumberParser.done");
+  var prefixesSkipped = dart.privateName(number_parser, "NumberParser.prefixesSkipped");
+  var scale = dart.privateName(number_parser, "NumberParser.scale");
+  var _normalized = dart.privateName(number_parser, "_normalized");
+  var _replacements = dart.privateName(number_parser, "_replacements");
+  var _positivePrefix = dart.privateName(number_parser, "_positivePrefix");
+  var _negativePrefix = dart.privateName(number_parser, "_negativePrefix");
+  var _positiveSuffix = dart.privateName(number_parser, "_positiveSuffix");
+  var _negativeSuffix = dart.privateName(number_parser, "_negativeSuffix");
+  var _localeZero = dart.privateName(number_parser, "_localeZero");
+  var _initializeReplacements = dart.privateName(number_parser, "_initializeReplacements");
+  number_parser.NumberParser = class NumberParser extends core.Object {
+    get format() {
+      return this[format$];
     }
-    CupertinoRouteTransitionMixin[dart.mixinOn] = PageRoute => class CupertinoRouteTransitionMixin extends PageRoute {
-      get [_previousTitle$]() {
-        return this[_previousTitle];
-      }
-      set [_previousTitle$](value) {
-        this[_previousTitle] = value;
-      }
-      get previousTitle() {
-        if (!(this[_previousTitle$] != null)) dart.assertFailed("Cannot read the previousTitle for a route that has not yet been installed", I[0], 105, 7, "_previousTitle != null");
-        return dart.nullCheck(this[_previousTitle$]);
-      }
-      didChangePrevious(previousRoute) {
-        let previousTitleString = route$.CupertinoRouteTransitionMixin.is(previousRoute) ? previousRoute.title : null;
-        if (this[_previousTitle$] == null) {
-          this[_previousTitle$] = new (T$.ValueNotifierOfStringN()).new(previousTitleString);
-        } else {
-          dart.nullCheck(this[_previousTitle$]).value = previousTitleString;
-        }
-        super.didChangePrevious(previousRoute);
-      }
-      get transitionDuration() {
-        return C[0] || CT.C0;
-      }
-      get barrierColor() {
+    set format(value) {
+      super.format = value;
+    }
+    get text() {
+      return this[text$];
+    }
+    set text(value) {
+      super.text = value;
+    }
+    get input() {
+      return this[input];
+    }
+    set input(value) {
+      super.input = value;
+    }
+    get value() {
+      return this[value$];
+    }
+    set value(value) {
+      this[value$] = value;
+    }
+    get gotPositive() {
+      return this[gotPositive];
+    }
+    set gotPositive(value) {
+      this[gotPositive] = value;
+    }
+    get gotNegative() {
+      return this[gotNegative];
+    }
+    set gotNegative(value) {
+      this[gotNegative] = value;
+    }
+    get gotPositiveSuffix() {
+      return this[gotPositiveSuffix];
+    }
+    set gotPositiveSuffix(value) {
+      this[gotPositiveSuffix] = value;
+    }
+    get gotNegativeSuffix() {
+      return this[gotNegativeSuffix];
+    }
+    set gotNegativeSuffix(value) {
+      this[gotNegativeSuffix] = value;
+    }
+    get done() {
+      return this[done];
+    }
+    set done(value) {
+      this[done] = value;
+    }
+    get prefixesSkipped() {
+      return this[prefixesSkipped];
+    }
+    set prefixesSkipped(value) {
+      this[prefixesSkipped] = value;
+    }
+    get scale() {
+      return this[scale];
+    }
+    set scale(value) {
+      this[scale] = value;
+    }
+    get symbols() {
+      return this.format.symbols;
+    }
+    get [_positivePrefix]() {
+      return this.format.positivePrefix;
+    }
+    get [_negativePrefix]() {
+      return this.format.negativePrefix;
+    }
+    get [_positiveSuffix]() {
+      return this.format.positiveSuffix;
+    }
+    get [_negativeSuffix]() {
+      return this.format.negativeSuffix;
+    }
+    get [_localeZero]() {
+      return this.format.localeZero;
+    }
+    get replacements() {
+      let t0;
+      t0 = this[_replacements];
+      return t0 == null ? this[_replacements] = this[_initializeReplacements]() : t0;
+    }
+    [_initializeReplacements]() {
+      return new (T.IdentityMapOfString$Function()).from([this.symbols.DECIMAL_SEP, dart.fn(() => ".", T.VoidToString()), this.symbols.EXP_SYMBOL, dart.fn(() => "E", T.VoidToString()), this.symbols.GROUP_SEP, dart.bind(this, 'handleSpace'), this.symbols.PERCENT, dart.fn(() => {
+          this.scale = 100;
+          return "";
+        }, T.VoidToString()), this.symbols.PERMILL, dart.fn(() => {
+          this.scale = 1000;
+          return "";
+        }, T.VoidToString()), " ", dart.bind(this, 'handleSpace'), " ", dart.bind(this, 'handleSpace'), "+", dart.fn(() => "+", T.VoidToString()), "-", dart.fn(() => "-", T.VoidToString())]);
+    }
+    invalidFormat() {
+      return dart.throw(new core.FormatException.new("Invalid number: " + dart.str(this.input.contents)));
+    }
+    handleSpace() {
+      return this.groupingIsNotASpaceOrElseItIsSpaceFollowedByADigit ? "" : this.invalidFormat();
+    }
+    get groupingIsNotASpaceOrElseItIsSpaceFollowedByADigit() {
+      if (this.symbols.GROUP_SEP !== " " || this.symbols.GROUP_SEP !== " ") return true;
+      let peeked = this.input.peek(this.symbols.GROUP_SEP.length + 1);
+      return this.asDigit(core.String.as(dart.dsend(peeked, '_get', [dart.dsend(dart.dload(peeked, 'length'), '-', [1])]))) != null;
+    }
+    asDigit(char) {
+      let charCode = char[$codeUnitAt](0);
+      let digitValue = charCode - this[_localeZero];
+      if (digitValue >= 0 && digitValue < 10) {
+        return digitValue;
+      } else {
         return null;
       }
-      get barrierLabel() {
-        return null;
+    }
+    checkPrefixes(opts) {
+      let skip = opts && 'skip' in opts ? opts.skip : false;
+      const checkPrefix = prefix => {
+        return prefix[$isNotEmpty] && this.input.startsWith(prefix);
+      };
+      dart.fn(checkPrefix, T.StringTobool());
+      if (checkPrefix(this[_positivePrefix])) this.gotPositive = true;
+      if (checkPrefix(this[_negativePrefix])) this.gotNegative = true;
+      if (this.gotPositive && this.gotNegative) {
+        if (this[_positivePrefix].length > this[_negativePrefix].length) {
+          this.gotNegative = false;
+        } else if (this[_negativePrefix].length > this[_positivePrefix].length) {
+          this.gotPositive = false;
+        }
       }
-      canTransitionTo(nextRoute) {
-        return route$.CupertinoRouteTransitionMixin.is(nextRoute) && !nextRoute.fullscreenDialog;
-      }
-      get popGestureInProgress() {
-        return route$.CupertinoRouteTransitionMixin.isPopGestureInProgress(this);
-      }
-      get popGestureEnabled() {
-        return route$.CupertinoRouteTransitionMixin._isPopGestureEnabled(T, this);
-      }
-      buildPage(context, animation, secondaryAnimation) {
-        let child = this.buildContent(context);
-        let result = new basic.Semantics.new({scopesRoute: true, explicitChildNodes: true, child: child, $creationLocationd_0dea112b090073317d4: C[1] || CT.C1});
-        if (!dart.fn(() => {
-          if (child === null) {
-            dart.throw(new assertions.FlutterError.fromParts(T$.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("The builder for route \"" + dart.str(this.settings.name) + "\" returned null."), new assertions.ErrorDescription.new("Route builders must never return null.")])));
-          }
-          return true;
-        }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 213, 12, "() {\r\n      if (child == null) {\r\n        throw FlutterError.fromParts(<DiagnosticsNode>[\r\n          ErrorSummary('The builder for route \"${settings.name}\" returned null.'),\r\n          ErrorDescription('Route builders must never return null.'),\r\n        ]);\r\n      }\r\n      return true;\r\n    }()");
-        return result;
-      }
-      buildTransitions(context, animation, secondaryAnimation, child) {
-        return route$.CupertinoRouteTransitionMixin.buildPageTransitions(T, this, context, animation, secondaryAnimation, child);
-      }
-    };
-    (CupertinoRouteTransitionMixin[dart.mixinNew] = function() {
-      this[_previousTitle] = null;
-    }).prototype = CupertinoRouteTransitionMixin.prototype;
-    dart.addTypeTests(CupertinoRouteTransitionMixin);
-    CupertinoRouteTransitionMixin.prototype[_is_CupertinoRouteTransitionMixin_default] = true;
-    dart.addTypeCaches(CupertinoRouteTransitionMixin);
-    CupertinoRouteTransitionMixin[dart.implements] = () => [pages.PageRoute$(T)];
-    dart.setMethodSignature(CupertinoRouteTransitionMixin, () => ({
-      __proto__: dart.getMethods(CupertinoRouteTransitionMixin.__proto__),
-      buildPage: dart.fnType(framework.Widget, [framework.BuildContext, animation$.Animation$(core.double), animation$.Animation$(core.double)])
-    }));
-    dart.setGetterSignature(CupertinoRouteTransitionMixin, () => ({
-      __proto__: dart.getGetters(CupertinoRouteTransitionMixin.__proto__),
-      previousTitle: change_notifier.ValueListenable$(dart.nullable(core.String)),
-      transitionDuration: core.Duration,
-      barrierColor: dart.nullable(ui.Color),
-      barrierLabel: dart.nullable(core.String),
-      popGestureInProgress: core.bool,
-      popGestureEnabled: core.bool
-    }));
-    dart.setLibraryUri(CupertinoRouteTransitionMixin, I[1]);
-    dart.setFieldSignature(CupertinoRouteTransitionMixin, () => ({
-      __proto__: dart.getFields(CupertinoRouteTransitionMixin.__proto__),
-      [_previousTitle$]: dart.fieldType(dart.nullable(change_notifier.ValueNotifier$(dart.nullable(core.String))))
-    }));
-    return CupertinoRouteTransitionMixin;
-  });
-  route$.CupertinoRouteTransitionMixin = route$.CupertinoRouteTransitionMixin$();
-  dart.addTypeTests(route$.CupertinoRouteTransitionMixin, _is_CupertinoRouteTransitionMixin_default);
-  var builder$ = dart.privateName(route$, "CupertinoPageRoute.builder");
-  var title$ = dart.privateName(route$, "CupertinoPageRoute.title");
-  var maintainState$ = dart.privateName(route$, "CupertinoPageRoute.maintainState");
-  const _is_CupertinoPageRoute_default = Symbol('_is_CupertinoPageRoute_default');
-  route$.CupertinoPageRoute$ = dart.generic(T => {
-    const PageRoute_CupertinoRouteTransitionMixin$36 = class PageRoute_CupertinoRouteTransitionMixin extends pages.PageRoute$(T) {};
-    (PageRoute_CupertinoRouteTransitionMixin$36.new = function(opts) {
-      route$.CupertinoRouteTransitionMixin$(T)[dart.mixinNew].call(this);
-      PageRoute_CupertinoRouteTransitionMixin$36.__proto__.new.call(this, opts);
-    }).prototype = PageRoute_CupertinoRouteTransitionMixin$36.prototype;
-    dart.applyMixin(PageRoute_CupertinoRouteTransitionMixin$36, route$.CupertinoRouteTransitionMixin$(T));
-    class CupertinoPageRoute extends PageRoute_CupertinoRouteTransitionMixin$36 {
-      get builder() {
-        return this[builder$];
-      }
-      set builder(value) {
-        super.builder = value;
-      }
-      get title() {
-        return this[title$];
-      }
-      set title(value) {
-        super.title = value;
-      }
-      get maintainState() {
-        return this[maintainState$];
-      }
-      set maintainState(value) {
-        super.maintainState = value;
-      }
-      buildContent(context) {
-        let t0;
-        t0 = context;
-        return this.builder(t0);
-      }
-      get debugLabel() {
-        return super.debugLabel + "(" + dart.str(this.settings.name) + ")";
+      if (skip) {
+        if (this.gotPositive) this.input.read(this[_positivePrefix].length);
+        if (this.gotNegative) this.input.read(this[_negativePrefix].length);
       }
     }
-    (CupertinoPageRoute.new = function(opts) {
-      let builder = opts && 'builder' in opts ? opts.builder : null;
-      let title = opts && 'title' in opts ? opts.title : null;
-      let settings = opts && 'settings' in opts ? opts.settings : null;
-      let maintainState = opts && 'maintainState' in opts ? opts.maintainState : true;
-      let fullscreenDialog = opts && 'fullscreenDialog' in opts ? opts.fullscreenDialog : false;
-      this[builder$] = builder;
-      this[title$] = title;
-      this[maintainState$] = maintainState;
-      if (!(builder !== null)) dart.assertFailed(null, I[0], 325, 15, "builder != null");
-      if (!(maintainState !== null)) dart.assertFailed(null, I[0], 326, 15, "maintainState != null");
-      if (!(fullscreenDialog !== null)) dart.assertFailed(null, I[0], 327, 15, "fullscreenDialog != null");
-      CupertinoPageRoute.__proto__.new.call(this, {settings: settings, fullscreenDialog: fullscreenDialog});
-      if (!this.opaque) dart.assertFailed(null, I[0], 329, 12, "opaque");
-    }).prototype = CupertinoPageRoute.prototype;
-    dart.addTypeTests(CupertinoPageRoute);
-    CupertinoPageRoute.prototype[_is_CupertinoPageRoute_default] = true;
-    dart.addTypeCaches(CupertinoPageRoute);
-    dart.setMethodSignature(CupertinoPageRoute, () => ({
-      __proto__: dart.getMethods(CupertinoPageRoute.__proto__),
-      buildContent: dart.fnType(framework.Widget, [framework.BuildContext])
-    }));
-    dart.setLibraryUri(CupertinoPageRoute, I[1]);
-    dart.setFieldSignature(CupertinoPageRoute, () => ({
-      __proto__: dart.getFields(CupertinoPageRoute.__proto__),
-      builder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext])),
-      title: dart.finalFieldType(dart.nullable(core.String)),
-      maintainState: dart.finalFieldType(core.bool)
-    }));
-    return CupertinoPageRoute;
-  });
-  route$.CupertinoPageRoute = route$.CupertinoPageRoute$();
-  dart.addTypeTests(route$.CupertinoPageRoute, _is_CupertinoPageRoute_default);
-  var _page = dart.privateName(route$, "_page");
-  const _is__PageBasedCupertinoPageRoute_default = Symbol('_is__PageBasedCupertinoPageRoute_default');
-  route$._PageBasedCupertinoPageRoute$ = dart.generic(T => {
-    var CupertinoPageOfT = () => (CupertinoPageOfT = dart.constFn(route$.CupertinoPage$(T)))();
-    const PageRoute_CupertinoRouteTransitionMixin$36 = class PageRoute_CupertinoRouteTransitionMixin extends pages.PageRoute$(T) {};
-    (PageRoute_CupertinoRouteTransitionMixin$36.new = function(opts) {
-      route$.CupertinoRouteTransitionMixin$(T)[dart.mixinNew].call(this);
-      PageRoute_CupertinoRouteTransitionMixin$36.__proto__.new.call(this, opts);
-    }).prototype = PageRoute_CupertinoRouteTransitionMixin$36.prototype;
-    dart.applyMixin(PageRoute_CupertinoRouteTransitionMixin$36, route$.CupertinoRouteTransitionMixin$(T));
-    class _PageBasedCupertinoPageRoute extends PageRoute_CupertinoRouteTransitionMixin$36 {
-      get [_page]() {
-        return CupertinoPageOfT().as(this.settings);
+    checkSuffixes() {
+      let remainder = this.input.rest();
+      if (dart.equals(remainder, this[_positiveSuffix])) this.gotPositiveSuffix = true;
+      if (dart.equals(remainder, this[_negativeSuffix])) this.gotNegativeSuffix = true;
+    }
+    processNonDigit() {
+      let foundAnInterpretation = false;
+      if (this.input.index === 0 && !this.prefixesSkipped) {
+        this.prefixesSkipped = true;
+        this.checkPrefixes({skip: true});
+        foundAnInterpretation = true;
       }
-      buildContent(context) {
-        return this[_page].child;
+      for (let key of this.replacements[$keys]) {
+        if (this.input.startsWith(key)) {
+          this[_normalized].write(dart.dcall(dart.nullCheck(this.replacements[$_get](key)), []));
+          this.input.read(key.length);
+          return;
+        }
       }
-      get title() {
-        return this[_page].title;
-      }
-      get maintainState() {
-        return this[_page].maintainState;
-      }
-      get fullscreenDialog() {
-        return this[_page].fullscreenDialog;
-      }
-      get debugLabel() {
-        return super.debugLabel + "(" + dart.str(this[_page].name) + ")";
+      if (!foundAnInterpretation) {
+        this.done = true;
       }
     }
-    (_PageBasedCupertinoPageRoute.new = function(opts) {
-      let page = opts && 'page' in opts ? opts.page : null;
-      if (!(page !== null)) dart.assertFailed(null, I[0], 355, 15, "page != null");
-      _PageBasedCupertinoPageRoute.__proto__.new.call(this, {settings: page});
-      if (!this.opaque) dart.assertFailed(null, I[0], 357, 12, "opaque");
-    }).prototype = _PageBasedCupertinoPageRoute.prototype;
-    dart.addTypeTests(_PageBasedCupertinoPageRoute);
-    _PageBasedCupertinoPageRoute.prototype[_is__PageBasedCupertinoPageRoute_default] = true;
-    dart.addTypeCaches(_PageBasedCupertinoPageRoute);
-    dart.setMethodSignature(_PageBasedCupertinoPageRoute, () => ({
-      __proto__: dart.getMethods(_PageBasedCupertinoPageRoute.__proto__),
-      buildContent: dart.fnType(framework.Widget, [framework.BuildContext])
-    }));
-    dart.setGetterSignature(_PageBasedCupertinoPageRoute, () => ({
-      __proto__: dart.getGetters(_PageBasedCupertinoPageRoute.__proto__),
-      [_page]: route$.CupertinoPage$(T),
-      title: dart.nullable(core.String),
-      maintainState: core.bool,
-      fullscreenDialog: core.bool
-    }));
-    dart.setLibraryUri(_PageBasedCupertinoPageRoute, I[1]);
-    return _PageBasedCupertinoPageRoute;
-  });
-  route$._PageBasedCupertinoPageRoute = route$._PageBasedCupertinoPageRoute$();
-  dart.addTypeTests(route$._PageBasedCupertinoPageRoute, _is__PageBasedCupertinoPageRoute_default);
-  var child$ = dart.privateName(route$, "CupertinoPage.child");
-  var title$0 = dart.privateName(route$, "CupertinoPage.title");
-  var maintainState$0 = dart.privateName(route$, "CupertinoPage.maintainState");
-  var fullscreenDialog$ = dart.privateName(route$, "CupertinoPage.fullscreenDialog");
-  const _is_CupertinoPage_default = Symbol('_is_CupertinoPage_default');
-  route$.CupertinoPage$ = dart.generic(T => {
-    var _PageBasedCupertinoPageRouteOfT = () => (_PageBasedCupertinoPageRouteOfT = dart.constFn(route$._PageBasedCupertinoPageRoute$(T)))();
-    class CupertinoPage extends navigator.Page$(T) {
-      get child() {
-        return this[child$];
+    parse() {
+      if (this.text === this.symbols.NAN) return 0.0 / 0.0;
+      if (this.text === this[_positivePrefix] + this.symbols.INFINITY + this[_positiveSuffix]) {
+        return 1.0 / 0.0;
       }
-      set child(value) {
-        super.child = value;
+      if (this.text === this[_negativePrefix] + this.symbols.INFINITY + this[_negativeSuffix]) {
+        return -1.0 / 0.0;
       }
-      get title() {
-        return this[title$0];
+      this.checkPrefixes();
+      let parsed = this.parseNumber(this.input);
+      if (this.gotPositive && !this.gotPositiveSuffix) this.invalidNumber();
+      if (this.gotNegative && !this.gotNegativeSuffix) this.invalidNumber();
+      if (!this.input.atEnd()) this.invalidNumber();
+      return parsed;
+    }
+    invalidNumber() {
+      return dart.throw(new core.FormatException.new("Invalid Number: " + dart.str(this.input.contents)));
+    }
+    parseNumber(input) {
+      if (this.gotNegative) {
+        this[_normalized].write("-");
       }
-      set title(value) {
-        super.title = value;
+      while (!this.done && !input.atEnd()) {
+        let digit = this.asDigit(core.String.as(input.peek()));
+        if (digit != null) {
+          this[_normalized].writeCharCode(constants.asciiZeroCodeUnit + dart.notNull(digit));
+          input.next();
+        } else {
+          this.processNonDigit();
+        }
+        this.checkSuffixes();
       }
-      get maintainState() {
-        return this[maintainState$0];
-      }
-      set maintainState(value) {
-        super.maintainState = value;
-      }
-      get fullscreenDialog() {
-        return this[fullscreenDialog$];
-      }
-      set fullscreenDialog(value) {
-        super.fullscreenDialog = value;
-      }
-      createRoute(context) {
-        return new (_PageBasedCupertinoPageRouteOfT()).new({page: this});
+      let normalizedText = this[_normalized].toString();
+      let parsed = core.int.tryParse(normalizedText);
+      parsed == null ? parsed = core.double.parse(normalizedText) : null;
+      return dart.notNull(parsed) / this.scale;
+    }
+  };
+  (number_parser.NumberParser.new = function(format, text) {
+    this[value$] = null;
+    this[_normalized] = new core.StringBuffer.new();
+    this[gotPositive] = false;
+    this[gotNegative] = false;
+    this[gotPositiveSuffix] = false;
+    this[gotNegativeSuffix] = false;
+    this[done] = false;
+    this[prefixesSkipped] = false;
+    this[scale] = 1;
+    this[_replacements] = null;
+    this[format$] = format;
+    this[text$] = text;
+    this[input] = new intl_stream.IntlStream.new(text);
+    this.scale = this.format.multiplier;
+    this.value = this.parse();
+  }).prototype = number_parser.NumberParser.prototype;
+  dart.addTypeTests(number_parser.NumberParser);
+  dart.addTypeCaches(number_parser.NumberParser);
+  dart.setMethodSignature(number_parser.NumberParser, () => ({
+    __proto__: dart.getMethods(number_parser.NumberParser.__proto__),
+    [_initializeReplacements]: dart.fnType(core.Map$(core.String, core.Function), []),
+    invalidFormat: dart.fnType(dart.void, []),
+    handleSpace: dart.fnType(dart.void, []),
+    asDigit: dart.fnType(dart.nullable(core.int), [core.String]),
+    checkPrefixes: dart.fnType(dart.void, [], {skip: core.bool}, {}),
+    checkSuffixes: dart.fnType(dart.void, []),
+    processNonDigit: dart.fnType(dart.void, []),
+    parse: dart.fnType(core.num, []),
+    invalidNumber: dart.fnType(dart.void, []),
+    parseNumber: dart.fnType(core.num, [intl_stream.IntlStream])
+  }));
+  dart.setGetterSignature(number_parser.NumberParser, () => ({
+    __proto__: dart.getGetters(number_parser.NumberParser.__proto__),
+    symbols: number_symbols.NumberSymbols,
+    [_positivePrefix]: core.String,
+    [_negativePrefix]: core.String,
+    [_positiveSuffix]: core.String,
+    [_negativeSuffix]: core.String,
+    [_localeZero]: core.int,
+    replacements: core.Map$(core.String, core.Function),
+    groupingIsNotASpaceOrElseItIsSpaceFollowedByADigit: core.bool
+  }));
+  dart.setLibraryUri(number_parser.NumberParser, I[0]);
+  dart.setFieldSignature(number_parser.NumberParser, () => ({
+    __proto__: dart.getFields(number_parser.NumberParser.__proto__),
+    format: dart.finalFieldType(number_format.NumberFormat),
+    text: dart.finalFieldType(core.String),
+    input: dart.finalFieldType(intl_stream.IntlStream),
+    value: dart.fieldType(dart.nullable(core.num)),
+    [_normalized]: dart.finalFieldType(core.StringBuffer),
+    gotPositive: dart.fieldType(core.bool),
+    gotNegative: dart.fieldType(core.bool),
+    gotPositiveSuffix: dart.fieldType(core.bool),
+    gotNegativeSuffix: dart.fieldType(core.bool),
+    done: dart.fieldType(core.bool),
+    prefixesSkipped: dart.fieldType(core.bool),
+    scale: dart.fieldType(core.int),
+    [_replacements]: dart.fieldType(dart.nullable(core.Map$(core.String, core.Function)))
+  }));
+  var negativePrefix = dart.privateName(number_format, "NumberFormat.negativePrefix");
+  var positivePrefix = dart.privateName(number_format, "NumberFormat.positivePrefix");
+  var negativeSuffix = dart.privateName(number_format, "NumberFormat.negativeSuffix");
+  var positiveSuffix = dart.privateName(number_format, "NumberFormat.positiveSuffix");
+  var maximumIntegerDigits = dart.privateName(number_format, "NumberFormat.maximumIntegerDigits");
+  var minimumIntegerDigits = dart.privateName(number_format, "NumberFormat.minimumIntegerDigits");
+  var maximumFractionDigits = dart.privateName(number_format, "NumberFormat.maximumFractionDigits");
+  var minimumFractionDigits = dart.privateName(number_format, "NumberFormat.minimumFractionDigits");
+  var minimumExponentDigits = dart.privateName(number_format, "NumberFormat.minimumExponentDigits");
+  var significantDigitsInUse = dart.privateName(number_format, "NumberFormat.significantDigitsInUse");
+  var multiplier = dart.privateName(number_format, "NumberFormat.multiplier");
+  var currencyName$ = dart.privateName(number_format, "NumberFormat.currencyName");
+  var currencySymbol$ = dart.privateName(number_format, "NumberFormat.currencySymbol");
+  var decimalDigits = dart.privateName(number_format, "NumberFormat.decimalDigits");
+  var localeZero$ = dart.privateName(number_format, "NumberFormat.localeZero");
+  var _significantDigits = dart.privateName(number_format, "_significantDigits");
+  var _buffer = dart.privateName(number_format, "_buffer");
+  var _isForCurrency$ = dart.privateName(number_format, "_isForCurrency");
+  var _locale$ = dart.privateName(number_format, "_locale");
+  var _pattern$ = dart.privateName(number_format, "_pattern");
+  var _symbols$ = dart.privateName(number_format, "_symbols");
+  var _zeroOffset$ = dart.privateName(number_format, "_zeroOffset");
+  var _multiplierDigits = dart.privateName(number_format, "_multiplierDigits");
+  var _useExponentialNotation = dart.privateName(number_format, "_useExponentialNotation");
+  var _groupingSize = dart.privateName(number_format, "_groupingSize");
+  var _finalGroupingSize = dart.privateName(number_format, "_finalGroupingSize");
+  var _useSignForPositiveExponent = dart.privateName(number_format, "_useSignForPositiveExponent");
+  var _decimalSeparatorAlwaysShown = dart.privateName(number_format, "_decimalSeparatorAlwaysShown");
+  var _isNaN = dart.privateName(number_format, "_isNaN");
+  var _isInfinite = dart.privateName(number_format, "_isInfinite");
+  var _signPrefix = dart.privateName(number_format, "_signPrefix");
+  var _add = dart.privateName(number_format, "_add");
+  var _formatNumber = dart.privateName(number_format, "_formatNumber");
+  var _signSuffix = dart.privateName(number_format, "_signSuffix");
+  var _formatExponential = dart.privateName(number_format, "_formatExponential");
+  var _formatFixed = dart.privateName(number_format, "_formatFixed");
+  var _formatExponent = dart.privateName(number_format, "_formatExponent");
+  var _pad = dart.privateName(number_format, "_pad");
+  var _floor = dart.privateName(number_format, "_floor");
+  var _round = dart.privateName(number_format, "_round");
+  var _fractionDigitsAfter = dart.privateName(number_format, "_fractionDigitsAfter");
+  var _integerDigits = dart.privateName(number_format, "_integerDigits");
+  var _hasIntegerDigits = dart.privateName(number_format, "_hasIntegerDigits");
+  var _addDigit = dart.privateName(number_format, "_addDigit");
+  var _group = dart.privateName(number_format, "_group");
+  var _addZero = dart.privateName(number_format, "_addZero");
+  var _decimalSeparator = dart.privateName(number_format, "_decimalSeparator");
+  var _formatFractionPart = dart.privateName(number_format, "_formatFractionPart");
+  var _mainIntegerDigits = dart.privateName(number_format, "_mainIntegerDigits");
+  var _slowPad = dart.privateName(number_format, "_slowPad");
+  number_format.NumberFormat = class NumberFormat extends core.Object {
+    get negativePrefix() {
+      return this[negativePrefix];
+    }
+    set negativePrefix(value) {
+      super.negativePrefix = value;
+    }
+    get positivePrefix() {
+      return this[positivePrefix];
+    }
+    set positivePrefix(value) {
+      super.positivePrefix = value;
+    }
+    get negativeSuffix() {
+      return this[negativeSuffix];
+    }
+    set negativeSuffix(value) {
+      super.negativeSuffix = value;
+    }
+    get positiveSuffix() {
+      return this[positiveSuffix];
+    }
+    set positiveSuffix(value) {
+      super.positiveSuffix = value;
+    }
+    get maximumIntegerDigits() {
+      return this[maximumIntegerDigits];
+    }
+    set maximumIntegerDigits(value) {
+      this[maximumIntegerDigits] = value;
+    }
+    get minimumIntegerDigits() {
+      return this[minimumIntegerDigits];
+    }
+    set minimumIntegerDigits(value) {
+      this[minimumIntegerDigits] = value;
+    }
+    get maximumFractionDigits() {
+      return this[maximumFractionDigits];
+    }
+    set maximumFractionDigits(value) {
+      this[maximumFractionDigits] = value;
+    }
+    get minimumFractionDigits() {
+      return this[minimumFractionDigits];
+    }
+    set minimumFractionDigits(value) {
+      this[minimumFractionDigits] = value;
+    }
+    get minimumExponentDigits() {
+      return this[minimumExponentDigits];
+    }
+    set minimumExponentDigits(value) {
+      this[minimumExponentDigits] = value;
+    }
+    get significantDigitsInUse() {
+      return this[significantDigitsInUse];
+    }
+    set significantDigitsInUse(value) {
+      this[significantDigitsInUse] = value;
+    }
+    get multiplier() {
+      return this[multiplier];
+    }
+    set multiplier(value) {
+      super.multiplier = value;
+    }
+    get currencyName() {
+      return this[currencyName$];
+    }
+    set currencyName(value) {
+      this[currencyName$] = value;
+    }
+    get currencySymbol() {
+      return this[currencySymbol$];
+    }
+    set currencySymbol(value) {
+      super.currencySymbol = value;
+    }
+    get decimalDigits() {
+      return this[decimalDigits];
+    }
+    set decimalDigits(value) {
+      super.decimalDigits = value;
+    }
+    get localeZero() {
+      return this[localeZero$];
+    }
+    set localeZero(value) {
+      super.localeZero = value;
+    }
+    get significantDigits() {
+      return this[_significantDigits];
+    }
+    set significantDigits(x) {
+      this[_significantDigits] = x;
+      this.significantDigitsInUse = true;
+    }
+    static new(newPattern = null, locale = null) {
+      return number_format.NumberFormat._forPattern(locale, dart.fn(x => newPattern, T.NumberSymbolsToStringN()));
+    }
+    static decimalPattern(locale = null) {
+      return number_format.NumberFormat._forPattern(locale, dart.fn(x => x.DECIMAL_PATTERN, T.NumberSymbolsToString()));
+    }
+    static percentPattern(locale = null) {
+      return number_format.NumberFormat._forPattern(locale, dart.fn(x => x.PERCENT_PATTERN, T.NumberSymbolsToString()));
+    }
+    static decimalPercentPattern(opts) {
+      let locale = opts && 'locale' in opts ? opts.locale : null;
+      let decimalDigits = opts && 'decimalDigits' in opts ? opts.decimalDigits : null;
+      return number_format.NumberFormat._forPattern(locale, dart.fn(x => x.PERCENT_PATTERN, T.NumberSymbolsToString()), {decimalDigits: decimalDigits});
+    }
+    static scientificPattern(locale = null) {
+      return number_format.NumberFormat._forPattern(locale, dart.fn(x => x.SCIENTIFIC_PATTERN, T.NumberSymbolsToString()));
+    }
+    static currencyPattern(locale = null, currencyNameOrSymbol = null) {
+      if (currencyNameOrSymbol != null && number_format.NumberFormat._checkCurrencyName.hasMatch(currencyNameOrSymbol)) {
+        return number_format.NumberFormat.currency({locale: locale, name: currencyNameOrSymbol});
+      } else {
+        return number_format.NumberFormat.currency({locale: locale, symbol: currencyNameOrSymbol});
       }
     }
-    (CupertinoPage.new = function(opts) {
-      let child = opts && 'child' in opts ? opts.child : null;
-      let maintainState = opts && 'maintainState' in opts ? opts.maintainState : true;
-      let title = opts && 'title' in opts ? opts.title : null;
-      let fullscreenDialog = opts && 'fullscreenDialog' in opts ? opts.fullscreenDialog : false;
-      let key = opts && 'key' in opts ? opts.key : null;
+    static currency(opts) {
+      let locale = opts && 'locale' in opts ? opts.locale : null;
       let name = opts && 'name' in opts ? opts.name : null;
-      let $arguments = opts && 'arguments' in opts ? opts.arguments : null;
-      let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
-      this[child$] = child;
-      this[maintainState$0] = maintainState;
-      this[title$0] = title;
-      this[fullscreenDialog$] = fullscreenDialog;
-      if (!(child !== null)) dart.assertFailed(null, I[0], 405, 15, "child != null");
-      if (!(maintainState !== null)) dart.assertFailed(null, I[0], 406, 15, "maintainState != null");
-      if (!(fullscreenDialog !== null)) dart.assertFailed(null, I[0], 407, 15, "fullscreenDialog != null");
-      CupertinoPage.__proto__.new.call(this, {key: key, name: name, arguments: $arguments, restorationId: restorationId});
-      ;
-    }).prototype = CupertinoPage.prototype;
-    dart.addTypeTests(CupertinoPage);
-    CupertinoPage.prototype[_is_CupertinoPage_default] = true;
-    dart.addTypeCaches(CupertinoPage);
-    dart.setMethodSignature(CupertinoPage, () => ({
-      __proto__: dart.getMethods(CupertinoPage.__proto__),
-      createRoute: dart.fnType(navigator.Route$(T), [framework.BuildContext])
-    }));
-    dart.setLibraryUri(CupertinoPage, I[1]);
-    dart.setFieldSignature(CupertinoPage, () => ({
-      __proto__: dart.getFields(CupertinoPage.__proto__),
-      child: dart.finalFieldType(framework.Widget),
-      title: dart.finalFieldType(dart.nullable(core.String)),
-      maintainState: dart.finalFieldType(core.bool),
-      fullscreenDialog: dart.finalFieldType(core.bool)
-    }));
-    return CupertinoPage;
-  });
-  route$.CupertinoPage = route$.CupertinoPage$();
-  dart.addTypeTests(route$.CupertinoPage, _is_CupertinoPage_default);
-  var child$0 = dart.privateName(route$, "CupertinoPageTransition.child");
-  var _primaryPositionAnimation = dart.privateName(route$, "_primaryPositionAnimation");
-  var _secondaryPositionAnimation = dart.privateName(route$, "_secondaryPositionAnimation");
-  var _primaryShadowAnimation = dart.privateName(route$, "_primaryShadowAnimation");
-  route$.CupertinoPageTransition = class CupertinoPageTransition extends framework.StatelessWidget {
-    get child() {
-      return this[child$0];
-    }
-    set child(value) {
-      super.child = value;
-    }
-    build(context) {
-      if (!debug.debugCheckHasDirectionality(context)) dart.assertFailed(null, I[0], 493, 12, "debugCheckHasDirectionality(context)");
-      let textDirection = basic.Directionality.of(context);
-      return new transitions.SlideTransition.new({position: this[_secondaryPositionAnimation], textDirection: textDirection, transformHitTests: false, child: new transitions.SlideTransition.new({position: this[_primaryPositionAnimation], textDirection: textDirection, child: new transitions.DecoratedBoxTransition.new({decoration: this[_primaryShadowAnimation], child: this.child, $creationLocationd_0dea112b090073317d4: C[23] || CT.C23}), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), $creationLocationd_0dea112b090073317d4: C[32] || CT.C32});
-    }
-  };
-  (route$.CupertinoPageTransition.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let primaryRouteAnimation = opts && 'primaryRouteAnimation' in opts ? opts.primaryRouteAnimation : null;
-    let secondaryRouteAnimation = opts && 'secondaryRouteAnimation' in opts ? opts.secondaryRouteAnimation : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let linearTransition = opts && 'linearTransition' in opts ? opts.linearTransition : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[child$0] = child;
-    if (!(linearTransition !== null)) dart.assertFailed(null, I[0], 447, 15, "linearTransition != null");
-    this[_primaryPositionAnimation] = (linearTransition ? primaryRouteAnimation : new animations.CurvedAnimation.new({parent: primaryRouteAnimation, curve: curves.Curves.linearToEaseOut, reverseCurve: curves.Curves.easeInToLinear})).drive(ui.Offset, route$._kRightMiddleTween);
-    this[_secondaryPositionAnimation] = (linearTransition ? secondaryRouteAnimation : new animations.CurvedAnimation.new({parent: secondaryRouteAnimation, curve: curves.Curves.linearToEaseOut, reverseCurve: curves.Curves.easeInToLinear})).drive(ui.Offset, route$._kMiddleLeftTween);
-    this[_primaryShadowAnimation] = (linearTransition ? primaryRouteAnimation : new animations.CurvedAnimation.new({parent: primaryRouteAnimation, curve: curves.Curves.linearToEaseOut})).drive(decoration.Decoration, route$._CupertinoEdgeShadowDecoration.kTween);
-    route$.CupertinoPageTransition.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = route$.CupertinoPageTransition.prototype;
-  dart.addTypeTests(route$.CupertinoPageTransition);
-  dart.addTypeCaches(route$.CupertinoPageTransition);
-  dart.setMethodSignature(route$.CupertinoPageTransition, () => ({
-    __proto__: dart.getMethods(route$.CupertinoPageTransition.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(route$.CupertinoPageTransition, I[1]);
-  dart.setFieldSignature(route$.CupertinoPageTransition, () => ({
-    __proto__: dart.getFields(route$.CupertinoPageTransition.__proto__),
-    [_primaryPositionAnimation]: dart.finalFieldType(animation$.Animation$(ui.Offset)),
-    [_secondaryPositionAnimation]: dart.finalFieldType(animation$.Animation$(ui.Offset)),
-    [_primaryShadowAnimation]: dart.finalFieldType(animation$.Animation$(decoration.Decoration)),
-    child: dart.finalFieldType(framework.Widget)
-  }));
-  var child$1 = dart.privateName(route$, "CupertinoFullscreenDialogTransition.child");
-  var _positionAnimation = dart.privateName(route$, "_positionAnimation");
-  route$.CupertinoFullscreenDialogTransition = class CupertinoFullscreenDialogTransition extends framework.StatelessWidget {
-    get child() {
-      return this[child$1];
-    }
-    set child(value) {
-      super.child = value;
-    }
-    build(context) {
-      if (!debug.debugCheckHasDirectionality(context)) dart.assertFailed(null, I[0], 557, 12, "debugCheckHasDirectionality(context)");
-      let textDirection = basic.Directionality.of(context);
-      return new transitions.SlideTransition.new({position: this[_secondaryPositionAnimation], textDirection: textDirection, transformHitTests: false, child: new transitions.SlideTransition.new({position: this[_positionAnimation], child: this.child, $creationLocationd_0dea112b090073317d4: C[38] || CT.C38}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42});
-    }
-  };
-  (route$.CupertinoFullscreenDialogTransition.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let primaryRouteAnimation = opts && 'primaryRouteAnimation' in opts ? opts.primaryRouteAnimation : null;
-    let secondaryRouteAnimation = opts && 'secondaryRouteAnimation' in opts ? opts.secondaryRouteAnimation : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let linearTransition = opts && 'linearTransition' in opts ? opts.linearTransition : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[child$1] = child;
-    this[_positionAnimation] = new animations.CurvedAnimation.new({parent: primaryRouteAnimation, curve: curves.Curves.linearToEaseOut, reverseCurve: curves.Curves.linearToEaseOut.flipped}).drive(ui.Offset, route$._kBottomUpTween);
-    this[_secondaryPositionAnimation] = (linearTransition ? secondaryRouteAnimation : new animations.CurvedAnimation.new({parent: secondaryRouteAnimation, curve: curves.Curves.linearToEaseOut, reverseCurve: curves.Curves.easeInToLinear})).drive(ui.Offset, route$._kMiddleLeftTween);
-    route$.CupertinoFullscreenDialogTransition.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = route$.CupertinoFullscreenDialogTransition.prototype;
-  dart.addTypeTests(route$.CupertinoFullscreenDialogTransition);
-  dart.addTypeCaches(route$.CupertinoFullscreenDialogTransition);
-  dart.setMethodSignature(route$.CupertinoFullscreenDialogTransition, () => ({
-    __proto__: dart.getMethods(route$.CupertinoFullscreenDialogTransition.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(route$.CupertinoFullscreenDialogTransition, I[1]);
-  dart.setFieldSignature(route$.CupertinoFullscreenDialogTransition, () => ({
-    __proto__: dart.getFields(route$.CupertinoFullscreenDialogTransition.__proto__),
-    [_positionAnimation]: dart.finalFieldType(animation$.Animation$(ui.Offset)),
-    [_secondaryPositionAnimation]: dart.finalFieldType(animation$.Animation$(ui.Offset)),
-    child: dart.finalFieldType(framework.Widget)
-  }));
-  var child$2 = dart.privateName(route$, "_CupertinoBackGestureDetector.child");
-  var enabledCallback$ = dart.privateName(route$, "_CupertinoBackGestureDetector.enabledCallback");
-  var onStartPopGesture$ = dart.privateName(route$, "_CupertinoBackGestureDetector.onStartPopGesture");
-  const _is__CupertinoBackGestureDetector_default = Symbol('_is__CupertinoBackGestureDetector_default');
-  route$._CupertinoBackGestureDetector$ = dart.generic(T => {
-    var _CupertinoBackGestureDetectorStateOfT = () => (_CupertinoBackGestureDetectorStateOfT = dart.constFn(route$._CupertinoBackGestureDetectorState$(T)))();
-    class _CupertinoBackGestureDetector extends framework.StatefulWidget {
-      get child() {
-        return this[child$2];
-      }
-      set child(value) {
-        super.child = value;
-      }
-      get enabledCallback() {
-        return this[enabledCallback$];
-      }
-      set enabledCallback(value) {
-        super.enabledCallback = value;
-      }
-      get onStartPopGesture() {
-        return this[onStartPopGesture$];
-      }
-      set onStartPopGesture(value) {
-        super.onStartPopGesture = value;
-      }
-      createState() {
-        return new (_CupertinoBackGestureDetectorStateOfT()).new();
-      }
-    }
-    (_CupertinoBackGestureDetector.new = function(opts) {
-      let key = opts && 'key' in opts ? opts.key : null;
-      let enabledCallback = opts && 'enabledCallback' in opts ? opts.enabledCallback : null;
-      let onStartPopGesture = opts && 'onStartPopGesture' in opts ? opts.onStartPopGesture : null;
-      let child = opts && 'child' in opts ? opts.child : null;
-      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-      this[enabledCallback$] = enabledCallback;
-      this[onStartPopGesture$] = onStartPopGesture;
-      this[child$2] = child;
-      if (!(enabledCallback !== null)) dart.assertFailed(null, I[0], 588, 15, "enabledCallback != null");
-      if (!(onStartPopGesture !== null)) dart.assertFailed(null, I[0], 589, 15, "onStartPopGesture != null");
-      if (!(child !== null)) dart.assertFailed(null, I[0], 590, 15, "child != null");
-      _CupertinoBackGestureDetector.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-      ;
-    }).prototype = _CupertinoBackGestureDetector.prototype;
-    dart.addTypeTests(_CupertinoBackGestureDetector);
-    _CupertinoBackGestureDetector.prototype[_is__CupertinoBackGestureDetector_default] = true;
-    dart.addTypeCaches(_CupertinoBackGestureDetector);
-    dart.setMethodSignature(_CupertinoBackGestureDetector, () => ({
-      __proto__: dart.getMethods(_CupertinoBackGestureDetector.__proto__),
-      createState: dart.fnType(route$._CupertinoBackGestureDetectorState$(T), [])
-    }));
-    dart.setLibraryUri(_CupertinoBackGestureDetector, I[1]);
-    dart.setFieldSignature(_CupertinoBackGestureDetector, () => ({
-      __proto__: dart.getFields(_CupertinoBackGestureDetector.__proto__),
-      child: dart.finalFieldType(framework.Widget),
-      enabledCallback: dart.finalFieldType(dart.fnType(core.bool, [])),
-      onStartPopGesture: dart.finalFieldType(dart.fnType(route$._CupertinoBackGestureController$(T), []))
-    }));
-    return _CupertinoBackGestureDetector;
-  });
-  route$._CupertinoBackGestureDetector = route$._CupertinoBackGestureDetector$();
-  dart.addTypeTests(route$._CupertinoBackGestureDetector, _is__CupertinoBackGestureDetector_default);
-  var _backGestureController = dart.privateName(route$, "_backGestureController");
-  var ___CupertinoBackGestureDetectorState__recognizer = dart.privateName(route$, "_#_CupertinoBackGestureDetectorState#_recognizer");
-  var _recognizer = dart.privateName(route$, "_recognizer");
-  var _handleDragStart = dart.privateName(route$, "_handleDragStart");
-  var _handleDragUpdate = dart.privateName(route$, "_handleDragUpdate");
-  var _handleDragEnd = dart.privateName(route$, "_handleDragEnd");
-  var _handleDragCancel = dart.privateName(route$, "_handleDragCancel");
-  var _convertToLogical = dart.privateName(route$, "_convertToLogical");
-  var _handlePointerDown = dart.privateName(route$, "_handlePointerDown");
-  var _name = dart.privateName(ui, "_name");
-  const _is__CupertinoBackGestureDetectorState_default = Symbol('_is__CupertinoBackGestureDetectorState_default');
-  route$._CupertinoBackGestureDetectorState$ = dart.generic(T => {
-    class _CupertinoBackGestureDetectorState extends framework.State$(route$._CupertinoBackGestureDetector$(T)) {
-      get [_recognizer]() {
+      let symbol = opts && 'symbol' in opts ? opts.symbol : null;
+      let decimalDigits = opts && 'decimalDigits' in opts ? opts.decimalDigits : null;
+      let customPattern = opts && 'customPattern' in opts ? opts.customPattern : null;
+      return number_format.NumberFormat._forPattern(locale, dart.fn(x => {
         let t0;
-        t0 = this[___CupertinoBackGestureDetectorState__recognizer];
-        return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_recognizer")) : t0;
+        t0 = customPattern;
+        return t0 == null ? x.CURRENCY_PATTERN : t0;
+      }, T.NumberSymbolsToString()), {name: name, currencySymbol: symbol, decimalDigits: decimalDigits, isForCurrency: true});
+    }
+    static simpleCurrency(opts) {
+      let locale = opts && 'locale' in opts ? opts.locale : null;
+      let name = opts && 'name' in opts ? opts.name : null;
+      let decimalDigits = opts && 'decimalDigits' in opts ? opts.decimalDigits : null;
+      return number_format.NumberFormat._forPattern(locale, dart.fn(x => x.CURRENCY_PATTERN, T.NumberSymbolsToString()), {name: name, decimalDigits: decimalDigits, lookupSimpleCurrencySymbol: true, isForCurrency: true});
+    }
+    simpleCurrencySymbol(currencyCode) {
+      let t0;
+      t0 = constants.simpleCurrencySymbols[$_get](currencyCode);
+      return t0 == null ? currencyCode : t0;
+    }
+    static _forPattern(locale, getPattern, opts) {
+      let name = opts && 'name' in opts ? opts.name : null;
+      let currencySymbol = opts && 'currencySymbol' in opts ? opts.currencySymbol : null;
+      let decimalDigits = opts && 'decimalDigits' in opts ? opts.decimalDigits : null;
+      let lookupSimpleCurrencySymbol = opts && 'lookupSimpleCurrencySymbol' in opts ? opts.lookupSimpleCurrencySymbol : false;
+      let isForCurrency = opts && 'isForCurrency' in opts ? opts.isForCurrency : false;
+      locale = dart.nullCheck(intl_helpers.verifiedLocale(locale, C[0] || CT.C0, null));
+      let symbols = number_symbols.NumberSymbols.as(number_symbols_data.numberFormatSymbols[$_get](locale));
+      let localeZero = symbols.ZERO_DIGIT[$codeUnitAt](0);
+      let zeroOffset = localeZero - constants.asciiZeroCodeUnit;
+      name == null ? name = symbols.DEF_CURRENCY_CODE : null;
+      if (currencySymbol == null && lookupSimpleCurrencySymbol) {
+        currencySymbol = constants.simpleCurrencySymbols[$_get](name);
       }
-      set [_recognizer](t0) {
-        this[___CupertinoBackGestureDetectorState__recognizer] = t0;
-      }
-      initState() {
-        let t1;
-        super.initState();
-        this[_recognizer] = (t1 = new monodrag.HorizontalDragGestureRecognizer.new({debugOwner: this}), (() => {
-          t1.onStart = dart.bind(this, _handleDragStart);
-          t1.onUpdate = dart.bind(this, _handleDragUpdate);
-          t1.onEnd = dart.bind(this, _handleDragEnd);
-          t1.onCancel = dart.bind(this, _handleDragCancel);
-          return t1;
-        })());
-      }
-      dispose() {
-        this[_recognizer].dispose();
-        super.dispose();
-      }
-      [_handleDragStart](details) {
-        if (!this.mounted) dart.assertFailed(null, I[0], 625, 12, "mounted");
-        if (!(this[_backGestureController] == null)) dart.assertFailed(null, I[0], 626, 12, "_backGestureController == null");
-        this[_backGestureController] = this.widget.onStartPopGesture();
-      }
-      [_handleDragUpdate](details) {
-        if (!this.mounted) dart.assertFailed(null, I[0], 631, 12, "mounted");
-        if (!(this[_backGestureController] != null)) dart.assertFailed(null, I[0], 632, 12, "_backGestureController != null");
-        dart.nullCheck(this[_backGestureController]).dragUpdate(this[_convertToLogical](dart.nullCheck(details.primaryDelta) / dart.nullCheck(this.context.size).width));
-      }
-      [_handleDragEnd](details) {
-        if (!this.mounted) dart.assertFailed(null, I[0], 637, 12, "mounted");
-        if (!(this[_backGestureController] != null)) dart.assertFailed(null, I[0], 638, 12, "_backGestureController != null");
-        dart.nullCheck(this[_backGestureController]).dragEnd(this[_convertToLogical](details.velocity.pixelsPerSecond.dx / dart.nullCheck(this.context.size).width));
-        this[_backGestureController] = null;
-      }
-      [_handleDragCancel]() {
-        let t1;
-        if (!this.mounted) dart.assertFailed(null, I[0], 644, 12, "mounted");
-        t1 = this[_backGestureController];
-        t1 == null ? null : t1.dragEnd(0.0);
-        this[_backGestureController] = null;
-      }
-      [_handlePointerDown](event) {
-        if (this.widget.enabledCallback()) this[_recognizer].addPointer(event);
-      }
-      [_convertToLogical](value) {
-        switch (basic.Directionality.of(this.context)) {
-          case C[48] || CT.C48:
-          {
-            return -value;
-          }
-          case C[49] || CT.C49:
-          {
-            return value;
-          }
-        }
-      }
-      build(context) {
-        if (!debug.debugCheckHasDirectionality(context)) dart.assertFailed(null, I[0], 667, 12, "debugCheckHasDirectionality(context)");
-        let dragAreaWidth = basic.Directionality.of(context) === ui.TextDirection.ltr ? media_query.MediaQuery.of(context).padding.left : media_query.MediaQuery.of(context).padding.right;
-        dragAreaWidth = math.max(core.double, dragAreaWidth, 20);
-        return new basic.Stack.new({fit: stack.StackFit.passthrough, children: T$.JSArrayOfWidget().of([this.widget.child, new basic.PositionedDirectional.new({start: 0.0, width: dragAreaWidth, top: 0.0, bottom: 0.0, child: new basic.Listener.new({onPointerDown: dart.bind(this, _handlePointerDown), behavior: proxy_box.HitTestBehavior.translucent, $creationLocationd_0dea112b090073317d4: C[50] || CT.C50}), $creationLocationd_0dea112b090073317d4: C[54] || CT.C54})]), $creationLocationd_0dea112b090073317d4: C[61] || CT.C61});
+      currencySymbol == null ? currencySymbol = name : null;
+      let pattern = getPattern(symbols);
+      return new number_format.NumberFormat.__(name, currencySymbol, isForCurrency, locale, localeZero, pattern, symbols, zeroOffset, number_format_parser.NumberFormatParser.parse(symbols, pattern, isForCurrency, currencySymbol, name, decimalDigits));
+    }
+    static compact(opts) {
+      let locale = opts && 'locale' in opts ? opts.locale : null;
+      return number_format._CompactNumberFormat.new({locale: locale, formatType: number_format._CompactFormatType.COMPACT_DECIMAL_SHORT_PATTERN});
+    }
+    static compactLong(opts) {
+      let locale = opts && 'locale' in opts ? opts.locale : null;
+      return number_format._CompactNumberFormat.new({locale: locale, formatType: number_format._CompactFormatType.COMPACT_DECIMAL_LONG_PATTERN});
+    }
+    static compactSimpleCurrency(opts) {
+      let locale = opts && 'locale' in opts ? opts.locale : null;
+      let name = opts && 'name' in opts ? opts.name : null;
+      let decimalDigits = opts && 'decimalDigits' in opts ? opts.decimalDigits : null;
+      return number_format._CompactNumberFormat.new({locale: locale, formatType: number_format._CompactFormatType.COMPACT_DECIMAL_SHORT_CURRENCY_PATTERN, name: name, getPattern: dart.fn(symbols => symbols.CURRENCY_PATTERN, T.NumberSymbolsToString()), decimalDigits: decimalDigits, lookupSimpleCurrencySymbol: true, isForCurrency: true});
+    }
+    static compactCurrency(opts) {
+      let locale = opts && 'locale' in opts ? opts.locale : null;
+      let name = opts && 'name' in opts ? opts.name : null;
+      let symbol = opts && 'symbol' in opts ? opts.symbol : null;
+      let decimalDigits = opts && 'decimalDigits' in opts ? opts.decimalDigits : null;
+      return number_format._CompactNumberFormat.new({locale: locale, formatType: number_format._CompactFormatType.COMPACT_DECIMAL_SHORT_CURRENCY_PATTERN, name: name, getPattern: dart.fn(symbols => symbols.CURRENCY_PATTERN, T.NumberSymbolsToString()), currencySymbol: symbol, decimalDigits: decimalDigits, isForCurrency: true});
+    }
+    get locale() {
+      return this[_locale$];
+    }
+    static localeExists(localeName) {
+      if (localeName == null) return false;
+      return number_symbols_data.numberFormatSymbols[$containsKey](localeName);
+    }
+    get symbols() {
+      return this[_symbols$];
+    }
+    format(number) {
+      if (this[_isNaN](number)) return this.symbols.NAN;
+      if (this[_isInfinite](number)) return this[_signPrefix](number) + this.symbols.INFINITY;
+      this[_add](this[_signPrefix](number));
+      this[_formatNumber](dart.dsend(number, 'abs', []));
+      this[_add](this[_signSuffix](number));
+      let result = this[_buffer].toString();
+      this[_buffer].clear();
+      return result;
+    }
+    parse(text) {
+      return dart.nullCheck(new number_parser.NumberParser.new(this, text).value);
+    }
+    [_formatNumber](number) {
+      if (this[_useExponentialNotation]) {
+        this[_formatExponential](core.num.as(number));
+      } else {
+        this[_formatFixed](number);
       }
     }
-    (_CupertinoBackGestureDetectorState.new = function() {
-      this[_backGestureController] = null;
-      this[___CupertinoBackGestureDetectorState__recognizer] = null;
-      _CupertinoBackGestureDetectorState.__proto__.new.call(this);
-      ;
-    }).prototype = _CupertinoBackGestureDetectorState.prototype;
-    dart.addTypeTests(_CupertinoBackGestureDetectorState);
-    _CupertinoBackGestureDetectorState.prototype[_is__CupertinoBackGestureDetectorState_default] = true;
-    dart.addTypeCaches(_CupertinoBackGestureDetectorState);
-    dart.setMethodSignature(_CupertinoBackGestureDetectorState, () => ({
-      __proto__: dart.getMethods(_CupertinoBackGestureDetectorState.__proto__),
-      [_handleDragStart]: dart.fnType(dart.void, [drag_details.DragStartDetails]),
-      [_handleDragUpdate]: dart.fnType(dart.void, [drag_details.DragUpdateDetails]),
-      [_handleDragEnd]: dart.fnType(dart.void, [drag_details.DragEndDetails]),
-      [_handleDragCancel]: dart.fnType(dart.void, []),
-      [_handlePointerDown]: dart.fnType(dart.void, [events.PointerDownEvent]),
-      [_convertToLogical]: dart.fnType(core.double, [core.double]),
-      build: dart.fnType(framework.Widget, [framework.BuildContext])
-    }));
-    dart.setGetterSignature(_CupertinoBackGestureDetectorState, () => ({
-      __proto__: dart.getGetters(_CupertinoBackGestureDetectorState.__proto__),
-      [_recognizer]: monodrag.HorizontalDragGestureRecognizer
-    }));
-    dart.setSetterSignature(_CupertinoBackGestureDetectorState, () => ({
-      __proto__: dart.getSetters(_CupertinoBackGestureDetectorState.__proto__),
-      [_recognizer]: monodrag.HorizontalDragGestureRecognizer
-    }));
-    dart.setLibraryUri(_CupertinoBackGestureDetectorState, I[1]);
-    dart.setFieldSignature(_CupertinoBackGestureDetectorState, () => ({
-      __proto__: dart.getFields(_CupertinoBackGestureDetectorState.__proto__),
-      [_backGestureController]: dart.fieldType(dart.nullable(route$._CupertinoBackGestureController$(T))),
-      [___CupertinoBackGestureDetectorState__recognizer]: dart.fieldType(dart.nullable(monodrag.HorizontalDragGestureRecognizer))
-    }));
-    return _CupertinoBackGestureDetectorState;
-  });
-  route$._CupertinoBackGestureDetectorState = route$._CupertinoBackGestureDetectorState$();
-  dart.addTypeTests(route$._CupertinoBackGestureDetectorState, _is__CupertinoBackGestureDetectorState_default);
-  var Cubic_d = dart.privateName(curves, "Cubic.d");
-  var Cubic_c = dart.privateName(curves, "Cubic.c");
-  var Cubic_b = dart.privateName(curves, "Cubic.b");
-  var Cubic_a = dart.privateName(curves, "Cubic.a");
-  const _is__CupertinoBackGestureController_default = Symbol('_is__CupertinoBackGestureController_default');
-  route$._CupertinoBackGestureController$ = dart.generic(T => {
-    class _CupertinoBackGestureController extends core.Object {
-      dragUpdate(delta) {
-        let t1;
-        t1 = this.controller;
-        t1.value = t1.value - delta;
-      }
-      dragEnd(velocity) {
-        let animationCurve = C[65] || CT.C65;
-        let animateForward = null;
-        if (velocity[$abs]() >= 1)
-          animateForward = velocity <= 0;
-        else
-          animateForward = this.controller.value > 0.5;
-        if (animateForward) {
-          let droppedPageForwardAnimationTime = math.min(core.int, dart.nullCheck(ui.lerpDouble(800, 0, this.controller.value))[$floor](), 300);
-          this.controller.animateTo(1.0, {duration: new core.Duration.new({milliseconds: droppedPageForwardAnimationTime}), curve: animationCurve});
-        } else {
-          this.navigator.pop(T$.ObjectN());
-          if (this.controller.isAnimating) {
-            let droppedPageBackAnimationTime = dart.nullCheck(ui.lerpDouble(0, 800, this.controller.value))[$floor]();
-            this.controller.animateBack(0.0, {duration: new core.Duration.new({milliseconds: droppedPageBackAnimationTime}), curve: animationCurve});
-          }
-        }
-        if (this.controller.isAnimating) {
-          let animationStatusCallback = null;
-          function animationStatusCallback$35get() {
-            let t2;
-            t2 = animationStatusCallback;
-            return t2 == null ? dart.throw(new _internal.LateError.localNI("animationStatusCallback")) : t2;
-          }
-          dart.fn(animationStatusCallback$35get, T$.VoidToFn());
-          function animationStatusCallback$35set(t3) {
-            return animationStatusCallback = t3;
-          }
-          dart.fn(animationStatusCallback$35set, T$.FnTodynamic());
-          animationStatusCallback$35set(dart.fn(status => {
-            this.navigator.didStopUserGesture();
-            this.controller.removeStatusListener(animationStatusCallback$35get());
-          }, T$.AnimationStatusTovoid()));
-          this.controller.addStatusListener(animationStatusCallback$35get());
-        } else {
-          this.navigator.didStopUserGesture();
-        }
-      }
-    }
-    (_CupertinoBackGestureController.new = function(opts) {
-      let navigator = opts && 'navigator' in opts ? opts.navigator : null;
-      let controller = opts && 'controller' in opts ? opts.controller : null;
-      this.navigator = navigator;
-      this.controller = controller;
-      if (!(navigator !== null)) dart.assertFailed(null, I[0], 712, 15, "navigator != null");
-      if (!(controller !== null)) dart.assertFailed(null, I[0], 713, 15, "controller != null");
-      this.navigator.didStartUserGesture();
-    }).prototype = _CupertinoBackGestureController.prototype;
-    dart.addTypeTests(_CupertinoBackGestureController);
-    _CupertinoBackGestureController.prototype[_is__CupertinoBackGestureController_default] = true;
-    dart.addTypeCaches(_CupertinoBackGestureController);
-    dart.setMethodSignature(_CupertinoBackGestureController, () => ({
-      __proto__: dart.getMethods(_CupertinoBackGestureController.__proto__),
-      dragUpdate: dart.fnType(dart.void, [core.double]),
-      dragEnd: dart.fnType(dart.void, [core.double])
-    }));
-    dart.setLibraryUri(_CupertinoBackGestureController, I[1]);
-    dart.setFieldSignature(_CupertinoBackGestureController, () => ({
-      __proto__: dart.getFields(_CupertinoBackGestureController.__proto__),
-      controller: dart.finalFieldType(animation_controller.AnimationController),
-      navigator: dart.finalFieldType(navigator.NavigatorState)
-    }));
-    return _CupertinoBackGestureController;
-  });
-  route$._CupertinoBackGestureController = route$._CupertinoBackGestureController$();
-  dart.addTypeTests(route$._CupertinoBackGestureController, _is__CupertinoBackGestureController_default);
-  var _colors$ = dart.privateName(route$, "_CupertinoEdgeShadowDecoration._colors");
-  var _colors = dart.privateName(route$, "_colors");
-  var Color_value = dart.privateName(ui, "Color.value");
-  route$._CupertinoEdgeShadowDecoration = class _CupertinoEdgeShadowDecoration extends decoration.Decoration {
-    get [_colors]() {
-      return this[_colors$];
-    }
-    set [_colors](value) {
-      super[_colors] = value;
-    }
-    static lerp(a, b, t) {
-      let t6, t6$;
-      if (!(t !== null)) dart.assertFailed(null, I[0], 836, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b)[_colors] == null ? b : new route$._CupertinoEdgeShadowDecoration.__(dart.nullCheck(b[_colors])[$map](ui.Color, dart.fn(color => dart.nullCheck(ui.Color.lerp(null, color, t)), T$.ColorToColor()))[$toList]());
-      if (b == null) return a[_colors] == null ? a : new route$._CupertinoEdgeShadowDecoration.__(dart.nullCheck(a[_colors])[$map](ui.Color, dart.fn(color => dart.nullCheck(ui.Color.lerp(null, color, 1.0 - t)), T$.ColorToColor()))[$toList]());
-      if (!(b[_colors] != null || a[_colors] != null)) dart.assertFailed(null, I[0], 843, 12, "b._colors != null || a._colors != null");
-      if (!(b[_colors] == null || a[_colors] == null || dart.nullCheck(a[_colors])[$length] === dart.nullCheck(b[_colors])[$length])) dart.assertFailed(null, I[0], 846, 12, "b._colors == null || a._colors == null || a._colors!.length == b._colors!.length");
-      return new route$._CupertinoEdgeShadowDecoration.__((() => {
-        let t5 = T$.JSArrayOfColor().of([]);
-        for (let i = 0; i < dart.nullCheck(b[_colors])[$length]; i = i + 1)
-          t5[$add](dart.nullCheck(ui.Color.lerp((t6 = a[_colors], t6 == null ? null : t6[$_get](i)), (t6$ = b[_colors], t6$ == null ? null : t6$[$_get](i)), t)));
-        return t5;
-      })());
-    }
-    lerpFrom(a, t) {
-      if (route$._CupertinoEdgeShadowDecoration.is(a)) return dart.nullCheck(route$._CupertinoEdgeShadowDecoration.lerp(a, this, t));
-      return dart.nullCheck(route$._CupertinoEdgeShadowDecoration.lerp(null, this, t));
-    }
-    lerpTo(b, t) {
-      if (route$._CupertinoEdgeShadowDecoration.is(b)) return dart.nullCheck(route$._CupertinoEdgeShadowDecoration.lerp(this, b, t));
-      return dart.nullCheck(route$._CupertinoEdgeShadowDecoration.lerp(this, null, t));
-    }
-    createBoxPainter(onChanged = null) {
-      return new route$._CupertinoEdgeShadowPainter.new(this, onChanged);
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-      return route$._CupertinoEdgeShadowDecoration.is(other) && dart.equals(other[_colors], this[_colors]);
-    }
-    get hashCode() {
-      return dart.hashCode(this[_colors]);
-    }
-    debugFillProperties(properties) {
-      super.debugFillProperties(properties);
-      properties.add(new (T$.IterablePropertyOfColor()).new("colors", this[_colors]));
-    }
-  };
-  (route$._CupertinoEdgeShadowDecoration.__ = function(_colors = null) {
-    this[_colors$] = _colors;
-    route$._CupertinoEdgeShadowDecoration.__proto__.new.call(this);
-    ;
-  }).prototype = route$._CupertinoEdgeShadowDecoration.prototype;
-  dart.addTypeTests(route$._CupertinoEdgeShadowDecoration);
-  dart.addTypeCaches(route$._CupertinoEdgeShadowDecoration);
-  dart.setMethodSignature(route$._CupertinoEdgeShadowDecoration, () => ({
-    __proto__: dart.getMethods(route$._CupertinoEdgeShadowDecoration.__proto__),
-    lerpFrom: dart.fnType(route$._CupertinoEdgeShadowDecoration, [dart.nullable(decoration.Decoration), core.double]),
-    lerpTo: dart.fnType(route$._CupertinoEdgeShadowDecoration, [dart.nullable(decoration.Decoration), core.double]),
-    createBoxPainter: dart.fnType(route$._CupertinoEdgeShadowPainter, [], [dart.nullable(dart.fnType(dart.void, []))])
-  }));
-  dart.setLibraryUri(route$._CupertinoEdgeShadowDecoration, I[1]);
-  dart.setFieldSignature(route$._CupertinoEdgeShadowDecoration, () => ({
-    __proto__: dart.getFields(route$._CupertinoEdgeShadowDecoration.__proto__),
-    [_colors]: dart.finalFieldType(dart.nullable(core.List$(ui.Color)))
-  }));
-  dart.defineExtensionMethods(route$._CupertinoEdgeShadowDecoration, ['_equals']);
-  dart.defineExtensionAccessors(route$._CupertinoEdgeShadowDecoration, ['hashCode']);
-  dart.defineLazy(route$._CupertinoEdgeShadowDecoration, {
-    /*route$._CupertinoEdgeShadowDecoration.kTween*/get kTween() {
-      return new implicit_animations.DecorationTween.new({begin: C[66] || CT.C66, end: C[67] || CT.C67});
-    },
-    set kTween(_) {}
-  }, false);
-  var _decoration$ = dart.privateName(route$, "_decoration");
-  route$._CupertinoEdgeShadowPainter = class _CupertinoEdgeShadowPainter extends decoration.BoxPainter {
-    paint(canvas, offset, configuration) {
-      let t6;
-      let colors = this[_decoration$][_colors];
-      if (colors == null) {
+    [_formatExponential](number) {
+      if (number === 0.0) {
+        this[_formatFixed](number);
+        this[_formatExponent](0);
         return;
       }
-      let shadowWidth = 0.05 * dart.nullCheck(configuration.size).width;
-      let shadowHeight = dart.nullCheck(configuration.size).height;
-      let bandWidth = shadowWidth / (colors[$length] - 1);
-      let textDirection = configuration.textDirection;
-      if (!(textDirection != null)) dart.assertFailed(null, I[0], 939, 12, "textDirection != null");
-      let start = null;
-      let shadowDirection = null;
-      switch (dart.nullCheck(textDirection)) {
-        case C[48] || CT.C48:
-        {
-          start = offset.dx + dart.nullCheck(configuration.size).width;
-          shadowDirection = 1.0;
-          break;
+      let exponent = (math.log(number) / number_format._ln10)[$floor]();
+      let mantissa = number / math.pow(10.0, exponent);
+      if (this.maximumIntegerDigits > 1 && this.maximumIntegerDigits > this.minimumIntegerDigits) {
+        while (exponent[$modulo](this.maximumIntegerDigits) !== 0) {
+          mantissa = mantissa * 10;
+          exponent = exponent - 1;
         }
-        case C[49] || CT.C49:
-        {
-          start = offset.dx;
-          shadowDirection = -1.0;
-          break;
+      } else {
+        if (this.minimumIntegerDigits < 1) {
+          exponent = exponent + 1;
+          mantissa = mantissa / 10;
+        } else {
+          exponent = exponent - (this.minimumIntegerDigits - 1);
+          mantissa = mantissa * math.pow(10, this.minimumIntegerDigits - 1);
         }
       }
-      let bandColorIndex = 0;
-      for (let dx = 0; dx < shadowWidth; dx = dx + 1) {
-        if ((dx / bandWidth)[$truncate]() !== bandColorIndex) {
-          bandColorIndex = bandColorIndex + 1;
+      this[_formatFixed](mantissa);
+      this[_formatExponent](exponent);
+    }
+    [_formatExponent](exponent) {
+      this[_add](this.symbols.EXP_SYMBOL);
+      if (exponent < 0) {
+        exponent = -exponent;
+        this[_add](this.symbols.MINUS_SIGN);
+      } else if (this[_useSignForPositiveExponent]) {
+        this[_add](this.symbols.PLUS_SIGN);
+      }
+      this[_pad](this.minimumExponentDigits, exponent[$toString]());
+    }
+    [_isInfinite](number) {
+      return typeof number == 'number' ? number[$isInfinite] : false;
+    }
+    [_isNaN](number) {
+      return typeof number == 'number' ? number[$isNaN] : false;
+    }
+    [_floor](number) {
+      if (dart.dtest(dart.dload(number, 'isNegative')) && !dart.dtest(dart.dload(dart.dsend(number, 'abs', []), 'isNegative'))) {
+        dart.throw(new core.ArgumentError.new("Internal error: expected positive number, got " + dart.str(number)));
+      }
+      return typeof number == 'number' ? number[$floor]() : dart.dsend(number, '~/', [1]);
+    }
+    [_round](number) {
+      if (typeof number == 'number') {
+        if (number[$isInfinite]) {
+          return number_format.NumberFormat._maxInt;
+        } else {
+          return number[$round]();
         }
-        let paint = (t6 = ui.Paint.new(), (() => {
-          t6.color = dart.nullCheck(ui.Color.lerp(colors[$_get](bandColorIndex), colors[$_get](bandColorIndex + 1), dx[$modulo](bandWidth) / bandWidth));
-          return t6;
-        })());
-        let x = start + shadowDirection * dx;
-        canvas.drawRect(new ui.Rect.fromLTWH(x - 1.0, offset.dy, 1.0, shadowHeight), paint);
+      } else if (dart.equals(dart.dsend(number, 'remainder', [1]), 0)) {
+        return number;
+      } else {
+        let basic = this[_floor](number);
+        let fraction = dart.dsend(dart.dsend(dart.dsend(number, '-', [basic]), 'toDouble', []), 'round', []);
+        return dart.equals(fraction, 0) ? number : dart.dsend(number, '+', [fraction]);
       }
     }
+    static numberOfIntegerDigits(number) {
+      let simpleNumber = dart.dsend(dart.dsend(number, 'toDouble', []), 'abs', []);
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [10]))) return 1;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [100]))) return 2;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [1000]))) return 3;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [10000]))) return 4;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [100000]))) return 5;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [1000000]))) return 6;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [10000000]))) return 7;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [100000000]))) return 8;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [1000000000]))) return 9;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [10000000000]))) return 10;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [100000000000]))) return 11;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [1000000000000]))) return 12;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [10000000000000]))) return 13;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [100000000000000]))) return 14;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [1000000000000000]))) return 15;
+      if (dart.dtest(dart.dsend(simpleNumber, '<', [10000000000000000]))) return 16;
+      return math.max(core.int, 1, (math.log(core.num.as(simpleNumber)) / number_format._ln10)[$ceil]());
+    }
+    [_fractionDigitsAfter](remainingSignificantDigits) {
+      return math.max(core.int, 0, remainingSignificantDigits);
+    }
+    [_formatFixed](number) {
+      let integerPart = null;
+      let fractionPart = null;
+      let extraIntegerDigits = null;
+      let fractionDigits = this.maximumFractionDigits;
+      let power = 0;
+      let digitMultiplier = null;
+      if (this[_isInfinite](number)) {
+        integerPart = dart.dsend(number, 'toInt', []);
+        extraIntegerDigits = 0;
+        fractionPart = 0;
+      } else {
+        integerPart = this[_floor](number);
+        let fraction = dart.dsend(number, '-', [integerPart]);
+        if (!dart.equals(dart.dsend(fraction, 'toInt', []), 0)) {
+          integerPart = number;
+          fraction = 0;
+        }
+        if (this.significantDigitsInUse) {
+          let significantDigits = dart.nullCheck(this.significantDigits);
+          let integerLength = number_format.NumberFormat.numberOfIntegerDigits(integerPart);
+          let remainingSignificantDigits = significantDigits - this[_multiplierDigits] - integerLength;
+          fractionDigits = this[_fractionDigitsAfter](remainingSignificantDigits);
+          if (remainingSignificantDigits < 0) {
+            let divideBy = math.pow(10, integerLength - significantDigits);
+            integerPart = dart.dsend(dart.dsend(dart.dsend(integerPart, '/', [divideBy]), 'round', []), '*', [divideBy]);
+          }
+        }
+        power = dart.asInt(math.pow(10, fractionDigits));
+        digitMultiplier = power * this.multiplier;
+        let remainingDigits = dart.dsend(this[_round](dart.dsend(fraction, '*', [digitMultiplier])), 'toInt', []);
+        if (dart.dtest(dart.dsend(remainingDigits, '>=', [digitMultiplier]))) {
+          integerPart = dart.dsend(integerPart, '+', [1]);
+          remainingDigits = dart.dsend(remainingDigits, '-', [digitMultiplier]);
+        }
+        extraIntegerDigits = core.int.as(dart.dsend(remainingDigits, '~/', [power]));
+        fractionPart = core.int.as(dart.dsend(remainingDigits, '%', [power]));
+      }
+      let integerDigits = this[_integerDigits](integerPart, extraIntegerDigits);
+      let digitLength = integerDigits.length;
+      let fractionPresent = fractionDigits > 0 && (this.minimumFractionDigits > 0 || fractionPart > 0);
+      if (this[_hasIntegerDigits](integerDigits)) {
+        let padding = "0"[$times](this.minimumIntegerDigits - digitLength);
+        integerDigits = padding + integerDigits;
+        digitLength = integerDigits.length;
+        for (let i = 0; i < digitLength; i = i + 1) {
+          this[_addDigit](integerDigits[$codeUnitAt](i));
+          this[_group](digitLength, i);
+        }
+      } else if (!fractionPresent) {
+        this[_addZero]();
+      }
+      this[_decimalSeparator](fractionPresent);
+      this[_formatFractionPart]((fractionPart + power)[$toString]());
+    }
+    [_integerDigits](integerPart, extraIntegerDigits) {
+      let paddingDigits = "";
+      if (typeof integerPart == 'number' && dart.notNull(integerPart) > number_format.NumberFormat._maxInt) {
+        let howManyDigitsTooBig = (math.log(integerPart) / number_format._ln10)[$ceil]() - number_format.NumberFormat._maxDigits;
+        let divisor = math.pow(10, howManyDigitsTooBig)[$round]();
+        if (divisor === 0) divisor = math.pow(10.0, howManyDigitsTooBig);
+        paddingDigits = "0"[$times](howManyDigitsTooBig[$toInt]());
+        integerPart = (dart.notNull(integerPart) / divisor)[$truncate]();
+      }
+      let extra = dart.equals(extraIntegerDigits, 0) ? "" : dart.toString(extraIntegerDigits);
+      let intDigits = this[_mainIntegerDigits](integerPart);
+      let paddedExtra = intDigits[$isEmpty] ? extra : extra[$padLeft](this[_multiplierDigits], "0");
+      return intDigits + paddedExtra + paddingDigits;
+    }
+    [_mainIntegerDigits](integer) {
+      if (dart.equals(integer, 0)) return "";
+      let digits = dart.toString(integer);
+      if (this.significantDigitsInUse && digits.length > dart.nullCheck(this.significantDigits)) {
+        digits = digits[$substring](0, this.significantDigits) + ""[$padLeft](digits.length - dart.nullCheck(this.significantDigits), "0");
+      }
+      return digits[$startsWith]("-") ? digits[$substring](1) : digits;
+    }
+    [_formatFractionPart](fractionPart) {
+      let fractionLength = fractionPart.length;
+      while (fractionPart[$codeUnitAt](fractionLength - 1) === constants.asciiZeroCodeUnit && fractionLength > this.minimumFractionDigits + 1) {
+        fractionLength = fractionLength - 1;
+      }
+      for (let i = 1; i < fractionLength; i = i + 1) {
+        this[_addDigit](fractionPart[$codeUnitAt](i));
+      }
+    }
+    [_decimalSeparator](fractionPresent) {
+      if (this[_decimalSeparatorAlwaysShown] || fractionPresent) {
+        this[_add](this.symbols.DECIMAL_SEP);
+      }
+    }
+    [_hasIntegerDigits](digits) {
+      return digits[$isNotEmpty] || this.minimumIntegerDigits > 0;
+    }
+    [_add](x) {
+      this[_buffer].write(x);
+    }
+    [_addZero]() {
+      this[_buffer].write(this.symbols.ZERO_DIGIT);
+    }
+    [_addDigit](x) {
+      this[_buffer].writeCharCode(x + this[_zeroOffset$]);
+    }
+    [_pad](numberOfDigits, basic) {
+      if (this[_zeroOffset$] === 0) {
+        this[_buffer].write(basic[$padLeft](numberOfDigits, "0"));
+      } else {
+        this[_slowPad](numberOfDigits, basic);
+      }
+    }
+    [_slowPad](numberOfDigits, basic) {
+      for (let i = 0; i < numberOfDigits - basic.length; i = i + 1) {
+        this[_add](this.symbols.ZERO_DIGIT);
+      }
+      for (let i = 0; i < basic.length; i = i + 1) {
+        this[_addDigit](basic[$codeUnitAt](i));
+      }
+    }
+    [_group](totalLength, position) {
+      let distanceFromEnd = totalLength - position;
+      if (distanceFromEnd <= 1 || this[_groupingSize] <= 0) return;
+      if (distanceFromEnd === this[_finalGroupingSize] + 1) {
+        this[_add](this.symbols.GROUP_SEP);
+      } else if (distanceFromEnd > this[_finalGroupingSize] && (distanceFromEnd - this[_finalGroupingSize])[$modulo](this[_groupingSize]) === 1) {
+        this[_add](this.symbols.GROUP_SEP);
+      }
+    }
+    [_signPrefix](x) {
+      return dart.dtest(dart.dload(x, 'isNegative')) ? this.negativePrefix : this.positivePrefix;
+    }
+    [_signSuffix](x) {
+      return dart.dtest(dart.dload(x, 'isNegative')) ? this.negativeSuffix : this.positiveSuffix;
+    }
+    turnOffGrouping() {
+      this[_groupingSize] = 0;
+      this[_finalGroupingSize] = 0;
+    }
+    toString() {
+      return "NumberFormat(" + this[_locale$] + ", " + dart.str(this[_pattern$]) + ")";
+    }
   };
-  (route$._CupertinoEdgeShadowPainter.new = function(_decoration, onChange) {
-    this[_decoration$] = _decoration;
-    if (!(_decoration !== null)) dart.assertFailed(null, I[0], 897, 14, "_decoration != null");
-    if (!(_decoration[_colors] == null || dart.nullCheck(_decoration[_colors])[$length] > 1)) dart.assertFailed(null, I[0], 898, 14, "_decoration._colors == null || _decoration._colors!.length > 1");
-    route$._CupertinoEdgeShadowPainter.__proto__.new.call(this, onChange);
+  (number_format.NumberFormat.__ = function(currencyName, currencySymbol, _isForCurrency, _locale, localeZero, _pattern, _symbols, _zeroOffset, result) {
+    this[_significantDigits] = null;
+    this[significantDigitsInUse] = false;
+    this[_buffer] = new core.StringBuffer.new();
+    this[currencyName$] = currencyName;
+    this[currencySymbol$] = currencySymbol;
+    this[_isForCurrency$] = _isForCurrency;
+    this[_locale$] = _locale;
+    this[localeZero$] = localeZero;
+    this[_pattern$] = _pattern;
+    this[_symbols$] = _symbols;
+    this[_zeroOffset$] = _zeroOffset;
+    this[positivePrefix] = result.positivePrefix;
+    this[negativePrefix] = result.negativePrefix;
+    this[positiveSuffix] = result.positiveSuffix;
+    this[negativeSuffix] = result.negativeSuffix;
+    this[multiplier] = result.multiplier;
+    this[_multiplierDigits] = result.multiplierDigits;
+    this[_useExponentialNotation] = result.useExponentialNotation;
+    this[minimumExponentDigits] = result.minimumExponentDigits;
+    this[maximumIntegerDigits] = result.maximumIntegerDigits;
+    this[minimumIntegerDigits] = result.minimumIntegerDigits;
+    this[maximumFractionDigits] = result.maximumFractionDigits;
+    this[minimumFractionDigits] = result.minimumFractionDigits;
+    this[_groupingSize] = result.groupingSize;
+    this[_finalGroupingSize] = result.finalGroupingSize;
+    this[_useSignForPositiveExponent] = result.useSignForPositiveExponent;
+    this[_decimalSeparatorAlwaysShown] = result.decimalSeparatorAlwaysShown;
+    this[decimalDigits] = result.decimalDigits;
     ;
-  }).prototype = route$._CupertinoEdgeShadowPainter.prototype;
-  dart.addTypeTests(route$._CupertinoEdgeShadowPainter);
-  dart.addTypeCaches(route$._CupertinoEdgeShadowPainter);
-  dart.setMethodSignature(route$._CupertinoEdgeShadowPainter, () => ({
-    __proto__: dart.getMethods(route$._CupertinoEdgeShadowPainter.__proto__),
-    paint: dart.fnType(dart.void, [ui.Canvas, ui.Offset, image_provider.ImageConfiguration])
+  }).prototype = number_format.NumberFormat.prototype;
+  dart.addTypeTests(number_format.NumberFormat);
+  dart.addTypeCaches(number_format.NumberFormat);
+  dart.setMethodSignature(number_format.NumberFormat, () => ({
+    __proto__: dart.getMethods(number_format.NumberFormat.__proto__),
+    simpleCurrencySymbol: dart.fnType(core.String, [core.String]),
+    format: dart.fnType(core.String, [dart.dynamic]),
+    parse: dart.fnType(core.num, [core.String]),
+    [_formatNumber]: dart.fnType(dart.void, [dart.dynamic]),
+    [_formatExponential]: dart.fnType(dart.void, [core.num]),
+    [_formatExponent]: dart.fnType(dart.void, [core.num]),
+    [_isInfinite]: dart.fnType(core.bool, [dart.dynamic]),
+    [_isNaN]: dart.fnType(core.bool, [dart.dynamic]),
+    [_floor]: dart.fnType(dart.dynamic, [dart.dynamic]),
+    [_round]: dart.fnType(dart.dynamic, [dart.dynamic]),
+    [_fractionDigitsAfter]: dart.fnType(core.int, [core.int]),
+    [_formatFixed]: dart.fnType(dart.void, [dart.dynamic]),
+    [_integerDigits]: dart.fnType(core.String, [dart.dynamic, dart.dynamic]),
+    [_mainIntegerDigits]: dart.fnType(core.String, [dart.dynamic]),
+    [_formatFractionPart]: dart.fnType(dart.void, [core.String]),
+    [_decimalSeparator]: dart.fnType(dart.void, [core.bool]),
+    [_hasIntegerDigits]: dart.fnType(core.bool, [core.String]),
+    [_add]: dart.fnType(dart.void, [core.String]),
+    [_addZero]: dart.fnType(dart.void, []),
+    [_addDigit]: dart.fnType(dart.void, [core.int]),
+    [_pad]: dart.fnType(dart.void, [core.int, core.String]),
+    [_slowPad]: dart.fnType(dart.void, [core.int, core.String]),
+    [_group]: dart.fnType(dart.void, [core.int, core.int]),
+    [_signPrefix]: dart.fnType(core.String, [dart.dynamic]),
+    [_signSuffix]: dart.fnType(core.String, [dart.dynamic]),
+    turnOffGrouping: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(route$._CupertinoEdgeShadowPainter, I[1]);
-  dart.setFieldSignature(route$._CupertinoEdgeShadowPainter, () => ({
-    __proto__: dart.getFields(route$._CupertinoEdgeShadowPainter.__proto__),
-    [_decoration$]: dart.finalFieldType(route$._CupertinoEdgeShadowDecoration)
+  dart.setGetterSignature(number_format.NumberFormat, () => ({
+    __proto__: dart.getGetters(number_format.NumberFormat.__proto__),
+    significantDigits: dart.nullable(core.int),
+    locale: core.String,
+    symbols: number_symbols.NumberSymbols
   }));
-  var builder$0 = dart.privateName(route$, "CupertinoModalPopupRoute.builder");
-  var barrierLabel$ = dart.privateName(route$, "CupertinoModalPopupRoute.barrierLabel");
-  var barrierColor$ = dart.privateName(route$, "CupertinoModalPopupRoute.barrierColor");
-  var CupertinoDynamicColor_darkHighContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastElevatedColor");
-  var CupertinoDynamicColor_highContrastElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastElevatedColor");
-  var CupertinoDynamicColor_darkElevatedColor = dart.privateName(colors, "CupertinoDynamicColor.darkElevatedColor");
-  var CupertinoDynamicColor_elevatedColor = dart.privateName(colors, "CupertinoDynamicColor.elevatedColor");
-  var CupertinoDynamicColor_darkHighContrastColor = dart.privateName(colors, "CupertinoDynamicColor.darkHighContrastColor");
-  var CupertinoDynamicColor_highContrastColor = dart.privateName(colors, "CupertinoDynamicColor.highContrastColor");
-  var CupertinoDynamicColor_darkColor = dart.privateName(colors, "CupertinoDynamicColor.darkColor");
-  var CupertinoDynamicColor_color = dart.privateName(colors, "CupertinoDynamicColor.color");
-  var CupertinoDynamicColor__debugResolveContext = dart.privateName(colors, "CupertinoDynamicColor._debugResolveContext");
-  var CupertinoDynamicColor__debugLabel = dart.privateName(colors, "CupertinoDynamicColor._debugLabel");
-  var CupertinoDynamicColor__effectiveColor = dart.privateName(colors, "CupertinoDynamicColor._effectiveColor");
-  var _barrierDismissible = dart.privateName(route$, "_barrierDismissible");
-  var _semanticsDismissible = dart.privateName(route$, "_semanticsDismissible");
-  var _animation = dart.privateName(route$, "_animation");
-  var __CupertinoModalPopupRoute__offsetTween = dart.privateName(route$, "_#CupertinoModalPopupRoute#_offsetTween");
-  var _offsetTween = dart.privateName(route$, "_offsetTween");
-  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
-  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  const _is_CupertinoModalPopupRoute_default = Symbol('_is_CupertinoModalPopupRoute_default');
-  route$.CupertinoModalPopupRoute$ = dart.generic(T => {
-    class CupertinoModalPopupRoute extends routes.PopupRoute$(T) {
-      get builder() {
-        return this[builder$0];
-      }
-      set builder(value) {
-        super.builder = value;
-      }
-      get barrierLabel() {
-        return this[barrierLabel$];
-      }
-      set barrierLabel(value) {
-        super.barrierLabel = value;
-      }
-      get barrierColor() {
-        return this[barrierColor$];
-      }
-      set barrierColor(value) {
-        super.barrierColor = value;
-      }
-      get barrierDismissible() {
-        let t6;
-        t6 = this[_barrierDismissible];
-        return t6 == null ? true : t6;
-      }
-      get semanticsDismissible() {
-        let t6;
-        t6 = this[_semanticsDismissible];
-        return t6 == null ? false : t6;
-      }
-      get transitionDuration() {
-        return route$._kModalPopupTransitionDuration;
-      }
-      get [_offsetTween]() {
-        let t6;
-        t6 = this[__CupertinoModalPopupRoute__offsetTween];
-        return t6 == null ? dart.throw(new _internal.LateError.fieldNI("_offsetTween")) : t6;
-      }
-      set [_offsetTween](t6) {
-        this[__CupertinoModalPopupRoute__offsetTween] = t6;
-      }
-      createAnimation() {
-        if (!(this[_animation] == null)) dart.assertFailed(null, I[0], 1050, 12, "_animation == null");
-        this[_animation] = new animations.CurvedAnimation.new({parent: super.createAnimation(), curve: curves.Curves.linearToEaseOut, reverseCurve: curves.Curves.linearToEaseOut.flipped});
-        this[_offsetTween] = new (T$.TweenOfOffset()).new({begin: C[76] || CT.C76, end: ui.Offset.zero});
-        return dart.nullCheck(this[_animation]);
-      }
-      buildPage(context, animation, secondaryAnimation) {
-        return new interface_level.CupertinoUserInterfaceLevel.new({data: interface_level.CupertinoUserInterfaceLevelData.elevated, child: new basic.Builder.new({builder: this.builder, $creationLocationd_0dea112b090073317d4: C[77] || CT.C77}), $creationLocationd_0dea112b090073317d4: C[80] || CT.C80});
-      }
-      buildTransitions(context, animation, secondaryAnimation, child) {
-        return new basic.Align.new({alignment: alignment.Alignment.bottomCenter, child: new basic.FractionalTranslation.new({translation: this[_offsetTween].evaluate(dart.nullCheck(this[_animation])), child: child, $creationLocationd_0dea112b090073317d4: C[84] || CT.C84}), $creationLocationd_0dea112b090073317d4: C[88] || CT.C88});
-      }
-    }
-    (CupertinoModalPopupRoute.new = function(opts) {
-      let builder = opts && 'builder' in opts ? opts.builder : null;
-      let barrierLabel = opts && 'barrierLabel' in opts ? opts.barrierLabel : "Dismiss";
-      let barrierColor = opts && 'barrierColor' in opts ? opts.barrierColor : C[73] || CT.C73;
-      let barrierDismissible = opts && 'barrierDismissible' in opts ? opts.barrierDismissible : true;
-      let semanticsDismissible = opts && 'semanticsDismissible' in opts ? opts.semanticsDismissible : null;
-      let filter = opts && 'filter' in opts ? opts.filter : null;
-      let settings = opts && 'settings' in opts ? opts.settings : null;
-      this[_barrierDismissible] = null;
-      this[_semanticsDismissible] = null;
-      this[_animation] = null;
-      this[__CupertinoModalPopupRoute__offsetTween] = null;
-      this[builder$0] = builder;
-      this[barrierLabel$] = barrierLabel;
-      this[barrierColor$] = barrierColor;
-      CupertinoModalPopupRoute.__proto__.new.call(this, {filter: filter, settings: settings});
-      this[_barrierDismissible] = barrierDismissible;
-      this[_semanticsDismissible] = semanticsDismissible;
-    }).prototype = CupertinoModalPopupRoute.prototype;
-    dart.addTypeTests(CupertinoModalPopupRoute);
-    CupertinoModalPopupRoute.prototype[_is_CupertinoModalPopupRoute_default] = true;
-    dart.addTypeCaches(CupertinoModalPopupRoute);
-    dart.setMethodSignature(CupertinoModalPopupRoute, () => ({
-      __proto__: dart.getMethods(CupertinoModalPopupRoute.__proto__),
-      buildPage: dart.fnType(framework.Widget, [framework.BuildContext, animation$.Animation$(core.double), animation$.Animation$(core.double)])
-    }));
-    dart.setGetterSignature(CupertinoModalPopupRoute, () => ({
-      __proto__: dart.getGetters(CupertinoModalPopupRoute.__proto__),
-      barrierDismissible: core.bool,
-      transitionDuration: core.Duration,
-      [_offsetTween]: tween.Tween$(ui.Offset)
-    }));
-    dart.setSetterSignature(CupertinoModalPopupRoute, () => ({
-      __proto__: dart.getSetters(CupertinoModalPopupRoute.__proto__),
-      [_offsetTween]: tween.Tween$(ui.Offset)
-    }));
-    dart.setLibraryUri(CupertinoModalPopupRoute, I[1]);
-    dart.setFieldSignature(CupertinoModalPopupRoute, () => ({
-      __proto__: dart.getFields(CupertinoModalPopupRoute.__proto__),
-      builder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext])),
-      [_barrierDismissible]: dart.fieldType(dart.nullable(core.bool)),
-      [_semanticsDismissible]: dart.fieldType(dart.nullable(core.bool)),
-      barrierLabel: dart.finalFieldType(core.String),
-      barrierColor: dart.finalFieldType(dart.nullable(ui.Color)),
-      [_animation]: dart.fieldType(dart.nullable(animation$.Animation$(core.double))),
-      [__CupertinoModalPopupRoute__offsetTween]: dart.fieldType(dart.nullable(tween.Tween$(ui.Offset)))
-    }));
-    return CupertinoModalPopupRoute;
-  });
-  route$.CupertinoModalPopupRoute = route$.CupertinoModalPopupRoute$();
-  dart.addTypeTests(route$.CupertinoModalPopupRoute, _is_CupertinoModalPopupRoute_default);
-  const _is_CupertinoDialogRoute_default = Symbol('_is_CupertinoDialogRoute_default');
-  route$.CupertinoDialogRoute$ = dart.generic(T => {
-    class CupertinoDialogRoute extends routes.RawDialogRoute$(T) {}
-    (CupertinoDialogRoute.new = function(opts) {
-      let t7, t7$;
-      let builder = opts && 'builder' in opts ? opts.builder : null;
-      let context = opts && 'context' in opts ? opts.context : null;
-      let barrierDismissible = opts && 'barrierDismissible' in opts ? opts.barrierDismissible : true;
-      let barrierColor = opts && 'barrierColor' in opts ? opts.barrierColor : null;
-      let barrierLabel = opts && 'barrierLabel' in opts ? opts.barrierLabel : null;
-      let transitionDuration = opts && 'transitionDuration' in opts ? opts.transitionDuration : C[92] || CT.C92;
-      let transitionBuilder = opts && 'transitionBuilder' in opts ? opts.transitionBuilder : C[93] || CT.C93;
-      let settings = opts && 'settings' in opts ? opts.settings : null;
-      if (!(barrierDismissible !== null)) dart.assertFailed(null, I[0], 1386, 15, "barrierDismissible != null");
-      CupertinoDialogRoute.__proto__.new.call(this, {pageBuilder: dart.fn((context, animation, secondaryAnimation) => builder(context), T$.BuildContextAndAnimationOfdoubleAndAnimationOfdoubleToWidget()), barrierDismissible: barrierDismissible, barrierLabel: (t7 = barrierLabel, t7 == null ? localizations.CupertinoLocalizations.of(context).modalBarrierDismissLabel : t7), barrierColor: (t7$ = barrierColor, t7$ == null ? colors.CupertinoDynamicColor.resolve(route$.kCupertinoModalBarrierColor, context) : t7$), transitionDuration: transitionDuration, transitionBuilder: transitionBuilder, settings: settings});
-      ;
-    }).prototype = CupertinoDialogRoute.prototype;
-    dart.addTypeTests(CupertinoDialogRoute);
-    CupertinoDialogRoute.prototype[_is_CupertinoDialogRoute_default] = true;
-    dart.addTypeCaches(CupertinoDialogRoute);
-    dart.setLibraryUri(CupertinoDialogRoute, I[1]);
-    return CupertinoDialogRoute;
-  });
-  route$.CupertinoDialogRoute = route$.CupertinoDialogRoute$();
-  dart.addTypeTests(route$.CupertinoDialogRoute, _is_CupertinoDialogRoute_default);
-  route$.showCupertinoModalPopup = function showCupertinoModalPopup(T, opts) {
-    let context = opts && 'context' in opts ? opts.context : null;
-    let builder = opts && 'builder' in opts ? opts.builder : null;
-    let filter = opts && 'filter' in opts ? opts.filter : null;
-    let barrierColor = opts && 'barrierColor' in opts ? opts.barrierColor : C[73] || CT.C73;
-    let barrierDismissible = opts && 'barrierDismissible' in opts ? opts.barrierDismissible : true;
-    let useRootNavigator = opts && 'useRootNavigator' in opts ? opts.useRootNavigator : true;
-    let semanticsDismissible = opts && 'semanticsDismissible' in opts ? opts.semanticsDismissible : null;
-    let routeSettings = opts && 'routeSettings' in opts ? opts.routeSettings : null;
-    if (!(useRootNavigator !== null)) dart.assertFailed(null, I[0], 1197, 10, "useRootNavigator != null");
-    return navigator.Navigator.of(context, {rootNavigator: useRootNavigator}).push(T, new (route$.CupertinoModalPopupRoute$(T)).new({builder: builder, filter: filter, barrierColor: colors.CupertinoDynamicColor.resolve(barrierColor, context), barrierDismissible: barrierDismissible, semanticsDismissible: semanticsDismissible, settings: routeSettings}));
-  };
-  route$._buildCupertinoDialogTransitions = function _buildCupertinoDialogTransitions(context, animation, secondaryAnimation, child) {
-    let fadeAnimation = new animations.CurvedAnimation.new({parent: animation, curve: curves.Curves.easeInOut});
-    if (animation.status === animation$.AnimationStatus.reverse) {
-      return new transitions.FadeTransition.new({opacity: fadeAnimation, child: child, $creationLocationd_0dea112b090073317d4: C[94] || CT.C94});
-    }
-    return new transitions.FadeTransition.new({opacity: fadeAnimation, child: new transitions.ScaleTransition.new({child: child, scale: animation.drive(core.double, route$._dialogScaleTween), $creationLocationd_0dea112b090073317d4: C[98] || CT.C98}), $creationLocationd_0dea112b090073317d4: C[102] || CT.C102});
-  };
-  route$.showCupertinoDialog = function showCupertinoDialog(T, opts) {
-    let context = opts && 'context' in opts ? opts.context : null;
-    let builder = opts && 'builder' in opts ? opts.builder : null;
-    let barrierLabel = opts && 'barrierLabel' in opts ? opts.barrierLabel : null;
-    let useRootNavigator = opts && 'useRootNavigator' in opts ? opts.useRootNavigator : true;
-    let barrierDismissible = opts && 'barrierDismissible' in opts ? opts.barrierDismissible : false;
-    let routeSettings = opts && 'routeSettings' in opts ? opts.routeSettings : null;
-    if (!(builder !== null)) dart.assertFailed(null, I[0], 1328, 10, "builder != null");
-    if (!(useRootNavigator !== null)) dart.assertFailed(null, I[0], 1329, 10, "useRootNavigator != null");
-    return navigator.Navigator.of(context, {rootNavigator: useRootNavigator}).push(T, new (route$.CupertinoDialogRoute$(T)).new({builder: builder, context: context, barrierDismissible: barrierDismissible, barrierLabel: barrierLabel, barrierColor: colors.CupertinoDynamicColor.resolve(route$.kCupertinoModalBarrierColor, context), settings: routeSettings}));
-  };
-  dart.defineLazy(route$, {
-    /*route$._kBackGestureWidth*/get _kBackGestureWidth() {
-      return 20;
+  dart.setSetterSignature(number_format.NumberFormat, () => ({
+    __proto__: dart.getSetters(number_format.NumberFormat.__proto__),
+    significantDigits: dart.nullable(core.int)
+  }));
+  dart.setLibraryUri(number_format.NumberFormat, I[1]);
+  dart.setFieldSignature(number_format.NumberFormat, () => ({
+    __proto__: dart.getFields(number_format.NumberFormat.__proto__),
+    negativePrefix: dart.finalFieldType(core.String),
+    positivePrefix: dart.finalFieldType(core.String),
+    negativeSuffix: dart.finalFieldType(core.String),
+    positiveSuffix: dart.finalFieldType(core.String),
+    [_groupingSize]: dart.fieldType(core.int),
+    [_finalGroupingSize]: dart.fieldType(core.int),
+    [_decimalSeparatorAlwaysShown]: dart.finalFieldType(core.bool),
+    [_useSignForPositiveExponent]: dart.finalFieldType(core.bool),
+    [_useExponentialNotation]: dart.finalFieldType(core.bool),
+    [_isForCurrency$]: dart.finalFieldType(core.bool),
+    maximumIntegerDigits: dart.fieldType(core.int),
+    minimumIntegerDigits: dart.fieldType(core.int),
+    maximumFractionDigits: dart.fieldType(core.int),
+    minimumFractionDigits: dart.fieldType(core.int),
+    minimumExponentDigits: dart.fieldType(core.int),
+    [_significantDigits]: dart.fieldType(dart.nullable(core.int)),
+    significantDigitsInUse: dart.fieldType(core.bool),
+    multiplier: dart.finalFieldType(core.int),
+    [_multiplierDigits]: dart.finalFieldType(core.int),
+    [_pattern$]: dart.finalFieldType(dart.nullable(core.String)),
+    [_locale$]: dart.finalFieldType(core.String),
+    [_symbols$]: dart.finalFieldType(number_symbols.NumberSymbols),
+    currencyName: dart.fieldType(dart.nullable(core.String)),
+    currencySymbol: dart.finalFieldType(core.String),
+    decimalDigits: dart.finalFieldType(dart.nullable(core.int)),
+    [_buffer]: dart.finalFieldType(core.StringBuffer),
+    localeZero: dart.finalFieldType(core.int),
+    [_zeroOffset$]: dart.finalFieldType(core.int)
+  }));
+  dart.defineExtensionMethods(number_format.NumberFormat, ['toString']);
+  dart.defineLazy(number_format.NumberFormat, {
+    /*number_format.NumberFormat._checkCurrencyName*/get _checkCurrencyName() {
+      return core.RegExp.new("^[a-zA-Z]{3}$");
     },
-    /*route$._kMinFlingVelocity*/get _kMinFlingVelocity() {
-      return 1;
+    /*number_format.NumberFormat._maxInt*/get _maxInt() {
+      return typeof 1 == 'number' ? math.pow(2, 52) : (1e+300)[$floor]();
     },
-    /*route$._kMaxDroppedSwipePageForwardAnimationTime*/get _kMaxDroppedSwipePageForwardAnimationTime() {
-      return 800;
-    },
-    /*route$._kMaxPageBackAnimationTime*/get _kMaxPageBackAnimationTime() {
-      return 300;
-    },
-    /*route$.kCupertinoModalBarrierColor*/get kCupertinoModalBarrierColor() {
-      return C[73] || CT.C73;
-    },
-    /*route$._kModalPopupTransitionDuration*/get _kModalPopupTransitionDuration() {
-      return C[106] || CT.C106;
-    },
-    /*route$._kRightMiddleTween*/get _kRightMiddleTween() {
-      return new (T$.TweenOfOffset()).new({begin: C[107] || CT.C107, end: ui.Offset.zero});
-    },
-    /*route$._kMiddleLeftTween*/get _kMiddleLeftTween() {
-      return new (T$.TweenOfOffset()).new({begin: ui.Offset.zero, end: C[108] || CT.C108});
-    },
-    /*route$._kBottomUpTween*/get _kBottomUpTween() {
-      return new (T$.TweenOfOffset()).new({begin: C[76] || CT.C76, end: ui.Offset.zero});
-    },
-    /*route$._dialogScaleTween*/get _dialogScaleTween() {
-      return new (T$.TweenOfdouble()).new({begin: 1.3, end: 1.0}).chain(new tween.CurveTween.new({curve: curves.Curves.linearToEaseOut}));
+    /*number_format.NumberFormat._maxDigits*/get _maxDigits() {
+      return (math.log(number_format.NumberFormat._maxInt) / math.log(10))[$ceil]();
     }
   }, false);
-  dart.trackLibraries("packages/flutter/src/cupertino/route.dart", {
-    "package:flutter/src/cupertino/route.dart": route$
+  number_format._CompactStyleBase = class _CompactStyleBase extends core.Object {};
+  (number_format._CompactStyleBase.new = function() {
+    ;
+  }).prototype = number_format._CompactStyleBase.prototype;
+  dart.addTypeTests(number_format._CompactStyleBase);
+  dart.addTypeCaches(number_format._CompactStyleBase);
+  dart.setLibraryUri(number_format._CompactStyleBase, I[1]);
+  number_format._CompactStyleWithNegative = class _CompactStyleWithNegative extends number_format._CompactStyleBase {
+    styleForSign(number) {
+      return dart.dtest(dart.dsend(number, '<', [0])) ? this.negativeStyle : this.positiveStyle;
+    }
+    get totalDigits() {
+      return this.positiveStyle.totalDigits;
+    }
+    get divisor() {
+      return this.positiveStyle.divisor;
+    }
+    get allStyles() {
+      return T.JSArrayOf_CompactStyle().of([this.positiveStyle, this.negativeStyle]);
+    }
+  };
+  (number_format._CompactStyleWithNegative.new = function(positiveStyle, negativeStyle) {
+    this.positiveStyle = positiveStyle;
+    this.negativeStyle = negativeStyle;
+    ;
+  }).prototype = number_format._CompactStyleWithNegative.prototype;
+  dart.addTypeTests(number_format._CompactStyleWithNegative);
+  dart.addTypeCaches(number_format._CompactStyleWithNegative);
+  dart.setMethodSignature(number_format._CompactStyleWithNegative, () => ({
+    __proto__: dart.getMethods(number_format._CompactStyleWithNegative.__proto__),
+    styleForSign: dart.fnType(number_format._CompactStyle, [dart.dynamic])
+  }));
+  dart.setGetterSignature(number_format._CompactStyleWithNegative, () => ({
+    __proto__: dart.getGetters(number_format._CompactStyleWithNegative.__proto__),
+    totalDigits: core.int,
+    divisor: core.int,
+    allStyles: core.List$(number_format._CompactStyle)
+  }));
+  dart.setLibraryUri(number_format._CompactStyleWithNegative, I[1]);
+  dart.setFieldSignature(number_format._CompactStyleWithNegative, () => ({
+    __proto__: dart.getFields(number_format._CompactStyleWithNegative.__proto__),
+    positiveStyle: dart.finalFieldType(number_format._CompactStyle),
+    negativeStyle: dart.finalFieldType(number_format._CompactStyle)
+  }));
+  var divisor$ = dart.privateName(number_format, "_CompactStyle.divisor");
+  number_format._CompactStyle = class _CompactStyle extends number_format._CompactStyleBase {
+    get divisor() {
+      return this[divisor$];
+    }
+    set divisor(value) {
+      this[divisor$] = value;
+    }
+    get totalDigits() {
+      return this.normalizedExponent + this.expectedDigits - 1;
+    }
+    get isFallback() {
+      return this.pattern == null || this.pattern === "0";
+    }
+    get printsAsIs() {
+      return this.isFallback || dart.nullCheck(this.pattern)[$replaceAll](core.RegExp.new("[0 ¤]"), "")[$isEmpty];
+    }
+    styleForSign(number) {
+      return this;
+    }
+    get allStyles() {
+      return T.JSArrayOf_CompactStyle().of([this]);
+    }
+    static _hasNonZeroContent(pattern) {
+      return !number_format._CompactStyle._justZeros.hasMatch(pattern);
+    }
+    static createStyle(pattern, normalizedExponent) {
+      let match = number_format._CompactStyle._regex.firstMatch(pattern);
+      let integerDigits = dart.nullCheck(dart.nullCheck(match).group(2)).length;
+      let prefix = dart.nullCheck(match.group(1));
+      let suffix = dart.nullCheck(match.group(3));
+      let divisor = 1;
+      if (number_format._CompactStyle._hasNonZeroContent(pattern)) {
+        divisor = dart.asInt(math.pow(10, normalizedExponent - integerDigits + 1));
+      }
+      return new number_format._CompactStyle.new({pattern: pattern, normalizedExponent: normalizedExponent, expectedDigits: integerDigits, prefix: prefix, suffix: suffix, divisor: divisor});
+    }
+  };
+  (number_format._CompactStyle.new = function(opts) {
+    let pattern = opts && 'pattern' in opts ? opts.pattern : null;
+    let normalizedExponent = opts && 'normalizedExponent' in opts ? opts.normalizedExponent : 0;
+    let divisor = opts && 'divisor' in opts ? opts.divisor : 1;
+    let expectedDigits = opts && 'expectedDigits' in opts ? opts.expectedDigits : 1;
+    let prefix = opts && 'prefix' in opts ? opts.prefix : "";
+    let suffix = opts && 'suffix' in opts ? opts.suffix : "";
+    this.pattern = pattern;
+    this.normalizedExponent = normalizedExponent;
+    this[divisor$] = divisor;
+    this.expectedDigits = expectedDigits;
+    this.prefix = prefix;
+    this.suffix = suffix;
+    ;
+  }).prototype = number_format._CompactStyle.prototype;
+  dart.addTypeTests(number_format._CompactStyle);
+  dart.addTypeCaches(number_format._CompactStyle);
+  dart.setMethodSignature(number_format._CompactStyle, () => ({
+    __proto__: dart.getMethods(number_format._CompactStyle.__proto__),
+    styleForSign: dart.fnType(number_format._CompactStyle, [dart.dynamic])
+  }));
+  dart.setGetterSignature(number_format._CompactStyle, () => ({
+    __proto__: dart.getGetters(number_format._CompactStyle.__proto__),
+    totalDigits: core.int,
+    isFallback: core.bool,
+    printsAsIs: core.bool,
+    allStyles: core.List$(number_format._CompactStyle)
+  }));
+  dart.setLibraryUri(number_format._CompactStyle, I[1]);
+  dart.setFieldSignature(number_format._CompactStyle, () => ({
+    __proto__: dart.getFields(number_format._CompactStyle.__proto__),
+    pattern: dart.fieldType(dart.nullable(core.String)),
+    normalizedExponent: dart.fieldType(core.int),
+    divisor: dart.fieldType(core.int),
+    expectedDigits: dart.fieldType(core.int),
+    prefix: dart.fieldType(core.String),
+    suffix: dart.fieldType(core.String)
+  }));
+  dart.defineLazy(number_format._CompactStyle, {
+    /*number_format._CompactStyle._regex*/get _regex() {
+      return core.RegExp.new("([^0]*)(0+)(.*)");
+    },
+    /*number_format._CompactStyle._justZeros*/get _justZeros() {
+      return core.RegExp.new("^0*$");
+    }
+  }, false);
+  var _name$ = dart.privateName(number_format, "_name");
+  number_format._CompactFormatType = class _CompactFormatType extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (number_format._CompactFormatType.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = number_format._CompactFormatType.prototype;
+  dart.addTypeTests(number_format._CompactFormatType);
+  dart.addTypeCaches(number_format._CompactFormatType);
+  dart.setLibraryUri(number_format._CompactFormatType, I[1]);
+  dart.setFieldSignature(number_format._CompactFormatType, () => ({
+    __proto__: dart.getFields(number_format._CompactFormatType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(number_format._CompactFormatType, ['toString']);
+  number_format._CompactFormatType.COMPACT_DECIMAL_SHORT_PATTERN = C[1] || CT.C1;
+  number_format._CompactFormatType.COMPACT_DECIMAL_LONG_PATTERN = C[2] || CT.C2;
+  number_format._CompactFormatType.COMPACT_DECIMAL_SHORT_CURRENCY_PATTERN = C[3] || CT.C3;
+  number_format._CompactFormatType.values = C[4] || CT.C4;
+  var _style = dart.privateName(number_format, "_style");
+  var _styles$ = dart.privateName(number_format, "_styles");
+  var _styleFor = dart.privateName(number_format, "_styleFor");
+  var _divide = dart.privateName(number_format, "_divide");
+  var _stylesForSearching = dart.privateName(number_format, "_stylesForSearching");
+  var _tryParsing = dart.privateName(number_format, "_tryParsing");
+  number_format._CompactNumberFormat = class _CompactNumberFormat extends number_format.NumberFormat {
+    static _forDecimal(symbols) {
+      return symbols.DECIMAL_PATTERN;
+    }
+    static new(opts) {
+      let t0;
+      let locale = opts && 'locale' in opts ? opts.locale : null;
+      let formatType = opts && 'formatType' in opts ? opts.formatType : null;
+      let name = opts && 'name' in opts ? opts.name : null;
+      let currencySymbol = opts && 'currencySymbol' in opts ? opts.currencySymbol : null;
+      let getPattern = opts && 'getPattern' in opts ? opts.getPattern : C[5] || CT.C5;
+      let decimalDigits = opts && 'decimalDigits' in opts ? opts.decimalDigits : null;
+      let lookupSimpleCurrencySymbol = opts && 'lookupSimpleCurrencySymbol' in opts ? opts.lookupSimpleCurrencySymbol : false;
+      let isForCurrency = opts && 'isForCurrency' in opts ? opts.isForCurrency : false;
+      locale = dart.nullCheck(intl_helpers.verifiedLocale(locale, C[0] || CT.C0, null));
+      let symbols = number_symbols.NumberSymbols.as(number_symbols_data.numberFormatSymbols[$_get](locale));
+      let localeZero = symbols.ZERO_DIGIT[$codeUnitAt](0);
+      let zeroOffset = localeZero - constants.asciiZeroCodeUnit;
+      name == null ? name = symbols.DEF_CURRENCY_CODE : null;
+      if (currencySymbol == null && lookupSimpleCurrencySymbol) {
+        currencySymbol = constants.simpleCurrencySymbols[$_get](name);
+      }
+      currencySymbol == null ? currencySymbol = name : null;
+      let pattern = getPattern(symbols);
+      let patterns = null;
+      let compactSymbols = dart.nullCheck(number_symbols_data.compactNumberSymbols[$_get](locale));
+      let styles = T.JSArrayOf_CompactStyleBase().of([]);
+      switch (formatType) {
+        case C[1] || CT.C1:
+        {
+          patterns = compactSymbols.COMPACT_DECIMAL_SHORT_PATTERN;
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          patterns = (t0 = compactSymbols.COMPACT_DECIMAL_LONG_PATTERN, t0 == null ? compactSymbols.COMPACT_DECIMAL_SHORT_PATTERN : t0);
+          break;
+        }
+        case C[3] || CT.C3:
+        {
+          patterns = compactSymbols.COMPACT_DECIMAL_SHORT_CURRENCY_PATTERN;
+          break;
+        }
+        default:
+        {
+          dart.throw(new core.ArgumentError.notNull("formatType"));
+        }
+      }
+      patterns[$forEach](dart.fn((exponent, pattern) => {
+        if (pattern[$contains](";")) {
+          let patterns = pattern[$split](";");
+          styles[$add](new number_format._CompactStyleWithNegative.new(number_format._CompactStyle.createStyle(patterns[$first], exponent), number_format._CompactStyle.createStyle(patterns[$last], exponent)));
+        } else {
+          styles[$add](number_format._CompactStyle.createStyle(pattern, exponent));
+        }
+      }, T.intAndStringTovoid()));
+      styles = styles[$reversed][$toList]();
+      styles[$add](new number_format._CompactStyle.new());
+      return new number_format._CompactNumberFormat.__(name, currencySymbol, isForCurrency, locale, localeZero, pattern, symbols, zeroOffset, number_format_parser.NumberFormatParser.parse(symbols, pattern, isForCurrency, currencySymbol, name, decimalDigits), styles);
+    }
+    format(number) {
+      let style = this[_styleFor](number);
+      this[_style] = style;
+      let divisor = style.printsAsIs ? 1 : style.divisor;
+      let numberToFormat = this[_divide](number, divisor);
+      let formatted = super.format(numberToFormat);
+      let prefix = style.prefix;
+      let suffix = style.suffix;
+      if (this[_isForCurrency$] && !style.isFallback) {
+        formatted = formatted[$replaceFirst](this.currencySymbol, "")[$trim]();
+        prefix = prefix[$replaceFirst]("¤", this.currencySymbol);
+        suffix = suffix[$replaceFirst]("¤", this.currencySymbol);
+      }
+      let withExtras = prefix + formatted + suffix;
+      this[_style] = null;
+      return withExtras;
+    }
+    [_fractionDigitsAfter](remainingSignificantDigits) {
+      let newFractionDigits = super[_fractionDigitsAfter](remainingSignificantDigits);
+      if (!this[_isForCurrency$] || !dart.nullCheck(this[_style]).isFallback) return newFractionDigits;
+      if (newFractionDigits > 0 && newFractionDigits < dart.nullCheck(this.decimalDigits)) {
+        return dart.nullCheck(this.decimalDigits);
+      } else {
+        return math.min(core.int, newFractionDigits, dart.nullCheck(this.decimalDigits));
+      }
+    }
+    get minimumFractionDigits() {
+      if (!this[_isForCurrency$] || !this.significantDigitsInUse || this[_style] == null || dart.nullCheck(this[_style]).isFallback) {
+        return super.minimumFractionDigits;
+      } else {
+        return 0;
+      }
+    }
+    set minimumFractionDigits(value) {
+      super.minimumFractionDigits = value;
+    }
+    [_divide](numerator, denominator) {
+      if (typeof numerator == 'number') {
+        return dart.notNull(numerator) / denominator;
+      }
+      let divided = dart.dsend(numerator, '~/', [denominator]);
+      let integerPart = dart.dsend(divided, 'toInt', []);
+      if (!dart.equals(divided, integerPart)) {
+        dart.throw(new core.FormatException.new("Number too big to use with compact format", numerator));
+      }
+      let remainder = dart.dsend(dart.dsend(numerator, 'remainder', [denominator]), 'toInt', []);
+      let originalFraction = dart.dsend(numerator, '-', [dart.dsend(numerator, '~/', [1])]);
+      let fraction = dart.equals(originalFraction, 0) ? 0 : dart.dsend(originalFraction, '/', [denominator]);
+      return core.num.as(dart.dsend(dart.dsend(integerPart, '+', [dart.dsend(remainder, '/', [denominator])]), '+', [fraction]));
+    }
+    [_styleFor](number) {
+      let originalLength = number_format.NumberFormat.numberOfIntegerDigits(number);
+      let additionalDigits = originalLength - dart.nullCheck(this.significantDigits);
+      let digitLength = originalLength;
+      if (additionalDigits > 0) {
+        let divisor = math.pow(10, additionalDigits);
+        let rounded = dart.dsend(dart.dsend(dart.dsend(dart.dsend(number, 'toDouble', []), '/', [divisor]), 'round', []), '*', [divisor]);
+        digitLength = number_format.NumberFormat.numberOfIntegerDigits(rounded);
+      }
+      for (let style of this[_styles$]) {
+        if (digitLength > style.totalDigits) {
+          return style.styleForSign(number);
+        }
+      }
+      dart.throw(new core.FormatException.new("No compact style found for number. This should not happen", number));
+    }
+    get [_stylesForSearching]() {
+      return this[_styles$][$reversed][$expand](number_format._CompactStyle, dart.fn(x => x.allStyles, T._CompactStyleBaseToIterableOf_CompactStyle()));
+    }
+    parse(text) {
+      for (let style of this[_stylesForSearching]) {
+        if (text[$startsWith](style.prefix) && text[$endsWith](style.suffix)) {
+          let numberText = text[$substring](style.prefix.length, text.length - style.suffix.length);
+          let number = this[_tryParsing](numberText);
+          if (number != null) {
+            return dart.notNull(number) * style.divisor;
+          }
+        }
+      }
+      dart.throw(new core.FormatException.new("Cannot parse compact number in locale '" + this.locale + "'", text));
+    }
+    [_tryParsing](text) {
+      try {
+        return super.parse(text);
+      } catch (e) {
+        let ex = dart.getThrown(e);
+        if (core.FormatException.is(ex)) {
+          return null;
+        } else
+          throw e;
+      }
+    }
+  };
+  (number_format._CompactNumberFormat.__ = function(currencyName, currencySymbol, isForCurrency, locale, localeZero, pattern, symbols, zeroOffset, result, _styles) {
+    this[_style] = null;
+    this[_styles$] = _styles;
+    number_format._CompactNumberFormat.__proto__.__.call(this, currencyName, currencySymbol, isForCurrency, locale, localeZero, pattern, symbols, zeroOffset, result);
+    this.significantDigits = 3;
+    this.turnOffGrouping();
+  }).prototype = number_format._CompactNumberFormat.prototype;
+  dart.addTypeTests(number_format._CompactNumberFormat);
+  dart.addTypeCaches(number_format._CompactNumberFormat);
+  dart.setMethodSignature(number_format._CompactNumberFormat, () => ({
+    __proto__: dart.getMethods(number_format._CompactNumberFormat.__proto__),
+    [_divide]: dart.fnType(core.num, [dart.dynamic, core.int]),
+    [_styleFor]: dart.fnType(number_format._CompactStyle, [dart.dynamic]),
+    [_tryParsing]: dart.fnType(dart.nullable(core.num), [core.String])
+  }));
+  dart.setGetterSignature(number_format._CompactNumberFormat, () => ({
+    __proto__: dart.getGetters(number_format._CompactNumberFormat.__proto__),
+    minimumFractionDigits: core.int,
+    [_stylesForSearching]: core.Iterable$(number_format._CompactStyle)
+  }));
+  dart.setLibraryUri(number_format._CompactNumberFormat, I[1]);
+  dart.setFieldSignature(number_format._CompactNumberFormat, () => ({
+    __proto__: dart.getFields(number_format._CompactNumberFormat.__proto__),
+    [_styles$]: dart.finalFieldType(core.List$(number_format._CompactStyleBase)),
+    [_style]: dart.fieldType(dart.nullable(number_format._CompactStyle))
+  }));
+  dart.defineLazy(number_format, {
+    /*number_format._ln10*/get _ln10() {
+      return math.log(10);
+    }
+  }, false);
+  dart.trackLibraries("packages/intl/src/intl/number_parser.dart", {
+    "package:intl/src/intl/number_parser.dart": number_parser,
+    "package:intl/src/intl/number_format.dart": number_format
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["route.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/cupertino/route.dart.lib.js"}');
+    "package:intl/src/intl/number_format.dart": ["compact_number_format.dart"]
+  }, '{"version":3,"sourceRoot":"","sources":["number_parser.dart","number_format.dart","compact_number_format.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../D:/packages/intl/src/intl/number_parser.dart.lib.js"}');
   // Exports:
   return {
-    src__cupertino__route: route$
+    src__intl__number_parser: number_parser,
+    src__intl__number_format: number_format
   };
 }));
 
-//# sourceMappingURL=route.dart.lib.js.map
+//# sourceMappingURL=number_parser.dart.lib.js.map

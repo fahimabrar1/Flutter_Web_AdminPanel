@@ -24,7 +24,7 @@ class Header extends StatelessWidget {
                 child: Text("Dashboard",
                     style: GoogleFonts.robotoCondensed(
                       textStyle: TextStyle(
-                          color: MyColor.BlackFont,
+                          color: MyColor.White,
                           fontSize: 24,
                           fontWeight: FontWeight.bold),
                     )),
@@ -53,7 +53,7 @@ class ProfilePanel extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 10),
       padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       decoration: BoxDecoration(
-          color: MyColor.Indigo50,
+          color: MyColor.White,
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Row(
         children: [
@@ -94,8 +94,9 @@ class SearchBar extends StatelessWidget {
       style: GoogleFonts.robotoCondensed(
           textStyle: TextStyle(color: MyColor.BlackFont)),
       decoration: InputDecoration(
-        hintText: "Search Here",
-        fillColor: MyColor.Indigo50,
+        hintText: "Search Here...",
+        hintStyle: TextStyle(color: MyColor.BlackFont),
+        fillColor: MyColor.White,
         filled: true,
         border: OutlineInputBorder(
             borderSide: BorderSide.none,
@@ -104,7 +105,7 @@ class SearchBar extends StatelessWidget {
           padding: EdgeInsets.all(2),
           margin: EdgeInsets.only(right: 5),
           decoration: BoxDecoration(
-            color: Colors.indigo[400],
+            color: MyColor.Indigo10,
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
           child: Icon(Icons.search, color: Colors.white),
