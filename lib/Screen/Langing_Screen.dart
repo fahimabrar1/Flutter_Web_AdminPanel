@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterweb/Components/Mycolor.dart';
 import 'package:flutterweb/Components/side_menu.dart';
-import 'package:flutterweb/Screen/dashboard/dashboard_screen.dart';
+import 'package:flutterweb/Screen/dashboard/analytics_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
@@ -58,7 +58,7 @@ class _LandingPageState extends State<LandingPage> {
                 ],
               ),
             ),
-            Expanded(flex: 5, child: DashboardScreen()),
+            Expanded(flex: 5, child: AnalyticsScreen()),
           ],
         ),
       ),

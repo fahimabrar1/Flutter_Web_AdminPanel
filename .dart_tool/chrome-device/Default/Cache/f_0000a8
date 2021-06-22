@@ -1,442 +1,2111 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__painting__colors_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/safe_area.dart', 'packages/flutter/src/widgets/single_child_scroll_view.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutterweb/Components/Mycolor.dart', 'packages/flutterweb/Components/Header.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/syncfusion_flutter_charts/charts.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/material/card.dart', 'packages/google_fonts/src/google_fonts_base.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/widgets/icon_data.dart', 'packages/syncfusion_flutter_core/core.dart'], (function load__packages__flutterweb__Screen__dashboard__analytics_screen_dart(dart_sdk, packages__flutter__src__widgets__safe_area$46dart, packages__flutter__src__widgets__single_child_scroll_view$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutterweb__Components__Mycolor$46dart, packages__flutterweb__Components__Header$46dart, packages__flutter__src__rendering__flex$46dart, packages__syncfusion_flutter_charts__charts$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__material__card$46dart, packages__google_fonts__src__google_fonts_base$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__widgets__icon_data$46dart, packages__syncfusion_flutter_core__core$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const math = dart_sdk.math;
+  const _interceptors = dart_sdk._interceptors;
   const ui = dart_sdk.ui;
-  const _js_helper = dart_sdk._js_helper;
-  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var colors = Object.create(dart.library);
-  var $modulo = dartx['%'];
-  var $abs = dartx.abs;
-  var $clamp = dartx.clamp;
-  var $_get = dartx._get;
-  var $runtimeType = dartx.runtimeType;
-  var $_set = dartx._set;
-  var $isNaN = dartx.isNaN;
-  var $round = dartx.round;
+  const safe_area = packages__flutter__src__widgets__safe_area$46dart.src__widgets__safe_area;
+  const single_child_scroll_view = packages__flutter__src__widgets__single_child_scroll_view$46dart.src__widgets__single_child_scroll_view;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const Mycolor = packages__flutterweb__Components__Mycolor$46dart.Components__Mycolor;
+  const Header = packages__flutterweb__Components__Header$46dart.Components__Header;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const charts = packages__syncfusion_flutter_charts__charts$46dart.charts;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const card = packages__flutter__src__material__card$46dart.src__material__card;
+  const google_fonts = packages__google_fonts__src__google_fonts_base$46dart.google_fonts;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
+  const core$ = packages__syncfusion_flutter_core__core$46dart.core;
+  var analytics_screen = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    IdentityMapOfString$Object: () => (T.IdentityMapOfString$Object = dart.constFn(_js_helper.IdentityMap$(core.String, core.Object)))(),
-    VoidTodouble: () => (T.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
-    doubleTodynamic: () => (T.doubleTodynamic = dart.constFn(dart.fnType(dart.dynamic, [core.double])))()
+    JSArrayOfDoughnutData: () => (T.JSArrayOfDoughnutData = dart.constFn(_interceptors.JSArray$(analytics_screen.DoughnutData)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    DoughnutSeriesOfDoughnutData$String: () => (T.DoughnutSeriesOfDoughnutData$String = dart.constFn(charts.DoughnutSeries$(analytics_screen.DoughnutData, core.String)))(),
+    DoughnutDataAndintToString: () => (T.DoughnutDataAndintToString = dart.constFn(dart.fnType(core.String, [analytics_screen.DoughnutData, core.int])))(),
+    DoughnutDataAndintTonum: () => (T.DoughnutDataAndintTonum = dart.constFn(dart.fnType(core.num, [analytics_screen.DoughnutData, core.int])))(),
+    JSArrayOfCircularSeries: () => (T.JSArrayOfCircularSeries = dart.constFn(_interceptors.JSArray$(charts.CircularSeries)))(),
+    JSArrayOfSalesData: () => (T.JSArrayOfSalesData = dart.constFn(_interceptors.JSArray$(analytics_screen.SalesData)))(),
+    LineSeriesOfSalesData$num: () => (T.LineSeriesOfSalesData$num = dart.constFn(charts.LineSeries$(analytics_screen.SalesData, core.num)))(),
+    numN: () => (T.numN = dart.constFn(dart.nullable(core.num)))(),
+    SalesDataAndintTonumN: () => (T.SalesDataAndintTonumN = dart.constFn(dart.fnType(T.numN(), [analytics_screen.SalesData, core.int])))(),
+    JSArrayOfLineSeriesOfSalesData$num: () => (T.JSArrayOfLineSeriesOfSalesData$num = dart.constFn(_interceptors.JSArray$(T.LineSeriesOfSalesData$num())))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.constList([], widget_inspector._Location);
+    },
     get C0() {
       return C[0] = dart.const({
-        __proto__: diagnostics._NoDefaultValue.prototype
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 64,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
       });
     },
-    get C1() {
-      return C[1] = dart.const({
-        __proto__: diagnostics.DiagnosticsTreeStyle.prototype,
-        [_name]: "DiagnosticsTreeStyle.singleLine",
-        index: 8
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 19,
+        [_Location_line]: 66,
+        [_Location_file]: null
       });
+    },
+    get C3() {
+      return C[3] = dart.constList([C[4] || CT.C4], widget_inspector._Location);
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: diagnostics.DiagnosticLevel.prototype,
-        [_name]: "DiagnosticLevel.info",
-        index: 3
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[3] || CT.C3,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 72,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 25,
+        [_Location_line]: 74,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "legend",
+        [_Location_column]: 25,
+        [_Location_line]: 75,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "series",
+        [_Location_column]: 25,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "tooltipBehavior",
+        [_Location_column]: 25,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11], widget_inspector._Location);
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 73,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 28,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14], widget_inspector._Location);
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 71,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "chart",
+        [_Location_column]: 40,
+        [_Location_line]: 80,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17], widget_inspector._Location);
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21], widget_inspector._Location);
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 68,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24], widget_inspector._Location);
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 62,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 13,
+        [_Location_line]: 61,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 62,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.constList([C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29], widget_inspector._Location);
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[26] || CT.C26,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 59,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 59,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.constList([C[32] || CT.C32], widget_inspector._Location);
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[31] || CT.C31,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 58,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35], widget_inspector._Location);
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38], widget_inspector._Location);
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 121,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 122,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41, C[42] || CT.C42], widget_inspector._Location);
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 121,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 17,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 121,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.constList([C[45] || CT.C45, C[46] || CT.C46], widget_inspector._Location);
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[44] || CT.C44,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 119,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "series",
+        [_Location_column]: 19,
+        [_Location_line]: 131,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.constList([C[49] || CT.C49], widget_inspector._Location);
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[48] || CT.C48,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 130,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 17,
+        [_Location_line]: 129,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 130,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.constList([C[52] || CT.C52, C[53] || CT.C53], widget_inspector._Location);
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[51] || CT.C51,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 128,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 145,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 146,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 147,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 148,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61], widget_inspector._Location);
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[59] || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 116,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 114,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 11,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C[63] = dart.constList([C[64] || CT.C64, C[65] || CT.C65, C[66] || CT.C66], widget_inspector._Location);
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[63] || CT.C63,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 113,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 9,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C[68] = dart.constList([C[69] || CT.C69, C[70] || CT.C70], widget_inspector._Location);
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[68] || CT.C68,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 111,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 110,
+        [_Location_file]: null
+      });
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.constList([C[73] || CT.C73, C[74] || CT.C74], widget_inspector._Location);
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[72] || CT.C72,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 109,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C[76] = dart.constList([C[77] || CT.C77], widget_inspector._Location);
+    },
+    get C75() {
+      return C[75] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[76] || CT.C76,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 108,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 175,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.constList([C[80] || CT.C80], widget_inspector._Location);
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[79] || CT.C79,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 174,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 51,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83, C[84] || CT.C84], widget_inspector._Location);
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 180,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 15,
+        [_Location_line]: 178,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 15,
+        [_Location_line]: 179,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.constList([C[87] || CT.C87, C[88] || CT.C88, C[89] || CT.C89], widget_inspector._Location);
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 177,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 182,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C[91] = dart.constList([C[92] || CT.C92], widget_inspector._Location);
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[91] || CT.C91,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 181,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 27,
+        [_Location_line]: 185,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maxLines",
+        [_Location_column]: 19,
+        [_Location_line]: 186,
+        [_Location_file]: null
+      });
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 19,
+        [_Location_line]: 187,
+        [_Location_file]: null
+      });
+    },
+    get C94() {
+      return C[94] = dart.constList([C[95] || CT.C95, C[96] || CT.C96, C[97] || CT.C97], widget_inspector._Location);
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[94] || CT.C94,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 185,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 185,
+        [_Location_file]: null
+      });
+    },
+    get C99() {
+      return C[99] = dart.constList([C[100] || CT.C100], widget_inspector._Location);
+    },
+    get C98() {
+      return C[98] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[99] || CT.C99,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 184,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 9,
+        [_Location_line]: 172,
+        [_Location_file]: null
+      });
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 173,
+        [_Location_file]: null
+      });
+    },
+    get C102() {
+      return C[102] = dart.constList([C[103] || CT.C103, C[104] || CT.C104], widget_inspector._Location);
+    },
+    get C101() {
+      return C[101] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[102] || CT.C102,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 171,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 165,
+        [_Location_file]: null
+      });
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 7,
+        [_Location_line]: 166,
+        [_Location_file]: null
+      });
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 7,
+        [_Location_line]: 167,
+        [_Location_file]: null
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 171,
+        [_Location_file]: null
+      });
+    },
+    get C106() {
+      return C[106] = dart.constList([C[107] || CT.C107, C[108] || CT.C108, C[109] || CT.C109, C[110] || CT.C110], widget_inspector._Location);
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[106] || CT.C106,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 164,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C113() {
+      return C[113] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 21,
+        [_Location_line]: 222,
+        [_Location_file]: null
+      });
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 223,
+        [_Location_file]: null
+      });
+    },
+    get C112() {
+      return C[112] = dart.constList([C[113] || CT.C113, C[114] || CT.C114], widget_inspector._Location);
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[112] || CT.C112,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 221,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 220,
+        [_Location_file]: null
+      });
+    },
+    get C116() {
+      return C[116] = dart.constList([C[117] || CT.C117], widget_inspector._Location);
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[116] || CT.C116,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 219,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 15,
+        [_Location_line]: 218,
+        [_Location_file]: null
+      });
+    },
+    get C121() {
+      return C[121] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 219,
+        [_Location_file]: null
+      });
+    },
+    get C119() {
+      return C[119] = dart.constList([C[120] || CT.C120, C[121] || CT.C121], widget_inspector._Location);
+    },
+    get C118() {
+      return C[118] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[119] || CT.C119,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 217,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "amount",
+        [_Location_column]: 21,
+        [_Location_line]: 236,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C[125] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 30,
+        [_Location_line]: 236,
+        [_Location_file]: null
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 50,
+        [_Location_line]: 236,
+        [_Location_file]: null
+      });
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "col",
+        [_Location_column]: 74,
+        [_Location_line]: 236,
+        [_Location_file]: null
+      });
+    },
+    get C123() {
+      return C[123] = dart.constList([C[124] || CT.C124, C[125] || CT.C125, C[126] || CT.C126, C[127] || CT.C127], widget_inspector._Location);
+    },
+    get C122() {
+      return C[122] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[123] || CT.C123,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 235,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "amount",
+        [_Location_column]: 28,
+        [_Location_line]: 237,
+        [_Location_file]: null
+      });
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 35,
+        [_Location_line]: 237,
+        [_Location_file]: null
+      });
+    },
+    get C132() {
+      return C[132] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 56,
+        [_Location_line]: 237,
+        [_Location_file]: null
+      });
+    },
+    get C133() {
+      return C[133] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "col",
+        [_Location_column]: 68,
+        [_Location_line]: 237,
+        [_Location_file]: null
+      });
+    },
+    get C129() {
+      return C[129] = dart.constList([C[130] || CT.C130, C[131] || CT.C131, C[132] || CT.C132, C[133] || CT.C133], widget_inspector._Location);
+    },
+    get C128() {
+      return C[128] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[129] || CT.C129,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 237,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C136() {
+      return C[136] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "amount",
+        [_Location_column]: 21,
+        [_Location_line]: 239,
+        [_Location_file]: null
+      });
+    },
+    get C137() {
+      return C[137] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 29,
+        [_Location_line]: 239,
+        [_Location_file]: null
+      });
+    },
+    get C138() {
+      return C[138] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 52,
+        [_Location_line]: 239,
+        [_Location_file]: null
+      });
+    },
+    get C139() {
+      return C[139] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "col",
+        [_Location_column]: 71,
+        [_Location_line]: 239,
+        [_Location_file]: null
+      });
+    },
+    get C135() {
+      return C[135] = dart.constList([C[136] || CT.C136, C[137] || CT.C137, C[138] || CT.C138, C[139] || CT.C139], widget_inspector._Location);
+    },
+    get C134() {
+      return C[134] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[135] || CT.C135,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 238,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C142() {
+      return C[142] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "amount",
+        [_Location_column]: 28,
+        [_Location_line]: 240,
+        [_Location_file]: null
+      });
+    },
+    get C143() {
+      return C[143] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 35,
+        [_Location_line]: 240,
+        [_Location_file]: null
+      });
+    },
+    get C144() {
+      return C[144] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 56,
+        [_Location_line]: 240,
+        [_Location_file]: null
+      });
+    },
+    get C145() {
+      return C[145] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "col",
+        [_Location_column]: 28,
+        [_Location_line]: 241,
+        [_Location_file]: null
+      });
+    },
+    get C141() {
+      return C[141] = dart.constList([C[142] || CT.C142, C[143] || CT.C143, C[144] || CT.C144, C[145] || CT.C145], widget_inspector._Location);
+    },
+    get C140() {
+      return C[140] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[141] || CT.C141,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 240,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C148() {
+      return C[148] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 26,
+        [_Location_line]: 234,
+        [_Location_file]: null
+      });
+    },
+    get C147() {
+      return C[147] = dart.constList([C[148] || CT.C148], widget_inspector._Location);
+    },
+    get C146() {
+      return C[146] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[147] || CT.C147,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 234,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C151() {
+      return C[151] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 15,
+        [_Location_line]: 233,
+        [_Location_file]: null
+      });
+    },
+    get C152() {
+      return C[152] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 234,
+        [_Location_file]: null
+      });
+    },
+    get C150() {
+      return C[150] = dart.constList([C[151] || CT.C151, C[152] || CT.C152], widget_inspector._Location);
+    },
+    get C149() {
+      return C[149] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[150] || CT.C150,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 232,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C155() {
+      return C[155] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 216,
+        [_Location_file]: null
+      });
+    },
+    get C154() {
+      return C[154] = dart.constList([C[155] || CT.C155], widget_inspector._Location);
+    },
+    get C153() {
+      return C[153] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[154] || CT.C154,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 215,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C158() {
+      return C[158] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 215,
+        [_Location_file]: null
+      });
+    },
+    get C157() {
+      return C[157] = dart.constList([C[158] || CT.C158], widget_inspector._Location);
+    },
+    get C156() {
+      return C[156] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[157] || CT.C157,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 214,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C161() {
+      return C[161] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "flex",
+        [_Location_column]: 9,
+        [_Location_line]: 213,
+        [_Location_file]: null
+      });
+    },
+    get C162() {
+      return C[162] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 214,
+        [_Location_file]: null
+      });
+    },
+    get C160() {
+      return C[160] = dart.constList([C[161] || CT.C161, C[162] || CT.C162], widget_inspector._Location);
+    },
+    get C159() {
+      return C[159] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[160] || CT.C160,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 212,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C165() {
+      return C[165] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 280,
+        [_Location_file]: null
+      });
+    },
+    get C166() {
+      return C[166] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 281,
+        [_Location_file]: null
+      });
+    },
+    get C164() {
+      return C[164] = dart.constList([C[165] || CT.C165, C[166] || CT.C166], widget_inspector._Location);
+    },
+    get C163() {
+      return C[163] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[164] || CT.C164,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 279,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C169() {
+      return C[169] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 27,
+        [_Location_line]: 278,
+        [_Location_file]: null
+      });
+    },
+    get C170() {
+      return C[170] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 279,
+        [_Location_file]: null
+      });
+    },
+    get C168() {
+      return C[168] = dart.constList([C[169] || CT.C169, C[170] || CT.C170], widget_inspector._Location);
+    },
+    get C167() {
+      return C[167] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[168] || CT.C168,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 277,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C173() {
+      return C[173] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 277,
+        [_Location_file]: null
+      });
+    },
+    get C172() {
+      return C[172] = dart.constList([C[173] || CT.C173], widget_inspector._Location);
+    },
+    get C171() {
+      return C[171] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[172] || CT.C172,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 276,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C176() {
+      return C[176] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 293,
+        [_Location_file]: null
+      });
+    },
+    get C177() {
+      return C[177] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 29,
+        [_Location_line]: 294,
+        [_Location_file]: null
+      });
+    },
+    get C175() {
+      return C[175] = dart.constList([C[176] || CT.C176, C[177] || CT.C177], widget_inspector._Location);
+    },
+    get C174() {
+      return C[174] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[175] || CT.C175,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 292,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C180() {
+      return C[180] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 27,
+        [_Location_line]: 291,
+        [_Location_file]: null
+      });
+    },
+    get C181() {
+      return C[181] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 292,
+        [_Location_file]: null
+      });
+    },
+    get C179() {
+      return C[179] = dart.constList([C[180] || CT.C180, C[181] || CT.C181], widget_inspector._Location);
+    },
+    get C178() {
+      return C[178] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[179] || CT.C179,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 290,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C184() {
+      return C[184] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 290,
+        [_Location_file]: null
+      });
+    },
+    get C183() {
+      return C[183] = dart.constList([C[184] || CT.C184], widget_inspector._Location);
+    },
+    get C182() {
+      return C[182] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[183] || CT.C183,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 289,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C187() {
+      return C[187] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 275,
+        [_Location_file]: null
+      });
+    },
+    get C186() {
+      return C[186] = dart.constList([C[187] || CT.C187], widget_inspector._Location);
+    },
+    get C185() {
+      return C[185] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[186] || CT.C186,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 274,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C190() {
+      return C[190] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "flex",
+        [_Location_column]: 19,
+        [_Location_line]: 273,
+        [_Location_file]: null
+      });
+    },
+    get C191() {
+      return C[191] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 274,
+        [_Location_file]: null
+      });
+    },
+    get C189() {
+      return C[189] = dart.constList([C[190] || CT.C190, C[191] || CT.C191], widget_inspector._Location);
+    },
+    get C188() {
+      return C[188] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[189] || CT.C189,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 272,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C194() {
+      return C[194] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 23,
+        [_Location_line]: 308,
+        [_Location_file]: null
+      });
+    },
+    get C195() {
+      return C[195] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 23,
+        [_Location_line]: 309,
+        [_Location_file]: null
+      });
+    },
+    get C196() {
+      return C[196] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 23,
+        [_Location_line]: 310,
+        [_Location_file]: null
+      });
+    },
+    get C193() {
+      return C[193] = dart.constList([C[194] || CT.C194, C[195] || CT.C195, C[196] || CT.C196], widget_inspector._Location);
+    },
+    get C192() {
+      return C[192] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[193] || CT.C193,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 307,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C199() {
+      return C[199] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 307,
+        [_Location_file]: null
+      });
+    },
+    get C198() {
+      return C[198] = dart.constList([C[199] || CT.C199], widget_inspector._Location);
+    },
+    get C197() {
+      return C[197] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[198] || CT.C198,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 306,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C202() {
+      return C[202] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "flex",
+        [_Location_column]: 19,
+        [_Location_line]: 305,
+        [_Location_file]: null
+      });
+    },
+    get C203() {
+      return C[203] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 306,
+        [_Location_file]: null
+      });
+    },
+    get C201() {
+      return C[201] = dart.constList([C[202] || CT.C202, C[203] || CT.C203], widget_inspector._Location);
+    },
+    get C200() {
+      return C[200] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[201] || CT.C201,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 304,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C206() {
+      return C[206] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 271,
+        [_Location_file]: null
+      });
+    },
+    get C205() {
+      return C[205] = dart.constList([C[206] || CT.C206], widget_inspector._Location);
+    },
+    get C204() {
+      return C[204] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[205] || CT.C205,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 270,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C209() {
+      return C[209] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 268,
+        [_Location_file]: null
+      });
+    },
+    get C210() {
+      return C[210] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 11,
+        [_Location_line]: 269,
+        [_Location_file]: null
+      });
+    },
+    get C211() {
+      return C[211] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 270,
+        [_Location_file]: null
+      });
+    },
+    get C208() {
+      return C[208] = dart.constList([C[209] || CT.C209, C[210] || CT.C210, C[211] || CT.C211], widget_inspector._Location);
+    },
+    get C207() {
+      return C[207] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[208] || CT.C208,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 267,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C214() {
+      return C[214] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 9,
+        [_Location_line]: 266,
+        [_Location_file]: null
+      });
+    },
+    get C215() {
+      return C[215] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 267,
+        [_Location_file]: null
+      });
+    },
+    get C213() {
+      return C[213] = dart.constList([C[214] || CT.C214, C[215] || CT.C215], widget_inspector._Location);
+    },
+    get C212() {
+      return C[212] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[213] || CT.C213,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 265,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
+      });
+    },
+    get C218() {
+      return C[218] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 265,
+        [_Location_file]: null
+      });
+    },
+    get C217() {
+      return C[217] = dart.constList([C[218] || CT.C218], widget_inspector._Location);
+    },
+    get C216() {
+      return C[216] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[217] || CT.C217,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 264,
+        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/dashboard/analytics_screen.dart"
       });
     }
   }, false);
-  var C = Array(3).fill(void 0);
-  var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/painting/colors.dart",
-    "package:flutter/src/painting/colors.dart"
-  ];
-  var alpha$ = dart.privateName(colors, "HSVColor.alpha");
-  var hue$ = dart.privateName(colors, "HSVColor.hue");
-  var saturation$ = dart.privateName(colors, "HSVColor.saturation");
-  var value$ = dart.privateName(colors, "HSVColor.value");
-  var _scaleAlpha = dart.privateName(colors, "_scaleAlpha");
-  colors.HSVColor = class HSVColor extends core.Object {
-    get alpha() {
-      return this[alpha$];
+  var C = Array(219).fill(void 0);
+  var I = ["package:flutterweb/Screen/dashboard/analytics_screen.dart"];
+  analytics_screen.SalesData = class SalesData extends core.Object {
+    get numeric() {
+      return null;
     }
-    set alpha(value) {
-      super.alpha = value;
-    }
-    get hue() {
-      return this[hue$];
-    }
-    set hue(value) {
-      super.hue = value;
-    }
-    get saturation() {
-      return this[saturation$];
-    }
-    set saturation(value) {
-      super.saturation = value;
-    }
-    get value() {
-      return this[value$];
-    }
-    set value(value) {
-      super.value = value;
-    }
-    static fromColor(color) {
-      let red = color.red / 255;
-      let green = color.green / 255;
-      let blue = color.blue / 255;
-      let max = math.max(core.double, red, math.max(core.double, green, blue));
-      let min = math.min(core.double, red, math.min(core.double, green, blue));
-      let delta = max - min;
-      let alpha = color.alpha / 255;
-      let hue = colors._getHue(red, green, blue, max, delta);
-      let saturation = max === 0.0 ? 0.0 : delta / max;
-      return new colors.HSVColor.fromAHSV(alpha, hue, saturation, max);
-    }
-    withAlpha(alpha) {
-      return new colors.HSVColor.fromAHSV(alpha, this.hue, this.saturation, this.value);
-    }
-    withHue(hue) {
-      return new colors.HSVColor.fromAHSV(this.alpha, hue, this.saturation, this.value);
-    }
-    withSaturation(saturation) {
-      return new colors.HSVColor.fromAHSV(this.alpha, this.hue, saturation, this.value);
-    }
-    withValue(value) {
-      return new colors.HSVColor.fromAHSV(this.alpha, this.hue, this.saturation, value);
-    }
-    toColor() {
-      let chroma = this.saturation * this.value;
-      let secondary = chroma * (1.0 - ((this.hue / 60.0)[$modulo](2.0) - 1.0)[$abs]());
-      let match = this.value - chroma;
-      return colors._colorFromHue(this.alpha, this.hue, chroma, secondary, match);
-    }
-    [_scaleAlpha](factor) {
-      return this.withAlpha(this.alpha * factor);
-    }
-    static lerp(a, b, t) {
-      if (!(t !== null)) dart.assertFailed(null, I[0], 202, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b)[_scaleAlpha](t);
-      if (b == null) return a[_scaleAlpha](1.0 - t);
-      return new colors.HSVColor.fromAHSV(dart.nullCheck(ui.lerpDouble(a.alpha, b.alpha, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.hue, b.hue, t))[$modulo](360.0), dart.nullCheck(ui.lerpDouble(a.saturation, b.saturation, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.value, b.value, t))[$clamp](0.0, 1.0));
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      return colors.HSVColor.is(other) && other.alpha === this.alpha && other.hue === this.hue && other.saturation === this.saturation && other.value === this.value;
-    }
-    get hashCode() {
-      return ui.hashValues(this.alpha, this.hue, this.saturation, this.value);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "HSVColor") + "(" + dart.str(this.alpha) + ", " + dart.str(this.hue) + ", " + dart.str(this.saturation) + ", " + dart.str(this.value) + ")";
+    get sales2() {
+      return null;
     }
   };
-  (colors.HSVColor.fromAHSV = function(alpha, hue, saturation, value) {
-    this[alpha$] = alpha;
-    this[hue$] = hue;
-    this[saturation$] = saturation;
-    this[value$] = value;
-    if (!(alpha !== null)) dart.assertFailed(null, I[0], 93, 14, "alpha != null");
-    if (!(hue !== null)) dart.assertFailed(null, I[0], 94, 14, "hue != null");
-    if (!(saturation !== null)) dart.assertFailed(null, I[0], 95, 14, "saturation != null");
-    if (!(value !== null)) dart.assertFailed(null, I[0], 96, 14, "value != null");
-    if (!(alpha >= 0.0)) dart.assertFailed(null, I[0], 97, 14, "alpha >= 0.0");
-    if (!(alpha <= 1.0)) dart.assertFailed(null, I[0], 98, 14, "alpha <= 1.0");
-    if (!(hue >= 0.0)) dart.assertFailed(null, I[0], 99, 14, "hue >= 0.0");
-    if (!(hue <= 360.0)) dart.assertFailed(null, I[0], 100, 14, "hue <= 360.0");
-    if (!(saturation >= 0.0)) dart.assertFailed(null, I[0], 101, 14, "saturation >= 0.0");
-    if (!(saturation <= 1.0)) dart.assertFailed(null, I[0], 102, 14, "saturation <= 1.0");
-    if (!(value >= 0.0)) dart.assertFailed(null, I[0], 103, 14, "value >= 0.0");
-    if (!(value <= 1.0)) dart.assertFailed(null, I[0], 104, 14, "value <= 1.0");
+  (analytics_screen.SalesData.new = function(dateTime, s, d, sales2, numeric, k, l) {
     ;
-  }).prototype = colors.HSVColor.prototype;
-  dart.addTypeTests(colors.HSVColor);
-  dart.addTypeCaches(colors.HSVColor);
-  dart.setMethodSignature(colors.HSVColor, () => ({
-    __proto__: dart.getMethods(colors.HSVColor.__proto__),
-    withAlpha: dart.fnType(colors.HSVColor, [core.double]),
-    withHue: dart.fnType(colors.HSVColor, [core.double]),
-    withSaturation: dart.fnType(colors.HSVColor, [core.double]),
-    withValue: dart.fnType(colors.HSVColor, [core.double]),
-    toColor: dart.fnType(ui.Color, []),
-    [_scaleAlpha]: dart.fnType(colors.HSVColor, [core.double])
+  }).prototype = analytics_screen.SalesData.prototype;
+  dart.addTypeTests(analytics_screen.SalesData);
+  dart.addTypeCaches(analytics_screen.SalesData);
+  dart.setGetterSignature(analytics_screen.SalesData, () => ({
+    __proto__: dart.getGetters(analytics_screen.SalesData.__proto__),
+    numeric: dart.dynamic,
+    sales2: dart.dynamic
   }));
-  dart.setLibraryUri(colors.HSVColor, I[1]);
-  dart.setFieldSignature(colors.HSVColor, () => ({
-    __proto__: dart.getFields(colors.HSVColor.__proto__),
-    alpha: dart.finalFieldType(core.double),
-    hue: dart.finalFieldType(core.double),
-    saturation: dart.finalFieldType(core.double),
-    value: dart.finalFieldType(core.double)
-  }));
-  dart.defineExtensionMethods(colors.HSVColor, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(colors.HSVColor, ['hashCode']);
-  var alpha$0 = dart.privateName(colors, "HSLColor.alpha");
-  var hue$0 = dart.privateName(colors, "HSLColor.hue");
-  var saturation$0 = dart.privateName(colors, "HSLColor.saturation");
-  var lightness$ = dart.privateName(colors, "HSLColor.lightness");
-  colors.HSLColor = class HSLColor extends core.Object {
-    get alpha() {
-      return this[alpha$0];
+  dart.setLibraryUri(analytics_screen.SalesData, I[0]);
+  var chart = dart.privateName(analytics_screen, "AnalyticsScreen.chart");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  analytics_screen.AnalyticsScreen = class AnalyticsScreen extends framework.StatelessWidget {
+    get chart() {
+      return this[chart];
     }
-    set alpha(value) {
-      super.alpha = value;
+    set chart(value) {
+      super.chart = value;
     }
-    get hue() {
-      return this[hue$0];
-    }
-    set hue(value) {
-      super.hue = value;
-    }
-    get saturation() {
-      return this[saturation$0];
-    }
-    set saturation(value) {
-      super.saturation = value;
-    }
-    get lightness() {
-      return this[lightness$];
-    }
-    set lightness(value) {
-      super.lightness = value;
-    }
-    static fromColor(color) {
-      let red = color.red / 255;
-      let green = color.green / 255;
-      let blue = color.blue / 255;
-      let max = math.max(core.double, red, math.max(core.double, green, blue));
-      let min = math.min(core.double, red, math.min(core.double, green, blue));
-      let delta = max - min;
-      let alpha = color.alpha / 255;
-      let hue = colors._getHue(red, green, blue, max, delta);
-      let lightness = (max + min) / 2.0;
-      let saturation = lightness === 1.0 ? 0.0 : (delta / (1.0 - (2.0 * lightness - 1.0)[$abs]()))[$clamp](0.0, 1.0);
-      return new colors.HSLColor.fromAHSL(alpha, hue, saturation, lightness);
-    }
-    withAlpha(alpha) {
-      return new colors.HSLColor.fromAHSL(alpha, this.hue, this.saturation, this.lightness);
-    }
-    withHue(hue) {
-      return new colors.HSLColor.fromAHSL(this.alpha, hue, this.saturation, this.lightness);
-    }
-    withSaturation(saturation) {
-      return new colors.HSLColor.fromAHSL(this.alpha, this.hue, saturation, this.lightness);
-    }
-    withLightness(lightness) {
-      return new colors.HSLColor.fromAHSL(this.alpha, this.hue, this.saturation, lightness);
-    }
-    toColor() {
-      let chroma = (1.0 - (2.0 * this.lightness - 1.0)[$abs]()) * this.saturation;
-      let secondary = chroma * (1.0 - ((this.hue / 60.0)[$modulo](2.0) - 1.0)[$abs]());
-      let match = this.lightness - chroma / 2.0;
-      return colors._colorFromHue(this.alpha, this.hue, chroma, secondary, match);
-    }
-    [_scaleAlpha](factor) {
-      return this.withAlpha(this.alpha * factor);
-    }
-    static lerp(a, b, t) {
-      if (!(t !== null)) dart.assertFailed(null, I[0], 386, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b)[_scaleAlpha](t);
-      if (b == null) return a[_scaleAlpha](1.0 - t);
-      return new colors.HSLColor.fromAHSL(dart.nullCheck(ui.lerpDouble(a.alpha, b.alpha, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.hue, b.hue, t))[$modulo](360.0), dart.nullCheck(ui.lerpDouble(a.saturation, b.saturation, t))[$clamp](0.0, 1.0), dart.nullCheck(ui.lerpDouble(a.lightness, b.lightness, t))[$clamp](0.0, 1.0));
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      return colors.HSLColor.is(other) && other.alpha === this.alpha && other.hue === this.hue && other.saturation === this.saturation && other.lightness === this.lightness;
-    }
-    get hashCode() {
-      return ui.hashValues(this.alpha, this.hue, this.saturation, this.lightness);
-    }
-    toString() {
-      return object.objectRuntimeType(this, "HSLColor") + "(" + dart.str(this.alpha) + ", " + dart.str(this.hue) + ", " + dart.str(this.saturation) + ", " + dart.str(this.lightness) + ")";
+    build(context) {
+      return new safe_area.SafeArea.new({child: new single_child_scroll_view.SingleChildScrollView.new({child: new basic.Expanded.new({child: new container.Container.new({width: 1 / 0, color: Mycolor.MyColor.White80, child: new basic.Column.new({children: T.JSArrayOfWidget().of([new Header.Header.new({$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), new basic.SizedBox.new({height: 20.0, $creationLocationd_0dea112b090073317d4: C[2] || CT.C2}), new basic.Row.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new basic.Column.new({children: T.JSArrayOfWidget().of([new analytics_screen.QuickStatsHolder.new({$creationLocationd_0dea112b090073317d4: C[5] || CT.C5}), new charts.SfCartesianChart.new({title: new charts.ChartTitle.new({text: "Flutter Chart"}), legend: new charts.Legend.new({isVisible: true}), series: analytics_screen.getDefaultData(), tooltipBehavior: new charts.TooltipBehavior.new({enable: true}), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6})]), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), new analytics_screen.StoreDetailsHolder.new({chart: this.chart, $creationLocationd_0dea112b090073317d4: C[15] || CT.C15})]), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18})]), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), $creationLocationd_0dea112b090073317d4: C[25] || CT.C25}), $creationLocationd_0dea112b090073317d4: C[30] || CT.C30}), $creationLocationd_0dea112b090073317d4: C[33] || CT.C33}), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36});
     }
   };
-  (colors.HSLColor.fromAHSL = function(alpha, hue, saturation, lightness) {
-    this[alpha$0] = alpha;
-    this[hue$0] = hue;
-    this[saturation$0] = saturation;
-    this[lightness$] = lightness;
-    if (!(alpha !== null)) dart.assertFailed(null, I[0], 262, 14, "alpha != null");
-    if (!(hue !== null)) dart.assertFailed(null, I[0], 263, 14, "hue != null");
-    if (!(saturation !== null)) dart.assertFailed(null, I[0], 264, 14, "saturation != null");
-    if (!(lightness !== null)) dart.assertFailed(null, I[0], 265, 14, "lightness != null");
-    if (!(alpha >= 0.0)) dart.assertFailed(null, I[0], 266, 14, "alpha >= 0.0");
-    if (!(alpha <= 1.0)) dart.assertFailed(null, I[0], 267, 14, "alpha <= 1.0");
-    if (!(hue >= 0.0)) dart.assertFailed(null, I[0], 268, 14, "hue >= 0.0");
-    if (!(hue <= 360.0)) dart.assertFailed(null, I[0], 269, 14, "hue <= 360.0");
-    if (!(saturation >= 0.0)) dart.assertFailed(null, I[0], 270, 14, "saturation >= 0.0");
-    if (!(saturation <= 1.0)) dart.assertFailed(null, I[0], 271, 14, "saturation <= 1.0");
-    if (!(lightness >= 0.0)) dart.assertFailed(null, I[0], 272, 14, "lightness >= 0.0");
-    if (!(lightness <= 1.0)) dart.assertFailed(null, I[0], 273, 14, "lightness <= 1.0");
+  (analytics_screen.AnalyticsScreen.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[chart] = T.JSArrayOfDoughnutData().of([new analytics_screen.DoughnutData.new("A", 5, "aa", "5"), new analytics_screen.DoughnutData.new("B", 10, "bb", "10"), new analytics_screen.DoughnutData.new("C", 15, "c", "15"), new analytics_screen.DoughnutData.new("D", 20, "dd", "20"), new analytics_screen.DoughnutData.new("E", 50, "ee", "50")]);
+    analytics_screen.AnalyticsScreen.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = colors.HSLColor.prototype;
-  dart.addTypeTests(colors.HSLColor);
-  dart.addTypeCaches(colors.HSLColor);
-  dart.setMethodSignature(colors.HSLColor, () => ({
-    __proto__: dart.getMethods(colors.HSLColor.__proto__),
-    withAlpha: dart.fnType(colors.HSLColor, [core.double]),
-    withHue: dart.fnType(colors.HSLColor, [core.double]),
-    withSaturation: dart.fnType(colors.HSLColor, [core.double]),
-    withLightness: dart.fnType(colors.HSLColor, [core.double]),
-    toColor: dart.fnType(ui.Color, []),
-    [_scaleAlpha]: dart.fnType(colors.HSLColor, [core.double])
+  }).prototype = analytics_screen.AnalyticsScreen.prototype;
+  dart.addTypeTests(analytics_screen.AnalyticsScreen);
+  dart.addTypeCaches(analytics_screen.AnalyticsScreen);
+  dart.setMethodSignature(analytics_screen.AnalyticsScreen, () => ({
+    __proto__: dart.getMethods(analytics_screen.AnalyticsScreen.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setLibraryUri(colors.HSLColor, I[1]);
-  dart.setFieldSignature(colors.HSLColor, () => ({
-    __proto__: dart.getFields(colors.HSLColor.__proto__),
-    alpha: dart.finalFieldType(core.double),
-    hue: dart.finalFieldType(core.double),
-    saturation: dart.finalFieldType(core.double),
-    lightness: dart.finalFieldType(core.double)
+  dart.setLibraryUri(analytics_screen.AnalyticsScreen, I[0]);
+  dart.setFieldSignature(analytics_screen.AnalyticsScreen, () => ({
+    __proto__: dart.getFields(analytics_screen.AnalyticsScreen.__proto__),
+    chart: dart.finalFieldType(core.List$(analytics_screen.DoughnutData))
   }));
-  dart.defineExtensionMethods(colors.HSLColor, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(colors.HSLColor, ['hashCode']);
-  var _swatch$ = dart.privateName(colors, "ColorSwatch._swatch");
-  var _swatch = dart.privateName(colors, "_swatch");
-  const _is_ColorSwatch_default = Symbol('_is_ColorSwatch_default');
-  colors.ColorSwatch$ = dart.generic(T => {
-    var ColorSwatchOfT = () => (ColorSwatchOfT = dart.constFn(colors.ColorSwatch$(T)))();
-    class ColorSwatch extends ui.Color {
-      get [_swatch]() {
-        return this[_swatch$];
-      }
-      set [_swatch](value) {
-        super[_swatch] = value;
-      }
-      _get(index) {
-        T.as(index);
-        return this[_swatch][$_get](index);
-      }
-      _equals(other) {
-        if (other == null) return false;
-        if (this === other) return true;
-        if (!other[$runtimeType]._equals(this[$runtimeType])) return false;
-        return super._equals(other) && ColorSwatchOfT().is(other) && collections.mapEquals(T, ui.Color, other[_swatch], this[_swatch]);
-      }
-      get hashCode() {
-        return ui.hashValues(this[$runtimeType], this.value, this[_swatch]);
-      }
-      toString() {
-        return object.objectRuntimeType(this, "ColorSwatch") + "(primary value: " + super.toString() + ")";
-      }
+  var chart$ = dart.privateName(analytics_screen, "StoreDetailsHolder.chart");
+  analytics_screen.StoreDetailsHolder = class StoreDetailsHolder extends framework.StatelessWidget {
+    get chart() {
+      return this[chart$];
     }
-    (ColorSwatch.new = function(primary, _swatch) {
-      this[_swatch$] = _swatch;
-      ColorSwatch.__proto__.new.call(this, primary);
-      ;
-    }).prototype = ColorSwatch.prototype;
-    dart.addTypeTests(ColorSwatch);
-    ColorSwatch.prototype[_is_ColorSwatch_default] = true;
-    dart.addTypeCaches(ColorSwatch);
-    dart.setMethodSignature(ColorSwatch, () => ({
-      __proto__: dart.getMethods(ColorSwatch.__proto__),
-      _get: dart.fnType(dart.nullable(ui.Color), [dart.nullable(core.Object)])
-    }));
-    dart.setLibraryUri(ColorSwatch, I[1]);
-    dart.setFieldSignature(ColorSwatch, () => ({
-      __proto__: dart.getFields(ColorSwatch.__proto__),
-      [_swatch]: dart.finalFieldType(core.Map$(T, ui.Color))
-    }));
-    dart.defineExtensionMethods(ColorSwatch, ['_equals', 'toString']);
-    dart.defineExtensionAccessors(ColorSwatch, ['hashCode']);
-    return ColorSwatch;
-  });
-  colors.ColorSwatch = colors.ColorSwatch$();
-  dart.addTypeTests(colors.ColorSwatch, _is_ColorSwatch_default);
-  var _name = dart.privateName(diagnostics, "_name");
-  colors.ColorProperty = class ColorProperty extends diagnostics.DiagnosticsProperty$(ui.Color) {
-    toJsonMap(delegate) {
-      let json = super.toJsonMap(delegate);
-      if (this.value != null) {
-        json[$_set]("valueProperties", new (T.IdentityMapOfString$Object()).from(["red", dart.nullCheck(this.value).red, "green", dart.nullCheck(this.value).green, "blue", dart.nullCheck(this.value).blue, "alpha", dart.nullCheck(this.value).alpha]));
-      }
-      return json;
+    set chart(value) {
+      super.chart = value;
+    }
+    build(context) {
+      return new basic.Expanded.new({child: new basic.SizedBox.new({height: 500.0, child: new container.Container.new({margin: new edge_insets.EdgeInsets.only({right: 10.0}), child: new card.Card.new({color: Mycolor.MyColor.White, elevation: 2.0, child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new container.Container.new({margin: new edge_insets.EdgeInsets.only({top: 10.0, left: 10.0}), child: new text.Text.new("Storage Details", {style: google_fonts.GoogleFonts.robotoCondensed({textStyle: new text_style.TextStyle.new({color: Mycolor.MyColor.BlackFont, fontSize: 22.0, fontWeight: ui.FontWeight.w500})}), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), $creationLocationd_0dea112b090073317d4: C[43] || CT.C43}), new basic.SizedBox.new({height: 200.0, child: new charts.SfCircularChart.new({series: T.JSArrayOfCircularSeries().of([new (T.DoughnutSeriesOfDoughnutData$String()).new({dataSource: this.chart, xValueMapper: dart.fn((data, _) => data.xData, T.DoughnutDataAndintToString()), yValueMapper: dart.fn((data, _) => data.yData, T.DoughnutDataAndintTonum()), dataLabelMapper: dart.fn((data, _) => data.text, T.DoughnutDataAndintToString()), dataLabelSettings: new charts.DataLabelSettings.new({isVisible: true, showCumulativeValues: true}), enableTooltip: true, enableSmartLabels: true})]), $creationLocationd_0dea112b090073317d4: C[47] || CT.C47}), $creationLocationd_0dea112b090073317d4: C[50] || CT.C50}), new analytics_screen.StoreDetailsPanel.new({$creationLocationd_0dea112b090073317d4: C[54] || CT.C54}), new analytics_screen.StoreDetailsPanel.new({$creationLocationd_0dea112b090073317d4: C[55] || CT.C55}), new analytics_screen.StoreDetailsPanel.new({$creationLocationd_0dea112b090073317d4: C[56] || CT.C56}), new analytics_screen.StoreDetailsPanel.new({$creationLocationd_0dea112b090073317d4: C[57] || CT.C57})]), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58}), $creationLocationd_0dea112b090073317d4: C[62] || CT.C62}), $creationLocationd_0dea112b090073317d4: C[67] || CT.C67}), $creationLocationd_0dea112b090073317d4: C[71] || CT.C71}), $creationLocationd_0dea112b090073317d4: C[75] || CT.C75});
     }
   };
-  (colors.ColorProperty.new = function(name, value, opts) {
-    let showName = opts && 'showName' in opts ? opts.showName : true;
-    let defaultValue = opts && 'defaultValue' in opts ? opts.defaultValue : C[0] || CT.C0;
-    let style = opts && 'style' in opts ? opts.style : C[1] || CT.C1;
-    let level = opts && 'level' in opts ? opts.level : C[2] || CT.C2;
-    if (!(showName !== null)) dart.assertFailed(null, I[0], 475, 15, "showName != null");
-    if (!(style !== null)) dart.assertFailed(null, I[0], 476, 15, "style != null");
-    if (!(level !== null)) dart.assertFailed(null, I[0], 477, 15, "level != null");
-    colors.ColorProperty.__proto__.new.call(this, name, value, {defaultValue: defaultValue, showName: showName, style: style, level: level});
+  (analytics_screen.StoreDetailsHolder.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let chart = opts && 'chart' in opts ? opts.chart : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[chart$] = chart;
+    analytics_screen.StoreDetailsHolder.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = colors.ColorProperty.prototype;
-  dart.addTypeTests(colors.ColorProperty);
-  dart.addTypeCaches(colors.ColorProperty);
-  dart.setLibraryUri(colors.ColorProperty, I[1]);
-  colors._getHue = function _getHue(red, green, blue, max, delta) {
-    let hue = null;
-    function hue$35get() {
-      let t1;
-      t1 = hue;
-      return t1 == null ? dart.throw(new _internal.LateError.localNI("hue")) : t1;
+  }).prototype = analytics_screen.StoreDetailsHolder.prototype;
+  dart.addTypeTests(analytics_screen.StoreDetailsHolder);
+  dart.addTypeCaches(analytics_screen.StoreDetailsHolder);
+  dart.setMethodSignature(analytics_screen.StoreDetailsHolder, () => ({
+    __proto__: dart.getMethods(analytics_screen.StoreDetailsHolder.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(analytics_screen.StoreDetailsHolder, I[0]);
+  dart.setFieldSignature(analytics_screen.StoreDetailsHolder, () => ({
+    __proto__: dart.getFields(analytics_screen.StoreDetailsHolder.__proto__),
+    chart: dart.finalFieldType(core.List$(analytics_screen.DoughnutData))
+  }));
+  analytics_screen.StoreDetailsPanel = class StoreDetailsPanel extends framework.StatelessWidget {
+    build(context) {
+      return new container.Container.new({padding: new edge_insets.EdgeInsets.all(5.0), margin: new edge_insets.EdgeInsets.all(10.0), decoration: new box_decoration.BoxDecoration.new({border: box_border.Border.all({width: 2.0, color: Mycolor.MyColor.BlackFont.withOpacity(0.1)}), borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(5.0))}), child: new basic.Row.new({crossAxisAlignment: flex.CrossAxisAlignment.center, children: T.JSArrayOfWidget().of([new basic.SizedBox.new({width: 20.0, $creationLocationd_0dea112b090073317d4: C[78] || CT.C78}), new basic.SizedBox.new({height: 30.0, width: 30.0, child: new icon.Icon.new(icons.Icons.document_scanner, {color: Mycolor.MyColor.BlackFont, $creationLocationd_0dea112b090073317d4: C[81] || CT.C81}), $creationLocationd_0dea112b090073317d4: C[85] || CT.C85}), new basic.SizedBox.new({width: 10.0, $creationLocationd_0dea112b090073317d4: C[90] || CT.C90}), new basic.Expanded.new({child: new text.Text.new("Documents", {maxLines: 1, style: google_fonts.GoogleFonts.robotoCondensed({textStyle: new text_style.TextStyle.new({color: Mycolor.MyColor.BlackFont, fontSize: 18.0, fontWeight: ui.FontWeight.w500})}), $creationLocationd_0dea112b090073317d4: C[93] || CT.C93}), $creationLocationd_0dea112b090073317d4: C[98] || CT.C98})]), $creationLocationd_0dea112b090073317d4: C[101] || CT.C101}), $creationLocationd_0dea112b090073317d4: C[105] || CT.C105});
     }
-    dart.fn(hue$35get, T.VoidTodouble());
-    function hue$35set(t2) {
-      return hue = t2;
-    }
-    dart.fn(hue$35set, T.doubleTodynamic());
-    if (max === 0.0) {
-      hue$35set(0.0);
-    } else if (max === red) {
-      hue$35set(60.0 * ((green - blue) / delta)[$modulo](6));
-    } else if (max === green) {
-      hue$35set(60.0 * ((blue - red) / delta + 2));
-    } else if (max === blue) {
-      hue$35set(60.0 * ((red - green) / delta + 4));
-    }
-    hue$35set(hue$35get()[$isNaN] ? 0.0 : hue$35get());
-    return hue$35get();
   };
-  colors._colorFromHue = function _colorFromHue(alpha, hue, chroma, secondary, match) {
-    let red = null;
-    let green = null;
-    let blue = null;
-    if (hue < 60.0) {
-      red = chroma;
-      green = secondary;
-      blue = 0.0;
-    } else if (hue < 120.0) {
-      red = secondary;
-      green = chroma;
-      blue = 0.0;
-    } else if (hue < 180.0) {
-      red = 0.0;
-      green = chroma;
-      blue = secondary;
-    } else if (hue < 240.0) {
-      red = 0.0;
-      green = secondary;
-      blue = chroma;
-    } else if (hue < 300.0) {
-      red = secondary;
-      green = 0.0;
-      blue = chroma;
-    } else {
-      red = chroma;
-      green = 0.0;
-      blue = secondary;
+  (analytics_screen.StoreDetailsPanel.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    analytics_screen.StoreDetailsPanel.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = analytics_screen.StoreDetailsPanel.prototype;
+  dart.addTypeTests(analytics_screen.StoreDetailsPanel);
+  dart.addTypeCaches(analytics_screen.StoreDetailsPanel);
+  dart.setMethodSignature(analytics_screen.StoreDetailsPanel, () => ({
+    __proto__: dart.getMethods(analytics_screen.StoreDetailsPanel.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(analytics_screen.StoreDetailsPanel, I[0]);
+  analytics_screen.QuickStatsHolder = class QuickStatsHolder extends framework.StatelessWidget {
+    build(context) {
+      return new basic.Expanded.new({flex: 3, child: new basic.SizedBox.new({child: new basic.Column.new({children: T.JSArrayOfWidget().of([new container.Container.new({margin: new edge_insets.EdgeInsets.only({left: 10.0, bottom: 10.0}), child: new basic.Row.new({children: T.JSArrayOfWidget().of([new text.Text.new("Quick Stats", {style: google_fonts.GoogleFonts.lato({textStyle: new text_style.TextStyle.new({color: Mycolor.MyColor.BlackFont, fontSize: 22.0})}), $creationLocationd_0dea112b090073317d4: C[111] || CT.C111})]), $creationLocationd_0dea112b090073317d4: C[115] || CT.C115}), $creationLocationd_0dea112b090073317d4: C[118] || CT.C118}), new container.Container.new({margin: new edge_insets.EdgeInsets.only({left: 10.0, right: 10.0}), child: new basic.Row.new({children: T.JSArrayOfWidget().of([new analytics_screen.QuickStats.new("$400", "Net Profit", icons.Icons.monetization_on, colors.Colors.green, {$creationLocationd_0dea112b090073317d4: C[122] || CT.C122}), new analytics_screen.QuickStats.new("135", "Total Sales", icons.Icons.tag, colors.Colors.blue, {$creationLocationd_0dea112b090073317d4: C[128] || CT.C128}), new analytics_screen.QuickStats.new("243", "New Customers", icons.Icons.person_add, colors.Colors.red, {$creationLocationd_0dea112b090073317d4: C[134] || CT.C134}), new analytics_screen.QuickStats.new("400", "Engagements", icons.Icons.connect_without_contact, colors.Colors.yellow, {$creationLocationd_0dea112b090073317d4: C[140] || CT.C140})]), $creationLocationd_0dea112b090073317d4: C[146] || CT.C146}), $creationLocationd_0dea112b090073317d4: C[149] || CT.C149})]), $creationLocationd_0dea112b090073317d4: C[153] || CT.C153}), $creationLocationd_0dea112b090073317d4: C[156] || CT.C156}), $creationLocationd_0dea112b090073317d4: C[159] || CT.C159});
     }
-    return new ui.Color.fromARGB((alpha * 255)[$round](), ((red + match) * 255)[$round](), ((green + match) * 255)[$round](), ((blue + match) * 255)[$round]());
   };
-  dart.trackLibraries("packages/flutter/src/painting/colors.dart", {
-    "package:flutter/src/painting/colors.dart": colors
+  (analytics_screen.QuickStatsHolder.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    analytics_screen.QuickStatsHolder.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = analytics_screen.QuickStatsHolder.prototype;
+  dart.addTypeTests(analytics_screen.QuickStatsHolder);
+  dart.addTypeCaches(analytics_screen.QuickStatsHolder);
+  dart.setMethodSignature(analytics_screen.QuickStatsHolder, () => ({
+    __proto__: dart.getMethods(analytics_screen.QuickStatsHolder.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(analytics_screen.QuickStatsHolder, I[0]);
+  var amount$ = dart.privateName(analytics_screen, "QuickStats.amount");
+  var title$ = dart.privateName(analytics_screen, "QuickStats.title");
+  var icon$ = dart.privateName(analytics_screen, "QuickStats.icon");
+  var col$ = dart.privateName(analytics_screen, "QuickStats.col");
+  analytics_screen.QuickStats = class QuickStats extends framework.StatelessWidget {
+    get amount() {
+      return this[amount$];
+    }
+    set amount(value) {
+      super.amount = value;
+    }
+    get title() {
+      return this[title$];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get icon() {
+      return this[icon$];
+    }
+    set icon(value) {
+      super.icon = value;
+    }
+    get col() {
+      return this[col$];
+    }
+    set col(value) {
+      super.col = value;
+    }
+    build(context) {
+      return new basic.Expanded.new({child: new basic.SizedBox.new({height: 150.0, child: new card.Card.new({color: Mycolor.MyColor.White, elevation: 2.0, child: new basic.Row.new({children: T.JSArrayOfWidget().of([new basic.Expanded.new({flex: 3, child: new basic.Column.new({children: T.JSArrayOfWidget().of([new basic.Expanded.new({child: new basic.Align.new({alignment: alignment.Alignment.bottomCenter, child: new text.Text.new(this.amount, {style: google_fonts.GoogleFonts.robotoCondensed({textStyle: new text_style.TextStyle.new({color: Mycolor.MyColor.BlackFont, fontSize: 22.0})}), $creationLocationd_0dea112b090073317d4: C[163] || CT.C163}), $creationLocationd_0dea112b090073317d4: C[167] || CT.C167}), $creationLocationd_0dea112b090073317d4: C[171] || CT.C171}), new basic.Expanded.new({child: new basic.Align.new({alignment: alignment.Alignment.topCenter, child: new text.Text.new(this.title, {style: google_fonts.GoogleFonts.robotoCondensed({textStyle: new text_style.TextStyle.new({color: Mycolor.MyColor.BlackFont, fontSize: 18.0})}), $creationLocationd_0dea112b090073317d4: C[174] || CT.C174}), $creationLocationd_0dea112b090073317d4: C[178] || CT.C178}), $creationLocationd_0dea112b090073317d4: C[182] || CT.C182})]), $creationLocationd_0dea112b090073317d4: C[185] || CT.C185}), $creationLocationd_0dea112b090073317d4: C[188] || CT.C188}), new basic.Expanded.new({flex: 2, child: new basic.Center.new({child: new icon.Icon.new(this.icon, {color: this.col, size: 36.0, $creationLocationd_0dea112b090073317d4: C[192] || CT.C192}), $creationLocationd_0dea112b090073317d4: C[197] || CT.C197}), $creationLocationd_0dea112b090073317d4: C[200] || CT.C200})]), $creationLocationd_0dea112b090073317d4: C[204] || CT.C204}), $creationLocationd_0dea112b090073317d4: C[207] || CT.C207}), $creationLocationd_0dea112b090073317d4: C[212] || CT.C212}), $creationLocationd_0dea112b090073317d4: C[216] || CT.C216});
+    }
+  };
+  (analytics_screen.QuickStats.new = function(amount, title, icon, col, opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[amount$] = amount;
+    this[title$] = title;
+    this[icon$] = icon;
+    this[col$] = col;
+    analytics_screen.QuickStats.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = analytics_screen.QuickStats.prototype;
+  dart.addTypeTests(analytics_screen.QuickStats);
+  dart.addTypeCaches(analytics_screen.QuickStats);
+  dart.setMethodSignature(analytics_screen.QuickStats, () => ({
+    __proto__: dart.getMethods(analytics_screen.QuickStats.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(analytics_screen.QuickStats, I[0]);
+  dart.setFieldSignature(analytics_screen.QuickStats, () => ({
+    __proto__: dart.getFields(analytics_screen.QuickStats.__proto__),
+    amount: dart.finalFieldType(core.String),
+    title: dart.finalFieldType(core.String),
+    icon: dart.finalFieldType(icon_data.IconData),
+    col: dart.finalFieldType(colors.MaterialColor)
+  }));
+  analytics_screen._SalesData = class _SalesData extends core.Object {};
+  (analytics_screen._SalesData.new = function(year, sales) {
+    this.year = year;
+    this.sales = sales;
+    ;
+  }).prototype = analytics_screen._SalesData.prototype;
+  dart.addTypeTests(analytics_screen._SalesData);
+  dart.addTypeCaches(analytics_screen._SalesData);
+  dart.setLibraryUri(analytics_screen._SalesData, I[0]);
+  dart.setFieldSignature(analytics_screen._SalesData, () => ({
+    __proto__: dart.getFields(analytics_screen._SalesData.__proto__),
+    year: dart.finalFieldType(core.String),
+    sales: dart.finalFieldType(core.double)
+  }));
+  var xData$ = dart.privateName(analytics_screen, "DoughnutData.xData");
+  var yData$ = dart.privateName(analytics_screen, "DoughnutData.yData");
+  var text$ = dart.privateName(analytics_screen, "DoughnutData.text");
+  var radius$ = dart.privateName(analytics_screen, "DoughnutData.radius");
+  analytics_screen.DoughnutData = class DoughnutData extends core.Object {
+    get xData() {
+      return this[xData$];
+    }
+    set xData(value) {
+      super.xData = value;
+    }
+    get yData() {
+      return this[yData$];
+    }
+    set yData(value) {
+      super.yData = value;
+    }
+    get text() {
+      return this[text$];
+    }
+    set text(value) {
+      super.text = value;
+    }
+    get radius() {
+      return this[radius$];
+    }
+    set radius(value) {
+      super.radius = value;
+    }
+  };
+  (analytics_screen.DoughnutData.new = function(xData, yData, text, radius) {
+    this[xData$] = xData;
+    this[yData$] = yData;
+    this[text$] = text;
+    this[radius$] = radius;
+    ;
+  }).prototype = analytics_screen.DoughnutData.prototype;
+  dart.addTypeTests(analytics_screen.DoughnutData);
+  dart.addTypeCaches(analytics_screen.DoughnutData);
+  dart.setLibraryUri(analytics_screen.DoughnutData, I[0]);
+  dart.setFieldSignature(analytics_screen.DoughnutData, () => ({
+    __proto__: dart.getFields(analytics_screen.DoughnutData.__proto__),
+    xData: dart.finalFieldType(core.String),
+    yData: dart.finalFieldType(core.num),
+    text: dart.finalFieldType(core.String),
+    radius: dart.finalFieldType(core.String)
+  }));
+  analytics_screen.getDefaultData = function getDefaultData() {
+    let chartData = T.JSArrayOfSalesData().of([new analytics_screen.SalesData.new(new core.DateTime.new(2005, 0, 1), "India", 1.5, 21, 28, 680, 760), new analytics_screen.SalesData.new(new core.DateTime.new(2006, 0, 1), "China", 2.2, 24, 44, 550, 880), new analytics_screen.SalesData.new(new core.DateTime.new(2007, 0, 1), "USA", 3.32, 36, 48, 440, 788), new analytics_screen.SalesData.new(new core.DateTime.new(2008, 0, 1), "Japan", 4.56, 38, 50, 350, 560), new analytics_screen.SalesData.new(new core.DateTime.new(2009, 0, 1), "Russia", 5.87, 54, 66, 444, 566), new analytics_screen.SalesData.new(new core.DateTime.new(2010, 0, 1), "France", 6.8, 57, 78, 780, 650), new analytics_screen.SalesData.new(new core.DateTime.new(2011, 0, 1), "Germany", 8.5, 70, 84, 450, 800)]);
+    return T.JSArrayOfLineSeriesOfSalesData$num().of([new (T.LineSeriesOfSalesData$num()).new({enableTooltip: true, dataSource: chartData, width: 10.0, xValueMapper: dart.fn((sales, _) => T.numN().as(sales.numeric), T.SalesDataAndintTonumN()), yValueMapper: dart.fn((sales, _) => T.numN().as(sales.sales2), T.SalesDataAndintTonumN()), markerSettings: new charts.MarkerSettings.new({isVisible: true, height: 2.0, width: 5.0, shape: core$.DataMarkerType.circle, borderWidth: 3.0, borderColor: colors.Colors.black}), dataLabelSettings: new charts.DataLabelSettings.new({isVisible: true, labelPosition: charts.ChartDataLabelPosition.inside})})]);
+  };
+  dart.trackLibraries("packages/flutterweb/Screen/dashboard/analytics_screen.dart", {
+    "package:flutterweb/Screen/dashboard/analytics_screen.dart": analytics_screen
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["colors.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/painting/colors.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["analytics_screen.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;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","file":"../../../../../../packages/flutterweb/Screen/dashboard/analytics_screen.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__colors: colors
+    Screen__dashboard__analytics_screen: analytics_screen
   };
 }));
 
-//# sourceMappingURL=colors.dart.lib.js.map
+//# sourceMappingURL=analytics_screen.dart.lib.js.map

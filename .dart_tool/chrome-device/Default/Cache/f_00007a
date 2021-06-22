@@ -1,53 +1,42 @@
-define(['dart_sdk', 'packages/flutter/src/painting/strut_style.dart', 'packages/syncfusion_flutter_core/core.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/curves.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/box_fit.dart', 'packages/flutter/src/painting/placeholder_span.dart', 'packages/flutter/src/rendering/shifted_box.dart', 'packages/flutter/src/painting/gradient.dart'], (function load__packages__syncfusion_flutter_core__tooltip_internal_dart(dart_sdk, packages__flutter__src__painting__strut_style$46dart, packages__syncfusion_flutter_core__core$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__curves$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting__box_fit$46dart, packages__flutter__src__painting__placeholder_span$46dart, packages__flutter__src__rendering__shifted_box$46dart, packages__flutter__src__painting__gradient$46dart) {
+define(['dart_sdk', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__rendering__sliver_multi_box_adaptor_dart(dart_sdk, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
-  const _internal = dart_sdk._internal;
+  const _js_helper = dart_sdk._js_helper;
   const _interceptors = dart_sdk._interceptors;
+  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const core$ = packages__syncfusion_flutter_core__core$46dart.core;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const transitions = packages__flutter__src__widgets__widget_span$46dart.src__widgets__transitions;
-  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
-  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
-  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
-  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
-  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
-  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
-  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
   const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
-  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
-  const text_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_span;
-  const text_painter = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_painter;
-  const shifted_box = packages__flutter__src__rendering__shifted_box$46dart.src__rendering__shifted_box;
-  const gradient = packages__flutter__src__painting__gradient$46dart.src__painting__gradient;
-  var tooltip_internal = Object.create(dart.library);
-  var $_equals = dartx._equals;
-  var $toDouble = dartx.toDouble;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $length = dartx.length;
-  var $split = dartx.split;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  var sliver_multi_box_adaptor = Object.create(dart.library);
+  var $isEmpty = dartx.isEmpty;
+  var $containsValue = dartx.containsValue;
   var $_get = dartx._get;
+  var $remove = dartx.remove;
+  var $containsKey = dartx.containsKey;
+  var $add = dartx.add;
   var $_set = dartx._set;
+  var $values = dartx.values;
+  var $forEach = dartx.forEach;
+  var $clear = dartx.clear;
+  var $where = dartx.where;
+  var $toList = dartx.toList;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $keys = dartx.keys;
+  var $sort = dartx.sort;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    StateOfStatefulWidget: () => (T.StateOfStatefulWidget = dart.constFn(framework.State$(framework.StatefulWidget)))(),
-    GlobalKeyOfStateOfStatefulWidget: () => (T.GlobalKeyOfStateOfStatefulWidget = dart.constFn(framework.GlobalKey$(T.StateOfStatefulWidget())))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    TweenOfdouble: () => (T.TweenOfdouble = dart.constFn(tween.Tween$(core.double)))(),
-    WidgetN: () => (T.WidgetN = dart.constFn(dart.nullable(framework.Widget)))(),
-    BuildContextAndWidgetNToWidget: () => (T.BuildContextAndWidgetNToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, T.WidgetN()])))(),
-    DataMarkerTypeN: () => (T.DataMarkerTypeN = dart.constFn(dart.nullable(core$.DataMarkerType)))(),
-    JSArrayOfDataMarkerTypeN: () => (T.JSArrayOfDataMarkerTypeN = dart.constFn(_interceptors.JSArray$(T.DataMarkerTypeN())))(),
-    PaintN: () => (T.PaintN = dart.constFn(dart.nullable(ui.Paint)))(),
-    JSArrayOfPaintN: () => (T.JSArrayOfPaintN = dart.constFn(_interceptors.JSArray$(T.PaintN())))(),
-    PaintingContextAndOffsetTovoid: () => (T.PaintingContextAndOffsetTovoid = dart.constFn(dart.fnType(dart.void, [object.PaintingContext, ui.Offset])))()
+    IdentityMapOfint$RenderBox: () => (T.IdentityMapOfint$RenderBox = dart.constFn(_js_helper.IdentityMap$(core.int, box.RenderBox)))(),
+    JSArrayOfRenderBox: () => (T.JSArrayOfRenderBox = dart.constFn(_interceptors.JSArray$(box.RenderBox)))(),
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
+    RenderBoxN: () => (T.RenderBoxN = dart.constFn(dart.nullable(box.RenderBox)))(),
+    SliverConstraintsTovoid: () => (T.SliverConstraintsTovoid = dart.constFn(dart.fnType(dart.void, [sliver.SliverConstraints])))(),
+    RenderBoxTobool: () => (T.RenderBoxTobool = dart.constFn(dart.fnType(core.bool, [box.RenderBox])))(),
+    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -55,1484 +44,637 @@ define(['dart_sdk', 'packages/flutter/src/painting/strut_style.dart', 'packages/
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: text_style.TextStyle.prototype,
-        [TextStyle_fontFeatures]: null,
-        [TextStyle_shadows]: null,
-        [TextStyle_debugLabel]: null,
-        [TextStyle_decorationThickness]: null,
-        [TextStyle_decorationStyle]: null,
-        [TextStyle_decorationColor]: null,
-        [TextStyle_decoration]: null,
-        [TextStyle_background]: null,
-        [TextStyle_foreground]: null,
-        [TextStyle_locale]: null,
-        [TextStyle_leadingDistribution]: null,
-        [TextStyle_height]: null,
-        [TextStyle_textBaseline]: null,
-        [TextStyle_wordSpacing]: null,
-        [TextStyle_letterSpacing]: null,
-        [TextStyle_fontStyle]: null,
-        [TextStyle_fontWeight]: null,
-        [TextStyle_fontSize]: null,
-        [TextStyle__package]: null,
-        [TextStyle__fontFamilyFallback]: null,
-        [TextStyle_fontFamily]: null,
-        [TextStyle_backgroundColor]: null,
-        [TextStyle_color]: null,
-        [TextStyle_inherit]: true
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.horizontal",
+        index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278190080.0
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.vertical",
+        index: 1
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: core$.TooltipAlignment.prototype,
-        [_name]: "TooltipAlignment.near",
-        index: 0
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: -1,
+        [OffsetBase__dx]: 0
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4294967295.0
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: curves.Cubic.prototype,
-        [Cubic_d]: 1.275,
-        [Cubic_c]: 0.32,
-        [Cubic_b]: 0.885,
-        [Cubic_a]: 0.175
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 1
       });
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: curves.Interval.prototype,
-        [Interval_curve]: C[5] || CT.C5,
-        [Interval_end]: 0.8,
-        [Interval_begin]: 0.1
-      });
-    },
-    get C7() {
-      return C[7] = dart.constList([], widget_inspector._Location);
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[7] || CT.C7,
-        [_Location_name]: null,
-        [_Location_column]: 56,
-        [_Location_line]: 219,
-        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_core-19.1.66/lib/src/tooltip/tooltip.dart"
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "template",
-        [_Location_column]: 11,
-        [_Location_line]: 229,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "tooltipAnimation",
-        [_Location_column]: 11,
-        [_Location_line]: 230,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "tooltipState",
-        [_Location_column]: 11,
-        [_Location_line]: 231,
-        [_Location_file]: null
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "animationController",
-        [_Location_column]: 11,
-        [_Location_line]: 232,
-        [_Location_file]: null
-      });
-    },
-    get C9() {
-      return C[9] = dart.constList([C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13], widget_inspector._Location);
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[9] || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 228,
-        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_core-19.1.66/lib/src/tooltip/tooltip.dart"
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "animation",
-        [_Location_column]: 7,
-        [_Location_line]: 221,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 7,
-        [_Location_line]: 222,
-        [_Location_file]: null
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 228,
-        [_Location_file]: null
-      });
-    },
-    get C15() {
-      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18], widget_inspector._Location);
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[15] || CT.C15,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 220,
-        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_core-19.1.66/lib/src/tooltip/tooltip.dart"
-      });
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: ui.Rect.prototype,
-        [Rect_bottom]: 0,
-        [Rect_right]: 0,
-        [Rect_top]: 0,
-        [Rect_left]: 0
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: ui.Size.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: 0
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: ui.Offset.prototype,
-        [OffsetBase__dy]: 0,
-        [OffsetBase__dx]: 0
-      });
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: core$.DataMarkerType.prototype,
-        [_name]: "DataMarkerType.circle",
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.up",
         index: 0
       });
     },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: core$.DataMarkerType.prototype,
-        [_name]: "DataMarkerType.rectangle",
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 1,
+        [OffsetBase__dx]: 0
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.right",
         index: 1
       });
     },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: core$.DataMarkerType.prototype,
-        [_name]: "DataMarkerType.image",
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.down",
         index: 2
       });
     },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: core$.DataMarkerType.prototype,
-        [_name]: "DataMarkerType.pentagon",
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: -1
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.left",
         index: 3
-      });
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: core$.DataMarkerType.prototype,
-        [_name]: "DataMarkerType.verticalLine",
-        index: 4
-      });
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: core$.DataMarkerType.prototype,
-        [_name]: "DataMarkerType.invertedTriangle",
-        index: 8
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: core$.DataMarkerType.prototype,
-        [_name]: "DataMarkerType.horizontalLine",
-        index: 5
-      });
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: core$.DataMarkerType.prototype,
-        [_name]: "DataMarkerType.diamond",
-        index: 6
-      });
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: core$.DataMarkerType.prototype,
-        [_name]: "DataMarkerType.triangle",
-        index: 7
-      });
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: core$.DataMarkerType.prototype,
-        [_name]: "DataMarkerType.none",
-        index: 9
       });
     }
   }, false);
-  var C = Array(32).fill(void 0);
+  var C = Array(10).fill(void 0);
   var I = [
-    "package:syncfusion_flutter_core/tooltip_internal.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/syncfusion_flutter_core-19.1.66/lib/src/tooltip/tooltip.dart"
+    "package:flutter/src/rendering/sliver_multi_box_adaptor.dart",
+    "file:///C:/src/flutter/packages/flutter/lib/src/rendering/sliver_multi_box_adaptor.dart"
   ];
-  var enable$ = dart.privateName(tooltip_internal, "SfTooltip.enable");
-  var color$ = dart.privateName(tooltip_internal, "SfTooltip.color");
-  var labelColor$ = dart.privateName(tooltip_internal, "SfTooltip.labelColor");
-  var borderColor$ = dart.privateName(tooltip_internal, "SfTooltip.borderColor");
-  var shadowColor$ = dart.privateName(tooltip_internal, "SfTooltip.shadowColor");
-  var header$ = dart.privateName(tooltip_internal, "SfTooltip.header");
-  var opacity$ = dart.privateName(tooltip_internal, "SfTooltip.opacity");
-  var textStyle$ = dart.privateName(tooltip_internal, "SfTooltip.textStyle");
-  var decimalPlaces$ = dart.privateName(tooltip_internal, "SfTooltip.decimalPlaces");
-  var format$ = dart.privateName(tooltip_internal, "SfTooltip.format");
-  var animationDuration$ = dart.privateName(tooltip_internal, "SfTooltip.animationDuration");
-  var canShowMarker$ = dart.privateName(tooltip_internal, "SfTooltip.canShowMarker");
-  var borderWidth$ = dart.privateName(tooltip_internal, "SfTooltip.borderWidth");
-  var builder$ = dart.privateName(tooltip_internal, "SfTooltip.builder");
-  var elevation$ = dart.privateName(tooltip_internal, "SfTooltip.elevation");
-  var shouldAlwaysShow$ = dart.privateName(tooltip_internal, "SfTooltip.shouldAlwaysShow");
-  var duration$ = dart.privateName(tooltip_internal, "SfTooltip.duration");
-  var textAlignment$ = dart.privateName(tooltip_internal, "SfTooltip.textAlignment");
-  var shared$ = dart.privateName(tooltip_internal, "SfTooltip.shared");
-  var onTooltipRender$ = dart.privateName(tooltip_internal, "SfTooltip.onTooltipRender");
-  var TextStyle_fontFeatures = dart.privateName(text_style, "TextStyle.fontFeatures");
-  var TextStyle_shadows = dart.privateName(text_style, "TextStyle.shadows");
-  var TextStyle_debugLabel = dart.privateName(text_style, "TextStyle.debugLabel");
-  var TextStyle_decorationThickness = dart.privateName(text_style, "TextStyle.decorationThickness");
-  var TextStyle_decorationStyle = dart.privateName(text_style, "TextStyle.decorationStyle");
-  var TextStyle_decorationColor = dart.privateName(text_style, "TextStyle.decorationColor");
-  var TextStyle_decoration = dart.privateName(text_style, "TextStyle.decoration");
-  var TextStyle_background = dart.privateName(text_style, "TextStyle.background");
-  var TextStyle_foreground = dart.privateName(text_style, "TextStyle.foreground");
-  var TextStyle_locale = dart.privateName(text_style, "TextStyle.locale");
-  var TextStyle_leadingDistribution = dart.privateName(text_style, "TextStyle.leadingDistribution");
-  var TextStyle_height = dart.privateName(text_style, "TextStyle.height");
-  var TextStyle_textBaseline = dart.privateName(text_style, "TextStyle.textBaseline");
-  var TextStyle_wordSpacing = dart.privateName(text_style, "TextStyle.wordSpacing");
-  var TextStyle_letterSpacing = dart.privateName(text_style, "TextStyle.letterSpacing");
-  var TextStyle_fontStyle = dart.privateName(text_style, "TextStyle.fontStyle");
-  var TextStyle_fontWeight = dart.privateName(text_style, "TextStyle.fontWeight");
-  var TextStyle_fontSize = dart.privateName(text_style, "TextStyle.fontSize");
-  var TextStyle__package = dart.privateName(text_style, "TextStyle._package");
-  var TextStyle__fontFamilyFallback = dart.privateName(text_style, "TextStyle._fontFamilyFallback");
-  var TextStyle_fontFamily = dart.privateName(text_style, "TextStyle.fontFamily");
-  var TextStyle_backgroundColor = dart.privateName(text_style, "TextStyle.backgroundColor");
-  var TextStyle_color = dart.privateName(text_style, "TextStyle.color");
-  var TextStyle_inherit = dart.privateName(text_style, "TextStyle.inherit");
-  var Color_value = dart.privateName(ui, "Color.value");
-  var _name = dart.privateName(core$, "_name");
-  var _show = dart.privateName(tooltip_internal, "_show");
-  var _template = dart.privateName(tooltip_internal, "_template");
-  tooltip_internal.SfTooltip = class SfTooltip extends framework.StatefulWidget {
-    get enable() {
-      return this[enable$];
+  sliver_multi_box_adaptor.RenderSliverBoxChildManager = class RenderSliverBoxChildManager extends core.Object {
+    didStartLayout() {
     }
-    set enable(value) {
-      super.enable = value;
+    didFinishLayout() {
     }
-    get color() {
-      return this[color$];
-    }
-    set color(value) {
-      super.color = value;
-    }
-    get labelColor() {
-      return this[labelColor$];
-    }
-    set labelColor(value) {
-      super.labelColor = value;
-    }
-    get borderColor() {
-      return this[borderColor$];
-    }
-    set borderColor(value) {
-      super.borderColor = value;
-    }
-    get shadowColor() {
-      return this[shadowColor$];
-    }
-    set shadowColor(value) {
-      super.shadowColor = value;
-    }
-    get header() {
-      return this[header$];
-    }
-    set header(value) {
-      super.header = value;
-    }
-    get opacity() {
-      return this[opacity$];
-    }
-    set opacity(value) {
-      super.opacity = value;
-    }
-    get textStyle() {
-      return this[textStyle$];
-    }
-    set textStyle(value) {
-      super.textStyle = value;
-    }
-    get decimalPlaces() {
-      return this[decimalPlaces$];
-    }
-    set decimalPlaces(value) {
-      super.decimalPlaces = value;
-    }
-    get format() {
-      return this[format$];
-    }
-    set format(value) {
-      super.format = value;
-    }
-    get animationDuration() {
-      return this[animationDuration$];
-    }
-    set animationDuration(value) {
-      super.animationDuration = value;
-    }
-    get canShowMarker() {
-      return this[canShowMarker$];
-    }
-    set canShowMarker(value) {
-      super.canShowMarker = value;
-    }
-    get borderWidth() {
-      return this[borderWidth$];
-    }
-    set borderWidth(value) {
-      super.borderWidth = value;
-    }
-    get builder() {
-      return this[builder$];
-    }
-    set builder(value) {
-      super.builder = value;
-    }
-    get elevation() {
-      return this[elevation$];
-    }
-    set elevation(value) {
-      super.elevation = value;
-    }
-    get shouldAlwaysShow() {
-      return this[shouldAlwaysShow$];
-    }
-    set shouldAlwaysShow(value) {
-      super.shouldAlwaysShow = value;
-    }
-    get duration() {
-      return this[duration$];
-    }
-    set duration(value) {
-      super.duration = value;
-    }
-    get textAlignment() {
-      return this[textAlignment$];
-    }
-    set textAlignment(value) {
-      super.textAlignment = value;
-    }
-    get shared() {
-      return this[shared$];
-    }
-    set shared(value) {
-      super.shared = value;
-    }
-    get onTooltipRender() {
-      return this[onTooltipRender$];
-    }
-    set onTooltipRender(value) {
-      super.onTooltipRender = value;
-    }
-    show(position, duration, template = null) {
-      let t0;
-      if (position != null) {
-        let tooltipKey = T.GlobalKeyOfStateOfStatefulWidget().as(dart.nullCheck(this.key));
-        let state = tooltip_internal.SfTooltipState.as(dart.nullCheck(tooltipKey.currentState));
-        dart.nullCheck(state.animationController).duration = new core.Duration.new({milliseconds: duration});
-        t0 = state.renderBox;
-        t0 == null ? null : t0.calculateLocation(position);
-        state[_show] = true;
-        if (template == null) {
-          state.setState(dart.fn(() => {
-          }, T.VoidTovoid()));
-        } else {
-          state[_template] = template;
-          state.setState(dart.fn(() => {
-          }, T.VoidTovoid()));
-        }
-      }
-    }
-    hide(duration = null) {
-      let t0;
-      let tooltipKey = T.GlobalKeyOfStateOfStatefulWidget().as(dart.nullCheck(this.key));
-      let state = tooltip_internal.SfTooltipState.as(dart.nullCheck(tooltipKey.currentState));
-      state[_show] = false;
-      dart.nullCheck(state.animationController).duration = new core.Duration.new({milliseconds: (t0 = duration, t0 == null ? 0 : t0)});
-      dart.nullCheck(state.animationController).reverse({from: 1.0});
-    }
-    createState() {
-      return new tooltip_internal.SfTooltipState.new();
+    debugAssertChildListLocked() {
+      return true;
     }
   };
-  (tooltip_internal.SfTooltip.new = function(opts) {
-    let textStyle = opts && 'textStyle' in opts ? opts.textStyle : C[0] || CT.C0;
-    let animationDuration = opts && 'animationDuration' in opts ? opts.animationDuration : 500;
-    let enable = opts && 'enable' in opts ? opts.enable : true;
-    let opacity = opts && 'opacity' in opts ? opts.opacity : 1;
-    let borderColor = opts && 'borderColor' in opts ? opts.borderColor : C[1] || CT.C1;
-    let borderWidth = opts && 'borderWidth' in opts ? opts.borderWidth : 0;
-    let duration = opts && 'duration' in opts ? opts.duration : 3000;
-    let shouldAlwaysShow = opts && 'shouldAlwaysShow' in opts ? opts.shouldAlwaysShow : false;
-    let elevation = opts && 'elevation' in opts ? opts.elevation : 0;
-    let shared = opts && 'shared' in opts ? opts.shared : false;
-    let canShowMarker = opts && 'canShowMarker' in opts ? opts.canShowMarker : true;
-    let textAlignment = opts && 'textAlignment' in opts ? opts.textAlignment : C[2] || CT.C2;
-    let decimalPlaces = opts && 'decimalPlaces' in opts ? opts.decimalPlaces : 2;
-    let color = opts && 'color' in opts ? opts.color : C[1] || CT.C1;
-    let labelColor = opts && 'labelColor' in opts ? opts.labelColor : C[3] || CT.C3;
-    let header = opts && 'header' in opts ? opts.header : null;
-    let format = opts && 'format' in opts ? opts.format : null;
-    let builder = opts && 'builder' in opts ? opts.builder : null;
-    let shadowColor = opts && 'shadowColor' in opts ? opts.shadowColor : null;
-    let key = opts && 'key' in opts ? opts.key : null;
-    let onTooltipRender = opts && 'onTooltipRender' in opts ? opts.onTooltipRender : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[textStyle$] = textStyle;
-    this[animationDuration$] = animationDuration;
-    this[enable$] = enable;
-    this[opacity$] = opacity;
-    this[borderColor$] = borderColor;
-    this[borderWidth$] = borderWidth;
-    this[duration$] = duration;
-    this[shouldAlwaysShow$] = shouldAlwaysShow;
-    this[elevation$] = elevation;
-    this[shared$] = shared;
-    this[canShowMarker$] = canShowMarker;
-    this[textAlignment$] = textAlignment;
-    this[decimalPlaces$] = decimalPlaces;
-    this[color$] = color;
-    this[labelColor$] = labelColor;
-    this[header$] = header;
-    this[format$] = format;
-    this[builder$] = builder;
-    this[shadowColor$] = shadowColor;
-    this[onTooltipRender$] = onTooltipRender;
-    tooltip_internal.SfTooltip.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (sliver_multi_box_adaptor.RenderSliverBoxChildManager.new = function() {
     ;
-  }).prototype = tooltip_internal.SfTooltip.prototype;
-  dart.addTypeTests(tooltip_internal.SfTooltip);
-  dart.addTypeCaches(tooltip_internal.SfTooltip);
-  dart.setMethodSignature(tooltip_internal.SfTooltip, () => ({
-    __proto__: dart.getMethods(tooltip_internal.SfTooltip.__proto__),
-    show: dart.fnType(dart.void, [dart.nullable(ui.Offset), core.int], [dart.nullable(framework.Widget)]),
-    hide: dart.fnType(dart.void, [], [dart.nullable(core.int)]),
-    createState: dart.fnType(tooltip_internal.SfTooltipState, [])
+  }).prototype = sliver_multi_box_adaptor.RenderSliverBoxChildManager.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.RenderSliverBoxChildManager);
+  dart.addTypeCaches(sliver_multi_box_adaptor.RenderSliverBoxChildManager);
+  dart.setMethodSignature(sliver_multi_box_adaptor.RenderSliverBoxChildManager, () => ({
+    __proto__: dart.getMethods(sliver_multi_box_adaptor.RenderSliverBoxChildManager.__proto__),
+    didStartLayout: dart.fnType(dart.void, []),
+    didFinishLayout: dart.fnType(dart.void, []),
+    debugAssertChildListLocked: dart.fnType(core.bool, [])
   }));
-  dart.setLibraryUri(tooltip_internal.SfTooltip, I[0]);
-  dart.setFieldSignature(tooltip_internal.SfTooltip, () => ({
-    __proto__: dart.getFields(tooltip_internal.SfTooltip.__proto__),
-    enable: dart.finalFieldType(core.bool),
-    color: dart.finalFieldType(ui.Color),
-    labelColor: dart.finalFieldType(ui.Color),
-    borderColor: dart.finalFieldType(ui.Color),
-    shadowColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    header: dart.finalFieldType(dart.nullable(core.String)),
-    opacity: dart.finalFieldType(core.double),
-    textStyle: dart.finalFieldType(text_style.TextStyle),
-    decimalPlaces: dart.finalFieldType(core.int),
-    format: dart.finalFieldType(dart.nullable(core.String)),
-    animationDuration: dart.finalFieldType(core.int),
-    canShowMarker: dart.finalFieldType(core.bool),
-    borderWidth: dart.finalFieldType(core.double),
-    builder: dart.finalFieldType(dart.dynamic),
-    elevation: dart.finalFieldType(core.double),
-    shouldAlwaysShow: dart.finalFieldType(core.bool),
-    duration: dart.finalFieldType(core.double),
-    textAlignment: dart.finalFieldType(dart.dynamic),
-    shared: dart.finalFieldType(core.bool),
-    onTooltipRender: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core$.TooltipRenderArgs])))
-  }));
-  var animationController = dart.privateName(tooltip_internal, "SfTooltipState.animationController");
-  var renderBox = dart.privateName(tooltip_internal, "SfTooltipState.renderBox");
-  var __SfTooltipState__show = dart.privateName(tooltip_internal, "_#SfTooltipState#_show");
-  var __SfTooltipState_needMarker = dart.privateName(tooltip_internal, "_#SfTooltipState#needMarker");
-  var __SfTooltipState__shared = dart.privateName(tooltip_internal, "_#SfTooltipState#_shared");
-  var _shared = dart.privateName(tooltip_internal, "_shared");
-  var Cubic_d = dart.privateName(curves, "Cubic.d");
-  var Cubic_c = dart.privateName(curves, "Cubic.c");
-  var Cubic_b = dart.privateName(curves, "Cubic.b");
-  var Cubic_a = dart.privateName(curves, "Cubic.a");
-  var Interval_curve = dart.privateName(curves, "Interval.curve");
-  var Interval_end = dart.privateName(curves, "Interval.end");
-  var Interval_begin = dart.privateName(curves, "Interval.begin");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(tooltip_internal.SfTooltip) {};
-  (State_SingleTickerProviderStateMixin$36.new = function() {
-    ticker_provider.SingleTickerProviderStateMixin$(tooltip_internal.SfTooltip)[dart.mixinNew].call(this);
-    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
-  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
-  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(tooltip_internal.SfTooltip));
-  tooltip_internal.SfTooltipState = class SfTooltipState extends State_SingleTickerProviderStateMixin$36 {
-    get animationController() {
-      return this[animationController];
+  dart.setLibraryUri(sliver_multi_box_adaptor.RenderSliverBoxChildManager, I[0]);
+  var keepAlive = dart.privateName(sliver_multi_box_adaptor, "KeepAliveParentDataMixin.keepAlive");
+  sliver_multi_box_adaptor.KeepAliveParentDataMixin = class KeepAliveParentDataMixin extends core.Object {};
+  sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.mixinOn] = Object => class KeepAliveParentDataMixin extends Object {
+    get keepAlive() {
+      return this[keepAlive];
     }
-    set animationController(value) {
-      this[animationController] = value;
-    }
-    get renderBox() {
-      return this[renderBox];
-    }
-    set renderBox(value) {
-      this[renderBox] = value;
-    }
-    get [_show]() {
-      let t0;
-      t0 = this[__SfTooltipState__show];
-      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_show")) : t0;
-    }
-    set [_show](t0) {
-      this[__SfTooltipState__show] = t0;
-    }
-    get needMarker() {
-      let t1;
-      t1 = this[__SfTooltipState_needMarker];
-      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("needMarker")) : t1;
-    }
-    set needMarker(t1) {
-      this[__SfTooltipState_needMarker] = t1;
-    }
-    get [_shared]() {
-      let t2;
-      t2 = this[__SfTooltipState__shared];
-      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_shared")) : t2;
-    }
-    set [_shared](t2) {
-      this[__SfTooltipState__shared] = t2;
-    }
-    initState() {
-      this[_show] = false;
-      this.needMarker = this.widget.canShowMarker;
-      this[_shared] = this.widget.shared;
-      this.animationController = new animation_controller.AnimationController.new({duration: new core.Duration.new({milliseconds: this.widget.animationDuration}), vsync: this});
-      super.initState();
-    }
-    build(context) {
-      let t3;
-      let tooltipAnimation = new (T.TweenOfdouble()).new({begin: 0.0, end: 1.0}).animate(new animations.CurvedAnimation.new({parent: dart.nullCheck(this.animationController), curve: C[4] || CT.C4}));
-      if (this[_show]) {
-        dart.nullCheck(this.animationController).forward({from: 0.0});
-      }
-      this[_template] = this.widget.builder != null ? (t3 = this[_template], t3 == null ? new container.Container.new({$creationLocationd_0dea112b090073317d4: C[6] || CT.C6}) : t3) : null;
-      return new transitions.AnimatedBuilder.new({animation: dart.nullCheck(this.animationController), builder: dart.fn((context, child) => {
-          if (this.renderBox != null) {
-            dart.nullCheck(this.renderBox).animationFactor = dart.nullCheck(this.animationController).value;
-          }
-          return dart.nullCheck(child);
-        }, T.BuildContextAndWidgetNToWidget()), child: new tooltip_internal.TooltipRenderObject.new({template: this[_template], tooltipAnimation: tooltipAnimation, tooltipState: this, animationController: dart.nullCheck(this.animationController), $creationLocationd_0dea112b090073317d4: C[8] || CT.C8}), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14});
-    }
-    dispose() {
-      dart.nullCheck(this.animationController).dispose();
-      this.animationController = null;
-      super.dispose();
+    set keepAlive(value) {
+      this[keepAlive] = value;
     }
   };
-  (tooltip_internal.SfTooltipState.new = function() {
-    this[animationController] = null;
-    this[__SfTooltipState__show] = null;
-    this[__SfTooltipState_needMarker] = null;
-    this[renderBox] = null;
-    this[_template] = null;
-    this[__SfTooltipState__shared] = null;
-    tooltip_internal.SfTooltipState.__proto__.new.call(this);
-    ;
-  }).prototype = tooltip_internal.SfTooltipState.prototype;
-  dart.addTypeTests(tooltip_internal.SfTooltipState);
-  dart.addTypeCaches(tooltip_internal.SfTooltipState);
-  dart.setMethodSignature(tooltip_internal.SfTooltipState, () => ({
-    __proto__: dart.getMethods(tooltip_internal.SfTooltipState.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  (sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.mixinNew] = function() {
+    this[keepAlive] = false;
+  }).prototype = sliver_multi_box_adaptor.KeepAliveParentDataMixin.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.KeepAliveParentDataMixin);
+  dart.addTypeCaches(sliver_multi_box_adaptor.KeepAliveParentDataMixin);
+  sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.implements] = () => [object.ParentData, core.Object];
+  dart.setLibraryUri(sliver_multi_box_adaptor.KeepAliveParentDataMixin, I[0]);
+  dart.setFieldSignature(sliver_multi_box_adaptor.KeepAliveParentDataMixin, () => ({
+    __proto__: dart.getFields(sliver_multi_box_adaptor.KeepAliveParentDataMixin.__proto__),
+    keepAlive: dart.fieldType(core.bool)
   }));
-  dart.setGetterSignature(tooltip_internal.SfTooltipState, () => ({
-    __proto__: dart.getGetters(tooltip_internal.SfTooltipState.__proto__),
-    [_show]: core.bool,
-    needMarker: core.bool,
-    [_shared]: core.bool
-  }));
-  dart.setSetterSignature(tooltip_internal.SfTooltipState, () => ({
-    __proto__: dart.getSetters(tooltip_internal.SfTooltipState.__proto__),
-    [_show]: core.bool,
-    needMarker: core.bool,
-    [_shared]: core.bool
-  }));
-  dart.setLibraryUri(tooltip_internal.SfTooltipState, I[0]);
-  dart.setFieldSignature(tooltip_internal.SfTooltipState, () => ({
-    __proto__: dart.getFields(tooltip_internal.SfTooltipState.__proto__),
-    animationController: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
-    [__SfTooltipState__show]: dart.fieldType(dart.nullable(core.bool)),
-    [__SfTooltipState_needMarker]: dart.fieldType(dart.nullable(core.bool)),
-    renderBox: dart.fieldType(dart.nullable(tooltip_internal.TooltipRenderBox)),
-    [_template]: dart.fieldType(dart.nullable(framework.Widget)),
-    [__SfTooltipState__shared]: dart.fieldType(dart.nullable(core.bool))
-  }));
-  var _tooltipState$ = dart.privateName(tooltip_internal, "_tooltipState");
-  var _tooltipAnimation = dart.privateName(tooltip_internal, "_tooltipAnimation");
-  var _animationController = dart.privateName(tooltip_internal, "_animationController");
-  tooltip_internal.TooltipRenderObject = class TooltipRenderObject extends framework.SingleChildRenderObjectWidget {
-    createRenderObject(context) {
-      this[_tooltipState$].renderBox = new tooltip_internal.TooltipRenderBox.new(this[_tooltipState$], this[_tooltipAnimation], this[_animationController]);
-      return dart.nullCheck(this[_tooltipState$].renderBox);
-    }
-    updateRenderObject(context, renderObject) {
-      let t3;
-      tooltip_internal.TooltipRenderBox.as(renderObject);
-      t3 = renderObject;
-      (() => {
-        t3.tooltipAnimation = this[_tooltipAnimation];
-        t3.animationController = this[_animationController];
-        t3.tooltipState = this[_tooltipState$];
-        return t3;
-      })();
+  sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin = class RenderSliverWithKeepAliveMixin extends core.Object {};
+  sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin[dart.mixinOn] = Object => class RenderSliverWithKeepAliveMixin extends Object {
+    setupParentData(child) {
+      object.RenderObject.as(child);
+      if (!sliver_multi_box_adaptor.KeepAliveParentDataMixin.is(child.parentData)) dart.assertFailed(null, I[1], 139, 12, "child.parentData is KeepAliveParentDataMixin");
     }
   };
-  (tooltip_internal.TooltipRenderObject.new = function(opts) {
-    let template = opts && 'template' in opts ? opts.template : null;
-    let tooltipState = opts && 'tooltipState' in opts ? opts.tooltipState : null;
-    let tooltipAnimation = opts && 'tooltipAnimation' in opts ? opts.tooltipAnimation : null;
-    let animationController = opts && 'animationController' in opts ? opts.animationController : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[_tooltipState$] = tooltipState;
-    this[_tooltipAnimation] = tooltipAnimation;
-    this[_animationController] = animationController;
-    tooltip_internal.TooltipRenderObject.__proto__.new.call(this, {child: template, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin[dart.mixinNew] = function() {
+  }).prototype = sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin);
+  dart.addTypeCaches(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin);
+  sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin[dart.implements] = () => [sliver.RenderSliver, core.Object];
+  dart.setMethodSignature(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin, () => ({
+    __proto__: dart.getMethods(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin.__proto__),
+    setupParentData: dart.fnType(dart.void, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin, I[0]);
+  var index = dart.privateName(sliver_multi_box_adaptor, "SliverMultiBoxAdaptorParentData.index");
+  var _keptAlive = dart.privateName(sliver_multi_box_adaptor, "_keptAlive");
+  const SliverLogicalParentData_ContainerParentDataMixin$36 = class SliverLogicalParentData_ContainerParentDataMixin extends sliver.SliverLogicalParentData {};
+  (SliverLogicalParentData_ContainerParentDataMixin$36.new = function() {
+    object.ContainerParentDataMixin$(box.RenderBox)[dart.mixinNew].call(this);
+    SliverLogicalParentData_ContainerParentDataMixin$36.__proto__.new.call(this);
+  }).prototype = SliverLogicalParentData_ContainerParentDataMixin$36.prototype;
+  dart.applyMixin(SliverLogicalParentData_ContainerParentDataMixin$36, object.ContainerParentDataMixin$(box.RenderBox));
+  const SliverLogicalParentData_KeepAliveParentDataMixin$36 = class SliverLogicalParentData_KeepAliveParentDataMixin extends SliverLogicalParentData_ContainerParentDataMixin$36 {};
+  (SliverLogicalParentData_KeepAliveParentDataMixin$36.new = function() {
+    sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.mixinNew].call(this);
+    SliverLogicalParentData_KeepAliveParentDataMixin$36.__proto__.new.call(this);
+  }).prototype = SliverLogicalParentData_KeepAliveParentDataMixin$36.prototype;
+  dart.applyMixin(SliverLogicalParentData_KeepAliveParentDataMixin$36, sliver_multi_box_adaptor.KeepAliveParentDataMixin);
+  sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData = class SliverMultiBoxAdaptorParentData extends SliverLogicalParentData_KeepAliveParentDataMixin$36 {
+    get index() {
+      return this[index];
+    }
+    set index(value) {
+      this[index] = value;
+    }
+    get keptAlive() {
+      return this[_keptAlive];
+    }
+    toString() {
+      return "index=" + dart.str(this.index) + "; " + (this.keepAlive === true ? "keepAlive; " : "") + super.toString();
+    }
+  };
+  (sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.new = function() {
+    this[index] = null;
+    this[_keptAlive] = false;
+    sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.__proto__.new.call(this);
     ;
-  }).prototype = tooltip_internal.TooltipRenderObject.prototype;
-  dart.addTypeTests(tooltip_internal.TooltipRenderObject);
-  dart.addTypeCaches(tooltip_internal.TooltipRenderObject);
-  dart.setMethodSignature(tooltip_internal.TooltipRenderObject, () => ({
-    __proto__: dart.getMethods(tooltip_internal.TooltipRenderObject.__proto__),
-    createRenderObject: dart.fnType(tooltip_internal.TooltipRenderBox, [framework.BuildContext])
+  }).prototype = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData);
+  dart.addTypeCaches(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData);
+  dart.setGetterSignature(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, () => ({
+    __proto__: dart.getGetters(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.__proto__),
+    keptAlive: core.bool
   }));
-  dart.setLibraryUri(tooltip_internal.TooltipRenderObject, I[0]);
-  dart.setFieldSignature(tooltip_internal.TooltipRenderObject, () => ({
-    __proto__: dart.getFields(tooltip_internal.TooltipRenderObject.__proto__),
-    [_tooltipState$]: dart.finalFieldType(tooltip_internal.SfTooltipState),
-    [_tooltipAnimation]: dart.finalFieldType(animation.Animation$(core.double)),
-    [_animationController]: dart.finalFieldType(animation_controller.AnimationController)
+  dart.setLibraryUri(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, I[0]);
+  dart.setFieldSignature(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, () => ({
+    __proto__: dart.getFields(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.__proto__),
+    index: dart.fieldType(dart.nullable(core.int)),
+    [_keptAlive]: dart.fieldType(core.bool)
   }));
-  var __TooltipRenderBox__tooltipAnimation = dart.privateName(tooltip_internal, "_#TooltipRenderBox#_tooltipAnimation");
-  var __TooltipRenderBox__animationController = dart.privateName(tooltip_internal, "_#TooltipRenderBox#_animationController");
-  var __TooltipRenderBox__animationFactor = dart.privateName(tooltip_internal, "_#TooltipRenderBox#_animationFactor");
-  var _stringValue = dart.privateName(tooltip_internal, "_stringValue");
-  var _header = dart.privateName(tooltip_internal, "_header");
-  var _normalPadding = dart.privateName(tooltip_internal, "_normalPadding");
-  var _inversePadding = dart.privateName(tooltip_internal, "_inversePadding");
-  var __TooltipRenderBox__markerSize = dart.privateName(tooltip_internal, "_#TooltipRenderBox#_markerSize");
-  var _canResetPath = dart.privateName(tooltip_internal, "_canResetPath");
-  var _boundaryRect = dart.privateName(tooltip_internal, "_boundaryRect");
-  var Rect_bottom = dart.privateName(ui, "Rect.bottom");
-  var Rect_right = dart.privateName(ui, "Rect.right");
-  var Rect_top = dart.privateName(ui, "Rect.top");
-  var Rect_left = dart.privateName(ui, "Rect.left");
-  var _markerTypes = dart.privateName(tooltip_internal, "_markerTypes");
-  var _markerPaints = dart.privateName(tooltip_internal, "_markerPaints");
-  var _markerImages = dart.privateName(tooltip_internal, "_markerImages");
-  var _markerGradients = dart.privateName(tooltip_internal, "_markerGradients");
-  var _pointerLength = dart.privateName(tooltip_internal, "_pointerLength");
-  var _xPos = dart.privateName(tooltip_internal, "_xPos");
-  var _yPos = dart.privateName(tooltip_internal, "_yPos");
-  var _x = dart.privateName(tooltip_internal, "_x");
-  var _y = dart.privateName(tooltip_internal, "_y");
-  var _nosePointX = dart.privateName(tooltip_internal, "_nosePointX");
-  var _nosePointY = dart.privateName(tooltip_internal, "_nosePointY");
-  var _borderRadius = dart.privateName(tooltip_internal, "_borderRadius");
-  var _totalWidth = dart.privateName(tooltip_internal, "_totalWidth");
-  var _isLeft = dart.privateName(tooltip_internal, "_isLeft");
-  var _isRight = dart.privateName(tooltip_internal, "_isRight");
-  var _isTop = dart.privateName(tooltip_internal, "_isTop");
-  var _isOutOfBoundInTop = dart.privateName(tooltip_internal, "_isOutOfBoundInTop");
-  var __TooltipRenderBox__markerPointY = dart.privateName(tooltip_internal, "_#TooltipRenderBox#_markerPointY");
-  var _tooltipRect = dart.privateName(tooltip_internal, "_tooltipRect");
-  var _arrowPath = dart.privateName(tooltip_internal, "_arrowPath");
-  var __TooltipRenderBox__templateSize = dart.privateName(tooltip_internal, "_#TooltipRenderBox#_templateSize");
-  var _tooltip = dart.privateName(tooltip_internal, "_tooltip");
-  var _animationFactor = dart.privateName(tooltip_internal, "_animationFactor");
-  var _markerSize = dart.privateName(tooltip_internal, "_markerSize");
-  var _markerPointY = dart.privateName(tooltip_internal, "_markerPointY");
-  var _templateSize = dart.privateName(tooltip_internal, "_templateSize");
-  var _renderDefaultTooltipView = dart.privateName(tooltip_internal, "_renderDefaultTooltipView");
-  var _renderTemplateTooltipView = dart.privateName(tooltip_internal, "_renderTemplateTooltipView");
-  var _getTemplateLocation = dart.privateName(tooltip_internal, "_getTemplateLocation");
-  var _renderArrow = dart.privateName(tooltip_internal, "_renderArrow");
-  var _calculateBackgroundRect = dart.privateName(tooltip_internal, "_calculateBackgroundRect");
-  var _drawTooltipBackground = dart.privateName(tooltip_internal, "_drawTooltipBackground");
-  var _drawTooltipPath = dart.privateName(tooltip_internal, "_drawTooltipPath");
-  var _drawTooltipText = dart.privateName(tooltip_internal, "_drawTooltipText");
-  var _drawMarkers = dart.privateName(tooltip_internal, "_drawMarkers");
+  dart.defineExtensionMethods(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, ['toString']);
+  var _keepAliveBucket = dart.privateName(sliver_multi_box_adaptor, "_keepAliveBucket");
+  var __RenderSliverMultiBoxAdaptor__debugDanglingKeepAlives = dart.privateName(sliver_multi_box_adaptor, "_#RenderSliverMultiBoxAdaptor#_debugDanglingKeepAlives");
+  var _debugChildIntegrityEnabled = dart.privateName(sliver_multi_box_adaptor, "_debugChildIntegrityEnabled");
+  var _childManager = dart.privateName(sliver_multi_box_adaptor, "_childManager");
+  var _debugDanglingKeepAlives = dart.privateName(sliver_multi_box_adaptor, "_debugDanglingKeepAlives");
+  var _debugVerifyChildOrder = dart.privateName(sliver_multi_box_adaptor, "_debugVerifyChildOrder");
+  var _debugAssertChildListLocked = dart.privateName(sliver_multi_box_adaptor, "_debugAssertChildListLocked");
+  var _createOrObtainChild = dart.privateName(sliver_multi_box_adaptor, "_createOrObtainChild");
+  var _destroyOrCacheChild = dart.privateName(sliver_multi_box_adaptor, "_destroyOrCacheChild");
+  var _name = dart.privateName(basic_types, "_name");
   var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
   var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  var _drawText = dart.privateName(tooltip_internal, "_drawText");
-  tooltip_internal.TooltipRenderBox = class TooltipRenderBox extends shifted_box.RenderShiftedBox {
-    get [_tooltip]() {
-      return this[_tooltipState$].widget;
+  const RenderSliver_ContainerRenderObjectMixin$36 = class RenderSliver_ContainerRenderObjectMixin extends sliver.RenderSliver {};
+  (RenderSliver_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(box.RenderBox, sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData)[dart.mixinNew].call(this);
+    RenderSliver_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderSliver_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(box.RenderBox, sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData));
+  const RenderSliver_RenderSliverHelpers$36 = class RenderSliver_RenderSliverHelpers extends RenderSliver_ContainerRenderObjectMixin$36 {};
+  (RenderSliver_RenderSliverHelpers$36.new = function() {
+    RenderSliver_RenderSliverHelpers$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_RenderSliverHelpers$36.prototype;
+  dart.applyMixin(RenderSliver_RenderSliverHelpers$36, sliver.RenderSliverHelpers);
+  const RenderSliver_RenderSliverWithKeepAliveMixin$36 = class RenderSliver_RenderSliverWithKeepAliveMixin extends RenderSliver_RenderSliverHelpers$36 {};
+  (RenderSliver_RenderSliverWithKeepAliveMixin$36.new = function() {
+    RenderSliver_RenderSliverWithKeepAliveMixin$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_RenderSliverWithKeepAliveMixin$36.prototype;
+  dart.applyMixin(RenderSliver_RenderSliverWithKeepAliveMixin$36, sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin);
+  sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor = class RenderSliverMultiBoxAdaptor extends RenderSliver_RenderSliverWithKeepAliveMixin$36 {
+    setupParentData(child) {
+      object.RenderObject.as(child);
+      if (!sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.is(child.parentData)) child.parentData = new sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.new();
     }
-    set tooltipState(value) {
-      if (this[_tooltipState$][$_equals](value)) {
-        return;
-      }
-      this[_tooltipState$] = value;
+    get childManager() {
+      return this[_childManager];
     }
-    get [_tooltipAnimation]() {
-      let t3;
-      t3 = this[__TooltipRenderBox__tooltipAnimation];
-      return t3 == null ? dart.throw(new _internal.LateError.fieldNI("_tooltipAnimation")) : t3;
+    get [_debugDanglingKeepAlives]() {
+      let t0;
+      t0 = this[__RenderSliverMultiBoxAdaptor__debugDanglingKeepAlives];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_debugDanglingKeepAlives")) : t0;
     }
-    set [_tooltipAnimation](t3) {
-      this[__TooltipRenderBox__tooltipAnimation] = t3;
+    set [_debugDanglingKeepAlives](t0) {
+      this[__RenderSliverMultiBoxAdaptor__debugDanglingKeepAlives] = t0;
     }
-    set tooltipAnimation(value) {
-      if (this[_tooltipAnimation][$_equals](value)) {
-        return;
-      }
-      this[_tooltipAnimation] = value;
+    get debugChildIntegrityEnabled() {
+      return this[_debugChildIntegrityEnabled];
     }
-    get [_animationController]() {
-      let t4;
-      t4 = this[__TooltipRenderBox__animationController];
-      return t4 == null ? dart.throw(new _internal.LateError.fieldNI("_animationController")) : t4;
+    set debugChildIntegrityEnabled(enabled) {
+      if (!(enabled !== null)) dart.assertFailed(null, I[1], 230, 12, "enabled != null");
+      if (!dart.fn(() => {
+        this[_debugChildIntegrityEnabled] = enabled;
+        return this[_debugVerifyChildOrder]() && (!this[_debugChildIntegrityEnabled] || this[_debugDanglingKeepAlives][$isEmpty]);
+      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 231, 12, "() {\r\n      _debugChildIntegrityEnabled = enabled;\r\n      return _debugVerifyChildOrder() &&\r\n        (!_debugChildIntegrityEnabled || _debugDanglingKeepAlives.isEmpty);\r\n    }()");
     }
-    set [_animationController](t4) {
-      this[__TooltipRenderBox__animationController] = t4;
+    adoptChild(child) {
+      object.RenderObject.as(child);
+      super.adoptChild(child);
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (!childParentData[_keptAlive]) this.childManager.didAdoptChild(box.RenderBox.as(child));
     }
-    set animationController(value) {
-      if (this[_animationController][$_equals](value)) {
-        return;
-      }
-      this[_animationController] = value;
+    [_debugAssertChildListLocked]() {
+      return this.childManager.debugAssertChildListLocked();
     }
-    get [_animationFactor]() {
-      let t5;
-      t5 = this[__TooltipRenderBox__animationFactor];
-      return t5 == null ? dart.throw(new _internal.LateError.fieldNI("_animationFactor")) : t5;
-    }
-    set [_animationFactor](t5) {
-      this[__TooltipRenderBox__animationFactor] = t5;
-    }
-    set animationFactor(value) {
-      this[_animationFactor] = value;
-      this.markNeedsLayout();
-      this.markNeedsPaint();
-      this.markNeedsSemanticsUpdate();
-    }
-    set stringValue(value) {
-      if (this[_stringValue] == value) {
-        return;
-      }
-      this[_stringValue] = value;
-    }
-    set header(value) {
-      if (this[_header] == value) {
-        return;
-      }
-      this[_header] = value;
-    }
-    set normalPadding(value) {
-      if (this[_normalPadding] === value) {
-        return;
-      }
-      this[_normalPadding] = value;
-    }
-    set inversePadding(value) {
-      if (this[_inversePadding] === value) {
-        return;
-      }
-      this[_inversePadding] = value;
-    }
-    get [_markerSize]() {
-      let t6;
-      t6 = this[__TooltipRenderBox__markerSize];
-      return t6 == null ? dart.throw(new _internal.LateError.fieldNI("_markerSize")) : t6;
-    }
-    set [_markerSize](t6) {
-      this[__TooltipRenderBox__markerSize] = t6;
-    }
-    get markerSize() {
-      return this[_markerSize];
-    }
-    set canResetPath(value) {
-      if (this[_canResetPath] === value) {
-        return;
-      }
-      this[_canResetPath] = value;
-    }
-    set boundaryRect(value) {
-      if (this[_boundaryRect]._equals(value)) {
-        return;
-      }
-      this[_boundaryRect] = value;
-    }
-    set markerTypes(types) {
-      this[_markerTypes] = types;
-    }
-    set markerPaints(paints) {
-      this[_markerPaints] = paints;
-    }
-    set markerImages(images) {
-      this[_markerImages] = images;
-    }
-    set markerGradients(values) {
-      this[_markerGradients] = values;
-    }
-    get [_markerPointY]() {
-      let t7;
-      t7 = this[__TooltipRenderBox__markerPointY];
-      return t7 == null ? dart.throw(new _internal.LateError.fieldNI("_markerPointY")) : t7;
-    }
-    set [_markerPointY](t7) {
-      this[__TooltipRenderBox__markerPointY] = t7;
-    }
-    set [_templateSize](t8) {
-      this[__TooltipRenderBox__templateSize] = t8;
-    }
-    get [_templateSize]() {
-      let t9;
-      t9 = this[__TooltipRenderBox__templateSize];
-      return t9 == null ? dart.throw(new _internal.LateError.fieldNI("_templateSize")) : t9;
-    }
-    hitTest(result, opts) {
-      let position = opts && 'position' in opts ? opts.position : null;
-      if (this.child == null || this[_tooltipRect] == null) {
-        return false;
-      } else {
-        return dart.nullCheck(this.child).hitTest(result, {position: position['-'](dart.nullCheck(this[_tooltipRect]).topLeft)});
-      }
-    }
-    performLayout() {
-      let t9;
-      if (this[_tooltipState$][_show]) {
-        if (this.child != null) {
-          this[_isOutOfBoundInTop] = false;
-          this.size = new ui.Size.copy(this[_boundaryRect].size);
-          dart.nullCheck(this.child).layout(this.constraints, {parentUsesSize: true});
-          this.size = new ui.Size.copy(dart.nullCheck(this.child).size);
+    [_debugVerifyChildOrder]() {
+      if (this[_debugChildIntegrityEnabled]) {
+        let child = this.firstChild;
+        let index = null;
+        while (child != null) {
+          index = this.indexOf(child);
+          child = this.childAfter(child);
+          if (!(child == null || this.indexOf(child) > index)) dart.assertFailed(null, I[1], 258, 16, "child == null || indexOf(child) > index");
         }
+      }
+      return true;
+    }
+    insert(child, opts) {
+      box.RenderBox.as(child);
+      let after = opts && 'after' in opts ? opts.after : null;
+      T.RenderBoxN().as(after);
+      if (!!this[_keepAliveBucket][$containsValue](child)) dart.assertFailed(null, I[1], 266, 12, "!_keepAliveBucket.containsValue(child)");
+      super.insert(child, {after: after});
+      if (!(this.firstChild != null)) dart.assertFailed(null, I[1], 268, 12, "firstChild != null");
+      if (!this[_debugVerifyChildOrder]()) dart.assertFailed(null, I[1], 269, 12, "_debugVerifyChildOrder()");
+    }
+    move(child, opts) {
+      box.RenderBox.as(child);
+      let after = opts && 'after' in opts ? opts.after : null;
+      T.RenderBoxN().as(after);
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (!childParentData.keptAlive) {
+        super.move(child, {after: after});
+        this.childManager.didAdoptChild(child);
+        this.markNeedsLayout();
       } else {
-        this.size = ui.Size.zero;
-        t9 = this.child;
-        t9 == null ? null : t9.layout(this.constraints);
+        if (dart.equals(this[_keepAliveBucket][$_get](childParentData.index), child)) {
+          this[_keepAliveBucket][$remove](childParentData.index);
+        }
+        if (!dart.fn(() => {
+          this[_debugDanglingKeepAlives][$remove](child);
+          return true;
+        }, T.VoidTobool())()) dart.assertFailed(null, I[1], 296, 14, "() {\r\n        _debugDanglingKeepAlives.remove(child);\r\n        return true;\r\n      }()");
+        this.childManager.didAdoptChild(child);
+        if (!dart.fn(() => {
+          if (this[_keepAliveBucket][$containsKey](childParentData.index)) this[_debugDanglingKeepAlives][$add](dart.nullCheck(this[_keepAliveBucket][$_get](childParentData.index)));
+          return true;
+        }, T.VoidTobool())()) dart.assertFailed(null, I[1], 305, 14, "() {\r\n        if (_keepAliveBucket.containsKey(childParentData.index))\r\n          _debugDanglingKeepAlives.add(_keepAliveBucket[childParentData.index]!);\r\n        return true;\r\n      }()");
+        this[_keepAliveBucket][$_set](dart.nullCheck(childParentData.index), child);
+      }
+    }
+    remove(child) {
+      box.RenderBox.as(child);
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (!childParentData[_keptAlive]) {
+        super.remove(child);
+        return;
+      }
+      if (!dart.equals(this[_keepAliveBucket][$_get](childParentData.index), child)) dart.assertFailed(null, I[1], 321, 12, "_keepAliveBucket[childParentData.index] == child");
+      if (!dart.fn(() => {
+        this[_debugDanglingKeepAlives][$remove](child);
+        return true;
+      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 322, 12, "() {\r\n      _debugDanglingKeepAlives.remove(child);\r\n      return true;\r\n    }()");
+      this[_keepAliveBucket][$remove](childParentData.index);
+      this.dropChild(child);
+    }
+    removeAll() {
+      super.removeAll();
+      this[_keepAliveBucket][$values][$forEach](dart.bind(this, 'dropChild'));
+      this[_keepAliveBucket][$clear]();
+    }
+    [_createOrObtainChild](index, opts) {
+      let after = opts && 'after' in opts ? opts.after : null;
+      this.invokeLayoutCallback(sliver.SliverConstraints, dart.fn(constraints => {
+        if (!constraints._equals(this.constraints)) dart.assertFailed(null, I[1], 339, 14, "constraints == this.constraints");
+        if (this[_keepAliveBucket][$containsKey](index)) {
+          let child = dart.nullCheck(this[_keepAliveBucket][$remove](index));
+          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+          if (!childParentData[_keptAlive]) dart.assertFailed(null, I[1], 343, 16, "childParentData._keptAlive");
+          this.dropChild(child);
+          child.parentData = childParentData;
+          this.insert(child, {after: after});
+          childParentData[_keptAlive] = false;
+        } else {
+          this[_childManager].createChild(index, {after: after});
+        }
+      }, T.SliverConstraintsTovoid()));
+    }
+    [_destroyOrCacheChild](child) {
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (childParentData.keepAlive) {
+        if (!!childParentData[_keptAlive]) dart.assertFailed(null, I[1], 357, 14, "!childParentData._keptAlive");
+        this.remove(child);
+        this[_keepAliveBucket][$_set](dart.nullCheck(childParentData.index), child);
+        child.parentData = childParentData;
+        super.adoptChild(child);
+        childParentData[_keptAlive] = true;
+      } else {
+        if (!dart.equals(child.parent, this)) dart.assertFailed(null, I[1], 364, 14, "child.parent == this");
+        this[_childManager].removeChild(child);
+        if (!(child.parent == null)) dart.assertFailed(null, I[1], 366, 14, "child.parent == null");
+      }
+    }
+    attach(owner) {
+      object.PipelineOwner.as(owner);
+      super.attach(owner);
+      for (let child of this[_keepAliveBucket][$values])
+        child.attach(owner);
+    }
+    detach() {
+      super.detach();
+      for (let child of this[_keepAliveBucket][$values])
+        child.detach();
+    }
+    redepthChildren() {
+      super.redepthChildren();
+      this[_keepAliveBucket][$values][$forEach](dart.bind(this, 'redepthChild'));
+    }
+    visitChildren(visitor) {
+      super.visitChildren(visitor);
+      this[_keepAliveBucket][$values][$forEach](visitor);
+    }
+    visitChildrenForSemantics(visitor) {
+      super.visitChildren(visitor);
+    }
+    addInitialChild(opts) {
+      let index = opts && 'index' in opts ? opts.index : 0;
+      let layoutOffset = opts && 'layoutOffset' in opts ? opts.layoutOffset : 0;
+      if (!this[_debugAssertChildListLocked]()) dart.assertFailed(null, I[1], 420, 12, "_debugAssertChildListLocked()");
+      if (!(this.firstChild == null)) dart.assertFailed(null, I[1], 421, 12, "firstChild == null");
+      this[_createOrObtainChild](index, {after: null});
+      if (this.firstChild != null) {
+        if (!dart.equals(this.firstChild, this.lastChild)) dart.assertFailed(null, I[1], 424, 14, "firstChild == lastChild");
+        if (!(this.indexOf(dart.nullCheck(this.firstChild)) === index)) dart.assertFailed(null, I[1], 425, 14, "indexOf(firstChild!) == index");
+        let firstChildParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(this.firstChild).parentData));
+        firstChildParentData.layoutOffset = layoutOffset;
+        return true;
+      }
+      this.childManager.setDidUnderflow(true);
+      return false;
+    }
+    insertAndLayoutLeadingChild(childConstraints, opts) {
+      let parentUsesSize = opts && 'parentUsesSize' in opts ? opts.parentUsesSize : false;
+      if (!this[_debugAssertChildListLocked]()) dart.assertFailed(null, I[1], 452, 12, "_debugAssertChildListLocked()");
+      let index = this.indexOf(dart.nullCheck(this.firstChild)) - 1;
+      this[_createOrObtainChild](index, {after: null});
+      if (this.indexOf(dart.nullCheck(this.firstChild)) === index) {
+        dart.nullCheck(this.firstChild).layout(childConstraints, {parentUsesSize: parentUsesSize});
+        return this.firstChild;
+      }
+      this.childManager.setDidUnderflow(true);
+      return null;
+    }
+    insertAndLayoutChild(childConstraints, opts) {
+      let after = opts && 'after' in opts ? opts.after : null;
+      let parentUsesSize = opts && 'parentUsesSize' in opts ? opts.parentUsesSize : false;
+      if (!this[_debugAssertChildListLocked]()) dart.assertFailed(null, I[1], 481, 12, "_debugAssertChildListLocked()");
+      if (!(after != null)) dart.assertFailed(null, I[1], 482, 12, "after != null");
+      let index = this.indexOf(dart.nullCheck(after)) + 1;
+      this[_createOrObtainChild](index, {after: after});
+      let child = this.childAfter(after);
+      if (child != null && this.indexOf(child) === index) {
+        child.layout(childConstraints, {parentUsesSize: parentUsesSize});
+        return child;
+      }
+      this.childManager.setDidUnderflow(true);
+      return null;
+    }
+    collectGarbage(leadingGarbage, trailingGarbage) {
+      if (!this[_debugAssertChildListLocked]()) dart.assertFailed(null, I[1], 505, 12, "_debugAssertChildListLocked()");
+      if (!(this.childCount >= leadingGarbage + trailingGarbage)) dart.assertFailed(null, I[1], 506, 12, "childCount >= leadingGarbage + trailingGarbage");
+      this.invokeLayoutCallback(sliver.SliverConstraints, dart.fn(constraints => {
+        while (leadingGarbage > 0) {
+          this[_destroyOrCacheChild](dart.nullCheck(this.firstChild));
+          leadingGarbage = leadingGarbage - 1;
+        }
+        while (trailingGarbage > 0) {
+          this[_destroyOrCacheChild](dart.nullCheck(this.lastChild));
+          trailingGarbage = trailingGarbage - 1;
+        }
+        this[_keepAliveBucket][$values][$where](dart.fn(child => {
+          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+          return !childParentData.keepAlive;
+        }, T.RenderBoxTobool()))[$toList]()[$forEach](dart.bind(this[_childManager], 'removeChild'));
+        if (!this[_keepAliveBucket][$values][$where](dart.fn(child => {
+          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+          return !childParentData.keepAlive;
+        }, T.RenderBoxTobool()))[$isEmpty]) dart.assertFailed(null, I[1], 523, 14, "_keepAliveBucket.values.where((RenderBox child) {\r\n        final SliverMultiBoxAdaptorParentData childParentData = child.parentData! as SliverMultiBoxAdaptorParentData;\r\n        return !childParentData.keepAlive;\r\n      }).isEmpty");
+      }, T.SliverConstraintsTovoid()));
+    }
+    indexOf(child) {
+      if (!(child !== null)) dart.assertFailed(null, I[1], 533, 12, "child != null");
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (!(childParentData.index != null)) dart.assertFailed(null, I[1], 535, 12, "childParentData.index != null");
+      return dart.nullCheck(childParentData.index);
+    }
+    paintExtentOf(child) {
+      if (!(child !== null)) dart.assertFailed(null, I[1], 543, 12, "child != null");
+      if (!child.hasSize) dart.assertFailed(null, I[1], 544, 12, "child.hasSize");
+      switch (this.constraints.axis) {
+        case C[0] || CT.C0:
+        {
+          return child.size.width;
+        }
+        case C[1] || CT.C1:
+        {
+          return child.size.height;
+        }
+      }
+    }
+    hitTestChildren(result, opts) {
+      let mainAxisPosition = opts && 'mainAxisPosition' in opts ? opts.mainAxisPosition : null;
+      let crossAxisPosition = opts && 'crossAxisPosition' in opts ? opts.crossAxisPosition : null;
+      let child = this.lastChild;
+      let boxResult = new box.BoxHitTestResult.wrap(result);
+      while (child != null) {
+        if (this.hitTestBoxChild(boxResult, child, {mainAxisPosition: mainAxisPosition, crossAxisPosition: crossAxisPosition})) return true;
+        child = this.childBefore(child);
+      }
+      return false;
+    }
+    childMainAxisPosition(child) {
+      box.RenderBox.as(child);
+      return dart.nullCheck(this.childScrollOffset(child)) - this.constraints.scrollOffset;
+    }
+    childScrollOffset(child) {
+      object.RenderObject.as(child);
+      if (!(child !== null)) dart.assertFailed(null, I[1], 572, 12, "child != null");
+      if (!dart.equals(child.parent, this)) dart.assertFailed(null, I[1], 573, 12, "child.parent == this");
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      return childParentData.layoutOffset;
+    }
+    applyPaintTransform(child, transform) {
+      box.RenderBox.as(child);
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (childParentData.index == null) {
+        transform.setZero();
+      } else if (this[_keepAliveBucket][$containsKey](childParentData.index)) {
+        transform.setZero();
+      } else {
+        this.applyPaintTransformForBoxChild(child, transform);
       }
     }
     paint(context, offset) {
-      this[_isOutOfBoundInTop] = false;
-      context.canvas.translate(offset.dx, offset.dy);
-      if (this[_tooltipState$][_show]) {
-        if ((this[_animationFactor] === 0 || this[_tooltip].animationDuration === 0) && this[_tooltipState$].widget.onTooltipRender != null) {
-          let tooltipRenderArgs = new core$.TooltipRenderArgs.new(this[_header], this[_stringValue], this[_x] != null && this[_y] != null ? new ui.Offset.new(dart.nullCheck(this[_x]), dart.nullCheck(this[_y])) : null);
-          dart.nullCheck(this[_tooltipState$].widget.onTooltipRender)(tooltipRenderArgs);
-          this[_x] = dart.nullCheck(tooltipRenderArgs.location).dx;
-          this[_y] = dart.nullCheck(tooltipRenderArgs.location).dy;
-          this.stringValue = tooltipRenderArgs.text;
-          this.header = tooltipRenderArgs.header;
+      if (this.firstChild == null) return;
+      let mainAxisUnit = null;
+      let crossAxisUnit = null;
+      let originOffset = null;
+      let addExtent = null;
+      switch (sliver.applyGrowthDirectionToAxisDirection(this.constraints.axisDirection, this.constraints.growthDirection)) {
+        case C[4] || CT.C4:
+        {
+          mainAxisUnit = C[2] || CT.C2;
+          crossAxisUnit = C[3] || CT.C3;
+          originOffset = offset['+'](new ui.Offset.new(0.0, dart.nullCheck(this.geometry).paintExtent));
+          addExtent = true;
+          break;
         }
-        if (this[_tooltip].builder == null) {
-          this[_renderDefaultTooltipView](context.canvas);
-        } else {
-          this[_renderTemplateTooltipView](context, offset);
+        case C[6] || CT.C6:
+        {
+          mainAxisUnit = C[3] || CT.C3;
+          crossAxisUnit = C[5] || CT.C5;
+          originOffset = offset;
+          addExtent = false;
+          break;
         }
-      }
-      context.canvas.translate(-offset.dx, -offset.dy);
-    }
-    [_renderTemplateTooltipView](context, offset) {
-      this[_templateSize] = new ui.Size.copy(dart.nullCheck(this.child).size);
-      this[_tooltipRect] = new ui.Rect.fromLTWH(dart.nullCheck(this[_x]) - this[_templateSize].width / 2, dart.nullCheck(this[_y]) - this[_templateSize].height - 5, this[_templateSize].width, this[_templateSize].height);
-      let top = dart.nullCheck(this[_y]);
-      let paddingTop = 0.0;
-      let tooltipLocation = this[_getTemplateLocation](dart.nullCheck(this[_tooltipRect]), this[_boundaryRect]);
-      let arrowLocation = new ui.Offset.new(dart.nullCheck(this[_x]) - this[_templateSize].width / 2, this[_isOutOfBoundInTop] ? dart.nullCheck(this[_y]) : dart.nullCheck(this[_y]) - 5);
-      if (dart.nullCheck(this[_y]) < this[_boundaryRect].top) {
-        paddingTop = this[_boundaryRect].top + 5;
-        top = tooltipLocation.dy;
-      }
-      top = this[_isOutOfBoundInTop] ? top + 5 : dart.nullCheck(this[_tooltipRect]).top;
-      if (dart.nullCheck(this[_y]) >= this[_boundaryRect].top) {
-        paddingTop = top;
-      }
-      context.pushTransform(true, new ui.Offset.new(dart.nullCheck(this[_x]), dart.nullCheck(this[_y]))['+'](offset), vector_math_64.Matrix4.diagonal3Values(this[_animationFactor], this[_animationFactor], 1.0), dart.fn((tooltipTemplateContext, tooltipTemplateOffset) => {
-        tooltipTemplateContext.paintChild(dart.nullCheck(this.child), (this[_isOutOfBoundInTop] ? new ui.Offset.new(tooltipLocation.dx, tooltipLocation.dy + paddingTop) : tooltipLocation)['+'](offset));
-        this[_renderArrow](tooltipTemplateContext.canvas, arrowLocation['+'](offset));
-      }, T.PaintingContextAndOffsetTovoid()));
-    }
-    [_renderArrow](canvas, location) {
-      let t9, t9$;
-      let currentSize = new ui.Size.new(this[_templateSize].width, 5);
-      let templateHeight = this[_templateSize].height;
-      let arrowHeight = currentSize.height + 2;
-      let centerTemplateY = this[_isOutOfBoundInTop] ? location.dy + currentSize.height + templateHeight / 2 + 2 : location.dy - templateHeight / 2 - 2;
-      let locationY = this[_isOutOfBoundInTop] ? centerTemplateY - templateHeight / 2 - arrowHeight : centerTemplateY + templateHeight / 2;
-      let centerX = location.dx + currentSize.width / 2;
-      this[_arrowPath] = (t9 = ui.Path.new(), (() => {
-        t9.moveTo(centerX + (this[_isOutOfBoundInTop] ? 0.0 : -8), locationY);
-        t9.lineTo(centerX + (this[_isOutOfBoundInTop] ? -8 : 8), locationY + (this[_isOutOfBoundInTop] ? arrowHeight : 0));
-        t9.lineTo(centerX + (this[_isOutOfBoundInTop] ? 8 : 0.0), locationY + arrowHeight);
-        t9.close();
-        return t9;
-      })());
-      canvas.drawPath(this[_arrowPath], (t9$ = ui.Paint.new(), (() => {
-        t9$.color = this[_tooltip].color.withOpacity(this[_tooltip].opacity);
-        t9$.style = ui.PaintingStyle.fill;
-        return t9$;
-      })()));
-    }
-    calculateLocation(position) {
-      let t9, t9$;
-      this[_x] = (t9 = position, t9 == null ? null : t9.dx);
-      this[_y] = (t9$ = position, t9$ == null ? null : t9$.dy);
-    }
-    [_renderDefaultTooltipView](canvas) {
-      let t9, t9$;
-      this[_isLeft] = false;
-      this[_isRight] = false;
-      let height = 0.0;
-      let width = 0.0;
-      let headerTextWidth = 0.0;
-      let headerTextHeight = 0.0;
-      this[_markerSize] = 0.0;
-      this[_totalWidth] = this[_boundaryRect].left[$toDouble]() + this[_boundaryRect].width[$toDouble]();
-      let _textStyle = this[_tooltip].textStyle;
-      let textStyle = _textStyle.copyWith({color: (t9 = _textStyle.color, t9 == null ? this[_tooltip].labelColor : t9)});
-      width = core$.measureText(dart.nullCheck(this[_stringValue]), textStyle).width;
-      height = core$.measureText(dart.nullCheck(this[_stringValue]), textStyle).height;
-      if (dart.nullCheck(this[_header])[$isNotEmpty]) {
-        let headerTextStyle = _textStyle.copyWith({color: (t9$ = _textStyle.color, t9$ == null ? this[_tooltip].labelColor : t9$), fontWeight: ui.FontWeight.bold});
-        headerTextWidth = core$.measureText(dart.nullCheck(this[_header]), headerTextStyle).width;
-        headerTextHeight = core$.measureText(dart.nullCheck(this[_header]), headerTextStyle).height + 10;
-        width = width > headerTextWidth ? width : headerTextWidth;
-      }
-      if (width < 10) {
-        width = 10.0;
-        this[_borderRadius] = this[_borderRadius] > 5 ? 5.0 : this[_borderRadius];
-      }
-      if (this[_borderRadius] > 15) {
-        this[_borderRadius] = 15.0;
-      }
-      if (this[_x] != null && this[_y] != null && (this[_inversePadding] != null || this[_normalPadding] != null) && (this[_stringValue] !== "" || this[_header] !== "")) {
-        let backRect = this[_calculateBackgroundRect](canvas, height, width, headerTextHeight);
-        let startArrow = this[_pointerLength] / 2;
-        let endArrow = this[_pointerLength] / 2;
-        let xPosition = this[_nosePointX];
-        let yPosition = this[_nosePointY];
-        this[_drawTooltipBackground](canvas, this[_isTop], backRect, xPosition, yPosition, xPosition - startArrow, this[_isTop] ? yPosition - startArrow : yPosition + startArrow, xPosition + endArrow, this[_isTop] ? yPosition - endArrow : yPosition + endArrow, this[_borderRadius], this[_arrowPath], this[_isLeft], this[_isRight], this[_tooltipAnimation]);
-      }
-    }
-    [_calculateBackgroundRect](canvas, height, width, headerTextHeight) {
-      let t9, t9$, t9$0, t9$1;
-      let widthPadding = 15.0;
-      if (this[_tooltip].canShowMarker && this[_tooltipState$].needMarker) {
-        this[_markerSize] = 5.0;
-        widthPadding = 17.0;
-      }
-      let rect = new ui.Rect.fromLTWH(dart.nullCheck(this[_x]), dart.nullCheck(this[_y]), width + 2 * this[_markerSize] + widthPadding, height + headerTextHeight + 10);
-      let newRect = new ui.Rect.fromLTWH(this[_boundaryRect].left + 20, this[_boundaryRect].top, this[_boundaryRect].width - 40, this[_boundaryRect].height);
-      let leftRect = new ui.Rect.fromLTWH(this[_boundaryRect].left - 5, this[_boundaryRect].top - 20, newRect.left - (this[_boundaryRect].left - 5), this[_boundaryRect].height + 40);
-      let rightRect = new ui.Rect.fromLTWH(newRect.right, this[_boundaryRect].top - 20, this[_boundaryRect].right + 5 + newRect.right, this[_boundaryRect].height + 40);
-      if (leftRect.contains(new ui.Offset.new(dart.nullCheck(this[_x]), dart.nullCheck(this[_y])))) {
-        this[_isLeft] = true;
-        this[_isRight] = false;
-      } else if (rightRect.contains(new ui.Offset.new(dart.nullCheck(this[_x]), dart.nullCheck(this[_y])))) {
-        this[_isLeft] = false;
-        this[_isRight] = true;
-      }
-      if (dart.nullCheck(this[_y]) > this[_pointerLength] + rect.height && dart.nullCheck(this[_y]) > this[_boundaryRect].top) {
-        this[_isTop] = true;
-        this[_xPos] = dart.nullCheck(this[_x]) - rect.width / 2;
-        this[_yPos] = dart.nullCheck(this[_y]) - rect.height - dart.notNull((t9 = this[_normalPadding], t9 == null ? 0 : t9));
-        this[_nosePointY] = rect.top - dart.notNull((t9$ = this[_normalPadding], t9$ == null ? 0 : t9$));
-        this[_nosePointX] = rect.left;
-        let tooltipRightEnd = dart.nullCheck(this[_x]) + rect.width / 2;
-        this[_xPos] = dart.nullCheck(this[_xPos]) < this[_boundaryRect].left ? this[_boundaryRect].left : tooltipRightEnd > this[_totalWidth] ? this[_totalWidth] - rect.width : this[_xPos];
-        this[_yPos] = dart.nullCheck(this[_yPos]) - this[_pointerLength] / 2;
-      } else {
-        this[_isTop] = false;
-        this[_xPos] = dart.nullCheck(this[_x]) - rect.width / 2;
-        this[_yPos] = (dart.nullCheck(this[_y]) >= this[_boundaryRect].top ? dart.nullCheck(this[_y]) : this[_boundaryRect].top) + this[_pointerLength] / 2 + dart.notNull((t9$0 = this[_inversePadding], t9$0 == null ? 0 : t9$0));
-        this[_nosePointX] = rect.left;
-        this[_nosePointY] = (dart.nullCheck(this[_y]) >= this[_boundaryRect].top ? dart.nullCheck(this[_y]) : this[_boundaryRect].top) + dart.notNull((t9$1 = this[_inversePadding], t9$1 == null ? 0 : t9$1));
-        let tooltipRightEnd = dart.nullCheck(this[_x]) + rect.width / 2;
-        this[_xPos] = dart.nullCheck(this[_xPos]) < this[_boundaryRect].left ? this[_boundaryRect].left : tooltipRightEnd > this[_totalWidth] ? this[_totalWidth] - rect.width : this[_xPos];
-      }
-      if (dart.nullCheck(this[_xPos]) <= this[_boundaryRect].left + 5) {
-        this[_xPos] = dart.nullCheck(this[_xPos]) + 5;
-      } else if (dart.nullCheck(this[_xPos]) + rect.width >= this[_totalWidth] - 5) {
-        this[_xPos] = dart.nullCheck(this[_xPos]) - 5;
-      }
-      return new ui.Rect.fromLTWH(dart.nullCheck(this[_xPos]), dart.nullCheck(this[_yPos]), rect.width, rect.height);
-    }
-    [_drawTooltipBackground](canvas, isTop, rectF, xPosition, yPosition, startX, startY, endX, endY, borderRadius, backgroundPath, isLeft, isRight, tooltipAnimation) {
-      let t9, t9$, t9$0;
-      let animationFactor = tooltipAnimation == null ? 1.0 : tooltipAnimation.value;
-      backgroundPath.reset();
-      if (!this[_canResetPath]) {
-        if (isLeft) {
-          startX = rectF.left + 2 * borderRadius;
-          endX = startX + this[_pointerLength];
-        } else if (isRight) {
-          startX = endX - this[_pointerLength];
-          endX = rectF.right - 2 * borderRadius;
+        case C[7] || CT.C7:
+        {
+          mainAxisUnit = C[5] || CT.C5;
+          crossAxisUnit = C[3] || CT.C3;
+          originOffset = offset;
+          addExtent = false;
+          break;
         }
-        let rect = new ui.Rect.fromLTWH(rectF.width / 2 + (rectF.left - rectF.width / 2 * animationFactor), rectF.height / 2 + (rectF.top - rectF.height / 2 * animationFactor), rectF.width * animationFactor, rectF.height * animationFactor);
-        this[_tooltipRect] = rect;
-        let tooltipRect = new ui.RRect.fromRectAndCorners(rect, {bottomLeft: new ui.Radius.circular(borderRadius), bottomRight: new ui.Radius.circular(borderRadius), topLeft: new ui.Radius.circular(borderRadius), topRight: new ui.Radius.circular(borderRadius)});
-        this[_drawTooltipPath](canvas, tooltipRect, rect, backgroundPath, isTop, isLeft, isRight, startX, endX, animationFactor, xPosition, yPosition);
-        let textStyle = this[_tooltip].textStyle.copyWith({color: (t9$ = (t9 = this[_tooltip].textStyle.color, t9 == null ? null : t9.withOpacity(this[_tooltip].opacity)), t9$ == null ? this[_tooltip].labelColor : t9$), fontSize: dart.notNull((t9$0 = this[_tooltip].textStyle.fontSize, t9$0 == null ? 12.0 : t9$0)) * animationFactor});
-        let result = core$.measureText(dart.nullCheck(this[_stringValue]), textStyle);
-        this[_drawTooltipText](canvas, tooltipRect, textStyle, result, animationFactor);
-        if (this[_tooltip].canShowMarker && this[_tooltipState$].needMarker && this[_markerTypes][$isNotEmpty]) {
-          if (this[_markerTypes][$length] === 1) {
-            let markerPoint = new ui.Offset.new(tooltipRect.left + tooltipRect.width / 2 - result.width / 2, tooltipRect.top + tooltipRect.height - result.height / 2 - this.markerSize);
-            this[_drawMarkers](markerPoint, canvas, animationFactor, 0);
-          } else {
-            let height = 0.0;
-            let textSize = C[20] || CT.C20;
-            let textValues = dart.nullCheck(this[_stringValue])[$split]("\n");
-            for (let i = 0; i < this[_markerTypes][$length] && i < textValues[$length]; i = i + 1) {
-              let str = "";
-              str = str + textValues[$_get](i);
-              let result1 = core$.measureText(str, textStyle);
-              let markerPoint = new ui.Offset.new(tooltipRect.left + tooltipRect.width / 2 - result.width / 2, this[_markerPointY] + height - this.markerSize);
-              textSize = result1;
-              height = height + textSize.height;
-              if (this[_markerTypes][$_get](i) != null) {
-                this[_drawMarkers](markerPoint, canvas, animationFactor, i);
-              }
-            }
-          }
+        case C[9] || CT.C9:
+        {
+          mainAxisUnit = C[8] || CT.C8;
+          crossAxisUnit = C[5] || CT.C5;
+          originOffset = offset['+'](new ui.Offset.new(dart.nullCheck(this.geometry).paintExtent, 0.0));
+          addExtent = true;
+          break;
         }
       }
-      this[_xPos] = null;
-      this[_yPos] = null;
-    }
-    [_drawMarkers](markerPoint, canvas, animationFactor, i) {
-      let t9;
-      if (this[_markerImages][$_get](i) == null) {
-        let markerPath = tooltip_internal._getMarkerShapesPath(dart.nullCheck(this[_markerTypes][$_get](i)), markerPoint, this[_markerImages][$_get](i), new ui.Size.new(2 * this[_markerSize] * animationFactor, 2 * this[_markerSize] * animationFactor));
-        if (dart.nullCheck(this[_markerGradients])[$_get](i) != null) {
-          this[_markerPaints][$_set](i, (t9 = ui.Paint.new(), (() => {
-            t9.shader = dart.nullCheck(dart.nullCheck(this[_markerGradients])[$_get](i)).createShader(tooltip_internal._getMarkerShapesPath(dart.nullCheck(this[_markerTypes][$_get](i)), new ui.Offset.new(markerPoint.dx, markerPoint.dy), this[_markerImages][$_get](i), new ui.Size.new(2 * this[_markerSize] * animationFactor, 2 * this[_markerSize] * animationFactor)).getBounds());
-            t9.style = ui.PaintingStyle.fill;
-            return t9;
-          })()));
-        }
-        canvas.drawPath(markerPath, dart.nullCheck(this[_markerPaints][$_get](i)));
-        let markerBorderPaint = ui.Paint.new();
-        markerBorderPaint.color = colors.Colors.white.withOpacity(this[_tooltip].opacity);
-        markerBorderPaint.strokeWidth = 1.0;
-        markerBorderPaint.style = ui.PaintingStyle.stroke;
-        canvas.drawPath(markerPath, markerBorderPaint);
-      } else {
-        this[_markerSize] = this[_markerSize] * (2 * animationFactor);
-        let positionRect = new ui.Rect.fromLTWH(markerPoint.dx - this[_markerSize] / 2, markerPoint.dy - this[_markerSize] / 2, this[_markerSize], this[_markerSize]);
-        decoration_image.paintImage({canvas: canvas, image: ui.Image.as(this[_markerImages][$_get](i)), rect: positionRect, fit: box_fit.BoxFit.fill});
+      if (!(mainAxisUnit !== null)) dart.assertFailed(null, I[1], 631, 12, "mainAxisUnit != null");
+      if (!(addExtent !== null)) dart.assertFailed(null, I[1], 632, 12, "addExtent != null");
+      let child = this.firstChild;
+      while (child != null) {
+        let mainAxisDelta = this.childMainAxisPosition(child);
+        let crossAxisDelta = this.childCrossAxisPosition(child);
+        let childOffset = new ui.Offset.new(originOffset.dx + mainAxisUnit.dx * mainAxisDelta + crossAxisUnit.dx * crossAxisDelta, originOffset.dy + mainAxisUnit.dy * mainAxisDelta + crossAxisUnit.dy * crossAxisDelta);
+        if (addExtent) childOffset = childOffset['+'](mainAxisUnit['*'](this.paintExtentOf(child)));
+        if (mainAxisDelta < this.constraints.remainingPaintExtent && mainAxisDelta + this.paintExtentOf(child) > 0) context.paintChild(child, childOffset);
+        child = this.childAfter(child);
       }
     }
-    [_drawTooltipPath](canvas, tooltipRect, rect, backgroundPath, isTop, isLeft, isRight, startX, endX, animationFactor, xPosition, yPosition) {
-      let t9, t9$, t9$0, t9$1;
-      let factor = 0.0;
-      if (!(this[_tooltip].elevation >= 0)) dart.assertFailed("The elevation of the tooltip for all series must not be less than 0.", I[1], 822, 12, "_tooltip.elevation >= 0");
-      if (isRight) {
-        factor = isTop ? rect.bottom : rect.top;
-        backgroundPath.moveTo(rect.right - 20, factor);
-        backgroundPath.lineTo(xPosition, yPosition);
-        backgroundPath.lineTo(rect.right, isTop ? factor - this[_borderRadius] : factor + this[_borderRadius]);
-        backgroundPath.arcToPoint(new ui.Offset.new(rect.right - this[_borderRadius], factor), {radius: new ui.Radius.circular(this[_borderRadius]), clockwise: isTop});
-        backgroundPath.lineTo(rect.right - 20, factor);
-      } else if (isLeft) {
-        factor = isTop ? rect.bottom : rect.top;
-        backgroundPath.moveTo(rect.left + 20, factor);
-        backgroundPath.lineTo(xPosition, yPosition);
-        backgroundPath.lineTo(rect.left, isTop ? factor - this[_borderRadius] : factor + this[_borderRadius]);
-        backgroundPath.arcToPoint(new ui.Offset.new(rect.left + this[_borderRadius], factor), {radius: new ui.Radius.circular(this[_borderRadius]), clockwise: !isTop});
-        backgroundPath.lineTo(rect.left + 20, factor);
-      } else {
-        factor = isTop ? tooltipRect.bottom : tooltipRect.top;
-        backgroundPath.moveTo(startX - (endX - startX) / 4, factor);
-        backgroundPath.lineTo(xPosition, yPosition);
-        backgroundPath.lineTo(endX + (endX - startX) / 4, factor);
-        backgroundPath.lineTo(startX + (endX - startX) / 4, factor);
-      }
-      let fillPaint = (t9 = ui.Paint.new(), (() => {
-        t9.color = this[_tooltip].color.withOpacity(this[_tooltip].opacity);
-        t9.strokeCap = ui.StrokeCap.round;
-        t9.style = ui.PaintingStyle.fill;
-        return t9;
-      })());
-      let strokePaint = (t9$ = ui.Paint.new(), (() => {
-        t9$.color = this[_tooltip].borderColor._equals(colors.Colors.transparent) ? colors.Colors.transparent : this[_tooltip].borderColor.withOpacity(this[_tooltip].opacity);
-        t9$.strokeCap = ui.StrokeCap.butt;
-        t9$.style = ui.PaintingStyle.stroke;
-        t9$.strokeWidth = this[_tooltip].borderWidth;
-        return t9$;
-      })());
-      this[_tooltip].borderWidth === 0 ? strokePaint.color = colors.Colors.transparent : strokePaint.color = strokePaint.color;
-      let tooltipPath = ui.Path.new();
-      tooltipPath.addRRect(tooltipRect);
-      if (this[_tooltip].elevation > 0) {
-        if (tooltipRect.width * animationFactor > tooltipRect.width * 0.85) {
-          canvas.drawShadow(this[_arrowPath], (t9$0 = this[_tooltip].shadowColor, t9$0 == null ? fillPaint.color : t9$0), this[_tooltip].elevation, true);
-        }
-        canvas.drawShadow(tooltipPath, (t9$1 = this[_tooltip].shadowColor, t9$1 == null ? fillPaint.color : t9$1), this[_tooltip].elevation, true);
-      }
-      if (tooltipRect.width * animationFactor > tooltipRect.width * 0.85) {
-        canvas.drawPath(this[_arrowPath], fillPaint);
-        canvas.drawPath(this[_arrowPath], strokePaint);
-      }
-      canvas.drawPath(tooltipPath, fillPaint);
-      canvas.drawPath(tooltipPath, strokePaint);
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(diagnostics.DiagnosticsNode.message(this.firstChild != null ? "currently live children: " + dart.str(this.indexOf(dart.nullCheck(this.firstChild))) + " to " + dart.str(this.indexOf(dart.nullCheck(this.lastChild))) : "no children current live"));
     }
-    [_drawTooltipText](canvas, tooltipRect, textStyle, result, animationFactor) {
-      let t9, t9$, t9$0;
-      let markerPadding = 0;
-      for (let i = 0; i < dart.nullCheck(this[_stringValue]).length; i = i + 1) {
-        if (this[_tooltip].canShowMarker && this[_tooltip].shared && this[_tooltipState$][_shared]) {
-          markerPadding = 10 - this.markerSize + 5;
+    debugAssertChildListIsNonEmptyAndContiguous() {
+      if (!dart.fn(() => {
+        if (!(this.firstChild != null)) dart.assertFailed(null, I[1], 665, 14, "firstChild != null");
+        let index = this.indexOf(dart.nullCheck(this.firstChild));
+        let child = this.childAfter(dart.nullCheck(this.firstChild));
+        while (child != null) {
+          index = index + 1;
+          if (!(this.indexOf(child) === index)) dart.assertFailed(null, I[1], 670, 16, "indexOf(child) == index");
+          child = this.childAfter(child);
         }
-      }
-      let _maxLinesOfTooltipContent = core$.getMaxLinesContent(this[_stringValue]);
-      if (dart.nullCheck(this[_header])[$isNotEmpty]) {
-        let headerTextStyle = this[_tooltip].textStyle.copyWith({color: (t9$ = (t9 = textStyle.color, t9 == null ? null : t9.withOpacity(this[_tooltip].opacity)), t9$ == null ? this[_tooltip].labelColor : t9$), fontSize: dart.notNull((t9$0 = textStyle.fontSize, t9$0 == null ? 12.0 : t9$0)) * animationFactor, fontWeight: ui.FontWeight.bold});
-        let headerResult = core$.measureText(dart.nullCheck(this[_header]), headerTextStyle);
-        this[_markerPointY] = tooltipRect.top + (dart.nullCheck(this[_header])[$isNotEmpty] ? headerResult.height + 10 * 2 + 6 : 10 * 1.7);
-        let maxLinesOfHeader = core$.getMaxLinesContent(this[_header]);
-        this[_drawText](this[_tooltip], canvas, dart.nullCheck(this[_header]), new ui.Offset.new(markerPadding + tooltipRect.left + tooltipRect.width / 2 - headerResult.width / 2, tooltipRect.top + 10 / 2), headerTextStyle, maxLinesOfHeader);
-        let dividerPaint = ui.Paint.new();
-        dividerPaint.color = this[_tooltip].labelColor.withOpacity(this[_tooltip].opacity);
-        dividerPaint.strokeWidth = 0.5 * animationFactor;
-        dividerPaint.style = ui.PaintingStyle.stroke;
-        let lineOffset = 0;
-        if (this[_tooltip].format != null && dart.nullCheck(this[_tooltip].format)[$isNotEmpty]) {
-          if (dart.equals(this[_tooltip].textAlignment, core$.TooltipAlignment.near)) {
-            lineOffset = 10;
-          } else if (dart.equals(this[_tooltip].textAlignment, core$.TooltipAlignment.far)) {
-            lineOffset = -10;
-          }
-        }
-        if (animationFactor > 0.5) {
-          canvas.drawLine(new ui.Offset.new(tooltipRect.left + 10 - lineOffset, tooltipRect.top + headerResult.height + 10), new ui.Offset.new(tooltipRect.right - 10 - lineOffset, tooltipRect.top + headerResult.height + 10), dividerPaint);
-        }
-        this[_drawText](this[_tooltip], canvas, dart.nullCheck(this[_stringValue]), new ui.Offset.new(tooltipRect.left + 2 * this[_markerSize] + tooltipRect.width / 2 - result.width / 2, tooltipRect.top + tooltipRect.height - result.height - 5), textStyle, _maxLinesOfTooltipContent);
-      } else {
-        this[_drawText](this[_tooltip], canvas, dart.nullCheck(this[_stringValue]), new ui.Offset.new(tooltipRect.left + 2 * this[_markerSize] + tooltipRect.width / 2 - result.width / 2, tooltipRect.top + tooltipRect.height / 2 - result.height / 2), textStyle, _maxLinesOfTooltipContent);
-      }
+        return true;
+      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 664, 12, "() {\r\n      assert(firstChild != null);\r\n      int index = indexOf(firstChild!);\r\n      RenderBox? child = childAfter(firstChild!);\r\n      while (child != null) {\r\n        index += 1;\r\n        assert(indexOf(child) == index);\r\n        child = childAfter(child);\r\n      }\r\n      return true;\r\n    }()");
+      return true;
     }
-    [_drawText](tooltip, canvas, text, point, style, maxLines = null, rotation = null) {
-      let t9;
-      let tooltipTextAlign = ui.TextAlign.start;
-      let pointX = point.dx;
-      if (tooltip !== null && tooltip.format != null && dart.nullCheck(tooltip.format)[$isNotEmpty]) {
-        if (dart.equals(tooltip.textAlignment, "near")) {
-          tooltipTextAlign = ui.TextAlign.start;
-          pointX = dart.nullCheck(this[_tooltipRect]).left;
-        } else if (dart.equals(tooltip.textAlignment, "far")) {
-          tooltipTextAlign = ui.TextAlign.end;
-          pointX = dart.nullCheck(this[_tooltipRect]).right - core$.measureText(text, style).width;
+    debugDescribeChildren() {
+      let t1;
+      let children = T.JSArrayOfDiagnosticsNode().of([]);
+      if (this.firstChild != null) {
+        let child = this.firstChild;
+        while (true) {
+          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(child).parentData));
+          children[$add](child.toDiagnosticsNode({name: "child with index " + dart.str(childParentData.index)}));
+          if (dart.equals(child, this.lastChild)) break;
+          child = childParentData.nextSibling;
         }
       }
-      if (true) {
-        if (this[_animationFactor] < 0.5) {
-          style = style.copyWith({color: dart.nullCheck(style.color).withOpacity(this[_animationFactor])});
-        } else if (this[_animationFactor] <= 1) {
-          style = style.copyWith({color: dart.nullCheck(style.color).withOpacity(tooltip.opacity)});
+      if (this[_keepAliveBucket][$isNotEmpty]) {
+        let indices = (t1 = this[_keepAliveBucket][$keys][$toList](), (() => {
+          t1[$sort]();
+          return t1;
+        })());
+        for (let index of indices) {
+          children[$add](dart.nullCheck(this[_keepAliveBucket][$_get](index)).toDiagnosticsNode({name: "child with index " + dart.str(index) + " (kept alive but not laid out)", style: diagnostics.DiagnosticsTreeStyle.offstage}));
         }
       }
-      let span = new text_span.TextSpan.new({text: text, style: style});
-      let tp = new text_painter.TextPainter.new({text: span, textDirection: ui.TextDirection.ltr, textAlign: tooltipTextAlign, maxLines: (t9 = maxLines, t9 == null ? 1 : t9)});
-      tp.layout();
-      canvas.save();
-      canvas.translate(pointX, point.dy);
-      if (rotation != null && dart.notNull(rotation) > 0) {
-        canvas.rotate(core$.degreeToRadian(rotation));
-      }
-      tp.paint(canvas, C[21] || CT.C21);
-      canvas.restore();
-    }
-    [_getTemplateLocation](tooltipRect, bounds) {
-      let left = tooltipRect.left;
-      let top = tooltipRect.top;
-      if (tooltipRect.left < bounds.left) {
-        left = bounds.left;
-      }
-      if (tooltipRect.top < bounds.top) {
-        top = bounds.top;
-        this[_isOutOfBoundInTop] = true;
-      }
-      if (tooltipRect.left + tooltipRect.width > bounds.left + bounds.width) {
-        left = bounds.left + bounds.width - tooltipRect.width;
-      }
-      if (tooltipRect.top + tooltipRect.height > bounds.top + bounds.height) {
-        top = bounds.top + bounds.height - tooltipRect.height;
-      }
-      return new ui.Offset.new(left, top);
+      return children;
     }
   };
-  (tooltip_internal.TooltipRenderBox.new = function(_tooltipState, _tooltipAnimation, _animationController, child = null) {
-    this[__TooltipRenderBox__tooltipAnimation] = null;
-    this[__TooltipRenderBox__animationController] = null;
-    this[__TooltipRenderBox__animationFactor] = null;
-    this[_stringValue] = "";
-    this[_header] = "";
-    this[_normalPadding] = 0.0;
-    this[_inversePadding] = null;
-    this[__TooltipRenderBox__markerSize] = null;
-    this[_canResetPath] = false;
-    this[_boundaryRect] = C[19] || CT.C19;
-    this[_markerTypes] = T.JSArrayOfDataMarkerTypeN().of([]);
-    this[_markerPaints] = T.JSArrayOfPaintN().of([]);
-    this[_markerImages] = [];
-    this[_markerGradients] = null;
-    this[_pointerLength] = 10.0;
-    this[_xPos] = null;
-    this[_yPos] = null;
-    this[_x] = null;
-    this[_y] = null;
-    this[_nosePointX] = 0.0;
-    this[_nosePointY] = 0.0;
-    this[_borderRadius] = 5.0;
-    this[_totalWidth] = 0.0;
-    this[_isLeft] = false;
-    this[_isRight] = false;
-    this[_isTop] = false;
-    this[_isOutOfBoundInTop] = false;
-    this[__TooltipRenderBox__markerPointY] = null;
-    this[_tooltipRect] = null;
-    this[_arrowPath] = ui.Path.new();
-    this[__TooltipRenderBox__templateSize] = null;
-    this[_tooltipState$] = _tooltipState;
-    this[__TooltipRenderBox__tooltipAnimation] = _tooltipAnimation;
-    this[__TooltipRenderBox__animationController] = _animationController;
-    tooltip_internal.TooltipRenderBox.__proto__.new.call(this, child);
-    ;
-  }).prototype = tooltip_internal.TooltipRenderBox.prototype;
-  dart.addTypeTests(tooltip_internal.TooltipRenderBox);
-  dart.addTypeCaches(tooltip_internal.TooltipRenderBox);
-  dart.setMethodSignature(tooltip_internal.TooltipRenderBox, () => ({
-    __proto__: dart.getMethods(tooltip_internal.TooltipRenderBox.__proto__),
-    [_renderTemplateTooltipView]: dart.fnType(dart.void, [object.PaintingContext, ui.Offset]),
-    [_renderArrow]: dart.fnType(dart.void, [ui.Canvas, ui.Offset]),
-    calculateLocation: dart.fnType(dart.void, [dart.nullable(ui.Offset)]),
-    [_renderDefaultTooltipView]: dart.fnType(dart.void, [ui.Canvas]),
-    [_calculateBackgroundRect]: dart.fnType(ui.Rect, [ui.Canvas, core.double, core.double, core.double]),
-    [_drawTooltipBackground]: dart.fnType(dart.void, [ui.Canvas, core.bool, ui.Rect, core.double, core.double, core.double, core.double, core.double, core.double, core.double, ui.Path, core.bool, core.bool, dart.nullable(animation.Animation$(core.double))]),
-    [_drawMarkers]: dart.fnType(dart.void, [ui.Offset, ui.Canvas, core.double, core.int]),
-    [_drawTooltipPath]: dart.fnType(dart.void, [ui.Canvas, ui.RRect, ui.Rect, ui.Path, core.bool, core.bool, core.bool, core.double, core.double, core.double, core.double, core.double]),
-    [_drawTooltipText]: dart.fnType(dart.void, [ui.Canvas, ui.RRect, text_style.TextStyle, ui.Size, core.double]),
-    [_drawText]: dart.fnType(dart.void, [tooltip_internal.SfTooltip, ui.Canvas, core.String, ui.Offset, text_style.TextStyle], [dart.nullable(core.int), dart.nullable(core.int)]),
-    [_getTemplateLocation]: dart.fnType(ui.Offset, [ui.Rect, ui.Rect])
+  (sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.new = function(opts) {
+    let childManager = opts && 'childManager' in opts ? opts.childManager : null;
+    this[_keepAliveBucket] = new (T.IdentityMapOfint$RenderBox()).new();
+    this[__RenderSliverMultiBoxAdaptor__debugDanglingKeepAlives] = null;
+    this[_debugChildIntegrityEnabled] = true;
+    if (!(childManager !== null)) dart.assertFailed(null, I[1], 190, 15, "childManager != null");
+    this[_childManager] = childManager;
+    sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__.new.call(this);
+    if (!dart.fn(() => {
+      this[_debugDanglingKeepAlives] = T.JSArrayOfRenderBox().of([]);
+      return true;
+    }, T.VoidTobool())()) dart.assertFailed(null, I[1], 192, 12, "() {\r\n      _debugDanglingKeepAlives = <RenderBox>[];\r\n      return true;\r\n    }()");
+  }).prototype = sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor);
+  dart.addTypeCaches(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor);
+  dart.setMethodSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getMethods(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    [_debugAssertChildListLocked]: dart.fnType(core.bool, []),
+    [_debugVerifyChildOrder]: dart.fnType(core.bool, []),
+    [_createOrObtainChild]: dart.fnType(dart.void, [core.int], {}, {after: dart.nullable(box.RenderBox)}),
+    [_destroyOrCacheChild]: dart.fnType(dart.void, [box.RenderBox]),
+    addInitialChild: dart.fnType(core.bool, [], {index: core.int, layoutOffset: core.double}, {}),
+    insertAndLayoutLeadingChild: dart.fnType(dart.nullable(box.RenderBox), [box.BoxConstraints], {parentUsesSize: core.bool}, {}),
+    insertAndLayoutChild: dart.fnType(dart.nullable(box.RenderBox), [box.BoxConstraints], {parentUsesSize: core.bool}, {after: dart.nullable(box.RenderBox)}),
+    collectGarbage: dart.fnType(dart.void, [core.int, core.int]),
+    indexOf: dart.fnType(core.int, [box.RenderBox]),
+    paintExtentOf: dart.fnType(core.double, [box.RenderBox]),
+    debugAssertChildListIsNonEmptyAndContiguous: dart.fnType(core.bool, [])
   }));
-  dart.setGetterSignature(tooltip_internal.TooltipRenderBox, () => ({
-    __proto__: dart.getGetters(tooltip_internal.TooltipRenderBox.__proto__),
-    [_tooltip]: tooltip_internal.SfTooltip,
-    [_tooltipAnimation]: animation.Animation$(core.double),
-    [_animationController]: animation_controller.AnimationController,
-    [_animationFactor]: core.double,
-    [_markerSize]: core.double,
-    markerSize: core.double,
-    [_markerPointY]: core.double,
-    [_templateSize]: ui.Size
+  dart.setGetterSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getGetters(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    childManager: sliver_multi_box_adaptor.RenderSliverBoxChildManager,
+    [_debugDanglingKeepAlives]: core.List$(box.RenderBox),
+    debugChildIntegrityEnabled: core.bool
   }));
-  dart.setSetterSignature(tooltip_internal.TooltipRenderBox, () => ({
-    __proto__: dart.getSetters(tooltip_internal.TooltipRenderBox.__proto__),
-    tooltipState: tooltip_internal.SfTooltipState,
-    [_tooltipAnimation]: animation.Animation$(core.double),
-    tooltipAnimation: animation.Animation$(core.double),
-    [_animationController]: animation_controller.AnimationController,
-    animationController: animation_controller.AnimationController,
-    [_animationFactor]: core.double,
-    animationFactor: core.double,
-    stringValue: dart.nullable(core.String),
-    header: dart.nullable(core.String),
-    normalPadding: core.double,
-    inversePadding: core.double,
-    [_markerSize]: core.double,
-    canResetPath: core.bool,
-    boundaryRect: ui.Rect,
-    markerTypes: core.List$(dart.nullable(core$.DataMarkerType)),
-    markerPaints: core.List$(dart.nullable(ui.Paint)),
-    markerImages: core.List,
-    markerGradients: core.List$(dart.nullable(gradient.LinearGradient)),
-    [_markerPointY]: core.double,
-    [_templateSize]: ui.Size
+  dart.setSetterSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getSetters(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    [_debugDanglingKeepAlives]: core.List$(box.RenderBox),
+    debugChildIntegrityEnabled: core.bool
   }));
-  dart.setLibraryUri(tooltip_internal.TooltipRenderBox, I[0]);
-  dart.setFieldSignature(tooltip_internal.TooltipRenderBox, () => ({
-    __proto__: dart.getFields(tooltip_internal.TooltipRenderBox.__proto__),
-    [_tooltipState$]: dart.fieldType(tooltip_internal.SfTooltipState),
-    [__TooltipRenderBox__tooltipAnimation]: dart.fieldType(dart.nullable(animation.Animation$(core.double))),
-    [__TooltipRenderBox__animationController]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
-    [__TooltipRenderBox__animationFactor]: dart.fieldType(dart.nullable(core.double)),
-    [_stringValue]: dart.fieldType(dart.nullable(core.String)),
-    [_header]: dart.fieldType(dart.nullable(core.String)),
-    [_normalPadding]: dart.fieldType(dart.nullable(core.double)),
-    [_inversePadding]: dart.fieldType(dart.nullable(core.double)),
-    [__TooltipRenderBox__markerSize]: dart.fieldType(dart.nullable(core.double)),
-    [_canResetPath]: dart.fieldType(core.bool),
-    [_boundaryRect]: dart.fieldType(ui.Rect),
-    [_markerTypes]: dart.fieldType(core.List$(dart.nullable(core$.DataMarkerType))),
-    [_markerPaints]: dart.fieldType(core.List$(dart.nullable(ui.Paint))),
-    [_markerImages]: dart.fieldType(core.List),
-    [_markerGradients]: dart.fieldType(dart.nullable(core.List$(dart.nullable(gradient.LinearGradient)))),
-    [_pointerLength]: dart.finalFieldType(core.double),
-    [_xPos]: dart.fieldType(dart.nullable(core.double)),
-    [_yPos]: dart.fieldType(dart.nullable(core.double)),
-    [_x]: dart.fieldType(dart.nullable(core.double)),
-    [_y]: dart.fieldType(dart.nullable(core.double)),
-    [_nosePointX]: dart.fieldType(core.double),
-    [_nosePointY]: dart.fieldType(core.double),
-    [_borderRadius]: dart.fieldType(core.double),
-    [_totalWidth]: dart.fieldType(core.double),
-    [_isLeft]: dart.fieldType(core.bool),
-    [_isRight]: dart.fieldType(core.bool),
-    [_isTop]: dart.fieldType(core.bool),
-    [_isOutOfBoundInTop]: dart.fieldType(core.bool),
-    [__TooltipRenderBox__markerPointY]: dart.fieldType(dart.nullable(core.double)),
-    [_tooltipRect]: dart.fieldType(dart.nullable(ui.Rect)),
-    [_arrowPath]: dart.fieldType(ui.Path),
-    [__TooltipRenderBox__templateSize]: dart.fieldType(dart.nullable(ui.Size))
+  dart.setLibraryUri(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, I[0]);
+  dart.setFieldSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getFields(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    [_childManager]: dart.finalFieldType(sliver_multi_box_adaptor.RenderSliverBoxChildManager),
+    [_keepAliveBucket]: dart.finalFieldType(core.Map$(core.int, box.RenderBox)),
+    [__RenderSliverMultiBoxAdaptor__debugDanglingKeepAlives]: dart.fieldType(dart.nullable(core.List$(box.RenderBox))),
+    [_debugChildIntegrityEnabled]: dart.fieldType(core.bool)
   }));
-  tooltip_internal._getMarkerShapesPath = function _getMarkerShapesPath(markerType, position, image, size) {
-    let path = ui.Path.new();
-    switch (markerType) {
-      case C[22] || CT.C22:
-      {
-        {
-          core$.ShapeMaker.drawCircle(path, position.dx, position.dy, size.width, size.height);
-        }
-        break;
-      }
-      case C[23] || CT.C23:
-      {
-        {
-          core$.ShapeMaker.drawRectangle(path, position.dx, position.dy, size.width, size.height);
-        }
-        break;
-      }
-      case C[24] || CT.C24:
-      {
-        {
-        }
-        break;
-      }
-      case C[25] || CT.C25:
-      {
-        {
-          core$.ShapeMaker.drawPentagon(path, position.dx, position.dy, size.width, size.height);
-        }
-        break;
-      }
-      case C[26] || CT.C26:
-      {
-        {
-          core$.ShapeMaker.drawVerticalLine(path, position.dx, position.dy, size.width, size.height);
-        }
-        break;
-      }
-      case C[27] || CT.C27:
-      {
-        {
-          core$.ShapeMaker.drawInvertedTriangle(path, position.dx, position.dy, size.width, size.height);
-        }
-        break;
-      }
-      case C[28] || CT.C28:
-      {
-        {
-          core$.ShapeMaker.drawHorizontalLine(path, position.dx, position.dy, size.width, size.height);
-        }
-        break;
-      }
-      case C[29] || CT.C29:
-      {
-        {
-          core$.ShapeMaker.drawDiamond(path, position.dx, position.dy, size.width, size.height);
-        }
-        break;
-      }
-      case C[30] || CT.C30:
-      {
-        {
-          core$.ShapeMaker.drawTriangle(path, position.dx, position.dy, size.width, size.height);
-        }
-        break;
-      }
-      case C[31] || CT.C31:
-      {
-        break;
-      }
-    }
-    return path;
-  };
-  dart.trackLibraries("packages/syncfusion_flutter_core/tooltip_internal.dart", {
-    "package:syncfusion_flutter_core/tooltip_internal.dart": tooltip_internal
+  dart.trackLibraries("packages/flutter/src/rendering/sliver_multi_box_adaptor.dart", {
+    "package:flutter/src/rendering/sliver_multi_box_adaptor.dart": sliver_multi_box_adaptor
   }, {
-    "package:syncfusion_flutter_core/tooltip_internal.dart": ["src/tooltip/tooltip.dart"]
-  }, '{"version":3,"sourceRoot":"","sources":["src/tooltip/tooltip.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/syncfusion_flutter_core/tooltip_internal.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["sliver_multi_box_adaptor.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/rendering/sliver_multi_box_adaptor.dart.lib.js"}');
   // Exports:
   return {
-    tooltip_internal: tooltip_internal
+    src__rendering__sliver_multi_box_adaptor: sliver_multi_box_adaptor
   };
 }));
 
-//# sourceMappingURL=tooltip_internal.dart.lib.js.map
+//# sourceMappingURL=sliver_multi_box_adaptor.dart.lib.js.map
