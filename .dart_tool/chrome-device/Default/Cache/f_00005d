@@ -1,24 +1,33 @@
-define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/rendering/layer.dart'], (function load__packages__flutter__src__widgets__overflow_bar_dart(dart_sdk, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__rendering__layer$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/gestures/velocity_tracker.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/gestures/drag_details.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__gestures__monodrag_dart(dart_sdk, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__gestures__velocity_tracker$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__arena$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__gestures__drag_details$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const collection = dart_sdk.collection;
+  const _internal = dart_sdk._internal;
   const ui = dart_sdk.ui;
-  const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const velocity_tracker = packages__flutter__src__gestures__velocity_tracker$46dart.src__gestures__velocity_tracker;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const drag_details = packages__flutter__src__gestures__drag_details$46dart.src__gestures__drag_details;
   const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
-  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
-  var overflow_bar = Object.create(dart.library);
+  var monodrag = Object.create(dart.library);
+  var $_set = dartx._set;
+  var $_get = dartx._get;
+  var $sign = dartx.sign;
+  var $clear = dartx.clear;
+  var $abs = dartx.abs;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    EnumPropertyOfOverflowBarAlignment: () => (T.EnumPropertyOfOverflowBarAlignment = dart.constFn(diagnostics.EnumProperty$(overflow_bar.OverflowBarAlignment)))(),
-    EnumPropertyOfVerticalDirection: () => (T.EnumPropertyOfVerticalDirection = dart.constFn(diagnostics.EnumProperty$(basic_types.VerticalDirection)))(),
-    EnumPropertyOfTextDirection: () => (T.EnumPropertyOfTextDirection = dart.constFn(diagnostics.EnumProperty$(ui.TextDirection)))(),
-    RenderBoxN: () => (T.RenderBoxN = dart.constFn(dart.nullable(box.RenderBox)))(),
-    VoidToRenderBoxN: () => (T.VoidToRenderBoxN = dart.constFn(dart.fnType(T.RenderBoxN(), [])))()
+    PointerEventToVelocityTracker: () => (T.PointerEventToVelocityTracker = dart.constFn(dart.fnType(velocity_tracker.VelocityTracker, [events.PointerEvent])))(),
+    IdentityMapOfint$VelocityTracker: () => (T.IdentityMapOfint$VelocityTracker = dart.constFn(_js_helper.IdentityMap$(core.int, velocity_tracker.VelocityTracker)))(),
+    LinkedHashSetOfint: () => (T.LinkedHashSetOfint = dart.constFn(collection.LinkedHashSet$(core.int)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    VoidToString: () => (T.VoidToString = dart.constFn(dart.fnType(core.String, [])))(),
+    EnumPropertyOfDragStartBehavior: () => (T.EnumPropertyOfDragStartBehavior = dart.constFn(diagnostics.EnumProperty$(recognizer.DragStartBehavior)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -26,514 +35,593 @@ define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: overflow_bar.OverflowBarAlignment.prototype,
-        [_name$]: "OverflowBarAlignment.start",
+        __proto__: monodrag._DragState.prototype,
+        [_name$]: "_DragState.ready",
         index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: overflow_bar.OverflowBarAlignment.prototype,
-        [_name$]: "OverflowBarAlignment.end",
+        __proto__: monodrag._DragState.prototype,
+        [_name$]: "_DragState.possible",
         index: 1
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: overflow_bar.OverflowBarAlignment.prototype,
-        [_name$]: "OverflowBarAlignment.center",
+        __proto__: monodrag._DragState.prototype,
+        [_name$]: "_DragState.accepted",
         index: 2
       });
     },
     get C3() {
-      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], overflow_bar.OverflowBarAlignment);
+      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], monodrag._DragState);
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: basic_types.VerticalDirection.prototype,
-        [_name]: "VerticalDirection.down",
+        __proto__: recognizer.DragStartBehavior.prototype,
+        [_name]: "DragStartBehavior.start",
         index: 1
       });
     },
     get C5() {
-      return C[5] = dart.const({
-        __proto__: ui.Clip.prototype,
-        [_name$0]: "Clip.none",
-        index: 0
-      });
+      return C[5] = dart.fn(monodrag.DragGestureRecognizer._defaultBuilder, T.PointerEventToVelocityTracker());
     },
     get C6() {
-      return C[6] = dart.constList([], framework.Widget);
+      return C[6] = dart.const({
+        __proto__: recognizer.DragStartBehavior.prototype,
+        [_name]: "DragStartBehavior.down",
+        index: 0
+      });
     }
   }, false);
   var C = Array(7).fill(void 0);
   var I = [
-    "package:flutter/src/widgets/overflow_bar.dart",
-    "file:///C:/src/flutter/packages/flutter/lib/src/widgets/overflow_bar.dart"
+    "package:flutter/src/gestures/monodrag.dart",
+    "file:///C:/src/flutter/packages/flutter/lib/src/gestures/monodrag.dart"
   ];
-  var _name$ = dart.privateName(overflow_bar, "_name");
-  overflow_bar.OverflowBarAlignment = class OverflowBarAlignment extends core.Object {
+  var _name$ = dart.privateName(monodrag, "_name");
+  monodrag._DragState = class _DragState extends core.Object {
     toString() {
       return this[_name$];
     }
   };
-  (overflow_bar.OverflowBarAlignment.new = function(index, _name) {
+  (monodrag._DragState.new = function(index, _name) {
     this.index = index;
     this[_name$] = _name;
     ;
-  }).prototype = overflow_bar.OverflowBarAlignment.prototype;
-  dart.addTypeTests(overflow_bar.OverflowBarAlignment);
-  dart.addTypeCaches(overflow_bar.OverflowBarAlignment);
-  dart.setLibraryUri(overflow_bar.OverflowBarAlignment, I[0]);
-  dart.setFieldSignature(overflow_bar.OverflowBarAlignment, () => ({
-    __proto__: dart.getFields(overflow_bar.OverflowBarAlignment.__proto__),
+  }).prototype = monodrag._DragState.prototype;
+  dart.addTypeTests(monodrag._DragState);
+  dart.addTypeCaches(monodrag._DragState);
+  dart.setLibraryUri(monodrag._DragState, I[0]);
+  dart.setFieldSignature(monodrag._DragState, () => ({
+    __proto__: dart.getFields(monodrag._DragState.__proto__),
     index: dart.finalFieldType(core.int),
     [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.defineExtensionMethods(overflow_bar.OverflowBarAlignment, ['toString']);
-  overflow_bar.OverflowBarAlignment.start = C[0] || CT.C0;
-  overflow_bar.OverflowBarAlignment.end = C[1] || CT.C1;
-  overflow_bar.OverflowBarAlignment.center = C[2] || CT.C2;
-  overflow_bar.OverflowBarAlignment.values = C[3] || CT.C3;
-  var spacing$ = dart.privateName(overflow_bar, "OverflowBar.spacing");
-  var overflowSpacing$ = dart.privateName(overflow_bar, "OverflowBar.overflowSpacing");
-  var overflowAlignment$ = dart.privateName(overflow_bar, "OverflowBar.overflowAlignment");
-  var overflowDirection$ = dart.privateName(overflow_bar, "OverflowBar.overflowDirection");
-  var textDirection$ = dart.privateName(overflow_bar, "OverflowBar.textDirection");
-  var clipBehavior$ = dart.privateName(overflow_bar, "OverflowBar.clipBehavior");
-  var _name = dart.privateName(basic_types, "_name");
-  var _name$0 = dart.privateName(ui, "_name");
-  overflow_bar.OverflowBar = class OverflowBar extends framework.MultiChildRenderObjectWidget {
-    get spacing() {
-      return this[spacing$];
+  dart.defineExtensionMethods(monodrag._DragState, ['toString']);
+  monodrag._DragState.ready = C[0] || CT.C0;
+  monodrag._DragState.possible = C[1] || CT.C1;
+  monodrag._DragState.accepted = C[2] || CT.C2;
+  monodrag._DragState.values = C[3] || CT.C3;
+  var dragStartBehavior$ = dart.privateName(monodrag, "DragGestureRecognizer.dragStartBehavior");
+  var onDown = dart.privateName(monodrag, "DragGestureRecognizer.onDown");
+  var onStart = dart.privateName(monodrag, "DragGestureRecognizer.onStart");
+  var onUpdate = dart.privateName(monodrag, "DragGestureRecognizer.onUpdate");
+  var onEnd = dart.privateName(monodrag, "DragGestureRecognizer.onEnd");
+  var onCancel = dart.privateName(monodrag, "DragGestureRecognizer.onCancel");
+  var minFlingDistance = dart.privateName(monodrag, "DragGestureRecognizer.minFlingDistance");
+  var minFlingVelocity = dart.privateName(monodrag, "DragGestureRecognizer.minFlingVelocity");
+  var maxFlingVelocity = dart.privateName(monodrag, "DragGestureRecognizer.maxFlingVelocity");
+  var velocityTrackerBuilder$ = dart.privateName(monodrag, "DragGestureRecognizer.velocityTrackerBuilder");
+  var _name = dart.privateName(recognizer, "_name");
+  var _state = dart.privateName(monodrag, "_state");
+  var __DragGestureRecognizer__initialPosition = dart.privateName(monodrag, "_#DragGestureRecognizer#_initialPosition");
+  var __DragGestureRecognizer__pendingDragOffset = dart.privateName(monodrag, "_#DragGestureRecognizer#_pendingDragOffset");
+  var _lastPendingEventTimestamp = dart.privateName(monodrag, "_lastPendingEventTimestamp");
+  var _initialButtons = dart.privateName(monodrag, "_initialButtons");
+  var _lastTransform = dart.privateName(monodrag, "_lastTransform");
+  var __DragGestureRecognizer__globalDistanceMoved = dart.privateName(monodrag, "_#DragGestureRecognizer#_globalDistanceMoved");
+  var _velocityTrackers = dart.privateName(monodrag, "_velocityTrackers");
+  var _acceptedActivePointers = dart.privateName(monodrag, "_acceptedActivePointers");
+  var _initialPosition = dart.privateName(monodrag, "_initialPosition");
+  var _pendingDragOffset = dart.privateName(monodrag, "_pendingDragOffset");
+  var _globalDistanceMoved = dart.privateName(monodrag, "_globalDistanceMoved");
+  var _checkDown = dart.privateName(monodrag, "_checkDown");
+  var _giveUpPointer = dart.privateName(monodrag, "_giveUpPointer");
+  var _getDeltaForDetails = dart.privateName(monodrag, "_getDeltaForDetails");
+  var _getPrimaryValueFromOffset = dart.privateName(monodrag, "_getPrimaryValueFromOffset");
+  var _checkUpdate = dart.privateName(monodrag, "_checkUpdate");
+  var _hasSufficientGlobalDistanceToAccept = dart.privateName(monodrag, "_hasSufficientGlobalDistanceToAccept");
+  var _checkStart = dart.privateName(monodrag, "_checkStart");
+  var _checkCancel = dart.privateName(monodrag, "_checkCancel");
+  var _checkEnd = dart.privateName(monodrag, "_checkEnd");
+  monodrag.DragGestureRecognizer = class DragGestureRecognizer extends recognizer.OneSequenceGestureRecognizer {
+    get dragStartBehavior() {
+      return this[dragStartBehavior$];
     }
-    set spacing(value) {
-      super.spacing = value;
+    set dragStartBehavior(value) {
+      this[dragStartBehavior$] = value;
     }
-    get overflowSpacing() {
-      return this[overflowSpacing$];
+    get onDown() {
+      return this[onDown];
     }
-    set overflowSpacing(value) {
-      super.overflowSpacing = value;
+    set onDown(value) {
+      this[onDown] = value;
     }
-    get overflowAlignment() {
-      return this[overflowAlignment$];
+    get onStart() {
+      return this[onStart];
     }
-    set overflowAlignment(value) {
-      super.overflowAlignment = value;
+    set onStart(value) {
+      this[onStart] = value;
     }
-    get overflowDirection() {
-      return this[overflowDirection$];
+    get onUpdate() {
+      return this[onUpdate];
     }
-    set overflowDirection(value) {
-      super.overflowDirection = value;
+    set onUpdate(value) {
+      this[onUpdate] = value;
     }
-    get textDirection() {
-      return this[textDirection$];
+    get onEnd() {
+      return this[onEnd];
     }
-    set textDirection(value) {
-      super.textDirection = value;
+    set onEnd(value) {
+      this[onEnd] = value;
     }
-    get clipBehavior() {
-      return this[clipBehavior$];
+    get onCancel() {
+      return this[onCancel];
     }
-    set clipBehavior(value) {
-      super.clipBehavior = value;
+    set onCancel(value) {
+      this[onCancel] = value;
     }
-    createRenderObject(context) {
+    get minFlingDistance() {
+      return this[minFlingDistance];
+    }
+    set minFlingDistance(value) {
+      this[minFlingDistance] = value;
+    }
+    get minFlingVelocity() {
+      return this[minFlingVelocity];
+    }
+    set minFlingVelocity(value) {
+      this[minFlingVelocity] = value;
+    }
+    get maxFlingVelocity() {
+      return this[maxFlingVelocity];
+    }
+    set maxFlingVelocity(value) {
+      this[maxFlingVelocity] = value;
+    }
+    get velocityTrackerBuilder() {
+      return this[velocityTrackerBuilder$];
+    }
+    set velocityTrackerBuilder(value) {
+      this[velocityTrackerBuilder$] = value;
+    }
+    static _defaultBuilder(event) {
+      return new velocity_tracker.VelocityTracker.withKind(event.kind);
+    }
+    get [_initialPosition]() {
       let t0;
-      return new overflow_bar._RenderOverflowBar.new({spacing: this.spacing, overflowSpacing: this.overflowSpacing, overflowAlignment: this.overflowAlignment, overflowDirection: this.overflowDirection, textDirection: (t0 = this.textDirection, t0 == null ? basic.Directionality.of(context) : t0), clipBehavior: this.clipBehavior});
+      t0 = this[__DragGestureRecognizer__initialPosition];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_initialPosition")) : t0;
     }
-    updateRenderObject(context, renderObject) {
-      let t1, t0;
-      overflow_bar._RenderOverflowBar.as(renderObject);
-      t0 = renderObject;
-      (() => {
-        t0.spacing = this.spacing;
-        t0.overflowSpacing = this.overflowSpacing;
-        t0.overflowAlignment = this.overflowAlignment;
-        t0.overflowDirection = this.overflowDirection;
-        t0.textDirection = (t1 = this.textDirection, t1 == null ? basic.Directionality.of(context) : t1);
-        t0.clipBehavior = this.clipBehavior;
-        return t0;
-      })();
+    set [_initialPosition](t0) {
+      this[__DragGestureRecognizer__initialPosition] = t0;
     }
-    debugFillProperties(properties) {
-      super.debugFillProperties(properties);
-      properties.add(new diagnostics.DoubleProperty.new("spacing", this.spacing, {defaultValue: 0}));
-      properties.add(new diagnostics.DoubleProperty.new("overflowSpacing", this.overflowSpacing, {defaultValue: 0}));
-      properties.add(new (T.EnumPropertyOfOverflowBarAlignment()).new("overflowAlignment", this.overflowAlignment, {defaultValue: overflow_bar.OverflowBarAlignment.start}));
-      properties.add(new (T.EnumPropertyOfVerticalDirection()).new("overflowDirection", this.overflowDirection, {defaultValue: basic_types.VerticalDirection.down}));
-      properties.add(new (T.EnumPropertyOfTextDirection()).new("textDirection", this.textDirection, {defaultValue: null}));
+    get [_pendingDragOffset]() {
+      let t1;
+      t1 = this[__DragGestureRecognizer__pendingDragOffset];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_pendingDragOffset")) : t1;
     }
-  };
-  (overflow_bar.OverflowBar.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let spacing = opts && 'spacing' in opts ? opts.spacing : 0;
-    let overflowSpacing = opts && 'overflowSpacing' in opts ? opts.overflowSpacing : 0;
-    let overflowAlignment = opts && 'overflowAlignment' in opts ? opts.overflowAlignment : C[0] || CT.C0;
-    let overflowDirection = opts && 'overflowDirection' in opts ? opts.overflowDirection : C[4] || CT.C4;
-    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    let children = opts && 'children' in opts ? opts.children : C[6] || CT.C6;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[spacing$] = spacing;
-    this[overflowSpacing$] = overflowSpacing;
-    this[overflowAlignment$] = overflowAlignment;
-    this[overflowDirection$] = overflowDirection;
-    this[textDirection$] = textDirection;
-    this[clipBehavior$] = clipBehavior;
-    if (!(spacing !== null)) dart.assertFailed(null, I[1], 112, 15, "spacing != null");
-    if (!(overflowSpacing !== null)) dart.assertFailed(null, I[1], 113, 15, "overflowSpacing != null");
-    if (!(overflowAlignment !== null)) dart.assertFailed(null, I[1], 114, 15, "overflowAlignment != null");
-    if (!(overflowDirection !== null)) dart.assertFailed(null, I[1], 115, 15, "overflowDirection != null");
-    if (!(clipBehavior !== null)) dart.assertFailed(null, I[1], 116, 15, "clipBehavior != null");
-    overflow_bar.OverflowBar.__proto__.new.call(this, {key: key, children: children, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = overflow_bar.OverflowBar.prototype;
-  dart.addTypeTests(overflow_bar.OverflowBar);
-  dart.addTypeCaches(overflow_bar.OverflowBar);
-  dart.setMethodSignature(overflow_bar.OverflowBar, () => ({
-    __proto__: dart.getMethods(overflow_bar.OverflowBar.__proto__),
-    createRenderObject: dart.fnType(overflow_bar._RenderOverflowBar, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(overflow_bar.OverflowBar, I[0]);
-  dart.setFieldSignature(overflow_bar.OverflowBar, () => ({
-    __proto__: dart.getFields(overflow_bar.OverflowBar.__proto__),
-    spacing: dart.finalFieldType(core.double),
-    overflowSpacing: dart.finalFieldType(core.double),
-    overflowAlignment: dart.finalFieldType(overflow_bar.OverflowBarAlignment),
-    overflowDirection: dart.finalFieldType(basic_types.VerticalDirection),
-    textDirection: dart.finalFieldType(dart.nullable(ui.TextDirection)),
-    clipBehavior: dart.finalFieldType(ui.Clip)
-  }));
-  overflow_bar._OverflowBarParentData = class _OverflowBarParentData extends box.ContainerBoxParentData$(box.RenderBox) {};
-  (overflow_bar._OverflowBarParentData.new = function() {
-    overflow_bar._OverflowBarParentData.__proto__.new.call(this);
-    ;
-  }).prototype = overflow_bar._OverflowBarParentData.prototype;
-  dart.addTypeTests(overflow_bar._OverflowBarParentData);
-  dart.addTypeCaches(overflow_bar._OverflowBarParentData);
-  dart.setLibraryUri(overflow_bar._OverflowBarParentData, I[0]);
-  var _clipBehavior = dart.privateName(overflow_bar, "_clipBehavior");
-  var _spacing = dart.privateName(overflow_bar, "_spacing");
-  var _overflowSpacing = dart.privateName(overflow_bar, "_overflowSpacing");
-  var _overflowAlignment = dart.privateName(overflow_bar, "_overflowAlignment");
-  var _overflowDirection = dart.privateName(overflow_bar, "_overflowDirection");
-  var _textDirection = dart.privateName(overflow_bar, "_textDirection");
-  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
-  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
-    object.ContainerRenderObjectMixin$(box.RenderBox, overflow_bar._OverflowBarParentData)[dart.mixinNew].call(this);
-    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
-  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
-  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(box.RenderBox, overflow_bar._OverflowBarParentData));
-  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
-  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
-    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
-  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
-  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(box.RenderBox, overflow_bar._OverflowBarParentData));
-  overflow_bar._RenderOverflowBar = class _RenderOverflowBar extends RenderBox_RenderBoxContainerDefaultsMixin$36 {
-    get spacing() {
-      return this[_spacing];
+    set [_pendingDragOffset](t1) {
+      this[__DragGestureRecognizer__pendingDragOffset] = t1;
     }
-    set spacing(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 284, 12, "value != null");
-      if (this[_spacing] === value) return;
-      this[_spacing] = value;
-      this.markNeedsLayout();
+    get [_globalDistanceMoved]() {
+      let t2;
+      t2 = this[__DragGestureRecognizer__globalDistanceMoved];
+      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_globalDistanceMoved")) : t2;
     }
-    get overflowSpacing() {
-      return this[_overflowSpacing];
+    set [_globalDistanceMoved](t2) {
+      this[__DragGestureRecognizer__globalDistanceMoved] = t2;
     }
-    set overflowSpacing(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 294, 12, "value != null");
-      if (this[_overflowSpacing] === value) return;
-      this[_overflowSpacing] = value;
-      this.markNeedsLayout();
-    }
-    get overflowAlignment() {
-      return this[_overflowAlignment];
-    }
-    set overflowAlignment(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 304, 12, "value != null");
-      if (this[_overflowAlignment] === value) return;
-      this[_overflowAlignment] = value;
-      this.markNeedsLayout();
-    }
-    get overflowDirection() {
-      return this[_overflowDirection];
-    }
-    set overflowDirection(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 314, 12, "value != null");
-      if (this[_overflowDirection] === value) return;
-      this[_overflowDirection] = value;
-      this.markNeedsLayout();
-    }
-    get textDirection() {
-      return this[_textDirection];
-    }
-    set textDirection(value) {
-      if (this[_textDirection] === value) return;
-      this[_textDirection] = value;
-      this.markNeedsLayout();
-    }
-    get clipBehavior() {
-      return this[_clipBehavior];
-    }
-    set clipBehavior(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 333, 12, "value != null");
-      if (value === this[_clipBehavior]) return;
-      this[_clipBehavior] = value;
-      this.markNeedsPaint();
-      this.markNeedsSemanticsUpdate();
-    }
-    setupParentData(child) {
-      box.RenderBox.as(child);
-      if (!overflow_bar._OverflowBarParentData.is(child.parentData)) child.parentData = new overflow_bar._OverflowBarParentData.new();
-    }
-    computeMinIntrinsicHeight(width) {
-      let child = this.firstChild;
-      if (child == null) return 0.0;
-      let barWidth = 0.0;
-      while (child != null) {
-        barWidth = barWidth + child.getMinIntrinsicWidth(1 / 0);
-        child = this.childAfter(child);
-      }
-      barWidth = barWidth + this.spacing * (this.childCount - 1);
-      let height = 0.0;
-      if (barWidth > width) {
-        child = this.firstChild;
-        while (child != null) {
-          height = height + child.getMinIntrinsicHeight(width);
-          child = this.childAfter(child);
-        }
-        return height + this.overflowSpacing * (this.childCount - 1);
-      } else {
-        child = this.firstChild;
-        while (child != null) {
-          height = math.max(core.double, height, child.getMinIntrinsicHeight(width));
-          child = this.childAfter(child);
-        }
-        return height;
-      }
-    }
-    computeMaxIntrinsicHeight(width) {
-      let child = this.firstChild;
-      if (child == null) return 0.0;
-      let barWidth = 0.0;
-      while (child != null) {
-        barWidth = barWidth + child.getMinIntrinsicWidth(1 / 0);
-        child = this.childAfter(child);
-      }
-      barWidth = barWidth + this.spacing * (this.childCount - 1);
-      let height = 0.0;
-      if (barWidth > width) {
-        child = this.firstChild;
-        while (child != null) {
-          height = height + child.getMaxIntrinsicHeight(width);
-          child = this.childAfter(child);
-        }
-        return height + this.overflowSpacing * (this.childCount - 1);
-      } else {
-        child = this.firstChild;
-        while (child != null) {
-          height = math.max(core.double, height, child.getMaxIntrinsicHeight(width));
-          child = this.childAfter(child);
-        }
-        return height;
-      }
-    }
-    computeMinIntrinsicWidth(height) {
-      let child = this.firstChild;
-      if (child == null) return 0.0;
-      let width = 0.0;
-      while (child != null) {
-        width = width + child.getMinIntrinsicWidth(1 / 0);
-        child = this.childAfter(child);
-      }
-      return width + this.spacing * (this.childCount - 1);
-    }
-    computeMaxIntrinsicWidth(height) {
-      let child = this.firstChild;
-      if (child == null) return 0.0;
-      let width = 0.0;
-      while (child != null) {
-        width = width + child.getMaxIntrinsicWidth(1 / 0);
-        child = this.childAfter(child);
-      }
-      return width + this.spacing * (this.childCount - 1);
-    }
-    computeDistanceToActualBaseline(baseline) {
-      return this.defaultComputeDistanceToHighestActualBaseline(baseline);
-    }
-    computeDryLayout(constraints) {
-      let child = this.firstChild;
-      if (child == null) {
-        return constraints.smallest;
-      }
-      let childConstraints = constraints.loosen();
-      let childrenWidth = 0.0;
-      let maxChildHeight = 0.0;
-      let y = 0.0;
-      while (child != null) {
-        let childSize = child.getDryLayout(childConstraints);
-        childrenWidth = childrenWidth + childSize.width;
-        maxChildHeight = math.max(core.double, maxChildHeight, childSize.height);
-        y = y + (childSize.height + this.overflowSpacing);
-        child = this.childAfter(child);
-      }
-      let actualWidth = childrenWidth + this.spacing * (this.childCount - 1);
-      if (actualWidth > constraints.maxWidth) {
-        return constraints.constrain(new ui.Size.new(constraints.maxWidth, y - this.overflowSpacing));
-      } else {
-        return constraints.constrain(new ui.Size.new(actualWidth, maxChildHeight));
-      }
-    }
-    performLayout() {
-      let child = this.firstChild;
-      if (child == null) {
-        this.size = this.constraints.smallest;
-        return;
-      }
-      let childConstraints = this.constraints.loosen();
-      let childrenWidth = 0.0;
-      let maxChildHeight = 0.0;
-      let maxChildWidth = 0.0;
-      while (child != null) {
-        child.layout(childConstraints, {parentUsesSize: true});
-        childrenWidth = childrenWidth + child.size.width;
-        maxChildHeight = math.max(core.double, maxChildHeight, child.size.height);
-        maxChildWidth = math.max(core.double, maxChildWidth, child.size.width);
-        child = this.childAfter(child);
-      }
-      let rtl = this.textDirection === ui.TextDirection.rtl;
-      let actualWidth = childrenWidth + this.spacing * (this.childCount - 1);
-      if (actualWidth > this.constraints.maxWidth) {
-        child = this.overflowDirection === basic_types.VerticalDirection.down ? this.firstChild : this.lastChild;
-        const nextChild = () => {
-          return this.overflowDirection === basic_types.VerticalDirection.down ? this.childAfter(dart.nullCheck(child)) : this.childBefore(dart.nullCheck(child));
-        };
-        dart.fn(nextChild, T.VoidToRenderBoxN());
-        let y = 0.0;
-        while (child != null) {
-          let childParentData = overflow_bar._OverflowBarParentData.as(dart.nullCheck(child.parentData));
-          let x = 0.0;
-          switch (this.overflowAlignment) {
-            case C[0] || CT.C0:
-            {
-              x = rtl ? this.constraints.maxWidth - child.size.width : 0.0;
-              break;
-            }
-            case C[2] || CT.C2:
-            {
-              x = (this.constraints.maxWidth - child.size.width) / 2;
-              break;
-            }
-            case C[1] || CT.C1:
-            {
-              x = rtl ? 0.0 : this.constraints.maxWidth - child.size.width;
-              break;
-            }
+    isPointerAllowed(event) {
+      if (this[_initialButtons] == null) {
+        switch (event.buttons) {
+          case 1:
+          {
+            if (this.onDown == null && this.onStart == null && this.onUpdate == null && this.onEnd == null && this.onCancel == null) return false;
+            break;
           }
-          if (!(x !== null)) dart.assertFailed(null, I[1], 506, 16, "x != null");
-          childParentData.offset = new ui.Offset.new(x, y);
-          y = y + (child.size.height + this.overflowSpacing);
-          child = nextChild();
+          default:
+          {
+            return false;
+          }
         }
-        this.size = this.constraints.constrain(new ui.Size.new(this.constraints.maxWidth, y - this.overflowSpacing));
       } else {
-        child = rtl ? this.lastChild : this.firstChild;
-        const nextChild = () => {
-          return rtl ? this.childBefore(dart.nullCheck(child)) : this.childAfter(dart.nullCheck(child));
-        };
-        dart.fn(nextChild, T.VoidToRenderBoxN());
-        let x = 0.0;
-        while (child != null) {
-          let childParentData = overflow_bar._OverflowBarParentData.as(dart.nullCheck(child.parentData));
-          childParentData.offset = new ui.Offset.new(x, (maxChildHeight - child.size.height) / 2);
-          x = x + (child.size.width + this.spacing);
-          child = nextChild();
+        if (event.buttons !== this[_initialButtons]) {
+          return false;
         }
-        this.size = this.constraints.constrain(new ui.Size.new(actualWidth, maxChildHeight));
+      }
+      return super.isPointerAllowed(events.PointerDownEvent.as(event));
+    }
+    addAllowedPointer(event) {
+      let t3;
+      this.startTrackingPointer(event.pointer, event.transform);
+      this[_velocityTrackers][$_set](event.pointer, (t3 = event, this.velocityTrackerBuilder(t3)));
+      if (this[_state] === monodrag._DragState.ready) {
+        this[_state] = monodrag._DragState.possible;
+        this[_initialPosition] = new recognizer.OffsetPair.new({global: event.position, local: event.localPosition});
+        this[_initialButtons] = event.buttons;
+        this[_pendingDragOffset] = recognizer.OffsetPair.zero;
+        this[_globalDistanceMoved] = 0.0;
+        this[_lastPendingEventTimestamp] = event.timeStamp;
+        this[_lastTransform] = event.transform;
+        this[_checkDown]();
+      } else if (this[_state] === monodrag._DragState.accepted) {
+        this.resolve(arena.GestureDisposition.accepted);
       }
     }
-    hitTestChildren(result, opts) {
-      let position = opts && 'position' in opts ? opts.position : null;
-      return this.defaultHitTestChildren(result, {position: position});
+    handleEvent(event) {
+      let t3;
+      if (!(this[_state] !== monodrag._DragState.ready)) dart.assertFailed(null, I[1], 275, 12, "_state != _DragState.ready");
+      if (!event.synthesized && (events.PointerDownEvent.is(event) || events.PointerMoveEvent.is(event))) {
+        let tracker = dart.nullCheck(this[_velocityTrackers][$_get](event.pointer));
+        if (!(tracker !== null)) dart.assertFailed(null, I[1], 279, 14, "tracker != null");
+        tracker.addPosition(event.timeStamp, event.localPosition);
+      }
+      if (events.PointerMoveEvent.is(event)) {
+        if (event.buttons !== this[_initialButtons]) {
+          this[_giveUpPointer](event.pointer);
+          return;
+        }
+        if (this[_state] === monodrag._DragState.accepted) {
+          this[_checkUpdate]({sourceTimeStamp: event.timeStamp, delta: this[_getDeltaForDetails](event.localDelta), primaryDelta: this[_getPrimaryValueFromOffset](event.localDelta), globalPosition: event.position, localPosition: event.localPosition});
+        } else {
+          this[_pendingDragOffset] = this[_pendingDragOffset]['+'](new recognizer.OffsetPair.new({local: event.localDelta, global: event.delta}));
+          this[_lastPendingEventTimestamp] = event.timeStamp;
+          this[_lastTransform] = event.transform;
+          let movedLocally = this[_getDeltaForDetails](event.localDelta);
+          let localToGlobalTransform = event.transform == null ? null : vector_math_64.Matrix4.tryInvert(dart.nullCheck(event.transform));
+          this[_globalDistanceMoved] = this[_globalDistanceMoved] + events.PointerEvent.transformDeltaViaPositions({transform: localToGlobalTransform, untransformedDelta: movedLocally, untransformedEndPosition: event.localPosition}).distance * (t3 = this[_getPrimaryValueFromOffset](movedLocally), t3 == null ? 1.0 : t3)[$sign];
+          if (this[_hasSufficientGlobalDistanceToAccept](event.kind)) this.resolve(arena.GestureDisposition.accepted);
+        }
+      }
+      if (events.PointerUpEvent.is(event) || events.PointerCancelEvent.is(event)) {
+        this[_giveUpPointer](event.pointer);
+      }
     }
-    paint(context, offset) {
-      this.defaultPaint(context, offset);
+    acceptGesture(pointer) {
+      if (!!this[_acceptedActivePointers].contains(pointer)) dart.assertFailed(null, I[1], 320, 12, "!_acceptedActivePointers.contains(pointer)");
+      this[_acceptedActivePointers].add(pointer);
+      if (this[_state] !== monodrag._DragState.accepted) {
+        this[_state] = monodrag._DragState.accepted;
+        let delta = this[_pendingDragOffset];
+        let timestamp = dart.nullCheck(this[_lastPendingEventTimestamp]);
+        let transform = this[_lastTransform];
+        let localUpdateDelta = null;
+        switch (this.dragStartBehavior) {
+          case C[4] || CT.C4:
+          {
+            this[_initialPosition] = this[_initialPosition]['+'](delta);
+            localUpdateDelta = ui.Offset.zero;
+            break;
+          }
+          case C[6] || CT.C6:
+          {
+            localUpdateDelta = this[_getDeltaForDetails](delta.local);
+            break;
+          }
+        }
+        this[_pendingDragOffset] = recognizer.OffsetPair.zero;
+        this[_lastPendingEventTimestamp] = null;
+        this[_lastTransform] = null;
+        this[_checkStart](timestamp, pointer);
+        if (!localUpdateDelta._equals(ui.Offset.zero) && this.onUpdate != null) {
+          let localToGlobal = transform != null ? vector_math_64.Matrix4.tryInvert(transform) : null;
+          let correctedLocalPosition = this[_initialPosition].local['+'](localUpdateDelta);
+          let globalUpdateDelta = events.PointerEvent.transformDeltaViaPositions({untransformedEndPosition: correctedLocalPosition, untransformedDelta: localUpdateDelta, transform: localToGlobal});
+          let updateDelta = new recognizer.OffsetPair.new({local: localUpdateDelta, global: globalUpdateDelta});
+          let correctedPosition = this[_initialPosition]['+'](updateDelta);
+          this[_checkUpdate]({sourceTimeStamp: timestamp, delta: localUpdateDelta, primaryDelta: this[_getPrimaryValueFromOffset](localUpdateDelta), globalPosition: correctedPosition.global, localPosition: correctedPosition.local});
+        }
+      }
+    }
+    rejectGesture(pointer) {
+      this[_giveUpPointer](pointer);
+    }
+    didStopTrackingLastPointer(pointer) {
+      if (!(this[_state] !== monodrag._DragState.ready)) dart.assertFailed(null, I[1], 369, 12, "_state != _DragState.ready");
+      switch (this[_state]) {
+        case C[0] || CT.C0:
+        {
+          break;
+        }
+        case C[1] || CT.C1:
+        {
+          this.resolve(arena.GestureDisposition.rejected);
+          this[_checkCancel]();
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          this[_checkEnd](pointer);
+          break;
+        }
+      }
+      this[_velocityTrackers][$clear]();
+      this[_initialButtons] = null;
+      this[_state] = monodrag._DragState.ready;
+    }
+    [_giveUpPointer](pointer) {
+      this.stopTrackingPointer(pointer);
+      if (!this[_acceptedActivePointers].remove(pointer)) this.resolvePointer(pointer, arena.GestureDisposition.rejected);
+    }
+    [_checkDown]() {
+      if (!(this[_initialButtons] === 1)) dart.assertFailed(null, I[1], 397, 12, "_initialButtons == kPrimaryButton");
+      if (this.onDown != null) {
+        let details = new drag_details.DragDownDetails.new({globalPosition: this[_initialPosition].global, localPosition: this[_initialPosition].local});
+        this.invokeCallback(dart.void, "onDown", dart.fn(() => dart.nullCheck(this.onDown)(details), T.VoidTovoid()));
+      }
+    }
+    [_checkStart](timestamp, pointer) {
+      if (!(this[_initialButtons] === 1)) dart.assertFailed(null, I[1], 408, 12, "_initialButtons == kPrimaryButton");
+      if (this.onStart != null) {
+        let details = new drag_details.DragStartDetails.new({sourceTimeStamp: timestamp, globalPosition: this[_initialPosition].global, localPosition: this[_initialPosition].local, kind: this.getKindForPointer(pointer)});
+        this.invokeCallback(dart.void, "onStart", dart.fn(() => dart.nullCheck(this.onStart)(details), T.VoidTovoid()));
+      }
+    }
+    [_checkUpdate](opts) {
+      let sourceTimeStamp = opts && 'sourceTimeStamp' in opts ? opts.sourceTimeStamp : null;
+      let delta = opts && 'delta' in opts ? opts.delta : null;
+      let primaryDelta = opts && 'primaryDelta' in opts ? opts.primaryDelta : null;
+      let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : null;
+      let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+      if (!(this[_initialButtons] === 1)) dart.assertFailed(null, I[1], 427, 12, "_initialButtons == kPrimaryButton");
+      if (this.onUpdate != null) {
+        let details = new drag_details.DragUpdateDetails.new({sourceTimeStamp: sourceTimeStamp, delta: delta, primaryDelta: primaryDelta, globalPosition: globalPosition, localPosition: localPosition});
+        this.invokeCallback(dart.void, "onUpdate", dart.fn(() => dart.nullCheck(this.onUpdate)(details), T.VoidTovoid()));
+      }
+    }
+    [_checkEnd](pointer) {
+      let t3, t3$;
+      if (!(this[_initialButtons] === 1)) dart.assertFailed(null, I[1], 441, 12, "_initialButtons == kPrimaryButton");
+      if (this.onEnd == null) return;
+      let tracker = dart.nullCheck(this[_velocityTrackers][$_get](pointer));
+      if (!(tracker !== null)) dart.assertFailed(null, I[1], 446, 12, "tracker != null");
+      let details = null;
+      let debugReport = null;
+      let estimate = tracker.getVelocityEstimate();
+      if (estimate != null && this.isFlingGesture(estimate, tracker.kind)) {
+        let velocity = new velocity_tracker.Velocity.new({pixelsPerSecond: estimate.pixelsPerSecond}).clampMagnitude((t3 = this.minFlingVelocity, t3 == null ? 50 : t3), (t3$ = this.maxFlingVelocity, t3$ == null ? 8000 : t3$));
+        details = new drag_details.DragEndDetails.new({velocity: velocity, primaryVelocity: this[_getPrimaryValueFromOffset](velocity.pixelsPerSecond)});
+        debugReport = dart.fn(() => dart.str(estimate) + "; fling at " + dart.str(velocity) + ".", T.VoidToString());
+      } else {
+        details = new drag_details.DragEndDetails.new({velocity: velocity_tracker.Velocity.zero, primaryVelocity: 0.0});
+        debugReport = dart.fn(() => {
+          if (estimate == null) return "Could not estimate velocity.";
+          return dart.str(estimate) + "; judged to not be a fling.";
+        }, T.VoidToString());
+      }
+      this.invokeCallback(dart.void, "onEnd", dart.fn(() => dart.nullCheck(this.onEnd)(details), T.VoidTovoid()), {debugReport: debugReport});
+    }
+    [_checkCancel]() {
+      if (!(this[_initialButtons] === 1)) dart.assertFailed(null, I[1], 477, 12, "_initialButtons == kPrimaryButton");
+      if (this.onCancel != null) this.invokeCallback(dart.void, "onCancel", dart.nullCheck(this.onCancel));
+    }
+    dispose() {
+      this[_velocityTrackers][$clear]();
+      super.dispose();
     }
     debugFillProperties(properties) {
       super.debugFillProperties(properties);
-      properties.add(new diagnostics.DoubleProperty.new("spacing", this.spacing, {defaultValue: 0}));
-      properties.add(new diagnostics.DoubleProperty.new("overflowSpacing", this.overflowSpacing, {defaultValue: 0}));
-      properties.add(new (T.EnumPropertyOfOverflowBarAlignment()).new("overflowAlignment", this.overflowAlignment, {defaultValue: overflow_bar.OverflowBarAlignment.start}));
-      properties.add(new (T.EnumPropertyOfVerticalDirection()).new("overflowDirection", this.overflowDirection, {defaultValue: basic_types.VerticalDirection.down}));
-      properties.add(new (T.EnumPropertyOfTextDirection()).new("textDirection", this.textDirection, {defaultValue: null}));
+      properties.add(new (T.EnumPropertyOfDragStartBehavior()).new("start behavior", this.dragStartBehavior));
     }
   };
-  (overflow_bar._RenderOverflowBar.new = function(opts) {
-    let children = opts && 'children' in opts ? opts.children : null;
-    let spacing = opts && 'spacing' in opts ? opts.spacing : 0;
-    let overflowSpacing = opts && 'overflowSpacing' in opts ? opts.overflowSpacing : 0;
-    let overflowAlignment = opts && 'overflowAlignment' in opts ? opts.overflowAlignment : C[0] || CT.C0;
-    let overflowDirection = opts && 'overflowDirection' in opts ? opts.overflowDirection : C[4] || CT.C4;
-    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
-    this[_clipBehavior] = ui.Clip.none;
-    if (!(spacing !== null)) dart.assertFailed(null, I[1], 267, 15, "spacing != null");
-    if (!(overflowSpacing !== null)) dart.assertFailed(null, I[1], 268, 15, "overflowSpacing != null");
-    if (!(overflowAlignment !== null)) dart.assertFailed(null, I[1], 269, 15, "overflowAlignment != null");
-    if (!(textDirection !== null)) dart.assertFailed(null, I[1], 270, 15, "textDirection != null");
-    if (!(clipBehavior !== null)) dart.assertFailed(null, I[1], 271, 15, "clipBehavior != null");
-    this[_spacing] = spacing;
-    this[_overflowSpacing] = overflowSpacing;
-    this[_overflowAlignment] = overflowAlignment;
-    this[_overflowDirection] = overflowDirection;
-    this[_textDirection] = textDirection;
-    this[_clipBehavior] = clipBehavior;
-    overflow_bar._RenderOverflowBar.__proto__.new.call(this);
-    this.addAll(children);
-  }).prototype = overflow_bar._RenderOverflowBar.prototype;
-  dart.addTypeTests(overflow_bar._RenderOverflowBar);
-  dart.addTypeCaches(overflow_bar._RenderOverflowBar);
-  dart.setGetterSignature(overflow_bar._RenderOverflowBar, () => ({
-    __proto__: dart.getGetters(overflow_bar._RenderOverflowBar.__proto__),
-    spacing: core.double,
-    overflowSpacing: core.double,
-    overflowAlignment: overflow_bar.OverflowBarAlignment,
-    overflowDirection: basic_types.VerticalDirection,
-    textDirection: ui.TextDirection,
-    clipBehavior: ui.Clip
+  (monodrag.DragGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    let velocityTrackerBuilder = opts && 'velocityTrackerBuilder' in opts ? opts.velocityTrackerBuilder : C[5] || CT.C5;
+    this[onDown] = null;
+    this[onStart] = null;
+    this[onUpdate] = null;
+    this[onEnd] = null;
+    this[onCancel] = null;
+    this[minFlingDistance] = null;
+    this[minFlingVelocity] = null;
+    this[maxFlingVelocity] = null;
+    this[_state] = monodrag._DragState.ready;
+    this[__DragGestureRecognizer__initialPosition] = null;
+    this[__DragGestureRecognizer__pendingDragOffset] = null;
+    this[_lastPendingEventTimestamp] = null;
+    this[_initialButtons] = null;
+    this[_lastTransform] = null;
+    this[__DragGestureRecognizer__globalDistanceMoved] = null;
+    this[_velocityTrackers] = new (T.IdentityMapOfint$VelocityTracker()).new();
+    this[_acceptedActivePointers] = T.LinkedHashSetOfint().new();
+    this[dragStartBehavior$] = dragStartBehavior;
+    this[velocityTrackerBuilder$] = velocityTrackerBuilder;
+    if (!(dragStartBehavior !== null)) dart.assertFailed(null, I[1], 72, 15, "dragStartBehavior != null");
+    monodrag.DragGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+    ;
+  }).prototype = monodrag.DragGestureRecognizer.prototype;
+  dart.addTypeTests(monodrag.DragGestureRecognizer);
+  dart.addTypeCaches(monodrag.DragGestureRecognizer);
+  dart.setMethodSignature(monodrag.DragGestureRecognizer, () => ({
+    __proto__: dart.getMethods(monodrag.DragGestureRecognizer.__proto__),
+    isPointerAllowed: dart.fnType(core.bool, [events.PointerEvent]),
+    addAllowedPointer: dart.fnType(dart.void, [events.PointerEvent]),
+    handleEvent: dart.fnType(dart.void, [events.PointerEvent]),
+    didStopTrackingLastPointer: dart.fnType(dart.void, [core.int]),
+    [_giveUpPointer]: dart.fnType(dart.void, [core.int]),
+    [_checkDown]: dart.fnType(dart.void, []),
+    [_checkStart]: dart.fnType(dart.void, [core.Duration, core.int]),
+    [_checkUpdate]: dart.fnType(dart.void, [], {localPosition: dart.nullable(ui.Offset), primaryDelta: dart.nullable(core.double), sourceTimeStamp: dart.nullable(core.Duration)}, {delta: ui.Offset, globalPosition: ui.Offset}),
+    [_checkEnd]: dart.fnType(dart.void, [core.int]),
+    [_checkCancel]: dart.fnType(dart.void, [])
   }));
-  dart.setSetterSignature(overflow_bar._RenderOverflowBar, () => ({
-    __proto__: dart.getSetters(overflow_bar._RenderOverflowBar.__proto__),
-    spacing: core.double,
-    overflowSpacing: core.double,
-    overflowAlignment: overflow_bar.OverflowBarAlignment,
-    overflowDirection: basic_types.VerticalDirection,
-    textDirection: ui.TextDirection,
-    clipBehavior: ui.Clip
+  dart.setGetterSignature(monodrag.DragGestureRecognizer, () => ({
+    __proto__: dart.getGetters(monodrag.DragGestureRecognizer.__proto__),
+    [_initialPosition]: recognizer.OffsetPair,
+    [_pendingDragOffset]: recognizer.OffsetPair,
+    [_globalDistanceMoved]: core.double
   }));
-  dart.setLibraryUri(overflow_bar._RenderOverflowBar, I[0]);
-  dart.setFieldSignature(overflow_bar._RenderOverflowBar, () => ({
-    __proto__: dart.getFields(overflow_bar._RenderOverflowBar.__proto__),
-    [_spacing]: dart.fieldType(core.double),
-    [_overflowSpacing]: dart.fieldType(core.double),
-    [_overflowAlignment]: dart.fieldType(overflow_bar.OverflowBarAlignment),
-    [_overflowDirection]: dart.fieldType(basic_types.VerticalDirection),
-    [_textDirection]: dart.fieldType(ui.TextDirection),
-    [_clipBehavior]: dart.fieldType(ui.Clip)
+  dart.setSetterSignature(monodrag.DragGestureRecognizer, () => ({
+    __proto__: dart.getSetters(monodrag.DragGestureRecognizer.__proto__),
+    [_initialPosition]: recognizer.OffsetPair,
+    [_pendingDragOffset]: recognizer.OffsetPair,
+    [_globalDistanceMoved]: core.double
   }));
-  dart.trackLibraries("packages/flutter/src/widgets/overflow_bar.dart", {
-    "package:flutter/src/widgets/overflow_bar.dart": overflow_bar
+  dart.setLibraryUri(monodrag.DragGestureRecognizer, I[0]);
+  dart.setFieldSignature(monodrag.DragGestureRecognizer, () => ({
+    __proto__: dart.getFields(monodrag.DragGestureRecognizer.__proto__),
+    dragStartBehavior: dart.fieldType(recognizer.DragStartBehavior),
+    onDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [drag_details.DragDownDetails]))),
+    onStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [drag_details.DragStartDetails]))),
+    onUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [drag_details.DragUpdateDetails]))),
+    onEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [drag_details.DragEndDetails]))),
+    onCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    minFlingDistance: dart.fieldType(dart.nullable(core.double)),
+    minFlingVelocity: dart.fieldType(dart.nullable(core.double)),
+    maxFlingVelocity: dart.fieldType(dart.nullable(core.double)),
+    velocityTrackerBuilder: dart.fieldType(dart.fnType(velocity_tracker.VelocityTracker, [events.PointerEvent])),
+    [_state]: dart.fieldType(monodrag._DragState),
+    [__DragGestureRecognizer__initialPosition]: dart.fieldType(dart.nullable(recognizer.OffsetPair)),
+    [__DragGestureRecognizer__pendingDragOffset]: dart.fieldType(dart.nullable(recognizer.OffsetPair)),
+    [_lastPendingEventTimestamp]: dart.fieldType(dart.nullable(core.Duration)),
+    [_initialButtons]: dart.fieldType(dart.nullable(core.int)),
+    [_lastTransform]: dart.fieldType(dart.nullable(vector_math_64.Matrix4)),
+    [__DragGestureRecognizer__globalDistanceMoved]: dart.fieldType(dart.nullable(core.double)),
+    [_velocityTrackers]: dart.finalFieldType(core.Map$(core.int, velocity_tracker.VelocityTracker)),
+    [_acceptedActivePointers]: dart.finalFieldType(core.Set$(core.int))
+  }));
+  monodrag.VerticalDragGestureRecognizer = class VerticalDragGestureRecognizer extends monodrag.DragGestureRecognizer {
+    isFlingGesture(estimate, kind) {
+      let t3, t3$;
+      let minVelocity = (t3 = this.minFlingVelocity, t3 == null ? 50 : t3);
+      let minDistance = (t3$ = this.minFlingDistance, t3$ == null ? events.computeHitSlop(kind) : t3$);
+      return estimate.pixelsPerSecond.dy[$abs]() > minVelocity && estimate.offset.dy[$abs]() > minDistance;
+    }
+    [_hasSufficientGlobalDistanceToAccept](pointerDeviceKind) {
+      return this[_globalDistanceMoved][$abs]() > events.computeHitSlop(pointerDeviceKind);
+    }
+    [_getDeltaForDetails](delta) {
+      return new ui.Offset.new(0.0, delta.dy);
+    }
+    [_getPrimaryValueFromOffset](value) {
+      return value.dy;
+    }
+    get debugDescription() {
+      return "vertical drag";
+    }
+  };
+  (monodrag.VerticalDragGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    monodrag.VerticalDragGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+    ;
+  }).prototype = monodrag.VerticalDragGestureRecognizer.prototype;
+  dart.addTypeTests(monodrag.VerticalDragGestureRecognizer);
+  dart.addTypeCaches(monodrag.VerticalDragGestureRecognizer);
+  dart.setMethodSignature(monodrag.VerticalDragGestureRecognizer, () => ({
+    __proto__: dart.getMethods(monodrag.VerticalDragGestureRecognizer.__proto__),
+    isFlingGesture: dart.fnType(core.bool, [velocity_tracker.VelocityEstimate, ui.PointerDeviceKind]),
+    [_hasSufficientGlobalDistanceToAccept]: dart.fnType(core.bool, [ui.PointerDeviceKind]),
+    [_getDeltaForDetails]: dart.fnType(ui.Offset, [ui.Offset]),
+    [_getPrimaryValueFromOffset]: dart.fnType(core.double, [ui.Offset])
+  }));
+  dart.setGetterSignature(monodrag.VerticalDragGestureRecognizer, () => ({
+    __proto__: dart.getGetters(monodrag.VerticalDragGestureRecognizer.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(monodrag.VerticalDragGestureRecognizer, I[0]);
+  monodrag.HorizontalDragGestureRecognizer = class HorizontalDragGestureRecognizer extends monodrag.DragGestureRecognizer {
+    isFlingGesture(estimate, kind) {
+      let t3, t3$;
+      let minVelocity = (t3 = this.minFlingVelocity, t3 == null ? 50 : t3);
+      let minDistance = (t3$ = this.minFlingDistance, t3$ == null ? events.computeHitSlop(kind) : t3$);
+      return estimate.pixelsPerSecond.dx[$abs]() > minVelocity && estimate.offset.dx[$abs]() > minDistance;
+    }
+    [_hasSufficientGlobalDistanceToAccept](pointerDeviceKind) {
+      return this[_globalDistanceMoved][$abs]() > events.computeHitSlop(pointerDeviceKind);
+    }
+    [_getDeltaForDetails](delta) {
+      return new ui.Offset.new(delta.dx, 0.0);
+    }
+    [_getPrimaryValueFromOffset](value) {
+      return value.dx;
+    }
+    get debugDescription() {
+      return "horizontal drag";
+    }
+  };
+  (monodrag.HorizontalDragGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    monodrag.HorizontalDragGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+    ;
+  }).prototype = monodrag.HorizontalDragGestureRecognizer.prototype;
+  dart.addTypeTests(monodrag.HorizontalDragGestureRecognizer);
+  dart.addTypeCaches(monodrag.HorizontalDragGestureRecognizer);
+  dart.setMethodSignature(monodrag.HorizontalDragGestureRecognizer, () => ({
+    __proto__: dart.getMethods(monodrag.HorizontalDragGestureRecognizer.__proto__),
+    isFlingGesture: dart.fnType(core.bool, [velocity_tracker.VelocityEstimate, ui.PointerDeviceKind]),
+    [_hasSufficientGlobalDistanceToAccept]: dart.fnType(core.bool, [ui.PointerDeviceKind]),
+    [_getDeltaForDetails]: dart.fnType(ui.Offset, [ui.Offset]),
+    [_getPrimaryValueFromOffset]: dart.fnType(core.double, [ui.Offset])
+  }));
+  dart.setGetterSignature(monodrag.HorizontalDragGestureRecognizer, () => ({
+    __proto__: dart.getGetters(monodrag.HorizontalDragGestureRecognizer.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(monodrag.HorizontalDragGestureRecognizer, I[0]);
+  monodrag.PanGestureRecognizer = class PanGestureRecognizer extends monodrag.DragGestureRecognizer {
+    isFlingGesture(estimate, kind) {
+      let t3, t3$;
+      let minVelocity = (t3 = this.minFlingVelocity, t3 == null ? 50 : t3);
+      let minDistance = (t3$ = this.minFlingDistance, t3$ == null ? events.computeHitSlop(kind) : t3$);
+      return estimate.pixelsPerSecond.distanceSquared > minVelocity * minVelocity && estimate.offset.distanceSquared > minDistance * minDistance;
+    }
+    [_hasSufficientGlobalDistanceToAccept](pointerDeviceKind) {
+      return this[_globalDistanceMoved][$abs]() > events.computePanSlop(pointerDeviceKind);
+    }
+    [_getDeltaForDetails](delta) {
+      return delta;
+    }
+    [_getPrimaryValueFromOffset](value) {
+      return null;
+    }
+    get debugDescription() {
+      return "pan";
+    }
+  };
+  (monodrag.PanGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    monodrag.PanGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner});
+    ;
+  }).prototype = monodrag.PanGestureRecognizer.prototype;
+  dart.addTypeTests(monodrag.PanGestureRecognizer);
+  dart.addTypeCaches(monodrag.PanGestureRecognizer);
+  dart.setMethodSignature(monodrag.PanGestureRecognizer, () => ({
+    __proto__: dart.getMethods(monodrag.PanGestureRecognizer.__proto__),
+    isFlingGesture: dart.fnType(core.bool, [velocity_tracker.VelocityEstimate, ui.PointerDeviceKind]),
+    [_hasSufficientGlobalDistanceToAccept]: dart.fnType(core.bool, [ui.PointerDeviceKind]),
+    [_getDeltaForDetails]: dart.fnType(ui.Offset, [ui.Offset]),
+    [_getPrimaryValueFromOffset]: dart.fnType(dart.nullable(core.double), [ui.Offset])
+  }));
+  dart.setGetterSignature(monodrag.PanGestureRecognizer, () => ({
+    __proto__: dart.getGetters(monodrag.PanGestureRecognizer.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(monodrag.PanGestureRecognizer, I[0]);
+  dart.trackLibraries("packages/flutter/src/gestures/monodrag.dart", {
+    "package:flutter/src/gestures/monodrag.dart": monodrag
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["overflow_bar.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/widgets/overflow_bar.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["monodrag.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/gestures/monodrag.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__overflow_bar: overflow_bar
+    src__gestures__monodrag: monodrag
   };
 }));
 
-//# sourceMappingURL=overflow_bar.dart.lib.js.map
+//# sourceMappingURL=monodrag.dart.lib.js.map

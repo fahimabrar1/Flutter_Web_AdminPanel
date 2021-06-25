@@ -1,1465 +1,702 @@
-define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/single_child_scroll_view.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/drawer_header.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/expansion_tile.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/google_fonts/src/google_fonts_base.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutterweb/Components/Mycolor.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/widgets/safe_area.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutterweb/Screen/dashboard/analytics_screen.dart', 'packages/flutter/src/widgets/icon_data.dart'], (function load__packages__flutterweb__Components__side_menu_dart(dart_sdk, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__single_child_scroll_view$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__drawer_header$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__expansion_tile$46dart, packages__flutter__src__widgets__icon$46dart, packages__google_fonts__src__google_fonts_base$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart, packages__flutterweb__Components__Mycolor$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__widgets__safe_area$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutterweb__Screen__dashboard__analytics_screen$46dart, packages__flutter__src__widgets__icon_data$46dart) {
+define(['dart_sdk', 'packages/collection/src/comparators.dart'], (function load__packages__collection__src__equality_dart(dart_sdk, packages__collection__src__comparators$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _interceptors = dart_sdk._interceptors;
+  const collection = dart_sdk.collection;
+  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const drawer = packages__flutter__src__material__icon_button$46dart.src__material__drawer;
-  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
-  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
-  const single_child_scroll_view = packages__flutter__src__widgets__single_child_scroll_view$46dart.src__widgets__single_child_scroll_view;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const drawer_header = packages__flutter__src__material__drawer_header$46dart.src__material__drawer_header;
-  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
-  const expansion_tile = packages__flutter__src__material__expansion_tile$46dart.src__material__expansion_tile;
-  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
-  const google_fonts = packages__google_fonts__src__google_fonts_base$46dart.google_fonts;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const Mycolor = packages__flutterweb__Components__Mycolor$46dart.Components__Mycolor;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const safe_area = packages__flutter__src__widgets__safe_area$46dart.src__widgets__safe_area;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const analytics_screen = packages__flutterweb__Screen__dashboard__analytics_screen$46dart.Screen__dashboard__analytics_screen;
-  const icon_data = packages__flutter__src__widgets__icon_data$46dart.src__widgets__icon_data;
-  var side_menu = Object.create(dart.library);
-  var Langing_Screen = Object.create(dart.library);
+  const comparators = packages__collection__src__comparators$46dart.src__comparators;
+  var equality = Object.create(dart.library);
+  var $hashCode = dartx.hashCode;
+  var $iterator = dartx.iterator;
+  var $rightShift = dartx['>>'];
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var $_set = dartx._set;
+  var $keys = dartx.keys;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
+    DefaultEqualityOfNever: () => (T.DefaultEqualityOfNever = dart.constFn(equality.DefaultEquality$(dart.Never)))(),
+    LinkedMapOf_MapEntry$int: () => (T.LinkedMapOf_MapEntry$int = dart.constFn(_js_helper.LinkedMap$(equality._MapEntry, core.int)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "name",
-        [_Location_column]: 36,
-        [_Location_line]: 20,
-        [_Location_file]: null
-      });
-    },
-    get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2], widget_inspector._Location);
-    },
     get C0() {
       return C[0] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 30,
-        [_Location_line]: 20,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 20,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C[4] = dart.constList([C[5] || CT.C5], widget_inspector._Location);
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[4] || CT.C4,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 19,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C8() {
-      return C[8] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 19,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C[7] = dart.constList([C[8] || CT.C8], widget_inspector._Location);
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[7] || CT.C7,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 18,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 15,
-        [_Location_line]: 24,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 15,
-        [_Location_line]: 25,
-        [_Location_file]: null
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "press",
-        [_Location_column]: 15,
-        [_Location_line]: 26,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C[10] = dart.constList([C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13], widget_inspector._Location);
-    },
-    get C9() {
-      return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[10] || CT.C10,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 23,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 15,
-        [_Location_line]: 29,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 15,
-        [_Location_line]: 30,
-        [_Location_file]: null
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "press",
-        [_Location_column]: 15,
-        [_Location_line]: 31,
-        [_Location_file]: null
-      });
-    },
-    get C15() {
-      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18], widget_inspector._Location);
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[15] || CT.C15,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 28,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 35,
-        [_Location_line]: 34,
-        [_Location_file]: null
-      });
-    },
-    get C20() {
-      return C[20] = dart.constList([C[21] || CT.C21], widget_inspector._Location);
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[20] || CT.C20,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 34,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 27,
-        [_Location_line]: 35,
-        [_Location_file]: null
-      });
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 19,
-        [_Location_line]: 36,
-        [_Location_file]: null
-      });
-    },
-    get C23() {
-      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25], widget_inspector._Location);
-    },
-    get C22() {
-      return C[22] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[23] || CT.C23,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 35,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 19,
-        [_Location_line]: 43,
-        [_Location_file]: null
-      });
-    },
-    get C29() {
-      return C[29] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 19,
-        [_Location_line]: 44,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C[30] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "press",
-        [_Location_column]: 19,
-        [_Location_line]: 45,
-        [_Location_file]: null
-      });
-    },
-    get C27() {
-      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30], widget_inspector._Location);
-    },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[27] || CT.C27,
-        [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 42,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C33() {
-      return C[33] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 19,
-        [_Location_line]: 48,
-        [_Location_file]: null
-      });
-    },
-    get C34() {
-      return C[34] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 19,
-        [_Location_line]: 49,
-        [_Location_file]: null
-      });
-    },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "press",
-        [_Location_column]: 19,
-        [_Location_line]: 50,
-        [_Location_file]: null
-      });
-    },
-    get C32() {
-      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], widget_inspector._Location);
-    },
-    get C31() {
-      return C[31] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[32] || CT.C32,
-        [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 47,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 19,
-        [_Location_line]: 53,
-        [_Location_file]: null
-      });
-    },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 19,
-        [_Location_line]: 54,
-        [_Location_file]: null
-      });
-    },
-    get C40() {
-      return C[40] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "press",
-        [_Location_column]: 19,
-        [_Location_line]: 55,
-        [_Location_file]: null
-      });
-    },
-    get C37() {
-      return C[37] = dart.constList([C[38] || CT.C38, C[39] || CT.C39, C[40] || CT.C40], widget_inspector._Location);
-    },
-    get C36() {
-      return C[36] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[37] || CT.C37,
-        [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 52,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 19,
-        [_Location_line]: 58,
-        [_Location_file]: null
-      });
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 19,
-        [_Location_line]: 59,
-        [_Location_file]: null
-      });
-    },
-    get C45() {
-      return C[45] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "press",
-        [_Location_column]: 19,
-        [_Location_line]: 60,
-        [_Location_file]: null
-      });
-    },
-    get C42() {
-      return C[42] = dart.constList([C[43] || CT.C43, C[44] || CT.C44, C[45] || CT.C45], widget_inspector._Location);
-    },
-    get C41() {
-      return C[41] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[42] || CT.C42,
-        [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 57,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C48() {
-      return C[48] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "leading",
-        [_Location_column]: 15,
-        [_Location_line]: 34,
-        [_Location_file]: null
-      });
-    },
-    get C49() {
-      return C[49] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 15,
-        [_Location_line]: 35,
-        [_Location_file]: null
-      });
-    },
-    get C50() {
-      return C[50] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "collapsedIconColor",
-        [_Location_column]: 15,
-        [_Location_line]: 39,
-        [_Location_file]: null
-      });
-    },
-    get C51() {
-      return C[51] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "backgroundColor",
-        [_Location_column]: 15,
-        [_Location_line]: 40,
-        [_Location_file]: null
-      });
-    },
-    get C52() {
-      return C[52] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 15,
-        [_Location_line]: 41,
-        [_Location_file]: null
-      });
-    },
-    get C47() {
-      return C[47] = dart.constList([C[48] || CT.C48, C[49] || CT.C49, C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52], widget_inspector._Location);
-    },
-    get C46() {
-      return C[46] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[47] || CT.C47,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 33,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C55() {
-      return C[55] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 15,
-        [_Location_line]: 65,
-        [_Location_file]: null
-      });
-    },
-    get C54() {
-      return C[54] = dart.constList([C[55] || CT.C55], widget_inspector._Location);
-    },
-    get C53() {
-      return C[53] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[54] || CT.C54,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 64,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C58() {
-      return C[58] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 19,
-        [_Location_line]: 72,
-        [_Location_file]: null
-      });
-    },
-    get C59() {
-      return C[59] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 19,
-        [_Location_line]: 73,
-        [_Location_file]: null
-      });
-    },
-    get C57() {
-      return C[57] = dart.constList([C[58] || CT.C58, C[59] || CT.C59], widget_inspector._Location);
-    },
-    get C56() {
-      return C[56] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[57] || CT.C57,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 71,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C62() {
-      return C[62] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 17,
-        [_Location_line]: 70,
-        [_Location_file]: null
-      });
-    },
-    get C63() {
-      return C[63] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 71,
-        [_Location_file]: null
-      });
-    },
-    get C61() {
-      return C[61] = dart.constList([C[62] || CT.C62, C[63] || CT.C63], widget_inspector._Location);
-    },
-    get C60() {
-      return C[60] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[61] || CT.C61,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 69,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C66() {
-      return C[66] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 15,
-        [_Location_line]: 68,
-        [_Location_file]: null
-      });
-    },
-    get C67() {
-      return C[67] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 69,
-        [_Location_file]: null
-      });
-    },
-    get C65() {
-      return C[65] = dart.constList([C[66] || CT.C66, C[67] || CT.C67], widget_inspector._Location);
-    },
-    get C64() {
-      return C[64] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[65] || CT.C65,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 67,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C70() {
-      return C[70] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 15,
-        [_Location_line]: 80,
-        [_Location_file]: null
-      });
-    },
-    get C71() {
-      return C[71] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 15,
-        [_Location_line]: 81,
-        [_Location_file]: null
-      });
-    },
-    get C72() {
-      return C[72] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "press",
-        [_Location_column]: 15,
-        [_Location_line]: 82,
-        [_Location_file]: null
-      });
-    },
-    get C69() {
-      return C[69] = dart.constList([C[70] || CT.C70, C[71] || CT.C71, C[72] || CT.C72], widget_inspector._Location);
-    },
-    get C68() {
-      return C[68] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[69] || CT.C69,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 79,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C75() {
-      return C[75] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 15,
-        [_Location_line]: 85,
-        [_Location_file]: null
-      });
-    },
-    get C76() {
-      return C[76] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 15,
-        [_Location_line]: 86,
-        [_Location_file]: null
-      });
-    },
-    get C77() {
-      return C[77] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "press",
-        [_Location_column]: 15,
-        [_Location_line]: 87,
-        [_Location_file]: null
-      });
-    },
-    get C74() {
-      return C[74] = dart.constList([C[75] || CT.C75, C[76] || CT.C76, C[77] || CT.C77], widget_inspector._Location);
-    },
-    get C73() {
-      return C[73] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[74] || CT.C74,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 84,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C80() {
-      return C[80] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 15,
-        [_Location_line]: 90,
-        [_Location_file]: null
-      });
-    },
-    get C81() {
-      return C[81] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 15,
-        [_Location_line]: 91,
-        [_Location_file]: null
-      });
-    },
-    get C82() {
-      return C[82] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "press",
-        [_Location_column]: 15,
-        [_Location_line]: 92,
-        [_Location_file]: null
-      });
-    },
-    get C79() {
-      return C[79] = dart.constList([C[80] || CT.C80, C[81] || CT.C81, C[82] || CT.C82], widget_inspector._Location);
-    },
-    get C78() {
-      return C[78] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[79] || CT.C79,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 89,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C85() {
-      return C[85] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 15,
-        [_Location_line]: 95,
-        [_Location_file]: null
-      });
-    },
-    get C84() {
-      return C[84] = dart.constList([C[85] || CT.C85], widget_inspector._Location);
-    },
-    get C83() {
-      return C[83] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[84] || CT.C84,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 94,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C88() {
-      return C[88] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 19,
-        [_Location_line]: 102,
-        [_Location_file]: null
-      });
-    },
-    get C89() {
-      return C[89] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 19,
-        [_Location_line]: 103,
-        [_Location_file]: null
-      });
-    },
-    get C87() {
-      return C[87] = dart.constList([C[88] || CT.C88, C[89] || CT.C89], widget_inspector._Location);
-    },
-    get C86() {
-      return C[86] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[87] || CT.C87,
-        [_Location_name]: null,
-        [_Location_column]: 24,
-        [_Location_line]: 101,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C92() {
-      return C[92] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 17,
-        [_Location_line]: 100,
-        [_Location_file]: null
-      });
-    },
-    get C93() {
-      return C[93] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 17,
-        [_Location_line]: 101,
-        [_Location_file]: null
-      });
-    },
-    get C91() {
-      return C[91] = dart.constList([C[92] || CT.C92, C[93] || CT.C93], widget_inspector._Location);
-    },
-    get C90() {
-      return C[90] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[91] || CT.C91,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 99,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C96() {
-      return C[96] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 15,
-        [_Location_line]: 98,
-        [_Location_file]: null
-      });
-    },
-    get C97() {
-      return C[97] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 99,
-        [_Location_file]: null
-      });
-    },
-    get C95() {
-      return C[95] = dart.constList([C[96] || CT.C96, C[97] || CT.C97], widget_inspector._Location);
-    },
-    get C94() {
-      return C[94] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[95] || CT.C95,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 97,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C100() {
-      return C[100] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 15,
-        [_Location_line]: 110,
-        [_Location_file]: null
-      });
-    },
-    get C101() {
-      return C[101] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 15,
-        [_Location_line]: 111,
-        [_Location_file]: null
-      });
-    },
-    get C102() {
-      return C[102] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "press",
-        [_Location_column]: 15,
-        [_Location_line]: 112,
-        [_Location_file]: null
-      });
-    },
-    get C99() {
-      return C[99] = dart.constList([C[100] || CT.C100, C[101] || CT.C101, C[102] || CT.C102], widget_inspector._Location);
-    },
-    get C98() {
-      return C[98] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[99] || CT.C99,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 109,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C105() {
-      return C[105] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 11,
-        [_Location_line]: 17,
-        [_Location_file]: null
-      });
-    },
-    get C104() {
-      return C[104] = dart.constList([C[105] || CT.C105], widget_inspector._Location);
-    },
-    get C103() {
-      return C[103] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[104] || CT.C104,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 16,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C108() {
-      return C[108] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 16,
-        [_Location_file]: null
-      });
-    },
-    get C107() {
-      return C[107] = dart.constList([C[108] || CT.C108], widget_inspector._Location);
-    },
-    get C106() {
-      return C[106] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[107] || CT.C107,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 15,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C111() {
-      return C[111] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 15,
-        [_Location_file]: null
-      });
-    },
-    get C110() {
-      return C[110] = dart.constList([C[111] || CT.C111], widget_inspector._Location);
-    },
-    get C109() {
-      return C[109] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[110] || CT.C110,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 14,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Components/side_menu.dart"
-      });
-    },
-    get C113() {
-      return C[113] = dart.constList([], widget_inspector._Location);
-    },
-    get C112() {
-      return C[112] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[113] || CT.C113,
-        [_Location_name]: null,
-        [_Location_column]: 44,
-        [_Location_line]: 36,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C116() {
-      return C[116] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "flex",
-        [_Location_column]: 28,
-        [_Location_line]: 36,
-        [_Location_file]: null
-      });
-    },
-    get C117() {
-      return C[117] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 37,
-        [_Location_line]: 36,
-        [_Location_file]: null
-      });
-    },
-    get C115() {
-      return C[115] = dart.constList([C[116] || CT.C116, C[117] || CT.C117], widget_inspector._Location);
-    },
-    get C114() {
-      return C[114] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[115] || CT.C115,
-        [_Location_name]: null,
-        [_Location_column]: 19,
-        [_Location_line]: 36,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C120() {
-      return C[120] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 17,
-        [_Location_line]: 35,
-        [_Location_file]: null
-      });
-    },
-    get C119() {
-      return C[119] = dart.constList([C[120] || CT.C120], widget_inspector._Location);
-    },
-    get C118() {
-      return C[118] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[119] || CT.C119,
-        [_Location_name]: null,
-        [_Location_column]: 22,
-        [_Location_line]: 34,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C123() {
-      return C[123] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "flex",
-        [_Location_column]: 15,
-        [_Location_line]: 33,
-        [_Location_file]: null
-      });
-    },
-    get C124() {
-      return C[124] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 15,
-        [_Location_line]: 34,
-        [_Location_file]: null
-      });
-    },
-    get C122() {
-      return C[122] = dart.constList([C[123] || CT.C123, C[124] || CT.C124], widget_inspector._Location);
-    },
-    get C121() {
-      return C[121] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[122] || CT.C122,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 32,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C125() {
-      return C[125] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[113] || CT.C113,
-        [_Location_name]: null,
-        [_Location_column]: 38,
-        [_Location_line]: 61,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C128() {
-      return C[128] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "flex",
-        [_Location_column]: 22,
-        [_Location_line]: 61,
-        [_Location_file]: null
-      });
-    },
-    get C129() {
-      return C[129] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 31,
-        [_Location_line]: 61,
-        [_Location_file]: null
-      });
-    },
-    get C127() {
-      return C[127] = dart.constList([C[128] || CT.C128, C[129] || CT.C129], widget_inspector._Location);
-    },
-    get C126() {
-      return C[126] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[127] || CT.C127,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 61,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C132() {
-      return C[132] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "crossAxisAlignment",
-        [_Location_column]: 11,
-        [_Location_line]: 30,
-        [_Location_file]: null
-      });
-    },
-    get C133() {
-      return C[133] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 11,
-        [_Location_line]: 31,
-        [_Location_file]: null
-      });
-    },
-    get C131() {
-      return C[131] = dart.constList([C[132] || CT.C132, C[133] || CT.C133], widget_inspector._Location);
-    },
-    get C130() {
-      return C[130] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[131] || CT.C131,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 29,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C136() {
-      return C[136] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 29,
-        [_Location_file]: null
-      });
-    },
-    get C135() {
-      return C[135] = dart.constList([C[136] || CT.C136], widget_inspector._Location);
-    },
-    get C134() {
-      return C[134] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[135] || CT.C135,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 28,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C139() {
-      return C[139] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "body",
-        [_Location_column]: 7,
-        [_Location_line]: 28,
-        [_Location_file]: null
-      });
-    },
-    get C138() {
-      return C[138] = dart.constList([C[139] || CT.C139], widget_inspector._Location);
-    },
-    get C137() {
-      return C[137] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[138] || CT.C138,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 27,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C142() {
-      return C[142] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 9,
-        [_Location_line]: 81,
-        [_Location_file]: null
-      });
-    },
-    get C143() {
-      return C[143] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 9,
-        [_Location_line]: 82,
-        [_Location_file]: null
-      });
-    },
-    get C144() {
-      return C[144] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "size",
-        [_Location_column]: 9,
-        [_Location_line]: 83,
-        [_Location_file]: null
-      });
-    },
-    get C141() {
-      return C[141] = dart.constList([C[142] || CT.C142, C[143] || CT.C143, C[144] || CT.C144], widget_inspector._Location);
-    },
-    get C140() {
-      return C[140] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[141] || CT.C141,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 80,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C147() {
-      return C[147] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 19,
-        [_Location_line]: 85,
-        [_Location_file]: null
-      });
-    },
-    get C148() {
-      return C[148] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 11,
-        [_Location_line]: 86,
-        [_Location_file]: null
-      });
-    },
-    get C146() {
-      return C[146] = dart.constList([C[147] || CT.C147, C[148] || CT.C148], widget_inspector._Location);
-    },
-    get C145() {
-      return C[145] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[146] || CT.C146,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 85,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
-      });
-    },
-    get C151() {
-      return C[151] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "leading",
-        [_Location_column]: 7,
-        [_Location_line]: 80,
-        [_Location_file]: null
-      });
-    },
-    get C152() {
-      return C[152] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 7,
-        [_Location_line]: 85,
-        [_Location_file]: null
-      });
-    },
-    get C153() {
-      return C[153] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onTap",
-        [_Location_column]: 7,
-        [_Location_line]: 89,
-        [_Location_file]: null
-      });
-    },
-    get C150() {
-      return C[150] = dart.constList([C[151] || CT.C151, C[152] || CT.C152, C[153] || CT.C153], widget_inspector._Location);
-    },
-    get C149() {
-      return C[149] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[150] || CT.C150,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 79,
-        [_Location_file]: "file:///D:/Andriod%20Studio%20Projects/flutter_web_adminpanel/flutter_web_adminpanel/lib/Screen/Langing_Screen.dart"
+        __proto__: T.DefaultEqualityOfNever().prototype
       });
     }
   }, false);
-  var C = Array(154).fill(void 0);
-  var I = [
-    "package:flutterweb/Components/side_menu.dart",
-    "package:flutterweb/Screen/Langing_Screen.dart"
-  ];
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  side_menu.SideMenu = class SideMenu extends framework.StatelessWidget {
-    build(context) {
-      return new drawer.Drawer.new({child: new single_child_scroll_view.SingleChildScrollView.new({child: new basic.Column.new({children: T.JSArrayOfWidget().of([new drawer_header.DrawerHeader.new({child: new basic.Expanded.new({child: new image.Image.asset("images/do_dev_logo.png", {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6}), new Langing_Screen.DrawerListTile.new({title: "Dashboard", icon: icons.Icons.analytics, press: dart.fn(() => {
-                }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[9] || CT.C9}), new Langing_Screen.DrawerListTile.new({title: "Analytics", icon: icons.Icons.dashboard, press: dart.fn(() => {
-                }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), new expansion_tile.ExpansionTile.new({leading: new icon.Icon.new(icons.Icons.list, {$creationLocationd_0dea112b090073317d4: C[19] || CT.C19}), title: new text.Text.new("Posts", {style: google_fonts.GoogleFonts.robotoCondensed({textStyle: new text_style.TextStyle.new({color: colors.Colors.white, fontSize: 14.0})}), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22}), collapsedIconColor: colors.Colors.white, backgroundColor: Mycolor.MyColor.LightIndigo, children: T.JSArrayOfWidget().of([new Langing_Screen.DrawerListTile.new({title: "All Posts", icon: icons.Icons.pages, press: dart.fn(() => {
-                    }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), new Langing_Screen.DrawerListTile.new({title: "Add Post", icon: icons.Icons.post_add_sharp, press: dart.fn(() => {
-                    }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), new Langing_Screen.DrawerListTile.new({title: "Categories", icon: icons.Icons.category, press: dart.fn(() => {
-                    }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36}), new Langing_Screen.DrawerListTile.new({title: "Tags", icon: icons.Icons.tag, press: dart.fn(() => {
-                    }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[41] || CT.C41})]), $creationLocationd_0dea112b090073317d4: C[46] || CT.C46}), new basic.SizedBox.new({height: 25.0, $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}), new container.Container.new({padding: new edge_insets.EdgeInsets.only({left: 10.0}), child: new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new text.Text.new("Management", {style: google_fonts.GoogleFonts.robotoCondensed({textStyle: new text_style.TextStyle.new({color: colors.Colors.white, fontSize: 14.0})}), $creationLocationd_0dea112b090073317d4: C[56] || CT.C56}), $creationLocationd_0dea112b090073317d4: C[60] || CT.C60}), $creationLocationd_0dea112b090073317d4: C[64] || CT.C64}), new Langing_Screen.DrawerListTile.new({title: "Products", icon: icons.Icons.production_quantity_limits, press: dart.fn(() => {
-                }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[68] || CT.C68}), new Langing_Screen.DrawerListTile.new({title: "Orders", icon: icons.Icons.list_alt, press: dart.fn(() => {
-                }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[73] || CT.C73}), new Langing_Screen.DrawerListTile.new({title: "WooCommerce", icon: icons.Icons.inventory_2_outlined, press: dart.fn(() => {
-                }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[78] || CT.C78}), new basic.SizedBox.new({height: 25.0, $creationLocationd_0dea112b090073317d4: C[83] || CT.C83}), new container.Container.new({padding: new edge_insets.EdgeInsets.only({left: 10.0}), child: new basic.Align.new({alignment: alignment.Alignment.centerLeft, child: new text.Text.new("Others", {style: google_fonts.GoogleFonts.robotoCondensed({textStyle: new text_style.TextStyle.new({color: colors.Colors.white, fontSize: 14.0})}), $creationLocationd_0dea112b090073317d4: C[86] || CT.C86}), $creationLocationd_0dea112b090073317d4: C[90] || CT.C90}), $creationLocationd_0dea112b090073317d4: C[94] || CT.C94}), new Langing_Screen.DrawerListTile.new({title: "Settings", icon: icons.Icons.settings, press: dart.fn(() => {
-                }, T.VoidTovoid()), $creationLocationd_0dea112b090073317d4: C[98] || CT.C98})]), $creationLocationd_0dea112b090073317d4: C[103] || CT.C103}), $creationLocationd_0dea112b090073317d4: C[106] || CT.C106}), $creationLocationd_0dea112b090073317d4: C[109] || CT.C109});
+  var C = [void 0];
+  var I = ["package:collection/src/equality.dart"];
+  const _is_Equality_default = Symbol('_is_Equality_default');
+  equality.Equality$ = dart.generic(E => {
+    class Equality extends core.Object {}
+    (Equality[dart.mixinNew] = function() {
+    }).prototype = Equality.prototype;
+    dart.addTypeTests(Equality);
+    Equality.prototype[_is_Equality_default] = true;
+    dart.addTypeCaches(Equality);
+    dart.setLibraryUri(Equality, I[0]);
+    return Equality;
+  });
+  equality.Equality = equality.Equality$();
+  dart.addTypeTests(equality.Equality, _is_Equality_default);
+  var _comparisonKey = dart.privateName(equality, "_comparisonKey");
+  var _inner = dart.privateName(equality, "_inner");
+  const _is_EqualityBy_default = Symbol('_is_EqualityBy_default');
+  equality.EqualityBy$ = dart.generic((E, F) => {
+    class EqualityBy extends core.Object {
+      equals(e1, e2) {
+        let t0, t0$;
+        E.as(e1);
+        E.as(e2);
+        return this[_inner].equals((t0 = e1, this[_comparisonKey](t0)), (t0$ = e2, this[_comparisonKey](t0$)));
+      }
+      hash(e) {
+        let t0;
+        E.as(e);
+        return this[_inner].hash((t0 = e, this[_comparisonKey](t0)));
+      }
+      isValidKey(o) {
+        let t0;
+        if (E.is(o)) {
+          let value = (t0 = o, this[_comparisonKey](t0));
+          return F.is(value) && this[_inner].isValidKey(value);
+        }
+        return false;
+      }
+    }
+    (EqualityBy.new = function(comparisonKey, inner = C[0] || CT.C0) {
+      this[_comparisonKey] = comparisonKey;
+      this[_inner] = inner;
+      ;
+    }).prototype = EqualityBy.prototype;
+    dart.addTypeTests(EqualityBy);
+    EqualityBy.prototype[_is_EqualityBy_default] = true;
+    dart.addTypeCaches(EqualityBy);
+    EqualityBy[dart.implements] = () => [equality.Equality$(E)];
+    dart.setMethodSignature(EqualityBy, () => ({
+      __proto__: dart.getMethods(EqualityBy.__proto__),
+      equals: dart.fnType(core.bool, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      hash: dart.fnType(core.int, [dart.nullable(core.Object)]),
+      isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(EqualityBy, I[0]);
+    dart.setFieldSignature(EqualityBy, () => ({
+      __proto__: dart.getFields(EqualityBy.__proto__),
+      [_comparisonKey]: dart.finalFieldType(dart.fnType(F, [E])),
+      [_inner]: dart.finalFieldType(equality.Equality$(F))
+    }));
+    return EqualityBy;
+  });
+  equality.EqualityBy = equality.EqualityBy$();
+  dart.addTypeTests(equality.EqualityBy, _is_EqualityBy_default);
+  const _is_DefaultEquality_default = Symbol('_is_DefaultEquality_default');
+  equality.DefaultEquality$ = dart.generic(E => {
+    class DefaultEquality extends core.Object {
+      equals(e1, e2) {
+        return dart.equals(e1, e2);
+      }
+      hash(e) {
+        return dart.hashCode(e);
+      }
+      isValidKey(o) {
+        return true;
+      }
+    }
+    (DefaultEquality.new = function() {
+      ;
+    }).prototype = DefaultEquality.prototype;
+    dart.addTypeTests(DefaultEquality);
+    DefaultEquality.prototype[_is_DefaultEquality_default] = true;
+    dart.addTypeCaches(DefaultEquality);
+    DefaultEquality[dart.implements] = () => [equality.Equality$(E)];
+    dart.setMethodSignature(DefaultEquality, () => ({
+      __proto__: dart.getMethods(DefaultEquality.__proto__),
+      equals: dart.fnType(core.bool, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      hash: dart.fnType(core.int, [dart.nullable(core.Object)]),
+      isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(DefaultEquality, I[0]);
+    return DefaultEquality;
+  });
+  equality.DefaultEquality = equality.DefaultEquality$();
+  dart.addTypeTests(equality.DefaultEquality, _is_DefaultEquality_default);
+  const _is_IdentityEquality_default = Symbol('_is_IdentityEquality_default');
+  equality.IdentityEquality$ = dart.generic(E => {
+    class IdentityEquality extends core.Object {
+      equals(e1, e2) {
+        E.as(e1);
+        E.as(e2);
+        return core.identical(e1, e2);
+      }
+      hash(e) {
+        E.as(e);
+        return core.identityHashCode(e);
+      }
+      isValidKey(o) {
+        return true;
+      }
+    }
+    (IdentityEquality.new = function() {
+      ;
+    }).prototype = IdentityEquality.prototype;
+    dart.addTypeTests(IdentityEquality);
+    IdentityEquality.prototype[_is_IdentityEquality_default] = true;
+    dart.addTypeCaches(IdentityEquality);
+    IdentityEquality[dart.implements] = () => [equality.Equality$(E)];
+    dart.setMethodSignature(IdentityEquality, () => ({
+      __proto__: dart.getMethods(IdentityEquality.__proto__),
+      equals: dart.fnType(core.bool, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      hash: dart.fnType(core.int, [dart.nullable(core.Object)]),
+      isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(IdentityEquality, I[0]);
+    return IdentityEquality;
+  });
+  equality.IdentityEquality = equality.IdentityEquality$();
+  dart.addTypeTests(equality.IdentityEquality, _is_IdentityEquality_default);
+  var _elementEquality = dart.privateName(equality, "IterableEquality._elementEquality");
+  var _elementEquality$ = dart.privateName(equality, "_elementEquality");
+  const _is_IterableEquality_default = Symbol('_is_IterableEquality_default');
+  equality.IterableEquality$ = dart.generic(E => {
+    var IterableOfE = () => (IterableOfE = dart.constFn(core.Iterable$(E)))();
+    var IterableNOfE = () => (IterableNOfE = dart.constFn(dart.nullable(IterableOfE())))();
+    class IterableEquality extends core.Object {
+      get [_elementEquality$]() {
+        return this[_elementEquality];
+      }
+      set [_elementEquality$](value) {
+        super[_elementEquality$] = value;
+      }
+      equals(elements1, elements2) {
+        IterableNOfE().as(elements1);
+        IterableNOfE().as(elements2);
+        if (elements1 == elements2) return true;
+        if (elements1 == null || elements2 == null) return false;
+        let it1 = elements1[$iterator];
+        let it2 = elements2[$iterator];
+        while (true) {
+          let hasNext = it1.moveNext();
+          if (hasNext !== it2.moveNext()) return false;
+          if (!hasNext) return true;
+          if (!this[_elementEquality$].equals(it1.current, it2.current)) return false;
+        }
+      }
+      hash(elements) {
+        IterableNOfE().as(elements);
+        if (elements == null) return dart.hashCode(null);
+        let hash = 0;
+        for (let element of elements) {
+          let c = this[_elementEquality$].hash(element);
+          hash = (hash + c & 2147483647) >>> 0;
+          hash = (hash + (hash << 10 >>> 0) & 2147483647) >>> 0;
+          hash = (hash ^ hash[$rightShift](6)) >>> 0;
+        }
+        hash = (hash + (hash << 3 >>> 0) & 2147483647) >>> 0;
+        hash = (hash ^ hash[$rightShift](11)) >>> 0;
+        hash = (hash + (hash << 15 >>> 0) & 2147483647) >>> 0;
+        return hash;
+      }
+      isValidKey(o) {
+        return IterableOfE().is(o);
+      }
+    }
+    (IterableEquality.new = function(elementEquality = C[0] || CT.C0) {
+      this[_elementEquality] = elementEquality;
+      ;
+    }).prototype = IterableEquality.prototype;
+    dart.addTypeTests(IterableEquality);
+    IterableEquality.prototype[_is_IterableEquality_default] = true;
+    dart.addTypeCaches(IterableEquality);
+    IterableEquality[dart.implements] = () => [equality.Equality$(core.Iterable$(E))];
+    dart.setMethodSignature(IterableEquality, () => ({
+      __proto__: dart.getMethods(IterableEquality.__proto__),
+      equals: dart.fnType(core.bool, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      hash: dart.fnType(core.int, [dart.nullable(core.Object)]),
+      isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(IterableEquality, I[0]);
+    dart.setFieldSignature(IterableEquality, () => ({
+      __proto__: dart.getFields(IterableEquality.__proto__),
+      [_elementEquality$]: dart.finalFieldType(equality.Equality$(dart.nullable(E)))
+    }));
+    return IterableEquality;
+  });
+  equality.IterableEquality = equality.IterableEquality$();
+  dart.addTypeTests(equality.IterableEquality, _is_IterableEquality_default);
+  var _elementEquality$0 = dart.privateName(equality, "ListEquality._elementEquality");
+  const _is_ListEquality_default = Symbol('_is_ListEquality_default');
+  equality.ListEquality$ = dart.generic(E => {
+    var ListOfE = () => (ListOfE = dart.constFn(core.List$(E)))();
+    var ListNOfE = () => (ListNOfE = dart.constFn(dart.nullable(ListOfE())))();
+    class ListEquality extends core.Object {
+      get [_elementEquality$]() {
+        return this[_elementEquality$0];
+      }
+      set [_elementEquality$](value) {
+        super[_elementEquality$] = value;
+      }
+      equals(list1, list2) {
+        ListNOfE().as(list1);
+        ListNOfE().as(list2);
+        if (list1 == list2) return true;
+        if (list1 == null || list2 == null) return false;
+        let length = list1[$length];
+        if (length !== list2[$length]) return false;
+        for (let i = 0; i < length; i = i + 1) {
+          if (!this[_elementEquality$].equals(list1[$_get](i), list2[$_get](i))) return false;
+        }
+        return true;
+      }
+      hash(list) {
+        ListNOfE().as(list);
+        if (list == null) return dart.hashCode(null);
+        let hash = 0;
+        for (let i = 0; i < list[$length]; i = i + 1) {
+          let c = this[_elementEquality$].hash(list[$_get](i));
+          hash = (hash + c & 2147483647) >>> 0;
+          hash = (hash + (hash << 10 >>> 0) & 2147483647) >>> 0;
+          hash = (hash ^ hash[$rightShift](6)) >>> 0;
+        }
+        hash = (hash + (hash << 3 >>> 0) & 2147483647) >>> 0;
+        hash = (hash ^ hash[$rightShift](11)) >>> 0;
+        hash = (hash + (hash << 15 >>> 0) & 2147483647) >>> 0;
+        return hash;
+      }
+      isValidKey(o) {
+        return ListOfE().is(o);
+      }
+    }
+    (ListEquality.new = function(elementEquality = C[0] || CT.C0) {
+      this[_elementEquality$0] = elementEquality;
+      ;
+    }).prototype = ListEquality.prototype;
+    dart.addTypeTests(ListEquality);
+    ListEquality.prototype[_is_ListEquality_default] = true;
+    dart.addTypeCaches(ListEquality);
+    ListEquality[dart.implements] = () => [equality.Equality$(core.List$(E))];
+    dart.setMethodSignature(ListEquality, () => ({
+      __proto__: dart.getMethods(ListEquality.__proto__),
+      equals: dart.fnType(core.bool, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      hash: dart.fnType(core.int, [dart.nullable(core.Object)]),
+      isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(ListEquality, I[0]);
+    dart.setFieldSignature(ListEquality, () => ({
+      __proto__: dart.getFields(ListEquality.__proto__),
+      [_elementEquality$]: dart.finalFieldType(equality.Equality$(E))
+    }));
+    return ListEquality;
+  });
+  equality.ListEquality = equality.ListEquality$();
+  dart.addTypeTests(equality.ListEquality, _is_ListEquality_default);
+  var _elementEquality$1 = dart.privateName(equality, "_UnorderedEquality._elementEquality");
+  const _is__UnorderedEquality_default = Symbol('_is__UnorderedEquality_default');
+  equality._UnorderedEquality$ = dart.generic((E, T) => {
+    var HashMapOfE$dynamic = () => (HashMapOfE$dynamic = dart.constFn(collection.HashMap$(E, dart.dynamic)))();
+    class _UnorderedEquality extends core.Object {
+      get [_elementEquality$]() {
+        return this[_elementEquality$1];
+      }
+      set [_elementEquality$](value) {
+        super[_elementEquality$] = value;
+      }
+      equals(elements1, elements2) {
+        let t0;
+        T.as(elements1);
+        T.as(elements2);
+        if (elements1 == elements2) return true;
+        if (elements1 == null || elements2 == null) return false;
+        let counts = HashMapOfE$dynamic().new({equals: dart.bind(this[_elementEquality$], 'equals'), hashCode: dart.bind(this[_elementEquality$], 'hash'), isValidKey: dart.bind(this[_elementEquality$], 'isValidKey')});
+        let length = 0;
+        for (let e of elements1) {
+          let count = (t0 = counts[$_get](e), t0 == null ? 0 : t0);
+          counts[$_set](e, dart.dsend(count, '+', [1]));
+          length = length + 1;
+        }
+        for (let e of elements2) {
+          let count = counts[$_get](e);
+          if (count == null || dart.equals(count, 0)) return false;
+          counts[$_set](e, dart.dsend(count, '-', [1]));
+          length = length - 1;
+        }
+        return length === 0;
+      }
+      hash(elements) {
+        T.as(elements);
+        if (elements == null) return dart.hashCode(null);
+        let hash = 0;
+        for (let element of elements) {
+          let c = this[_elementEquality$].hash(element);
+          hash = (hash + c & 2147483647) >>> 0;
+        }
+        hash = (hash + (hash << 3 >>> 0) & 2147483647) >>> 0;
+        hash = (hash ^ hash[$rightShift](11)) >>> 0;
+        hash = (hash + (hash << 15 >>> 0) & 2147483647) >>> 0;
+        return hash;
+      }
+    }
+    (_UnorderedEquality.new = function(_elementEquality) {
+      this[_elementEquality$1] = _elementEquality;
+      ;
+    }).prototype = _UnorderedEquality.prototype;
+    dart.addTypeTests(_UnorderedEquality);
+    _UnorderedEquality.prototype[_is__UnorderedEquality_default] = true;
+    dart.addTypeCaches(_UnorderedEquality);
+    _UnorderedEquality[dart.implements] = () => [equality.Equality$(T)];
+    dart.setMethodSignature(_UnorderedEquality, () => ({
+      __proto__: dart.getMethods(_UnorderedEquality.__proto__),
+      equals: dart.fnType(core.bool, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      hash: dart.fnType(core.int, [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(_UnorderedEquality, I[0]);
+    dart.setFieldSignature(_UnorderedEquality, () => ({
+      __proto__: dart.getFields(_UnorderedEquality.__proto__),
+      [_elementEquality$]: dart.finalFieldType(equality.Equality$(E))
+    }));
+    return _UnorderedEquality;
+  });
+  equality._UnorderedEquality = equality._UnorderedEquality$();
+  dart.addTypeTests(equality._UnorderedEquality, _is__UnorderedEquality_default);
+  const _is_UnorderedIterableEquality_default = Symbol('_is_UnorderedIterableEquality_default');
+  equality.UnorderedIterableEquality$ = dart.generic(E => {
+    var IterableOfE = () => (IterableOfE = dart.constFn(core.Iterable$(E)))();
+    class UnorderedIterableEquality extends equality._UnorderedEquality$(E, dart.nullable(core.Iterable$(E))) {
+      isValidKey(o) {
+        return IterableOfE().is(o);
+      }
+    }
+    (UnorderedIterableEquality.new = function(elementEquality = C[0] || CT.C0) {
+      UnorderedIterableEquality.__proto__.new.call(this, elementEquality);
+      ;
+    }).prototype = UnorderedIterableEquality.prototype;
+    dart.addTypeTests(UnorderedIterableEquality);
+    UnorderedIterableEquality.prototype[_is_UnorderedIterableEquality_default] = true;
+    dart.addTypeCaches(UnorderedIterableEquality);
+    dart.setMethodSignature(UnorderedIterableEquality, () => ({
+      __proto__: dart.getMethods(UnorderedIterableEquality.__proto__),
+      isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(UnorderedIterableEquality, I[0]);
+    return UnorderedIterableEquality;
+  });
+  equality.UnorderedIterableEquality = equality.UnorderedIterableEquality$();
+  dart.addTypeTests(equality.UnorderedIterableEquality, _is_UnorderedIterableEquality_default);
+  const _is_SetEquality_default = Symbol('_is_SetEquality_default');
+  equality.SetEquality$ = dart.generic(E => {
+    var SetOfE = () => (SetOfE = dart.constFn(core.Set$(E)))();
+    class SetEquality extends equality._UnorderedEquality$(E, dart.nullable(core.Set$(E))) {
+      isValidKey(o) {
+        return SetOfE().is(o);
+      }
+    }
+    (SetEquality.new = function(elementEquality = C[0] || CT.C0) {
+      SetEquality.__proto__.new.call(this, elementEquality);
+      ;
+    }).prototype = SetEquality.prototype;
+    dart.addTypeTests(SetEquality);
+    SetEquality.prototype[_is_SetEquality_default] = true;
+    dart.addTypeCaches(SetEquality);
+    dart.setMethodSignature(SetEquality, () => ({
+      __proto__: dart.getMethods(SetEquality.__proto__),
+      isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(SetEquality, I[0]);
+    return SetEquality;
+  });
+  equality.SetEquality = equality.SetEquality$();
+  dart.addTypeTests(equality.SetEquality, _is_SetEquality_default);
+  var _keyEquality = dart.privateName(equality, "_keyEquality");
+  var _valueEquality = dart.privateName(equality, "_valueEquality");
+  equality._MapEntry = class _MapEntry extends core.Object {
+    get hashCode() {
+      return (3 * this.equality[_keyEquality].hash(this.key) + 7 * this.equality[_valueEquality].hash(this.value) & 2147483647) >>> 0;
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return equality._MapEntry.is(other) && this.equality[_keyEquality].equals(this.key, other.key) && this.equality[_valueEquality].equals(this.value, other.value);
     }
   };
-  (side_menu.SideMenu.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    side_menu.SideMenu.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (equality._MapEntry.new = function(equality, key, value) {
+    this.equality = equality;
+    this.key = key;
+    this.value = value;
     ;
-  }).prototype = side_menu.SideMenu.prototype;
-  dart.addTypeTests(side_menu.SideMenu);
-  dart.addTypeCaches(side_menu.SideMenu);
-  dart.setMethodSignature(side_menu.SideMenu, () => ({
-    __proto__: dart.getMethods(side_menu.SideMenu.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = equality._MapEntry.prototype;
+  dart.addTypeTests(equality._MapEntry);
+  dart.addTypeCaches(equality._MapEntry);
+  dart.setLibraryUri(equality._MapEntry, I[0]);
+  dart.setFieldSignature(equality._MapEntry, () => ({
+    __proto__: dart.getFields(equality._MapEntry.__proto__),
+    equality: dart.finalFieldType(equality.MapEquality),
+    key: dart.finalFieldType(dart.dynamic),
+    value: dart.finalFieldType(dart.dynamic)
   }));
-  dart.setLibraryUri(side_menu.SideMenu, I[0]);
-  var title$ = dart.privateName(Langing_Screen, "LandingPage.title");
-  Langing_Screen.LandingPage = class LandingPage extends framework.StatefulWidget {
-    get title() {
-      return this[title$];
+  dart.defineExtensionMethods(equality._MapEntry, ['_equals']);
+  dart.defineExtensionAccessors(equality._MapEntry, ['hashCode']);
+  var _keyEquality$ = dart.privateName(equality, "MapEquality._keyEquality");
+  var _valueEquality$ = dart.privateName(equality, "MapEquality._valueEquality");
+  const _is_MapEquality_default = Symbol('_is_MapEquality_default');
+  equality.MapEquality$ = dart.generic((K, V) => {
+    var MapOfK$V = () => (MapOfK$V = dart.constFn(core.Map$(K, V)))();
+    var MapNOfK$V = () => (MapNOfK$V = dart.constFn(dart.nullable(MapOfK$V())))();
+    class MapEquality extends core.Object {
+      get [_keyEquality]() {
+        return this[_keyEquality$];
+      }
+      set [_keyEquality](value) {
+        super[_keyEquality] = value;
+      }
+      get [_valueEquality]() {
+        return this[_valueEquality$];
+      }
+      set [_valueEquality](value) {
+        super[_valueEquality] = value;
+      }
+      equals(map1, map2) {
+        let t0;
+        MapNOfK$V().as(map1);
+        MapNOfK$V().as(map2);
+        if (map1 == map2) return true;
+        if (map1 == null || map2 == null) return false;
+        let length = map1[$length];
+        if (length !== map2[$length]) return false;
+        let equalElementCounts = new (T.LinkedMapOf_MapEntry$int()).new();
+        for (let key of map1[$keys]) {
+          let entry = new equality._MapEntry.new(this, key, map1[$_get](key));
+          let count = (t0 = equalElementCounts[$_get](entry), t0 == null ? 0 : t0);
+          equalElementCounts[$_set](entry, count + 1);
+        }
+        for (let key of map2[$keys]) {
+          let entry = new equality._MapEntry.new(this, key, map2[$_get](key));
+          let count = equalElementCounts[$_get](entry);
+          if (count == null || count === 0) return false;
+          equalElementCounts[$_set](entry, dart.notNull(count) - 1);
+        }
+        return true;
+      }
+      hash(map) {
+        MapNOfK$V().as(map);
+        if (map == null) return dart.hashCode(null);
+        let hash = 0;
+        for (let key of map[$keys]) {
+          let keyHash = this[_keyEquality].hash(key);
+          let valueHash = this[_valueEquality].hash(V.as(map[$_get](key)));
+          hash = (hash + 3 * keyHash + 7 * valueHash & 2147483647) >>> 0;
+        }
+        hash = (hash + (hash << 3 >>> 0) & 2147483647) >>> 0;
+        hash = (hash ^ hash[$rightShift](11)) >>> 0;
+        hash = (hash + (hash << 15 >>> 0) & 2147483647) >>> 0;
+        return hash;
+      }
+      isValidKey(o) {
+        return MapOfK$V().is(o);
+      }
     }
-    set title(value) {
-      super.title = value;
+    (MapEquality.new = function(opts) {
+      let keys = opts && 'keys' in opts ? opts.keys : C[0] || CT.C0;
+      let values = opts && 'values' in opts ? opts.values : C[0] || CT.C0;
+      this[_keyEquality$] = keys;
+      this[_valueEquality$] = values;
+      ;
+    }).prototype = MapEquality.prototype;
+    dart.addTypeTests(MapEquality);
+    MapEquality.prototype[_is_MapEquality_default] = true;
+    dart.addTypeCaches(MapEquality);
+    MapEquality[dart.implements] = () => [equality.Equality$(core.Map$(K, V))];
+    dart.setMethodSignature(MapEquality, () => ({
+      __proto__: dart.getMethods(MapEquality.__proto__),
+      equals: dart.fnType(core.bool, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      hash: dart.fnType(core.int, [dart.nullable(core.Object)]),
+      isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(MapEquality, I[0]);
+    dart.setFieldSignature(MapEquality, () => ({
+      __proto__: dart.getFields(MapEquality.__proto__),
+      [_keyEquality]: dart.finalFieldType(equality.Equality$(K)),
+      [_valueEquality]: dart.finalFieldType(equality.Equality$(V))
+    }));
+    return MapEquality;
+  });
+  equality.MapEquality = equality.MapEquality$();
+  dart.addTypeTests(equality.MapEquality, _is_MapEquality_default);
+  var _equalities = dart.privateName(equality, "MultiEquality._equalities");
+  var _equalities$ = dart.privateName(equality, "_equalities");
+  const _is_MultiEquality_default = Symbol('_is_MultiEquality_default');
+  equality.MultiEquality$ = dart.generic(E => {
+    class MultiEquality extends core.Object {
+      get [_equalities$]() {
+        return this[_equalities];
+      }
+      set [_equalities$](value) {
+        super[_equalities$] = value;
+      }
+      equals(e1, e2) {
+        E.as(e1);
+        E.as(e2);
+        for (let eq of this[_equalities$]) {
+          if (eq.isValidKey(e1)) return eq.isValidKey(e2) && eq.equals(e1, e2);
+        }
+        return false;
+      }
+      hash(e) {
+        E.as(e);
+        for (let eq of this[_equalities$]) {
+          if (eq.isValidKey(e)) return eq.hash(e);
+        }
+        return 0;
+      }
+      isValidKey(o) {
+        for (let eq of this[_equalities$]) {
+          if (eq.isValidKey(o)) return true;
+        }
+        return false;
+      }
     }
-    createState() {
-      return new Langing_Screen._LandingPageState.new();
+    (MultiEquality.new = function(equalities) {
+      this[_equalities] = equalities;
+      ;
+    }).prototype = MultiEquality.prototype;
+    dart.addTypeTests(MultiEquality);
+    MultiEquality.prototype[_is_MultiEquality_default] = true;
+    dart.addTypeCaches(MultiEquality);
+    MultiEquality[dart.implements] = () => [equality.Equality$(E)];
+    dart.setMethodSignature(MultiEquality, () => ({
+      __proto__: dart.getMethods(MultiEquality.__proto__),
+      equals: dart.fnType(core.bool, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+      hash: dart.fnType(core.int, [dart.nullable(core.Object)]),
+      isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
+    }));
+    dart.setLibraryUri(MultiEquality, I[0]);
+    dart.setFieldSignature(MultiEquality, () => ({
+      __proto__: dart.getFields(MultiEquality.__proto__),
+      [_equalities$]: dart.finalFieldType(core.Iterable$(equality.Equality$(E)))
+    }));
+    return MultiEquality;
+  });
+  equality.MultiEquality = equality.MultiEquality$();
+  dart.addTypeTests(equality.MultiEquality, _is_MultiEquality_default);
+  var _base = dart.privateName(equality, "DeepCollectionEquality._base");
+  var _unordered = dart.privateName(equality, "DeepCollectionEquality._unordered");
+  var _base$ = dart.privateName(equality, "_base");
+  var _unordered$ = dart.privateName(equality, "_unordered");
+  equality.DeepCollectionEquality = class DeepCollectionEquality extends core.Object {
+    get [_base$]() {
+      return this[_base];
+    }
+    set [_base$](value) {
+      super[_base$] = value;
+    }
+    get [_unordered$]() {
+      return this[_unordered];
+    }
+    set [_unordered$](value) {
+      super[_unordered$] = value;
+    }
+    equals(e1, e2) {
+      if (core.Set.is(e1)) {
+        return core.Set.is(e2) && new equality.SetEquality.new(this).equals(e1, e2);
+      }
+      if (core.Map.is(e1)) {
+        return core.Map.is(e2) && new equality.MapEquality.new({keys: this, values: this}).equals(e1, e2);
+      }
+      if (!this[_unordered$]) {
+        if (core.List.is(e1)) {
+          return core.List.is(e2) && new equality.ListEquality.new(this).equals(e1, e2);
+        }
+        if (core.Iterable.is(e1)) {
+          return core.Iterable.is(e2) && new equality.IterableEquality.new(this).equals(e1, e2);
+        }
+      } else if (core.Iterable.is(e1)) {
+        if (core.List.is(e1) !== core.List.is(e2)) return false;
+        return core.Iterable.is(e2) && new equality.UnorderedIterableEquality.new(this).equals(e1, e2);
+      }
+      return this[_base$].equals(e1, e2);
+    }
+    hash(o) {
+      if (core.Set.is(o)) return new equality.SetEquality.new(this).hash(o);
+      if (core.Map.is(o)) return new equality.MapEquality.new({keys: this, values: this}).hash(o);
+      if (!this[_unordered$]) {
+        if (core.List.is(o)) return new equality.ListEquality.new(this).hash(o);
+        if (core.Iterable.is(o)) return new equality.IterableEquality.new(this).hash(o);
+      } else if (core.Iterable.is(o)) {
+        return new equality.UnorderedIterableEquality.new(this).hash(o);
+      }
+      return this[_base$].hash(o);
+    }
+    isValidKey(o) {
+      return core.Iterable.is(o) || core.Map.is(o) || this[_base$].isValidKey(o);
     }
   };
-  (Langing_Screen.LandingPage.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let title = opts && 'title' in opts ? opts.title : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[title$] = title;
-    Langing_Screen.LandingPage.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (equality.DeepCollectionEquality.new = function(base = C[0] || CT.C0) {
+    this[_base] = base;
+    this[_unordered] = false;
     ;
-  }).prototype = Langing_Screen.LandingPage.prototype;
-  dart.addTypeTests(Langing_Screen.LandingPage);
-  dart.addTypeCaches(Langing_Screen.LandingPage);
-  dart.setMethodSignature(Langing_Screen.LandingPage, () => ({
-    __proto__: dart.getMethods(Langing_Screen.LandingPage.__proto__),
-    createState: dart.fnType(Langing_Screen._LandingPageState, [])
+  }).prototype = equality.DeepCollectionEquality.prototype;
+  (equality.DeepCollectionEquality.unordered = function(base = C[0] || CT.C0) {
+    this[_base] = base;
+    this[_unordered] = true;
+    ;
+  }).prototype = equality.DeepCollectionEquality.prototype;
+  dart.addTypeTests(equality.DeepCollectionEquality);
+  dart.addTypeCaches(equality.DeepCollectionEquality);
+  equality.DeepCollectionEquality[dart.implements] = () => [equality.Equality];
+  dart.setMethodSignature(equality.DeepCollectionEquality, () => ({
+    __proto__: dart.getMethods(equality.DeepCollectionEquality.__proto__),
+    equals: dart.fnType(core.bool, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+    hash: dart.fnType(core.int, [dart.nullable(core.Object)]),
+    isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
   }));
-  dart.setLibraryUri(Langing_Screen.LandingPage, I[1]);
-  dart.setFieldSignature(Langing_Screen.LandingPage, () => ({
-    __proto__: dart.getFields(Langing_Screen.LandingPage.__proto__),
-    title: dart.finalFieldType(core.String)
+  dart.setLibraryUri(equality.DeepCollectionEquality, I[0]);
+  dart.setFieldSignature(equality.DeepCollectionEquality, () => ({
+    __proto__: dart.getFields(equality.DeepCollectionEquality.__proto__),
+    [_base$]: dart.finalFieldType(equality.Equality),
+    [_unordered$]: dart.finalFieldType(core.bool)
   }));
-  Langing_Screen._LandingPageState = class _LandingPageState extends framework.State$(Langing_Screen.LandingPage) {
-    build(context) {
-      return new scaffold.Scaffold.new({body: new safe_area.SafeArea.new({child: new basic.Row.new({crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new basic.Expanded.new({flex: 1, child: new basic.Column.new({children: T.JSArrayOfWidget().of([new basic.Expanded.new({flex: 1, child: new side_menu.SideMenu.new({$creationLocationd_0dea112b090073317d4: C[112] || CT.C112}), $creationLocationd_0dea112b090073317d4: C[114] || CT.C114})]), $creationLocationd_0dea112b090073317d4: C[118] || CT.C118}), $creationLocationd_0dea112b090073317d4: C[121] || CT.C121}), new basic.Expanded.new({flex: 5, child: new analytics_screen.AnalyticsScreen.new({$creationLocationd_0dea112b090073317d4: C[125] || CT.C125}), $creationLocationd_0dea112b090073317d4: C[126] || CT.C126})]), $creationLocationd_0dea112b090073317d4: C[130] || CT.C130}), $creationLocationd_0dea112b090073317d4: C[134] || CT.C134}), $creationLocationd_0dea112b090073317d4: C[137] || CT.C137});
+  equality.CaseInsensitiveEquality = class CaseInsensitiveEquality extends core.Object {
+    equals(string1, string2) {
+      core.String.as(string1);
+      core.String.as(string2);
+      return comparators.equalsIgnoreAsciiCase(string1, string2);
+    }
+    hash(string) {
+      core.String.as(string);
+      return comparators.hashIgnoreAsciiCase(string);
+    }
+    isValidKey(object) {
+      return typeof object == 'string';
     }
   };
-  (Langing_Screen._LandingPageState.new = function() {
-    Langing_Screen._LandingPageState.__proto__.new.call(this);
+  (equality.CaseInsensitiveEquality.new = function() {
     ;
-  }).prototype = Langing_Screen._LandingPageState.prototype;
-  dart.addTypeTests(Langing_Screen._LandingPageState);
-  dart.addTypeCaches(Langing_Screen._LandingPageState);
-  dart.setMethodSignature(Langing_Screen._LandingPageState, () => ({
-    __proto__: dart.getMethods(Langing_Screen._LandingPageState.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = equality.CaseInsensitiveEquality.prototype;
+  dart.addTypeTests(equality.CaseInsensitiveEquality);
+  dart.addTypeCaches(equality.CaseInsensitiveEquality);
+  equality.CaseInsensitiveEquality[dart.implements] = () => [equality.Equality$(core.String)];
+  dart.setMethodSignature(equality.CaseInsensitiveEquality, () => ({
+    __proto__: dart.getMethods(equality.CaseInsensitiveEquality.__proto__),
+    equals: dart.fnType(core.bool, [dart.nullable(core.Object), dart.nullable(core.Object)]),
+    hash: dart.fnType(core.int, [dart.nullable(core.Object)]),
+    isValidKey: dart.fnType(core.bool, [dart.nullable(core.Object)])
   }));
-  dart.setLibraryUri(Langing_Screen._LandingPageState, I[1]);
-  var title$0 = dart.privateName(Langing_Screen, "DrawerListTile.title");
-  var press$ = dart.privateName(Langing_Screen, "DrawerListTile.press");
-  var icon$ = dart.privateName(Langing_Screen, "DrawerListTile.icon");
-  Langing_Screen.DrawerListTile = class DrawerListTile extends framework.StatelessWidget {
-    get title() {
-      return this[title$0];
+  dart.setLibraryUri(equality.CaseInsensitiveEquality, I[0]);
+  dart.defineLazy(equality, {
+    /*equality._HASH_MASK*/get _HASH_MASK() {
+      return 2147483647;
     }
-    set title(value) {
-      super.title = value;
-    }
-    get press() {
-      return this[press$];
-    }
-    set press(value) {
-      super.press = value;
-    }
-    get icon() {
-      return this[icon$];
-    }
-    set icon(value) {
-      super.icon = value;
-    }
-    build(context) {
-      return new list_tile.ListTile.new({leading: new icon.Icon.new(this.icon, {color: colors.Colors.white, size: 18.0, $creationLocationd_0dea112b090073317d4: C[140] || CT.C140}), title: new text.Text.new(this.title, {style: google_fonts.GoogleFonts.robotoCondensed({textStyle: new text_style.TextStyle.new({color: colors.Colors.white, fontSize: 14.0})}), $creationLocationd_0dea112b090073317d4: C[145] || CT.C145}), onTap: this.press, $creationLocationd_0dea112b090073317d4: C[149] || CT.C149});
-    }
-  };
-  (Langing_Screen.DrawerListTile.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let title = opts && 'title' in opts ? opts.title : null;
-    let icon = opts && 'icon' in opts ? opts.icon : null;
-    let press = opts && 'press' in opts ? opts.press : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[title$0] = title;
-    this[icon$] = icon;
-    this[press$] = press;
-    Langing_Screen.DrawerListTile.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = Langing_Screen.DrawerListTile.prototype;
-  dart.addTypeTests(Langing_Screen.DrawerListTile);
-  dart.addTypeCaches(Langing_Screen.DrawerListTile);
-  dart.setMethodSignature(Langing_Screen.DrawerListTile, () => ({
-    __proto__: dart.getMethods(Langing_Screen.DrawerListTile.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
-  }));
-  dart.setLibraryUri(Langing_Screen.DrawerListTile, I[1]);
-  dart.setFieldSignature(Langing_Screen.DrawerListTile, () => ({
-    __proto__: dart.getFields(Langing_Screen.DrawerListTile.__proto__),
-    title: dart.finalFieldType(core.String),
-    press: dart.finalFieldType(dart.fnType(dart.void, [])),
-    icon: dart.finalFieldType(icon_data.IconData)
-  }));
-  dart.trackLibraries("packages/flutterweb/Components/side_menu.dart", {
-    "package:flutterweb/Components/side_menu.dart": side_menu,
-    "package:flutterweb/Screen/Langing_Screen.dart": Langing_Screen
+  }, false);
+  dart.trackLibraries("packages/collection/src/equality.dart", {
+    "package:collection/src/equality.dart": equality
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["side_menu.dart","../Screen/Langing_Screen.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UAY4B;AACxB,YAAO,+BACE,+DACE,gCACK,wBACR,2CACS,+BACQ,sBAAM,sMAGvB,8CACS,mBACK,8BACL;6FAET,8CACS,mBACK,8BACL;+FAET,+CACW,kBAAW,qFACb,kBAAK,iBACW,qDACN,qCAAwB,+BAAiB,yFAE/B,sCACF,uCACP,wBAChB,8CACS,mBACK,0BACL;mGAET,8CACS,kBACK,mCACL;mGAET,8CACS,oBACK,6BACL;mGAET,8CACS,cACK,wBACL;gKAIb,gCACU,iEAEV,sCACsB,uCAAW,eACxB,gCACgB,uCACd,kBACL,sBACmB,qDACN,qCAAwB,+BAAiB,2LAK5D,8CACS,kBACK,+CACL;+FAET,8CACS,gBACK,6BACL;+FAET,8CACS,qBACK,yCACL;+FAET,gCACU,iEAEV,sCACsB,uCAAW,eACxB,gCACgB,uCACd,kBACL,kBACmB,qDACN,qCAAwB,+BAAiB,2LAK5D,8CACS,kBACK,6BACL;;IAMnB;;;QA7GO;;AACF,sDAAW,GAAG;;EAAC;;;;;;;;;;ICEP;;;;;;;AAGsB;IAAmB;;;QAJpC;QAAmB;;;AAAU,8DAAW,GAAG;;EAAC;;;;;;;;;;;;;UASpC;AAOxB,YAAO,kCACC,mCACG,uCACkC,yCAC7B,wBACR,8BACQ,UACC,gCACK,wBACR,8BAAe,UAAU,kRAyB/B,8BAAe,UAAU;IAKnC;;;;;EACF;;;;;;;;;;;;IAOe;;;;;;IACM;;;;;;IACJ;;;;;;UAEW;AACxB,YAAO,sCACI,kBACP,mBACc,2BACR,0EAED,kBAAK,oBACW,qDACN,qCAAwB,+BAAiB,8EAEnD;IAEX;;;QApBU;QAAmB;QAAqB;QAAoB;;IAAzC;IAAqB;IAAoB;AAChE,iEAAW,GAAG;;EAAC","file":"../../../../../packages/flutterweb/Components/side_menu.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["equality.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../D:/packages/collection/src/equality.dart.lib.js"}');
   // Exports:
   return {
-    Components__side_menu: side_menu,
-    Screen__Langing_Screen: Langing_Screen
+    src__equality: equality
   };
 }));
 
-//# sourceMappingURL=side_menu.dart.lib.js.map
+//# sourceMappingURL=equality.dart.lib.js.map

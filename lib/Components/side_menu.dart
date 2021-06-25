@@ -4,8 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'Mycolor.dart';
 
+/**
+ * 
+ * TODO: Need To Pass Data To The landing page. InheretedWidget might be useful if can implmented
+ * 
+ */
 class SideMenu extends StatelessWidget {
-  const SideMenu({
+  List<Widget> sidebarPages;
+  SideMenu(
+    List<Widget> this.sidebarPages, {
     Key? key,
   }) : super(key: key);
 

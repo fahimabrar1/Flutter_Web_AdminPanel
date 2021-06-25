@@ -1,74 +1,42 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/debug.dart', 'packages/collection/src/priority_queue.dart', 'packages/flutter/src/foundation/print.dart', 'packages/flutter/src/scheduler/debug.dart', 'packages/flutter/src/foundation/binding.dart', 'packages/flutter/src/scheduler/priority.dart'], (function load__packages__flutter__src__scheduler__binding_dart(dart_sdk, packages__flutter__src__foundation__debug$46dart, packages__collection__src__priority_queue$46dart, packages__flutter__src__foundation__print$46dart, packages__flutter__src__scheduler__debug$46dart, packages__flutter__src__foundation__binding$46dart, packages__flutter__src__scheduler__priority$46dart) {
+define(['dart_sdk', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__rendering__sliver_multi_box_adaptor_dart(dart_sdk, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const async = dart_sdk.async;
-  const _internal = dart_sdk._internal;
-  const developer = dart_sdk.developer;
-  const _interceptors = dart_sdk._interceptors;
-  const ui = dart_sdk.ui;
   const _js_helper = dart_sdk._js_helper;
-  const collection = dart_sdk.collection;
+  const _interceptors = dart_sdk._interceptors;
+  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
   const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const debug = packages__flutter__src__foundation__debug$46dart.src__foundation__debug;
-  const priority_queue = packages__collection__src__priority_queue$46dart.src__priority_queue;
-  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
-  const debug$ = packages__flutter__src__scheduler__debug$46dart.src__scheduler__debug;
-  const binding = packages__flutter__src__foundation__binding$46dart.src__foundation__binding;
-  const priority$ = packages__flutter__src__scheduler__priority$46dart.src__scheduler__priority;
-  var binding$ = Object.create(dart.library);
-  var $add = dartx.add;
-  var $length = dartx.length;
-  var $contains = dartx.contains;
-  var $remove = dartx.remove;
+  var sliver_multi_box_adaptor = Object.create(dart.library);
   var $isEmpty = dartx.isEmpty;
-  var $compareTo = dartx.compareTo;
-  var $_set = dartx._set;
-  var $keys = dartx.keys;
+  var $containsValue = dartx.containsValue;
   var $_get = dartx._get;
-  var $trimRight = dartx.trimRight;
-  var $split = dartx.split;
-  var $join = dartx.join;
-  var $round = dartx.round;
-  var $toString = dartx.toString;
-  var $padRight = dartx.padRight;
-  var $padLeft = dartx.padLeft;
+  var $remove = dartx.remove;
+  var $containsKey = dartx.containsKey;
+  var $add = dartx.add;
+  var $_set = dartx._set;
+  var $values = dartx.values;
   var $forEach = dartx.forEach;
   var $clear = dartx.clear;
-  var $times = dartx['*'];
+  var $where = dartx.where;
+  var $toList = dartx.toList;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $keys = dartx.keys;
+  var $sort = dartx.sort;
   dart._checkModuleNullSafetyMode(true);
-  var T$ = {
-    VoidTobool: () => (T$.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    VoidToNull: () => (T$.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
-    JSArrayOfDiagnosticsNode: () => (T$.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    ListOfFrameTiming: () => (T$.ListOfFrameTiming = dart.constFn(core.List$(ui.FrameTiming)))(),
-    ListOfFrameTimingTovoid: () => (T$.ListOfFrameTimingTovoid = dart.constFn(dart.fnType(dart.void, [T$.ListOfFrameTiming()])))(),
-    JSArrayOfListOfFrameTimingTovoid: () => (T$.JSArrayOfListOfFrameTimingTovoid = dart.constFn(_interceptors.JSArray$(T$.ListOfFrameTimingTovoid())))(),
-    __Tobool: () => (T$.__Tobool = dart.constFn(dart.fnType(core.bool, [], {}, {priority: core.int, scheduler: binding$.SchedulerBinding})))(),
-    HeapPriorityQueueOf_TaskEntry: () => (T$.HeapPriorityQueueOf_TaskEntry = dart.constFn(priority_queue.HeapPriorityQueue$(binding$._TaskEntry)))(),
-    _TaskEntryAnd_TaskEntryToint: () => (T$._TaskEntryAnd_TaskEntryToint = dart.constFn(dart.fnType(core.int, [binding$._TaskEntry, binding$._TaskEntry])))(),
-    IdentityMapOfint$_FrameCallbackEntry: () => (T$.IdentityMapOfint$_FrameCallbackEntry = dart.constFn(_js_helper.IdentityMap$(core.int, binding$._FrameCallbackEntry)))(),
-    _IdentityHashSetOfint: () => (T$._IdentityHashSetOfint = dart.constFn(collection._IdentityHashSet$(core.int)))(),
-    DurationTovoid: () => (T$.DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))(),
-    JSArrayOfDurationTovoid: () => (T$.JSArrayOfDurationTovoid = dart.constFn(_interceptors.JSArray$(T$.DurationTovoid())))(),
-    ListOfListOfFrameTimingTovoid: () => (T$.ListOfListOfFrameTimingTovoid = dart.constFn(core.List$(T$.ListOfFrameTimingTovoid())))(),
-    DiagnosticsPropertyOfListOfFrameTimingTovoid: () => (T$.DiagnosticsPropertyOfListOfFrameTimingTovoid = dart.constFn(diagnostics.DiagnosticsProperty$(T$.ListOfFrameTimingTovoid())))(),
-    SyncIterableOfDiagnosticsNode: () => (T$.SyncIterableOfDiagnosticsNode = dart.constFn(_js_helper.SyncIterable$(diagnostics.DiagnosticsNode)))(),
-    IterableOfDiagnosticsNode: () => (T$.IterableOfDiagnosticsNode = dart.constFn(core.Iterable$(diagnostics.DiagnosticsNode)))(),
-    VoidToIterableOfDiagnosticsNode: () => (T$.VoidToIterableOfDiagnosticsNode = dart.constFn(dart.fnType(T$.IterableOfDiagnosticsNode(), [])))(),
-    FutureOfdouble: () => (T$.FutureOfdouble = dart.constFn(async.Future$(core.double)))(),
-    VoidToFutureOfdouble: () => (T$.VoidToFutureOfdouble = dart.constFn(dart.fnType(T$.FutureOfdouble(), [])))(),
-    FutureOfvoid: () => (T$.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
-    doubleToFutureOfvoid: () => (T$.doubleToFutureOfvoid = dart.constFn(dart.fnType(T$.FutureOfvoid(), [core.double])))(),
-    LinkedHashMapOfint$_FrameCallbackEntry: () => (T$.LinkedHashMapOfint$_FrameCallbackEntry = dart.constFn(collection.LinkedHashMap$(core.int, binding$._FrameCallbackEntry)))(),
-    CompleterOfvoid: () => (T$.CompleterOfvoid = dart.constFn(async.Completer$(dart.void)))(),
-    VoidTovoid: () => (T$.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    VoidToFutureOfvoid: () => (T$.VoidToFutureOfvoid = dart.constFn(dart.fnType(T$.FutureOfvoid(), [])))(),
-    intAnd_FrameCallbackEntryTovoid: () => (T$.intAnd_FrameCallbackEntryTovoid = dart.constFn(dart.fnType(dart.void, [core.int, binding$._FrameCallbackEntry])))(),
-    ListOfDurationTovoid: () => (T$.ListOfDurationTovoid = dart.constFn(core.List$(T$.DurationTovoid())))(),
-    IdentityMapOfString$dynamic: () => (T$.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))()
+  var T = {
+    IdentityMapOfint$RenderBox: () => (T.IdentityMapOfint$RenderBox = dart.constFn(_js_helper.IdentityMap$(core.int, box.RenderBox)))(),
+    JSArrayOfRenderBox: () => (T.JSArrayOfRenderBox = dart.constFn(_interceptors.JSArray$(box.RenderBox)))(),
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
+    RenderBoxN: () => (T.RenderBoxN = dart.constFn(dart.nullable(box.RenderBox)))(),
+    SliverConstraintsTovoid: () => (T.SliverConstraintsTovoid = dart.constFn(dart.fnType(dart.void, [sliver.SliverConstraints])))(),
+    RenderBoxTobool: () => (T.RenderBoxTobool = dart.constFn(dart.fnType(core.bool, [box.RenderBox])))(),
+    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))()
   };
   const CT = Object.create({
     _: () => (C, CT)
@@ -76,794 +44,637 @@ define(['dart_sdk', 'packages/flutter/src/foundation/debug.dart', 'packages/coll
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: binding$.SchedulerPhase.prototype,
-        [_name$]: "SchedulerPhase.idle",
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.horizontal",
         index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: binding$.SchedulerPhase.prototype,
-        [_name$]: "SchedulerPhase.transientCallbacks",
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.vertical",
         index: 1
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: binding$.SchedulerPhase.prototype,
-        [_name$]: "SchedulerPhase.midFrameMicrotasks",
-        index: 2
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: -1,
+        [OffsetBase__dx]: 0
       });
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: binding$.SchedulerPhase.prototype,
-        [_name$]: "SchedulerPhase.persistentCallbacks",
-        index: 3
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 1
       });
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: binding$.SchedulerPhase.prototype,
-        [_name$]: "SchedulerPhase.postFrameCallbacks",
-        index: 4
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.up",
+        index: 0
       });
     },
     get C5() {
-      return C[5] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], binding$.SchedulerPhase);
+      return C[5] = dart.const({
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 1,
+        [OffsetBase__dx]: 0
+      });
     },
     get C6() {
-      return C[6] = dart.fn(binding$.defaultSchedulingStrategy, T$.__Tobool());
+      return C[6] = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.right",
+        index: 1
+      });
     },
     get C7() {
-      return C[7] = dart.fn(binding$.SchedulerBinding._taskSorter, T$._TaskEntryAnd_TaskEntryToint());
+      return C[7] = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.down",
+        index: 2
+      });
     },
     get C8() {
       return C[8] = dart.const({
-        __proto__: ui.AppLifecycleState.prototype,
-        [_name]: "AppLifecycleState.resumed",
-        index: 0
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: -1
       });
     },
     get C9() {
       return C[9] = dart.const({
-        __proto__: ui.AppLifecycleState.prototype,
-        [_name]: "AppLifecycleState.inactive",
-        index: 1
-      });
-    },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: ui.AppLifecycleState.prototype,
-        [_name]: "AppLifecycleState.paused",
-        index: 2
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: ui.AppLifecycleState.prototype,
-        [_name]: "AppLifecycleState.detached",
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.left",
         index: 3
       });
     }
   }, false);
-  var C = Array(12).fill(void 0);
+  var C = Array(10).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/scheduler/binding.dart",
-    "package:flutter/src/scheduler/binding.dart"
+    "package:flutter/src/rendering/sliver_multi_box_adaptor.dart",
+    "file:///C:/src/flutter/packages/flutter/lib/src/rendering/sliver_multi_box_adaptor.dart"
   ];
-  var ___TaskEntry_debugStack = dart.privateName(binding$, "_#_TaskEntry#debugStack");
-  const _is__TaskEntry_default = Symbol('_is__TaskEntry_default');
-  binding$._TaskEntry$ = dart.generic(T => {
-    var CompleterOfT = () => (CompleterOfT = dart.constFn(async.Completer$(T)))();
-    class _TaskEntry extends core.Object {
-      get debugStack() {
-        let t0;
-        t0 = this[___TaskEntry_debugStack];
-        return t0 == null ? dart.throw(new _internal.LateError.fieldNI("debugStack")) : t0;
-      }
-      set debugStack(t0) {
-        this[___TaskEntry_debugStack] = t0;
-      }
-      run() {
-        let t1;
-        if (!false) {
-          developer.Timeline.timeSync(core.Null, (t1 = this.debugLabel, t1 == null ? "Scheduled Task" : t1), dart.fn(() => {
-            this.completer.complete(this.task());
-          }, T$.VoidToNull()), {flow: this.flow != null ? developer.Flow.step(dart.nullCheck(this.flow).id) : null});
-        } else {
-          this.completer.complete(this.task());
-        }
-      }
+  sliver_multi_box_adaptor.RenderSliverBoxChildManager = class RenderSliverBoxChildManager extends core.Object {
+    didStartLayout() {
     }
-    (_TaskEntry.new = function(task, priority, debugLabel, flow) {
-      this[___TaskEntry_debugStack] = null;
-      this.completer = CompleterOfT().new();
-      this.task = task;
-      this.priority = priority;
-      this.debugLabel = debugLabel;
-      this.flow = flow;
+    didFinishLayout() {
+    }
+    debugAssertChildListLocked() {
+      return true;
+    }
+  };
+  (sliver_multi_box_adaptor.RenderSliverBoxChildManager.new = function() {
+    ;
+  }).prototype = sliver_multi_box_adaptor.RenderSliverBoxChildManager.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.RenderSliverBoxChildManager);
+  dart.addTypeCaches(sliver_multi_box_adaptor.RenderSliverBoxChildManager);
+  dart.setMethodSignature(sliver_multi_box_adaptor.RenderSliverBoxChildManager, () => ({
+    __proto__: dart.getMethods(sliver_multi_box_adaptor.RenderSliverBoxChildManager.__proto__),
+    didStartLayout: dart.fnType(dart.void, []),
+    didFinishLayout: dart.fnType(dart.void, []),
+    debugAssertChildListLocked: dart.fnType(core.bool, [])
+  }));
+  dart.setLibraryUri(sliver_multi_box_adaptor.RenderSliverBoxChildManager, I[0]);
+  var keepAlive = dart.privateName(sliver_multi_box_adaptor, "KeepAliveParentDataMixin.keepAlive");
+  sliver_multi_box_adaptor.KeepAliveParentDataMixin = class KeepAliveParentDataMixin extends core.Object {};
+  sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.mixinOn] = Object => class KeepAliveParentDataMixin extends Object {
+    get keepAlive() {
+      return this[keepAlive];
+    }
+    set keepAlive(value) {
+      this[keepAlive] = value;
+    }
+  };
+  (sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.mixinNew] = function() {
+    this[keepAlive] = false;
+  }).prototype = sliver_multi_box_adaptor.KeepAliveParentDataMixin.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.KeepAliveParentDataMixin);
+  dart.addTypeCaches(sliver_multi_box_adaptor.KeepAliveParentDataMixin);
+  sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.implements] = () => [object.ParentData, core.Object];
+  dart.setLibraryUri(sliver_multi_box_adaptor.KeepAliveParentDataMixin, I[0]);
+  dart.setFieldSignature(sliver_multi_box_adaptor.KeepAliveParentDataMixin, () => ({
+    __proto__: dart.getFields(sliver_multi_box_adaptor.KeepAliveParentDataMixin.__proto__),
+    keepAlive: dart.fieldType(core.bool)
+  }));
+  sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin = class RenderSliverWithKeepAliveMixin extends core.Object {};
+  sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin[dart.mixinOn] = Object => class RenderSliverWithKeepAliveMixin extends Object {
+    setupParentData(child) {
+      object.RenderObject.as(child);
+      if (!sliver_multi_box_adaptor.KeepAliveParentDataMixin.is(child.parentData)) dart.assertFailed(null, I[1], 139, 12, "child.parentData is KeepAliveParentDataMixin");
+    }
+  };
+  (sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin[dart.mixinNew] = function() {
+  }).prototype = sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin);
+  dart.addTypeCaches(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin);
+  sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin[dart.implements] = () => [sliver.RenderSliver, core.Object];
+  dart.setMethodSignature(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin, () => ({
+    __proto__: dart.getMethods(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin.__proto__),
+    setupParentData: dart.fnType(dart.void, [dart.nullable(core.Object)])
+  }));
+  dart.setLibraryUri(sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin, I[0]);
+  var index = dart.privateName(sliver_multi_box_adaptor, "SliverMultiBoxAdaptorParentData.index");
+  var _keptAlive = dart.privateName(sliver_multi_box_adaptor, "_keptAlive");
+  const SliverLogicalParentData_ContainerParentDataMixin$36 = class SliverLogicalParentData_ContainerParentDataMixin extends sliver.SliverLogicalParentData {};
+  (SliverLogicalParentData_ContainerParentDataMixin$36.new = function() {
+    object.ContainerParentDataMixin$(box.RenderBox)[dart.mixinNew].call(this);
+    SliverLogicalParentData_ContainerParentDataMixin$36.__proto__.new.call(this);
+  }).prototype = SliverLogicalParentData_ContainerParentDataMixin$36.prototype;
+  dart.applyMixin(SliverLogicalParentData_ContainerParentDataMixin$36, object.ContainerParentDataMixin$(box.RenderBox));
+  const SliverLogicalParentData_KeepAliveParentDataMixin$36 = class SliverLogicalParentData_KeepAliveParentDataMixin extends SliverLogicalParentData_ContainerParentDataMixin$36 {};
+  (SliverLogicalParentData_KeepAliveParentDataMixin$36.new = function() {
+    sliver_multi_box_adaptor.KeepAliveParentDataMixin[dart.mixinNew].call(this);
+    SliverLogicalParentData_KeepAliveParentDataMixin$36.__proto__.new.call(this);
+  }).prototype = SliverLogicalParentData_KeepAliveParentDataMixin$36.prototype;
+  dart.applyMixin(SliverLogicalParentData_KeepAliveParentDataMixin$36, sliver_multi_box_adaptor.KeepAliveParentDataMixin);
+  sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData = class SliverMultiBoxAdaptorParentData extends SliverLogicalParentData_KeepAliveParentDataMixin$36 {
+    get index() {
+      return this[index];
+    }
+    set index(value) {
+      this[index] = value;
+    }
+    get keptAlive() {
+      return this[_keptAlive];
+    }
+    toString() {
+      return "index=" + dart.str(this.index) + "; " + (this.keepAlive === true ? "keepAlive; " : "") + super.toString();
+    }
+  };
+  (sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.new = function() {
+    this[index] = null;
+    this[_keptAlive] = false;
+    sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.__proto__.new.call(this);
+    ;
+  }).prototype = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData);
+  dart.addTypeCaches(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData);
+  dart.setGetterSignature(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, () => ({
+    __proto__: dart.getGetters(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.__proto__),
+    keptAlive: core.bool
+  }));
+  dart.setLibraryUri(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, I[0]);
+  dart.setFieldSignature(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, () => ({
+    __proto__: dart.getFields(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.__proto__),
+    index: dart.fieldType(dart.nullable(core.int)),
+    [_keptAlive]: dart.fieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData, ['toString']);
+  var _keepAliveBucket = dart.privateName(sliver_multi_box_adaptor, "_keepAliveBucket");
+  var __RenderSliverMultiBoxAdaptor__debugDanglingKeepAlives = dart.privateName(sliver_multi_box_adaptor, "_#RenderSliverMultiBoxAdaptor#_debugDanglingKeepAlives");
+  var _debugChildIntegrityEnabled = dart.privateName(sliver_multi_box_adaptor, "_debugChildIntegrityEnabled");
+  var _childManager = dart.privateName(sliver_multi_box_adaptor, "_childManager");
+  var _debugDanglingKeepAlives = dart.privateName(sliver_multi_box_adaptor, "_debugDanglingKeepAlives");
+  var _debugVerifyChildOrder = dart.privateName(sliver_multi_box_adaptor, "_debugVerifyChildOrder");
+  var _debugAssertChildListLocked = dart.privateName(sliver_multi_box_adaptor, "_debugAssertChildListLocked");
+  var _createOrObtainChild = dart.privateName(sliver_multi_box_adaptor, "_createOrObtainChild");
+  var _destroyOrCacheChild = dart.privateName(sliver_multi_box_adaptor, "_destroyOrCacheChild");
+  var _name = dart.privateName(basic_types, "_name");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  const RenderSliver_ContainerRenderObjectMixin$36 = class RenderSliver_ContainerRenderObjectMixin extends sliver.RenderSliver {};
+  (RenderSliver_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(box.RenderBox, sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData)[dart.mixinNew].call(this);
+    RenderSliver_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderSliver_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(box.RenderBox, sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData));
+  const RenderSliver_RenderSliverHelpers$36 = class RenderSliver_RenderSliverHelpers extends RenderSliver_ContainerRenderObjectMixin$36 {};
+  (RenderSliver_RenderSliverHelpers$36.new = function() {
+    RenderSliver_RenderSliverHelpers$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_RenderSliverHelpers$36.prototype;
+  dart.applyMixin(RenderSliver_RenderSliverHelpers$36, sliver.RenderSliverHelpers);
+  const RenderSliver_RenderSliverWithKeepAliveMixin$36 = class RenderSliver_RenderSliverWithKeepAliveMixin extends RenderSliver_RenderSliverHelpers$36 {};
+  (RenderSliver_RenderSliverWithKeepAliveMixin$36.new = function() {
+    RenderSliver_RenderSliverWithKeepAliveMixin$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_RenderSliverWithKeepAliveMixin$36.prototype;
+  dart.applyMixin(RenderSliver_RenderSliverWithKeepAliveMixin$36, sliver_multi_box_adaptor.RenderSliverWithKeepAliveMixin);
+  sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor = class RenderSliverMultiBoxAdaptor extends RenderSliver_RenderSliverWithKeepAliveMixin$36 {
+    setupParentData(child) {
+      object.RenderObject.as(child);
+      if (!sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.is(child.parentData)) child.parentData = new sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.new();
+    }
+    get childManager() {
+      return this[_childManager];
+    }
+    get [_debugDanglingKeepAlives]() {
+      let t0;
+      t0 = this[__RenderSliverMultiBoxAdaptor__debugDanglingKeepAlives];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_debugDanglingKeepAlives")) : t0;
+    }
+    set [_debugDanglingKeepAlives](t0) {
+      this[__RenderSliverMultiBoxAdaptor__debugDanglingKeepAlives] = t0;
+    }
+    get debugChildIntegrityEnabled() {
+      return this[_debugChildIntegrityEnabled];
+    }
+    set debugChildIntegrityEnabled(enabled) {
+      if (!(enabled !== null)) dart.assertFailed(null, I[1], 230, 12, "enabled != null");
       if (!dart.fn(() => {
-        this.debugStack = core.StackTrace.current;
-        return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 62, 12, "() {\r\n      debugStack = StackTrace.current;\r\n      return true;\r\n    }()");
-    }).prototype = _TaskEntry.prototype;
-    dart.addTypeTests(_TaskEntry);
-    _TaskEntry.prototype[_is__TaskEntry_default] = true;
-    dart.addTypeCaches(_TaskEntry);
-    dart.setMethodSignature(_TaskEntry, () => ({
-      __proto__: dart.getMethods(_TaskEntry.__proto__),
-      run: dart.fnType(dart.void, [])
-    }));
-    dart.setGetterSignature(_TaskEntry, () => ({
-      __proto__: dart.getGetters(_TaskEntry.__proto__),
-      debugStack: core.StackTrace
-    }));
-    dart.setSetterSignature(_TaskEntry, () => ({
-      __proto__: dart.getSetters(_TaskEntry.__proto__),
-      debugStack: core.StackTrace
-    }));
-    dart.setLibraryUri(_TaskEntry, I[1]);
-    dart.setFieldSignature(_TaskEntry, () => ({
-      __proto__: dart.getFields(_TaskEntry.__proto__),
-      task: dart.finalFieldType(dart.fnType(T, [])),
-      priority: dart.finalFieldType(core.int),
-      debugLabel: dart.finalFieldType(dart.nullable(core.String)),
-      flow: dart.finalFieldType(dart.nullable(developer.Flow)),
-      [___TaskEntry_debugStack]: dart.fieldType(dart.nullable(core.StackTrace)),
-      completer: dart.finalFieldType(async.Completer$(T))
-    }));
-    return _TaskEntry;
-  });
-  binding$._TaskEntry = binding$._TaskEntry$();
-  dart.addTypeTests(binding$._TaskEntry, _is__TaskEntry_default);
-  binding$._FrameCallbackEntry = class _FrameCallbackEntry extends core.Object {};
-  (binding$._FrameCallbackEntry.new = function(callback, opts) {
-    let rescheduling = opts && 'rescheduling' in opts ? opts.rescheduling : false;
-    this.debugStack = null;
-    this.callback = callback;
-    if (!dart.fn(() => {
-      if (rescheduling) {
-        if (!dart.fn(() => {
-          if (binding$._FrameCallbackEntry.debugCurrentCallbackStack == null) {
-            dart.throw(new assertions.FlutterError.fromParts(T$.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("scheduleFrameCallback called with rescheduling true, but no callback is in scope."), new assertions.ErrorDescription.new("The \"rescheduling\" argument should only be set to true if the " + "callback is being reregistered from within the callback itself, " + "and only then if the callback itself is entirely synchronous."), new assertions.ErrorHint.new("If this is the initial registration of the callback, or if the " + "callback is asynchronous, then do not use the \"rescheduling\" " + "argument.")])));
-          }
-          return true;
-        }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 94, 16, "() {\r\n          if (debugCurrentCallbackStack == null) {\r\n            throw FlutterError.fromParts(<DiagnosticsNode>[\r\n              ErrorSummary('scheduleFrameCallback called with rescheduling true, but no callback is in scope.'),\r\n              ErrorDescription(\r\n                'The \"rescheduling\" argument should only be set to true if the '\r\n                'callback is being reregistered from within the callback itself, '\r\n                'and only then if the callback itself is entirely synchronous.',\r\n              ),\r\n              ErrorHint(\r\n                'If this is the initial registration of the callback, or if the '\r\n                'callback is asynchronous, then do not use the \"rescheduling\" '\r\n                'argument.',\r\n              ),\r\n            ]);\r\n          }\r\n          return true;\r\n        }()");
-        this.debugStack = binding$._FrameCallbackEntry.debugCurrentCallbackStack;
-      } else {
-        this.debugStack = core.StackTrace.current;
+        this[_debugChildIntegrityEnabled] = enabled;
+        return this[_debugVerifyChildOrder]() && (!this[_debugChildIntegrityEnabled] || this[_debugDanglingKeepAlives][$isEmpty]);
+      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 231, 12, "() {\r\n      _debugChildIntegrityEnabled = enabled;\r\n      return _debugVerifyChildOrder() &&\r\n        (!_debugChildIntegrityEnabled || _debugDanglingKeepAlives.isEmpty);\r\n    }()");
+    }
+    adoptChild(child) {
+      object.RenderObject.as(child);
+      super.adoptChild(child);
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (!childParentData[_keptAlive]) this.childManager.didAdoptChild(box.RenderBox.as(child));
+    }
+    [_debugAssertChildListLocked]() {
+      return this.childManager.debugAssertChildListLocked();
+    }
+    [_debugVerifyChildOrder]() {
+      if (this[_debugChildIntegrityEnabled]) {
+        let child = this.firstChild;
+        let index = null;
+        while (child != null) {
+          index = this.indexOf(child);
+          child = this.childAfter(child);
+          if (!(child == null || this.indexOf(child) > index)) dart.assertFailed(null, I[1], 258, 16, "child == null || indexOf(child) > index");
+        }
       }
       return true;
-    }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 92, 12, "() {\r\n      if (rescheduling) {\r\n        assert(() {\r\n          if (debugCurrentCallbackStack == null) {\r\n            throw FlutterError.fromParts(<DiagnosticsNode>[\r\n              ErrorSummary('scheduleFrameCallback called with rescheduling true, but no callback is in scope.'),\r\n              ErrorDescription(\r\n                'The \"rescheduling\" argument should only be set to true if the '\r\n                'callback is being reregistered from within the callback itself, '\r\n                'and only then if the callback itself is entirely synchronous.',\r\n              ),\r\n              ErrorHint(\r\n                'If this is the initial registration of the callback, or if the '\r\n                'callback is asynchronous, then do not use the \"rescheduling\" '\r\n                'argument.',\r\n              ),\r\n            ]);\r\n          }\r\n          return true;\r\n        }());\r\n        debugStack = debugCurrentCallbackStack;\r\n      } else {\r\n        // TODO(ianh): trim the frames from this library, so that the call to scheduleFrameCallback is the top one\r\n        debugStack = StackTrace.current;\r\n      }\r\n      return true;\r\n    }()");
-  }).prototype = binding$._FrameCallbackEntry.prototype;
-  dart.addTypeTests(binding$._FrameCallbackEntry);
-  dart.addTypeCaches(binding$._FrameCallbackEntry);
-  dart.setLibraryUri(binding$._FrameCallbackEntry, I[1]);
-  dart.setFieldSignature(binding$._FrameCallbackEntry, () => ({
-    __proto__: dart.getFields(binding$._FrameCallbackEntry.__proto__),
-    callback: dart.finalFieldType(dart.fnType(dart.void, [core.Duration])),
-    debugStack: dart.fieldType(dart.nullable(core.StackTrace))
-  }));
-  dart.defineLazy(binding$._FrameCallbackEntry, {
-    /*binding$._FrameCallbackEntry.debugCurrentCallbackStack*/get debugCurrentCallbackStack() {
-      return null;
-    },
-    set debugCurrentCallbackStack(_) {}
-  }, false);
-  var _name$ = dart.privateName(binding$, "_name");
-  binding$.SchedulerPhase = class SchedulerPhase extends core.Object {
-    toString() {
-      return this[_name$];
     }
-  };
-  (binding$.SchedulerPhase.new = function(index, _name) {
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = binding$.SchedulerPhase.prototype;
-  dart.addTypeTests(binding$.SchedulerPhase);
-  dart.addTypeCaches(binding$.SchedulerPhase);
-  dart.setLibraryUri(binding$.SchedulerPhase, I[1]);
-  dart.setFieldSignature(binding$.SchedulerPhase, () => ({
-    __proto__: dart.getFields(binding$.SchedulerPhase.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(binding$.SchedulerPhase, ['toString']);
-  binding$.SchedulerPhase.idle = C[0] || CT.C0;
-  binding$.SchedulerPhase.transientCallbacks = C[1] || CT.C1;
-  binding$.SchedulerPhase.midFrameMicrotasks = C[2] || CT.C2;
-  binding$.SchedulerPhase.persistentCallbacks = C[3] || CT.C3;
-  binding$.SchedulerPhase.postFrameCallbacks = C[4] || CT.C4;
-  binding$.SchedulerPhase.values = C[5] || CT.C5;
-  var schedulingStrategy = dart.privateName(binding$, "SchedulerBinding.schedulingStrategy");
-  var _timingsCallbacks = dart.privateName(binding$, "_timingsCallbacks");
-  var _lifecycleState = dart.privateName(binding$, "_lifecycleState");
-  var _taskQueue = dart.privateName(binding$, "_taskQueue");
-  var _hasRequestedAnEventLoopCallback = dart.privateName(binding$, "_hasRequestedAnEventLoopCallback");
-  var _nextFrameCallbackId = dart.privateName(binding$, "_nextFrameCallbackId");
-  var _transientCallbacks = dart.privateName(binding$, "_transientCallbacks");
-  var _removedIds = dart.privateName(binding$, "_removedIds");
-  var _persistentCallbacks = dart.privateName(binding$, "_persistentCallbacks");
-  var _postFrameCallbacks = dart.privateName(binding$, "_postFrameCallbacks");
-  var _nextFrameCompleter = dart.privateName(binding$, "_nextFrameCompleter");
-  var _hasScheduledFrame = dart.privateName(binding$, "_hasScheduledFrame");
-  var _schedulerPhase = dart.privateName(binding$, "_schedulerPhase");
-  var _framesEnabled = dart.privateName(binding$, "_framesEnabled");
-  var _warmUpFrame = dart.privateName(binding$, "_warmUpFrame");
-  var _firstRawTimeStampInEpoch = dart.privateName(binding$, "_firstRawTimeStampInEpoch");
-  var _epochStart = dart.privateName(binding$, "_epochStart");
-  var _lastRawTimeStamp = dart.privateName(binding$, "_lastRawTimeStamp");
-  var _currentFrameTimeStamp = dart.privateName(binding$, "_currentFrameTimeStamp");
-  var _debugFrameNumber = dart.privateName(binding$, "_debugFrameNumber");
-  var _debugBanner = dart.privateName(binding$, "_debugBanner");
-  var _rescheduleAfterWarmUpFrame = dart.privateName(binding$, "_rescheduleAfterWarmUpFrame");
-  var _profileFramePostEvent = dart.privateName(binding$, "_profileFramePostEvent");
-  var _executeTimingsCallbacks = dart.privateName(binding$, "_executeTimingsCallbacks");
-  var _setFramesEnabledState = dart.privateName(binding$, "_setFramesEnabledState");
-  var _name = dart.privateName(ui, "_name");
-  var _ensureEventLoopCallback = dart.privateName(binding$, "_ensureEventLoopCallback");
-  var _runTasks = dart.privateName(binding$, "_runTasks");
-  var _handleBeginFrame = dart.privateName(binding$, "_handleBeginFrame");
-  var _handleDrawFrame = dart.privateName(binding$, "_handleDrawFrame");
-  var _adjustForEpoch = dart.privateName(binding$, "_adjustForEpoch");
-  var _invokeFrameCallback = dart.privateName(binding$, "_invokeFrameCallback");
-  binding$.SchedulerBinding = class SchedulerBinding extends binding.BindingBase {
-    static get instance() {
-      return binding$.SchedulerBinding._instance;
+    insert(child, opts) {
+      box.RenderBox.as(child);
+      let after = opts && 'after' in opts ? opts.after : null;
+      T.RenderBoxN().as(after);
+      if (!!this[_keepAliveBucket][$containsValue](child)) dart.assertFailed(null, I[1], 266, 12, "!_keepAliveBucket.containsValue(child)");
+      super.insert(child, {after: after});
+      if (!(this.firstChild != null)) dart.assertFailed(null, I[1], 268, 12, "firstChild != null");
+      if (!this[_debugVerifyChildOrder]()) dart.assertFailed(null, I[1], 269, 12, "_debugVerifyChildOrder()");
     }
-    static _taskSorter(e1, e2) {
-      return -e1.priority[$compareTo](e2.priority);
+    move(child, opts) {
+      box.RenderBox.as(child);
+      let after = opts && 'after' in opts ? opts.after : null;
+      T.RenderBoxN().as(after);
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (!childParentData.keptAlive) {
+        super.move(child, {after: after});
+        this.childManager.didAdoptChild(child);
+        this.markNeedsLayout();
+      } else {
+        if (dart.equals(this[_keepAliveBucket][$_get](childParentData.index), child)) {
+          this[_keepAliveBucket][$remove](childParentData.index);
+        }
+        if (!dart.fn(() => {
+          this[_debugDanglingKeepAlives][$remove](child);
+          return true;
+        }, T.VoidTobool())()) dart.assertFailed(null, I[1], 296, 14, "() {\r\n        _debugDanglingKeepAlives.remove(child);\r\n        return true;\r\n      }()");
+        this.childManager.didAdoptChild(child);
+        if (!dart.fn(() => {
+          if (this[_keepAliveBucket][$containsKey](childParentData.index)) this[_debugDanglingKeepAlives][$add](dart.nullCheck(this[_keepAliveBucket][$_get](childParentData.index)));
+          return true;
+        }, T.VoidTobool())()) dart.assertFailed(null, I[1], 305, 14, "() {\r\n        if (_keepAliveBucket.containsKey(childParentData.index))\r\n          _debugDanglingKeepAlives.add(_keepAliveBucket[childParentData.index]!);\r\n        return true;\r\n      }()");
+        this[_keepAliveBucket][$_set](dart.nullCheck(childParentData.index), child);
+      }
     }
-    static debugPrintTransientCallbackRegistrationStack() {
+    remove(child) {
+      box.RenderBox.as(child);
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (!childParentData[_keptAlive]) {
+        super.remove(child);
+        return;
+      }
+      if (!dart.equals(this[_keepAliveBucket][$_get](childParentData.index), child)) dart.assertFailed(null, I[1], 321, 12, "_keepAliveBucket[childParentData.index] == child");
       if (!dart.fn(() => {
-        if (binding$._FrameCallbackEntry.debugCurrentCallbackStack != null) {
-          print.debugPrint("When the current transient callback was registered, this was the stack:");
-          print.debugPrint(assertions.FlutterError.defaultStackFilter(assertions.FlutterError.demangleStackTrace(dart.nullCheck(binding$._FrameCallbackEntry.debugCurrentCallbackStack)).toString()[$trimRight]()[$split]("\n"))[$join]("\n"));
-        } else {
-          print.debugPrint("No transient callback is currently executing.");
-        }
+        this[_debugDanglingKeepAlives][$remove](child);
         return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 616, 12, "() {\r\n      if (_FrameCallbackEntry.debugCurrentCallbackStack != null) {\r\n        debugPrint('When the current transient callback was registered, this was the stack:');\r\n        debugPrint(\r\n          FlutterError.defaultStackFilter(\r\n            FlutterError.demangleStackTrace(\r\n              _FrameCallbackEntry.debugCurrentCallbackStack!,\r\n            ).toString().trimRight().split('\\n'),\r\n          ).join('\\n'),\r\n        );\r\n      } else {\r\n        debugPrint('No transient callback is currently executing.');\r\n      }\r\n      return true;\r\n    }()");
+      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 322, 12, "() {\r\n      _debugDanglingKeepAlives.remove(child);\r\n      return true;\r\n    }()");
+      this[_keepAliveBucket][$remove](childParentData.index);
+      this.dropChild(child);
     }
-    static _debugDescribeTimeStamp(timeStamp, buffer) {
-      if (timeStamp.inDays > 0) buffer.write(dart.str(timeStamp.inDays) + "d ");
-      if (timeStamp.inHours > 0) buffer.write(dart.str(timeStamp.inHours - timeStamp.inDays * 24) + "h ");
-      if (timeStamp.inMinutes > 0) buffer.write(dart.str(timeStamp.inMinutes - timeStamp.inHours * 60) + "m ");
-      if (timeStamp.inSeconds > 0) buffer.write(dart.str(timeStamp.inSeconds - timeStamp.inMinutes * 60) + "s ");
-      buffer.write(dart.str(timeStamp.inMilliseconds - timeStamp.inSeconds * 1000));
-      let microseconds = timeStamp.inMicroseconds - timeStamp.inMilliseconds * 1000;
-      if (microseconds > 0) buffer.write("." + microseconds[$toString]()[$padLeft](3, "0"));
-      buffer.write("ms");
+    removeAll() {
+      super.removeAll();
+      this[_keepAliveBucket][$values][$forEach](dart.bind(this, 'dropChild'));
+      this[_keepAliveBucket][$clear]();
     }
-  };
-  binding$.SchedulerBinding[dart.mixinOn] = BindingBase => class SchedulerBinding extends BindingBase {
-    get schedulingStrategy() {
-      return this[schedulingStrategy];
-    }
-    set schedulingStrategy(value) {
-      this[schedulingStrategy] = value;
-    }
-    initInstances() {
-      super.initInstances();
-      binding$.SchedulerBinding._instance = this;
-      if (!false) {
-        let frameNumber = 0;
-        this.addTimingsCallback(dart.fn(timings => {
-          for (let frameTiming of timings) {
-            frameNumber = frameNumber + 1;
-            this[_profileFramePostEvent](frameNumber, frameTiming);
-          }
-        }, T$.ListOfFrameTimingTovoid()));
-      }
-    }
-    addTimingsCallback(callback) {
-      this[_timingsCallbacks][$add](callback);
-      if (this[_timingsCallbacks][$length] === 1) {
-        if (!(this.window.onReportTimings == null)) dart.assertFailed(null, I[0], 268, 14, "window.onReportTimings == null");
-        this.window.onReportTimings = dart.bind(this, _executeTimingsCallbacks);
-      }
-      if (!dart.equals(this.window.onReportTimings, dart.bind(this, _executeTimingsCallbacks))) dart.assertFailed(null, I[0], 271, 12, "window.onReportTimings == _executeTimingsCallbacks");
-    }
-    removeTimingsCallback(callback) {
-      if (!this[_timingsCallbacks][$contains](callback)) dart.assertFailed(null, I[0], 276, 12, "_timingsCallbacks.contains(callback)");
-      this[_timingsCallbacks][$remove](callback);
-      if (this[_timingsCallbacks][$isEmpty]) {
-        this.window.onReportTimings = null;
-      }
-    }
-    [_executeTimingsCallbacks](timings) {
-      let clonedCallbacks = T$.ListOfListOfFrameTimingTovoid().from(this[_timingsCallbacks]);
-      for (let callback of clonedCallbacks) {
-        try {
-          if (this[_timingsCallbacks][$contains](callback)) {
-            callback(timings);
-          }
-        } catch (e) {
-          let exception = dart.getThrown(e);
-          let stack = dart.stackTrace(e);
-          if (core.Object.is(exception)) {
-            let collector = null;
-            if (!dart.fn(() => {
-              collector = dart.fn(() => new (T$.SyncIterableOfDiagnosticsNode()).new(function*() {
-                yield new (T$.DiagnosticsPropertyOfListOfFrameTimingTovoid()).new("The TimingsCallback that gets executed was", callback, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
-              }), T$.VoidToIterableOfDiagnosticsNode());
-              return true;
-            }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 293, 16, "() {\r\n          collector = () sync* {\r\n            yield DiagnosticsProperty<TimingsCallback>(\r\n              'The TimingsCallback that gets executed was',\r\n              callback,\r\n              style: DiagnosticsTreeStyle.errorProperty,\r\n            );\r\n          };\r\n          return true;\r\n        }()");
-            assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: stack, context: new assertions.ErrorDescription.new("while executing callbacks for FrameTiming"), informationCollector: collector}));
-          } else
-            throw e;
+    [_createOrObtainChild](index, opts) {
+      let after = opts && 'after' in opts ? opts.after : null;
+      this.invokeLayoutCallback(sliver.SliverConstraints, dart.fn(constraints => {
+        if (!constraints._equals(this.constraints)) dart.assertFailed(null, I[1], 339, 14, "constraints == this.constraints");
+        if (this[_keepAliveBucket][$containsKey](index)) {
+          let child = dart.nullCheck(this[_keepAliveBucket][$remove](index));
+          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+          if (!childParentData[_keptAlive]) dart.assertFailed(null, I[1], 343, 16, "childParentData._keptAlive");
+          this.dropChild(child);
+          child.parentData = childParentData;
+          this.insert(child, {after: after});
+          childParentData[_keptAlive] = false;
+        } else {
+          this[_childManager].createChild(index, {after: after});
         }
+      }, T.SliverConstraintsTovoid()));
+    }
+    [_destroyOrCacheChild](child) {
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (childParentData.keepAlive) {
+        if (!!childParentData[_keptAlive]) dart.assertFailed(null, I[1], 357, 14, "!childParentData._keptAlive");
+        this.remove(child);
+        this[_keepAliveBucket][$_set](dart.nullCheck(childParentData.index), child);
+        child.parentData = childParentData;
+        super.adoptChild(child);
+        childParentData[_keptAlive] = true;
+      } else {
+        if (!dart.equals(child.parent, this)) dart.assertFailed(null, I[1], 364, 14, "child.parent == this");
+        this[_childManager].removeChild(child);
+        if (!(child.parent == null)) dart.assertFailed(null, I[1], 366, 14, "child.parent == null");
       }
     }
-    initServiceExtensions() {
-      super.initServiceExtensions();
-      if (!false) {
-        this.registerNumericServiceExtension({name: "timeDilation", getter: dart.fn(() => async.async(core.double, function*() {
-            return binding$.timeDilation;
-          }), T$.VoidToFutureOfdouble()), setter: dart.fn(value => async.async(dart.void, function*() {
-            binding$.timeDilation = value;
-          }), T$.doubleToFutureOfvoid())});
+    attach(owner) {
+      object.PipelineOwner.as(owner);
+      super.attach(owner);
+      for (let child of this[_keepAliveBucket][$values])
+        child.attach(owner);
+    }
+    detach() {
+      super.detach();
+      for (let child of this[_keepAliveBucket][$values])
+        child.detach();
+    }
+    redepthChildren() {
+      super.redepthChildren();
+      this[_keepAliveBucket][$values][$forEach](dart.bind(this, 'redepthChild'));
+    }
+    visitChildren(visitor) {
+      super.visitChildren(visitor);
+      this[_keepAliveBucket][$values][$forEach](visitor);
+    }
+    visitChildrenForSemantics(visitor) {
+      super.visitChildren(visitor);
+    }
+    addInitialChild(opts) {
+      let index = opts && 'index' in opts ? opts.index : 0;
+      let layoutOffset = opts && 'layoutOffset' in opts ? opts.layoutOffset : 0;
+      if (!this[_debugAssertChildListLocked]()) dart.assertFailed(null, I[1], 420, 12, "_debugAssertChildListLocked()");
+      if (!(this.firstChild == null)) dart.assertFailed(null, I[1], 421, 12, "firstChild == null");
+      this[_createOrObtainChild](index, {after: null});
+      if (this.firstChild != null) {
+        if (!dart.equals(this.firstChild, this.lastChild)) dart.assertFailed(null, I[1], 424, 14, "firstChild == lastChild");
+        if (!(this.indexOf(dart.nullCheck(this.firstChild)) === index)) dart.assertFailed(null, I[1], 425, 14, "indexOf(firstChild!) == index");
+        let firstChildParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(this.firstChild).parentData));
+        firstChildParentData.layoutOffset = layoutOffset;
+        return true;
       }
+      this.childManager.setDidUnderflow(true);
+      return false;
     }
-    get lifecycleState() {
-      return this[_lifecycleState];
+    insertAndLayoutLeadingChild(childConstraints, opts) {
+      let parentUsesSize = opts && 'parentUsesSize' in opts ? opts.parentUsesSize : false;
+      if (!this[_debugAssertChildListLocked]()) dart.assertFailed(null, I[1], 452, 12, "_debugAssertChildListLocked()");
+      let index = this.indexOf(dart.nullCheck(this.firstChild)) - 1;
+      this[_createOrObtainChild](index, {after: null});
+      if (this.indexOf(dart.nullCheck(this.firstChild)) === index) {
+        dart.nullCheck(this.firstChild).layout(childConstraints, {parentUsesSize: parentUsesSize});
+        return this.firstChild;
+      }
+      this.childManager.setDidUnderflow(true);
+      return null;
     }
-    handleAppLifecycleStateChanged(state) {
-      if (!(state !== null)) dart.assertFailed(null, I[0], 352, 12, "state != null");
-      this[_lifecycleState] = state;
-      switch (state) {
-        case C[8] || CT.C8:
-        case C[9] || CT.C9:
+    insertAndLayoutChild(childConstraints, opts) {
+      let after = opts && 'after' in opts ? opts.after : null;
+      let parentUsesSize = opts && 'parentUsesSize' in opts ? opts.parentUsesSize : false;
+      if (!this[_debugAssertChildListLocked]()) dart.assertFailed(null, I[1], 481, 12, "_debugAssertChildListLocked()");
+      if (!(after != null)) dart.assertFailed(null, I[1], 482, 12, "after != null");
+      let index = this.indexOf(dart.nullCheck(after)) + 1;
+      this[_createOrObtainChild](index, {after: after});
+      let child = this.childAfter(after);
+      if (child != null && this.indexOf(child) === index) {
+        child.layout(childConstraints, {parentUsesSize: parentUsesSize});
+        return child;
+      }
+      this.childManager.setDidUnderflow(true);
+      return null;
+    }
+    collectGarbage(leadingGarbage, trailingGarbage) {
+      if (!this[_debugAssertChildListLocked]()) dart.assertFailed(null, I[1], 505, 12, "_debugAssertChildListLocked()");
+      if (!(this.childCount >= leadingGarbage + trailingGarbage)) dart.assertFailed(null, I[1], 506, 12, "childCount >= leadingGarbage + trailingGarbage");
+      this.invokeLayoutCallback(sliver.SliverConstraints, dart.fn(constraints => {
+        while (leadingGarbage > 0) {
+          this[_destroyOrCacheChild](dart.nullCheck(this.firstChild));
+          leadingGarbage = leadingGarbage - 1;
+        }
+        while (trailingGarbage > 0) {
+          this[_destroyOrCacheChild](dart.nullCheck(this.lastChild));
+          trailingGarbage = trailingGarbage - 1;
+        }
+        this[_keepAliveBucket][$values][$where](dart.fn(child => {
+          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+          return !childParentData.keepAlive;
+        }, T.RenderBoxTobool()))[$toList]()[$forEach](dart.bind(this[_childManager], 'removeChild'));
+        if (!this[_keepAliveBucket][$values][$where](dart.fn(child => {
+          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+          return !childParentData.keepAlive;
+        }, T.RenderBoxTobool()))[$isEmpty]) dart.assertFailed(null, I[1], 523, 14, "_keepAliveBucket.values.where((RenderBox child) {\r\n        final SliverMultiBoxAdaptorParentData childParentData = child.parentData! as SliverMultiBoxAdaptorParentData;\r\n        return !childParentData.keepAlive;\r\n      }).isEmpty");
+      }, T.SliverConstraintsTovoid()));
+    }
+    indexOf(child) {
+      if (!(child !== null)) dart.assertFailed(null, I[1], 533, 12, "child != null");
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (!(childParentData.index != null)) dart.assertFailed(null, I[1], 535, 12, "childParentData.index != null");
+      return dart.nullCheck(childParentData.index);
+    }
+    paintExtentOf(child) {
+      if (!(child !== null)) dart.assertFailed(null, I[1], 543, 12, "child != null");
+      if (!child.hasSize) dart.assertFailed(null, I[1], 544, 12, "child.hasSize");
+      switch (this.constraints.axis) {
+        case C[0] || CT.C0:
         {
-          this[_setFramesEnabledState](true);
-          break;
+          return child.size.width;
         }
-        case C[10] || CT.C10:
-        case C[11] || CT.C11:
+        case C[1] || CT.C1:
         {
-          this[_setFramesEnabledState](false);
-          break;
+          return child.size.height;
         }
       }
     }
-    scheduleTask(T, task, priority, opts) {
-      let debugLabel = opts && 'debugLabel' in opts ? opts.debugLabel : null;
-      let flow = opts && 'flow' in opts ? opts.flow : null;
-      let isFirstTask = this[_taskQueue].isEmpty;
-      let entry = new (binding$._TaskEntry$(T)).new(task, priority.value, debugLabel, flow);
-      this[_taskQueue].add(entry);
-      if (isFirstTask && !this.locked) this[_ensureEventLoopCallback]();
-      return entry.completer.future;
-    }
-    unlocked() {
-      super.unlocked();
-      if (this[_taskQueue].isNotEmpty) this[_ensureEventLoopCallback]();
-    }
-    [_ensureEventLoopCallback]() {
-      if (!!this.locked) dart.assertFailed(null, I[0], 427, 12, "!locked");
-      if (!this[_taskQueue].isNotEmpty) dart.assertFailed(null, I[0], 428, 12, "_taskQueue.isNotEmpty");
-      if (this[_hasRequestedAnEventLoopCallback]) return;
-      this[_hasRequestedAnEventLoopCallback] = true;
-      async.Timer.run(dart.bind(this, _runTasks));
-    }
-    [_runTasks]() {
-      this[_hasRequestedAnEventLoopCallback] = false;
-      if (this.handleEventLoopCallback()) this[_ensureEventLoopCallback]();
-    }
-    handleEventLoopCallback() {
-      let t2;
-      if (this[_taskQueue].isEmpty || this.locked) return false;
-      let entry = this[_taskQueue].first;
-      if (t2 = entry.priority, this.schedulingStrategy({priority: t2, scheduler: this})) {
-        try {
-          this[_taskQueue].removeFirst();
-          entry.run();
-        } catch (e) {
-          let exception = dart.getThrown(e);
-          let exceptionStack = dart.stackTrace(e);
-          if (core.Object.is(exception)) {
-            let callbackStack = null;
-            if (!dart.fn(() => {
-              callbackStack = entry.debugStack;
-              return true;
-            }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 463, 16, "() {\r\n          callbackStack = entry.debugStack;\r\n          return true;\r\n        }()");
-            assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: exceptionStack, library: "scheduler library", context: new assertions.ErrorDescription.new("during a task callback"), informationCollector: callbackStack == null ? null : dart.fn(() => new (T$.SyncIterableOfDiagnosticsNode()).new(function*() {
-                yield new assertions.DiagnosticsStackTrace.new("\nThis exception was thrown in the context of a scheduler callback. " + "When the scheduler callback was _registered_ (as opposed to when the " + "exception was thrown), this was the stack", callbackStack);
-              }), T$.VoidToIterableOfDiagnosticsNode())}));
-          } else
-            throw e;
-        }
-        return this[_taskQueue].isNotEmpty;
+    hitTestChildren(result, opts) {
+      let mainAxisPosition = opts && 'mainAxisPosition' in opts ? opts.mainAxisPosition : null;
+      let crossAxisPosition = opts && 'crossAxisPosition' in opts ? opts.crossAxisPosition : null;
+      let child = this.lastChild;
+      let boxResult = new box.BoxHitTestResult.wrap(result);
+      while (child != null) {
+        if (this.hitTestBoxChild(boxResult, child, {mainAxisPosition: mainAxisPosition, crossAxisPosition: crossAxisPosition})) return true;
+        child = this.childBefore(child);
       }
       return false;
     }
-    get transientCallbackCount() {
-      return this[_transientCallbacks][$length];
+    childMainAxisPosition(child) {
+      box.RenderBox.as(child);
+      return dart.nullCheck(this.childScrollOffset(child)) - this.constraints.scrollOffset;
     }
-    scheduleFrameCallback(callback, opts) {
-      let rescheduling = opts && 'rescheduling' in opts ? opts.rescheduling : false;
-      this.scheduleFrame();
-      this[_nextFrameCallbackId] = this[_nextFrameCallbackId] + 1;
-      this[_transientCallbacks][$_set](this[_nextFrameCallbackId], new binding$._FrameCallbackEntry.new(callback, {rescheduling: rescheduling}));
-      return this[_nextFrameCallbackId];
+    childScrollOffset(child) {
+      object.RenderObject.as(child);
+      if (!(child !== null)) dart.assertFailed(null, I[1], 572, 12, "child != null");
+      if (!dart.equals(child.parent, this)) dart.assertFailed(null, I[1], 573, 12, "child.parent == this");
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      return childParentData.layoutOffset;
     }
-    cancelFrameCallbackWithId(id) {
-      if (!(id > 0)) dart.assertFailed(null, I[0], 535, 12, "id > 0");
-      this[_transientCallbacks][$remove](id);
-      this[_removedIds].add(id);
-    }
-    debugAssertNoTransientCallbacks(reason) {
-      if (!dart.fn(() => {
-        if (this.transientCallbackCount > 0) {
-          let count = this.transientCallbackCount;
-          let callbacks = T$.LinkedHashMapOfint$_FrameCallbackEntry().from(this[_transientCallbacks]);
-          assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: reason, library: "scheduler library", informationCollector: dart.fn(() => new (T$.SyncIterableOfDiagnosticsNode()).new(function*() {
-              if (count === 1) {
-                yield new assertions.ErrorDescription.new("There was one transient callback left. " + "The stack trace for when it was registered is as follows:");
-              } else {
-                yield new assertions.ErrorDescription.new("There were " + dart.str(count) + " transient callbacks left. " + "The stack traces for when they were registered are as follows:");
-              }
-              for (let id of callbacks[$keys]) {
-                let entry = dart.nullCheck(callbacks[$_get](id));
-                yield new assertions.DiagnosticsStackTrace.new("── callback " + dart.str(id) + " ──", entry.debugStack, {showSeparator: false});
-              }
-            }), T$.VoidToIterableOfDiagnosticsNode())}));
-        }
-        return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 561, 12, "() {\r\n      if (transientCallbackCount > 0) {\r\n        // We cache the values so that we can produce them later\r\n        // even if the information collector is called after\r\n        // the problem has been resolved.\r\n        final int count = transientCallbackCount;\r\n        final Map<int, _FrameCallbackEntry> callbacks = Map<int, _FrameCallbackEntry>.from(_transientCallbacks);\r\n        FlutterError.reportError(FlutterErrorDetails(\r\n          exception: reason,\r\n          library: 'scheduler library',\r\n          informationCollector: () sync* {\r\n            if (count == 1) {\r\n              // TODO(jacobr): I have added an extra line break in this case.\r\n              yield ErrorDescription(\r\n                'There was one transient callback left. '\r\n                'The stack trace for when it was registered is as follows:',\r\n              );\r\n            } else {\r\n              yield ErrorDescription(\r\n                'There were $count transient callbacks left. '\r\n                'The stack traces for when they were registered are as follows:',\r\n              );\r\n            }\r\n            for (final int id in callbacks.keys) {\r\n              final _FrameCallbackEntry entry = callbacks[id]!;\r\n              yield DiagnosticsStackTrace('── callback $id ──', entry.debugStack, showSeparator: false);\r\n            }\r\n          },\r\n        ));\r\n      }\r\n      return true;\r\n    }()");
-      return true;
-    }
-    addPersistentFrameCallback(callback) {
-      this[_persistentCallbacks][$add](callback);
-    }
-    addPostFrameCallback(callback) {
-      this[_postFrameCallbacks][$add](callback);
-    }
-    get endOfFrame() {
-      if (this[_nextFrameCompleter] == null) {
-        if (this.schedulerPhase === binding$.SchedulerPhase.idle) this.scheduleFrame();
-        this[_nextFrameCompleter] = T$.CompleterOfvoid().new();
-        this.addPostFrameCallback(dart.fn(timeStamp => {
-          dart.nullCheck(this[_nextFrameCompleter]).complete();
-          this[_nextFrameCompleter] = null;
-        }, T$.DurationTovoid()));
+    applyPaintTransform(child, transform) {
+      box.RenderBox.as(child);
+      let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(child.parentData));
+      if (childParentData.index == null) {
+        transform.setZero();
+      } else if (this[_keepAliveBucket][$containsKey](childParentData.index)) {
+        transform.setZero();
+      } else {
+        this.applyPaintTransformForBoxChild(child, transform);
       }
-      return dart.nullCheck(this[_nextFrameCompleter]).future;
     }
-    get hasScheduledFrame() {
-      return this[_hasScheduledFrame];
-    }
-    get schedulerPhase() {
-      return this[_schedulerPhase];
-    }
-    get framesEnabled() {
-      return this[_framesEnabled];
-    }
-    [_setFramesEnabledState](enabled) {
-      if (this[_framesEnabled] === enabled) return;
-      this[_framesEnabled] = enabled;
-      if (enabled) this.scheduleFrame();
-    }
-    ensureFrameCallbacksRegistered() {
-      let t3, t3$;
-      t3 = this.window;
-      t3.onBeginFrame == null ? t3.onBeginFrame = dart.bind(this, _handleBeginFrame) : null;
-      t3$ = this.window;
-      t3$.onDrawFrame == null ? t3$.onDrawFrame = dart.bind(this, _handleDrawFrame) : null;
-    }
-    ensureVisualUpdate() {
-      switch (this.schedulerPhase) {
-        case C[0] || CT.C0:
+    paint(context, offset) {
+      if (this.firstChild == null) return;
+      let mainAxisUnit = null;
+      let crossAxisUnit = null;
+      let originOffset = null;
+      let addExtent = null;
+      switch (sliver.applyGrowthDirectionToAxisDirection(this.constraints.axisDirection, this.constraints.growthDirection)) {
         case C[4] || CT.C4:
         {
-          this.scheduleFrame();
-          return;
+          mainAxisUnit = C[2] || CT.C2;
+          crossAxisUnit = C[3] || CT.C3;
+          originOffset = offset['+'](new ui.Offset.new(0.0, dart.nullCheck(this.geometry).paintExtent));
+          addExtent = true;
+          break;
         }
-        case C[1] || CT.C1:
-        case C[2] || CT.C2:
-        case C[3] || CT.C3:
+        case C[6] || CT.C6:
         {
-          return;
+          mainAxisUnit = C[3] || CT.C3;
+          crossAxisUnit = C[5] || CT.C5;
+          originOffset = offset;
+          addExtent = false;
+          break;
+        }
+        case C[7] || CT.C7:
+        {
+          mainAxisUnit = C[5] || CT.C5;
+          crossAxisUnit = C[3] || CT.C3;
+          originOffset = offset;
+          addExtent = false;
+          break;
+        }
+        case C[9] || CT.C9:
+        {
+          mainAxisUnit = C[8] || CT.C8;
+          crossAxisUnit = C[5] || CT.C5;
+          originOffset = offset['+'](new ui.Offset.new(dart.nullCheck(this.geometry).paintExtent, 0.0));
+          addExtent = true;
+          break;
         }
       }
-    }
-    scheduleFrame() {
-      if (this[_hasScheduledFrame] || !this.framesEnabled) return;
-      if (!dart.fn(() => {
-        if (debug$.debugPrintScheduleFrameStacks) assertions.debugPrintStack({label: "scheduleFrame() called. Current phase is " + dart.str(this.schedulerPhase) + "."});
-        return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 787, 12, "() {\r\n      if (debugPrintScheduleFrameStacks)\r\n        debugPrintStack(label: 'scheduleFrame() called. Current phase is $schedulerPhase.');\r\n      return true;\r\n    }()");
-      this.ensureFrameCallbacksRegistered();
-      this.window.scheduleFrame();
-      this[_hasScheduledFrame] = true;
-    }
-    scheduleForcedFrame() {
-      if (!this.framesEnabled) return;
-      if (this[_hasScheduledFrame]) return;
-      if (!dart.fn(() => {
-        if (debug$.debugPrintScheduleFrameStacks) assertions.debugPrintStack({label: "scheduleForcedFrame() called. Current phase is " + dart.str(this.schedulerPhase) + "."});
-        return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 825, 12, "() {\r\n      if (debugPrintScheduleFrameStacks)\r\n        debugPrintStack(label: 'scheduleForcedFrame() called. Current phase is $schedulerPhase.');\r\n      return true;\r\n    }()");
-      this.window.scheduleFrame();
-      this[_hasScheduledFrame] = true;
-    }
-    scheduleWarmUpFrame() {
-      if (this[_warmUpFrame] || this.schedulerPhase !== binding$.SchedulerPhase.idle) return;
-      this[_warmUpFrame] = true;
-      developer.Timeline.startSync("Warm-up frame");
-      let hadScheduledFrame = this[_hasScheduledFrame];
-      async.Timer.run(dart.fn(() => {
-        if (!this[_warmUpFrame]) dart.assertFailed(null, I[0], 860, 14, "_warmUpFrame");
-        this.handleBeginFrame(null);
-      }, T$.VoidTovoid()));
-      async.Timer.run(dart.fn(() => {
-        if (!this[_warmUpFrame]) dart.assertFailed(null, I[0], 864, 14, "_warmUpFrame");
-        this.handleDrawFrame();
-        this.resetEpoch();
-        this[_warmUpFrame] = false;
-        if (hadScheduledFrame) this.scheduleFrame();
-      }, T$.VoidTovoid()));
-      this.lockEvents(dart.fn(() => async.async(dart.void, (function*() {
-        yield this.endOfFrame;
-        developer.Timeline.finishSync();
-      }).bind(this)), T$.VoidToFutureOfvoid()));
-    }
-    resetEpoch() {
-      this[_epochStart] = this[_adjustForEpoch](this[_lastRawTimeStamp]);
-      this[_firstRawTimeStampInEpoch] = null;
-    }
-    [_adjustForEpoch](rawTimeStamp) {
-      let rawDurationSinceEpoch = this[_firstRawTimeStampInEpoch] == null ? core.Duration.zero : rawTimeStamp['-'](dart.nullCheck(this[_firstRawTimeStampInEpoch]));
-      return new core.Duration.new({microseconds: (rawDurationSinceEpoch.inMicroseconds / binding$.timeDilation)[$round]() + this[_epochStart].inMicroseconds});
-    }
-    get currentFrameTimeStamp() {
-      if (!(this[_currentFrameTimeStamp] != null)) dart.assertFailed(null, I[0], 933, 12, "_currentFrameTimeStamp != null");
-      return dart.nullCheck(this[_currentFrameTimeStamp]);
-    }
-    get currentSystemFrameTimeStamp() {
-      if (!(this[_lastRawTimeStamp] !== null)) dart.assertFailed(null, I[0], 951, 12, "_lastRawTimeStamp != null");
-      return this[_lastRawTimeStamp];
-    }
-    [_handleBeginFrame](rawTimeStamp) {
-      if (this[_warmUpFrame]) {
-        if (!!this[_rescheduleAfterWarmUpFrame]) dart.assertFailed(null, I[0], 973, 14, "!_rescheduleAfterWarmUpFrame");
-        this[_rescheduleAfterWarmUpFrame] = true;
-        return;
+      if (!(mainAxisUnit !== null)) dart.assertFailed(null, I[1], 631, 12, "mainAxisUnit != null");
+      if (!(addExtent !== null)) dart.assertFailed(null, I[1], 632, 12, "addExtent != null");
+      let child = this.firstChild;
+      while (child != null) {
+        let mainAxisDelta = this.childMainAxisPosition(child);
+        let crossAxisDelta = this.childCrossAxisPosition(child);
+        let childOffset = new ui.Offset.new(originOffset.dx + mainAxisUnit.dx * mainAxisDelta + crossAxisUnit.dx * crossAxisDelta, originOffset.dy + mainAxisUnit.dy * mainAxisDelta + crossAxisUnit.dy * crossAxisDelta);
+        if (addExtent) childOffset = childOffset['+'](mainAxisUnit['*'](this.paintExtentOf(child)));
+        if (mainAxisDelta < this.constraints.remainingPaintExtent && mainAxisDelta + this.paintExtentOf(child) > 0) context.paintChild(child, childOffset);
+        child = this.childAfter(child);
       }
-      this.handleBeginFrame(rawTimeStamp);
     }
-    [_handleDrawFrame]() {
-      if (this[_rescheduleAfterWarmUpFrame]) {
-        this[_rescheduleAfterWarmUpFrame] = false;
-        this.addPostFrameCallback(dart.fn(timeStamp => {
-          this[_hasScheduledFrame] = false;
-          this.scheduleFrame();
-        }, T$.DurationTovoid()));
-        return;
-      }
-      this.handleDrawFrame();
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(diagnostics.DiagnosticsNode.message(this.firstChild != null ? "currently live children: " + dart.str(this.indexOf(dart.nullCheck(this.firstChild))) + " to " + dart.str(this.indexOf(dart.nullCheck(this.lastChild))) : "no children current live"));
     }
-    handleBeginFrame(rawTimeStamp) {
-      let t3;
-      developer.Timeline.startSync("Frame", {arguments: debug.timelineArgumentsIndicatingLandmarkEvent});
-      this[_firstRawTimeStampInEpoch] == null ? this[_firstRawTimeStampInEpoch] = rawTimeStamp : null;
-      this[_currentFrameTimeStamp] = this[_adjustForEpoch]((t3 = rawTimeStamp, t3 == null ? this[_lastRawTimeStamp] : t3));
-      if (rawTimeStamp != null) this[_lastRawTimeStamp] = rawTimeStamp;
+    debugAssertChildListIsNonEmptyAndContiguous() {
       if (!dart.fn(() => {
-        this[_debugFrameNumber] = this[_debugFrameNumber] + 1;
-        if (debug$.debugPrintBeginFrameBanner || debug$.debugPrintEndFrameBanner) {
-          let frameTimeStampDescription = new core.StringBuffer.new();
-          if (rawTimeStamp != null) {
-            binding$.SchedulerBinding._debugDescribeTimeStamp(dart.nullCheck(this[_currentFrameTimeStamp]), frameTimeStampDescription);
-          } else {
-            frameTimeStampDescription.write("(warm-up frame)");
-          }
-          this[_debugBanner] = "▄▄▄▄▄▄▄▄ Frame " + this[_debugFrameNumber][$toString]()[$padRight](7) + "   " + frameTimeStampDescription.toString()[$padLeft](18) + " ▄▄▄▄▄▄▄▄";
-          if (debug$.debugPrintBeginFrameBanner) print.debugPrint(this[_debugBanner]);
+        if (!(this.firstChild != null)) dart.assertFailed(null, I[1], 665, 14, "firstChild != null");
+        let index = this.indexOf(dart.nullCheck(this.firstChild));
+        let child = this.childAfter(dart.nullCheck(this.firstChild));
+        while (child != null) {
+          index = index + 1;
+          if (!(this.indexOf(child) === index)) dart.assertFailed(null, I[1], 670, 16, "indexOf(child) == index");
+          child = this.childAfter(child);
         }
         return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 1031, 12, "() {\r\n      _debugFrameNumber += 1;\r\n\r\n      if (debugPrintBeginFrameBanner || debugPrintEndFrameBanner) {\r\n        final StringBuffer frameTimeStampDescription = StringBuffer();\r\n        if (rawTimeStamp != null) {\r\n          _debugDescribeTimeStamp(_currentFrameTimeStamp!, frameTimeStampDescription);\r\n        } else {\r\n          frameTimeStampDescription.write('(warm-up frame)');\r\n        }\r\n        _debugBanner = '▄▄▄▄▄▄▄▄ Frame ${_debugFrameNumber.toString().padRight(7)}   ${frameTimeStampDescription.toString().padLeft(18)} ▄▄▄▄▄▄▄▄';\r\n        if (debugPrintBeginFrameBanner)\r\n          debugPrint(_debugBanner);\r\n      }\r\n      return true;\r\n    }()");
-      if (!(this.schedulerPhase === binding$.SchedulerPhase.idle)) dart.assertFailed(null, I[0], 1048, 12, "schedulerPhase == SchedulerPhase.idle");
-      this[_hasScheduledFrame] = false;
-      try {
-        developer.Timeline.startSync("Animate", {arguments: debug.timelineArgumentsIndicatingLandmarkEvent});
-        this[_schedulerPhase] = binding$.SchedulerPhase.transientCallbacks;
-        let callbacks = this[_transientCallbacks];
-        this[_transientCallbacks] = new (T$.IdentityMapOfint$_FrameCallbackEntry()).new();
-        callbacks[$forEach](dart.fn((id, callbackEntry) => {
-          if (!this[_removedIds].contains(id)) this[_invokeFrameCallback](callbackEntry.callback, dart.nullCheck(this[_currentFrameTimeStamp]), callbackEntry.debugStack);
-        }, T$.intAnd_FrameCallbackEntryTovoid()));
-        this[_removedIds].clear();
-      } finally {
-        this[_schedulerPhase] = binding$.SchedulerPhase.midFrameMicrotasks;
-      }
+      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 664, 12, "() {\r\n      assert(firstChild != null);\r\n      int index = indexOf(firstChild!);\r\n      RenderBox? child = childAfter(firstChild!);\r\n      while (child != null) {\r\n        index += 1;\r\n        assert(indexOf(child) == index);\r\n        child = childAfter(child);\r\n      }\r\n      return true;\r\n    }()");
+      return true;
     }
-    handleDrawFrame() {
-      if (!(this[_schedulerPhase] === binding$.SchedulerPhase.midFrameMicrotasks)) dart.assertFailed(null, I[0], 1076, 12, "_schedulerPhase == SchedulerPhase.midFrameMicrotasks");
-      developer.Timeline.finishSync();
-      try {
-        this[_schedulerPhase] = binding$.SchedulerPhase.persistentCallbacks;
-        for (let callback of this[_persistentCallbacks])
-          this[_invokeFrameCallback](callback, dart.nullCheck(this[_currentFrameTimeStamp]));
-        this[_schedulerPhase] = binding$.SchedulerPhase.postFrameCallbacks;
-        let localPostFrameCallbacks = T$.ListOfDurationTovoid().from(this[_postFrameCallbacks]);
-        this[_postFrameCallbacks][$clear]();
-        for (let callback of localPostFrameCallbacks)
-          this[_invokeFrameCallback](callback, dart.nullCheck(this[_currentFrameTimeStamp]));
-      } finally {
-        this[_schedulerPhase] = binding$.SchedulerPhase.idle;
-        developer.Timeline.finishSync();
-        if (!dart.fn(() => {
-          if (debug$.debugPrintEndFrameBanner) print.debugPrint("▀"[$times](dart.nullCheck(this[_debugBanner]).length));
-          this[_debugBanner] = null;
-          return true;
-        }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 1094, 14, "() {\r\n        if (debugPrintEndFrameBanner)\r\n          debugPrint('▀' * _debugBanner!.length);\r\n        _debugBanner = null;\r\n        return true;\r\n      }()");
-        this[_currentFrameTimeStamp] = null;
+    debugDescribeChildren() {
+      let t1;
+      let children = T.JSArrayOfDiagnosticsNode().of([]);
+      if (this.firstChild != null) {
+        let child = this.firstChild;
+        while (true) {
+          let childParentData = sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData.as(dart.nullCheck(dart.nullCheck(child).parentData));
+          children[$add](child.toDiagnosticsNode({name: "child with index " + dart.str(childParentData.index)}));
+          if (dart.equals(child, this.lastChild)) break;
+          child = childParentData.nextSibling;
+        }
       }
-    }
-    [_profileFramePostEvent](frameNumber, frameTiming) {
-      this.postEvent("Flutter.Frame", new (T$.IdentityMapOfString$dynamic()).from(["number", frameNumber, "startTime", frameTiming.timestampInMicroseconds(ui.FramePhase.buildStart), "elapsed", frameTiming.totalSpan.inMicroseconds, "build", frameTiming.buildDuration.inMicroseconds, "raster", frameTiming.rasterDuration.inMicroseconds, "vsyncOverhead", frameTiming.vsyncOverhead.inMicroseconds]));
-    }
-    [_invokeFrameCallback](callback, timeStamp, callbackStack = null) {
-      if (!(callback !== null)) dart.assertFailed(null, I[0], 1137, 12, "callback != null");
-      if (!(binding$._FrameCallbackEntry.debugCurrentCallbackStack == null)) dart.assertFailed(null, I[0], 1138, 12, "_FrameCallbackEntry.debugCurrentCallbackStack == null");
-      if (!dart.fn(() => {
-        binding$._FrameCallbackEntry.debugCurrentCallbackStack = callbackStack;
-        return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 1139, 12, "() {\r\n      _FrameCallbackEntry.debugCurrentCallbackStack = callbackStack;\r\n      return true;\r\n    }()");
-      try {
-        callback(timeStamp);
-      } catch (e) {
-        let exception = dart.getThrown(e);
-        let exceptionStack = dart.stackTrace(e);
-        if (core.Object.is(exception)) {
-          assertions.FlutterError.reportError(new assertions.FlutterErrorDetails.new({exception: exception, stack: exceptionStack, library: "scheduler library", context: new assertions.ErrorDescription.new("during a scheduler callback"), informationCollector: callbackStack == null ? null : dart.fn(() => new (T$.SyncIterableOfDiagnosticsNode()).new(function*() {
-              yield new assertions.DiagnosticsStackTrace.new("\nThis exception was thrown in the context of a scheduler callback. " + "When the scheduler callback was _registered_ (as opposed to when the " + "exception was thrown), this was the stack", callbackStack);
-            }), T$.VoidToIterableOfDiagnosticsNode())}));
-        } else
-          throw e;
+      if (this[_keepAliveBucket][$isNotEmpty]) {
+        let indices = (t1 = this[_keepAliveBucket][$keys][$toList](), (() => {
+          t1[$sort]();
+          return t1;
+        })());
+        for (let index of indices) {
+          children[$add](dart.nullCheck(this[_keepAliveBucket][$_get](index)).toDiagnosticsNode({name: "child with index " + dart.str(index) + " (kept alive but not laid out)", style: diagnostics.DiagnosticsTreeStyle.offstage}));
+        }
       }
-      if (!dart.fn(() => {
-        binding$._FrameCallbackEntry.debugCurrentCallbackStack = null;
-        return true;
-      }, T$.VoidTobool())()) dart.assertFailed(null, I[0], 1161, 12, "() {\r\n      _FrameCallbackEntry.debugCurrentCallbackStack = null;\r\n      return true;\r\n    }()");
+      return children;
     }
   };
-  (binding$.SchedulerBinding[dart.mixinNew] = function() {
-    this[_timingsCallbacks] = T$.JSArrayOfListOfFrameTimingTovoid().of([]);
-    this[_lifecycleState] = null;
-    this[schedulingStrategy] = C[6] || CT.C6;
-    this[_taskQueue] = new (T$.HeapPriorityQueueOf_TaskEntry()).new(C[7] || CT.C7);
-    this[_hasRequestedAnEventLoopCallback] = false;
-    this[_nextFrameCallbackId] = 0;
-    this[_transientCallbacks] = new (T$.IdentityMapOfint$_FrameCallbackEntry()).new();
-    this[_removedIds] = new (T$._IdentityHashSetOfint()).new();
-    this[_persistentCallbacks] = T$.JSArrayOfDurationTovoid().of([]);
-    this[_postFrameCallbacks] = T$.JSArrayOfDurationTovoid().of([]);
-    this[_nextFrameCompleter] = null;
-    this[_hasScheduledFrame] = false;
-    this[_schedulerPhase] = binding$.SchedulerPhase.idle;
-    this[_framesEnabled] = true;
-    this[_warmUpFrame] = false;
-    this[_firstRawTimeStampInEpoch] = null;
-    this[_epochStart] = core.Duration.zero;
-    this[_lastRawTimeStamp] = core.Duration.zero;
-    this[_currentFrameTimeStamp] = null;
-    this[_debugFrameNumber] = 0;
-    this[_debugBanner] = null;
-    this[_rescheduleAfterWarmUpFrame] = false;
-  }).prototype = binding$.SchedulerBinding.prototype;
-  dart.addTypeTests(binding$.SchedulerBinding);
-  dart.addTypeCaches(binding$.SchedulerBinding);
-  binding$.SchedulerBinding[dart.implements] = () => [binding.BindingBase];
-  dart.setMethodSignature(binding$.SchedulerBinding, () => ({
-    __proto__: dart.getMethods(binding$.SchedulerBinding.__proto__),
-    addTimingsCallback: dart.fnType(dart.void, [dart.fnType(dart.void, [core.List$(ui.FrameTiming)])]),
-    removeTimingsCallback: dart.fnType(dart.void, [dart.fnType(dart.void, [core.List$(ui.FrameTiming)])]),
-    [_executeTimingsCallbacks]: dart.fnType(dart.void, [core.List$(ui.FrameTiming)]),
-    handleAppLifecycleStateChanged: dart.fnType(dart.void, [ui.AppLifecycleState]),
-    scheduleTask: dart.gFnType(T => [async.Future$(T), [dart.fnType(T, []), priority$.Priority], {debugLabel: dart.nullable(core.String), flow: dart.nullable(developer.Flow)}, {}], T => [dart.nullable(core.Object)]),
-    [_ensureEventLoopCallback]: dart.fnType(dart.void, []),
-    [_runTasks]: dart.fnType(dart.void, []),
-    handleEventLoopCallback: dart.fnType(core.bool, []),
-    scheduleFrameCallback: dart.fnType(core.int, [dart.fnType(dart.void, [core.Duration])], {rescheduling: core.bool}, {}),
-    cancelFrameCallbackWithId: dart.fnType(dart.void, [core.int]),
-    debugAssertNoTransientCallbacks: dart.fnType(core.bool, [core.String]),
-    addPersistentFrameCallback: dart.fnType(dart.void, [dart.fnType(dart.void, [core.Duration])]),
-    addPostFrameCallback: dart.fnType(dart.void, [dart.fnType(dart.void, [core.Duration])]),
-    [_setFramesEnabledState]: dart.fnType(dart.void, [core.bool]),
-    ensureFrameCallbacksRegistered: dart.fnType(dart.void, []),
-    ensureVisualUpdate: dart.fnType(dart.void, []),
-    scheduleFrame: dart.fnType(dart.void, []),
-    scheduleForcedFrame: dart.fnType(dart.void, []),
-    scheduleWarmUpFrame: dart.fnType(dart.void, []),
-    resetEpoch: dart.fnType(dart.void, []),
-    [_adjustForEpoch]: dart.fnType(core.Duration, [core.Duration]),
-    [_handleBeginFrame]: dart.fnType(dart.void, [core.Duration]),
-    [_handleDrawFrame]: dart.fnType(dart.void, []),
-    handleBeginFrame: dart.fnType(dart.void, [dart.nullable(core.Duration)]),
-    handleDrawFrame: dart.fnType(dart.void, []),
-    [_profileFramePostEvent]: dart.fnType(dart.void, [core.int, ui.FrameTiming]),
-    [_invokeFrameCallback]: dart.fnType(dart.void, [dart.fnType(dart.void, [core.Duration]), core.Duration], [dart.nullable(core.StackTrace)])
+  (sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.new = function(opts) {
+    let childManager = opts && 'childManager' in opts ? opts.childManager : null;
+    this[_keepAliveBucket] = new (T.IdentityMapOfint$RenderBox()).new();
+    this[__RenderSliverMultiBoxAdaptor__debugDanglingKeepAlives] = null;
+    this[_debugChildIntegrityEnabled] = true;
+    if (!(childManager !== null)) dart.assertFailed(null, I[1], 190, 15, "childManager != null");
+    this[_childManager] = childManager;
+    sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__.new.call(this);
+    if (!dart.fn(() => {
+      this[_debugDanglingKeepAlives] = T.JSArrayOfRenderBox().of([]);
+      return true;
+    }, T.VoidTobool())()) dart.assertFailed(null, I[1], 192, 12, "() {\r\n      _debugDanglingKeepAlives = <RenderBox>[];\r\n      return true;\r\n    }()");
+  }).prototype = sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.prototype;
+  dart.addTypeTests(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor);
+  dart.addTypeCaches(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor);
+  dart.setMethodSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getMethods(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    [_debugAssertChildListLocked]: dart.fnType(core.bool, []),
+    [_debugVerifyChildOrder]: dart.fnType(core.bool, []),
+    [_createOrObtainChild]: dart.fnType(dart.void, [core.int], {}, {after: dart.nullable(box.RenderBox)}),
+    [_destroyOrCacheChild]: dart.fnType(dart.void, [box.RenderBox]),
+    addInitialChild: dart.fnType(core.bool, [], {index: core.int, layoutOffset: core.double}, {}),
+    insertAndLayoutLeadingChild: dart.fnType(dart.nullable(box.RenderBox), [box.BoxConstraints], {parentUsesSize: core.bool}, {}),
+    insertAndLayoutChild: dart.fnType(dart.nullable(box.RenderBox), [box.BoxConstraints], {parentUsesSize: core.bool}, {after: dart.nullable(box.RenderBox)}),
+    collectGarbage: dart.fnType(dart.void, [core.int, core.int]),
+    indexOf: dart.fnType(core.int, [box.RenderBox]),
+    paintExtentOf: dart.fnType(core.double, [box.RenderBox]),
+    debugAssertChildListIsNonEmptyAndContiguous: dart.fnType(core.bool, [])
   }));
-  dart.setGetterSignature(binding$.SchedulerBinding, () => ({
-    __proto__: dart.getGetters(binding$.SchedulerBinding.__proto__),
-    lifecycleState: dart.nullable(ui.AppLifecycleState),
-    transientCallbackCount: core.int,
-    endOfFrame: async.Future$(dart.void),
-    hasScheduledFrame: core.bool,
-    schedulerPhase: binding$.SchedulerPhase,
-    framesEnabled: core.bool,
-    currentFrameTimeStamp: core.Duration,
-    currentSystemFrameTimeStamp: core.Duration
+  dart.setGetterSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getGetters(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    childManager: sliver_multi_box_adaptor.RenderSliverBoxChildManager,
+    [_debugDanglingKeepAlives]: core.List$(box.RenderBox),
+    debugChildIntegrityEnabled: core.bool
   }));
-  dart.setLibraryUri(binding$.SchedulerBinding, I[1]);
-  dart.setFieldSignature(binding$.SchedulerBinding, () => ({
-    __proto__: dart.getFields(binding$.SchedulerBinding.__proto__),
-    [_timingsCallbacks]: dart.finalFieldType(core.List$(dart.fnType(dart.void, [core.List$(ui.FrameTiming)]))),
-    [_lifecycleState]: dart.fieldType(dart.nullable(ui.AppLifecycleState)),
-    schedulingStrategy: dart.fieldType(dart.fnType(core.bool, [], {}, {priority: core.int, scheduler: binding$.SchedulerBinding})),
-    [_taskQueue]: dart.finalFieldType(priority_queue.PriorityQueue$(binding$._TaskEntry)),
-    [_hasRequestedAnEventLoopCallback]: dart.fieldType(core.bool),
-    [_nextFrameCallbackId]: dart.fieldType(core.int),
-    [_transientCallbacks]: dart.fieldType(core.Map$(core.int, binding$._FrameCallbackEntry)),
-    [_removedIds]: dart.finalFieldType(core.Set$(core.int)),
-    [_persistentCallbacks]: dart.finalFieldType(core.List$(dart.fnType(dart.void, [core.Duration]))),
-    [_postFrameCallbacks]: dart.finalFieldType(core.List$(dart.fnType(dart.void, [core.Duration]))),
-    [_nextFrameCompleter]: dart.fieldType(dart.nullable(async.Completer$(dart.void))),
-    [_hasScheduledFrame]: dart.fieldType(core.bool),
-    [_schedulerPhase]: dart.fieldType(binding$.SchedulerPhase),
-    [_framesEnabled]: dart.fieldType(core.bool),
-    [_warmUpFrame]: dart.fieldType(core.bool),
-    [_firstRawTimeStampInEpoch]: dart.fieldType(dart.nullable(core.Duration)),
-    [_epochStart]: dart.fieldType(core.Duration),
-    [_lastRawTimeStamp]: dart.fieldType(core.Duration),
-    [_currentFrameTimeStamp]: dart.fieldType(dart.nullable(core.Duration)),
-    [_debugFrameNumber]: dart.fieldType(core.int),
-    [_debugBanner]: dart.fieldType(dart.nullable(core.String)),
-    [_rescheduleAfterWarmUpFrame]: dart.fieldType(core.bool)
+  dart.setSetterSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getSetters(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    [_debugDanglingKeepAlives]: core.List$(box.RenderBox),
+    debugChildIntegrityEnabled: core.bool
   }));
-  dart.defineLazy(binding$.SchedulerBinding, {
-    /*binding$.SchedulerBinding._instance*/get _instance() {
-      return null;
-    },
-    set _instance(_) {}
-  }, false);
-  binding$.defaultSchedulingStrategy = function defaultSchedulingStrategy(opts) {
-    let priority = opts && 'priority' in opts ? opts.priority : null;
-    let scheduler = opts && 'scheduler' in opts ? opts.scheduler : null;
-    if (scheduler.transientCallbackCount > 0) return priority >= priority$.Priority.animation.value;
-    return true;
-  };
-  dart.copyProperties(binding$, {
-    get timeDilation() {
-      return binding$._timeDilation;
-    },
-    set timeDilation(value) {
-      let t4;
-      if (!(value > 0.0)) dart.assertFailed(null, I[0], 25, 10, "value > 0.0");
-      if (binding$._timeDilation === value) return;
-      t4 = binding$.SchedulerBinding.instance;
-      t4 == null ? null : t4.resetEpoch();
-      binding$._timeDilation = value;
-    }
-  });
-  dart.defineLazy(binding$, {
-    /*binding$._timeDilation*/get _timeDilation() {
-      return 1.0;
-    },
-    set _timeDilation(_) {}
-  }, false);
-  dart.trackLibraries("packages/flutter/src/scheduler/binding.dart", {
-    "package:flutter/src/scheduler/binding.dart": binding$
+  dart.setLibraryUri(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, I[0]);
+  dart.setFieldSignature(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor, () => ({
+    __proto__: dart.getFields(sliver_multi_box_adaptor.RenderSliverMultiBoxAdaptor.__proto__),
+    [_childManager]: dart.finalFieldType(sliver_multi_box_adaptor.RenderSliverBoxChildManager),
+    [_keepAliveBucket]: dart.finalFieldType(core.Map$(core.int, box.RenderBox)),
+    [__RenderSliverMultiBoxAdaptor__debugDanglingKeepAlives]: dart.fieldType(dart.nullable(core.List$(box.RenderBox))),
+    [_debugChildIntegrityEnabled]: dart.fieldType(core.bool)
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/sliver_multi_box_adaptor.dart", {
+    "package:flutter/src/rendering/sliver_multi_box_adaptor.dart": sliver_multi_box_adaptor
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["binding.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/scheduler/binding.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["sliver_multi_box_adaptor.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/rendering/sliver_multi_box_adaptor.dart.lib.js"}');
   // Exports:
   return {
-    src__scheduler__binding: binding$
+    src__rendering__sliver_multi_box_adaptor: sliver_multi_box_adaptor
   };
 }));
 
-//# sourceMappingURL=binding.dart.lib.js.map
+//# sourceMappingURL=sliver_multi_box_adaptor.dart.lib.js.map

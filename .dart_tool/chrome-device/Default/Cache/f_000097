@@ -1,313 +1,427 @@
-define(['dart_sdk', 'packages/intl/src/intl/date_computation.dart', 'packages/clock/src/stopwatch.dart'], (function load__packages__intl__src__intl__date_builder_dart(dart_sdk, packages__intl__src__intl__date_computation$46dart, packages__clock__src__stopwatch$46dart) {
+define(['dart_sdk', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/rendering/shifted_box.dart', 'packages/flutter/src/scheduler/ticker.dart', 'packages/flutter/src/rendering/layer.dart'], (function load__packages__flutter__src__rendering__animated_size_dart(dart_sdk, packages__flutter__src__animation__curves$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__rendering__shifted_box$46dart, packages__flutter__src__scheduler__ticker$46dart, packages__flutter__src__rendering__layer$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const date_computation = packages__intl__src__intl__date_computation$46dart.src__intl__date_computation;
-  const $default = packages__clock__src__stopwatch$46dart.src__default;
-  var date_builder = Object.create(dart.library);
-  var $truncate = dartx.truncate;
+  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  const animations = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animations;
+  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const shifted_box = packages__flutter__src__rendering__shifted_box$46dart.src__rendering__shifted_box;
+  const ticker = packages__flutter__src__scheduler__ticker$46dart.src__scheduler__ticker;
+  const layer = packages__flutter__src__rendering__layer$46dart.src__rendering__layer;
+  var animated_size = Object.create(dart.library);
+  var $_equals = dartx._equals;
   dart._checkModuleNullSafetyMode(true);
+  var T = {
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
+  };
   const CT = Object.create({
     _: () => (C, CT)
   });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.start",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.stable",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.changed",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: animated_size.RenderAnimatedSizeState.prototype,
+        [_name$]: "RenderAnimatedSizeState.unstable",
+        index: 3
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], animated_size.RenderAnimatedSizeState);
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: curves._Linear.prototype
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: ui.Clip.prototype,
+        [_name]: "Clip.hardEdge",
+        index: 1
+      });
+    }
+  }, false);
+  var C = Array(8).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0/lib/src/intl/date_builder.dart",
-    "package:intl/src/intl/date_builder.dart"
+    "package:flutter/src/rendering/animated_size.dart",
+    "file:///C:/src/flutter/packages/flutter/lib/src/rendering/animated_size.dart"
   ];
-  var year = dart.privateName(date_builder, "DateBuilder.year");
-  var month = dart.privateName(date_builder, "DateBuilder.month");
-  var day = dart.privateName(date_builder, "DateBuilder.day");
-  var dayOfYear = dart.privateName(date_builder, "DateBuilder.dayOfYear");
-  var hour = dart.privateName(date_builder, "DateBuilder.hour");
-  var minute = dart.privateName(date_builder, "DateBuilder.minute");
-  var second = dart.privateName(date_builder, "DateBuilder.second");
-  var fractionalSecond = dart.privateName(date_builder, "DateBuilder.fractionalSecond");
-  var pm = dart.privateName(date_builder, "DateBuilder.pm");
-  var utc = dart.privateName(date_builder, "DateBuilder.utc");
-  var dateOnly = dart.privateName(date_builder, "DateBuilder.dateOnly");
-  var _hasAmbiguousCentury = dart.privateName(date_builder, "_hasAmbiguousCentury");
-  var _date = dart.privateName(date_builder, "_date");
-  var _retried = dart.privateName(date_builder, "_retried");
-  var _locale$ = dart.privateName(date_builder, "_locale");
-  var _dateTimeConstructor$ = dart.privateName(date_builder, "_dateTimeConstructor");
-  var _verify = dart.privateName(date_builder, "_verify");
-  var _offsetYear = dart.privateName(date_builder, "_offsetYear");
-  var _correctForErrors = dart.privateName(date_builder, "_correctForErrors");
-  date_builder.DateBuilder = class DateBuilder extends core.Object {
-    get year() {
-      return this[year];
-    }
-    set year(value) {
-      this[year] = value;
-    }
-    get month() {
-      return this[month];
-    }
-    set month(value) {
-      this[month] = value;
-    }
-    get day() {
-      return this[day];
-    }
-    set day(value) {
-      this[day] = value;
-    }
-    get dayOfYear() {
-      return this[dayOfYear];
-    }
-    set dayOfYear(value) {
-      this[dayOfYear] = value;
-    }
-    get hour() {
-      return this[hour];
-    }
-    set hour(value) {
-      this[hour] = value;
-    }
-    get minute() {
-      return this[minute];
-    }
-    set minute(value) {
-      this[minute] = value;
-    }
-    get second() {
-      return this[second];
-    }
-    set second(value) {
-      this[second] = value;
-    }
-    get fractionalSecond() {
-      return this[fractionalSecond];
-    }
-    set fractionalSecond(value) {
-      this[fractionalSecond] = value;
-    }
-    get pm() {
-      return this[pm];
-    }
-    set pm(value) {
-      this[pm] = value;
-    }
-    get utc() {
-      return this[utc];
-    }
-    set utc(value) {
-      this[utc] = value;
-    }
-    get dateOnly() {
-      return this[dateOnly];
-    }
-    set dateOnly(value) {
-      this[dateOnly] = value;
-    }
-    setYear(x) {
-      this.year = x;
-    }
-    setHasAmbiguousCentury(isAmbiguous) {
-      this[_hasAmbiguousCentury] = isAmbiguous;
-    }
-    setMonth(x) {
-      this.month = x;
-    }
-    setDay(x) {
-      this.day = x;
-    }
-    setDayOfYear(x) {
-      this.dayOfYear = x;
-    }
-    get dayOrDayOfYear() {
-      return this.dayOfYear === 0 ? this.day : this.dayOfYear;
-    }
-    setHour(x) {
-      this.hour = x;
-    }
-    setMinute(x) {
-      this.minute = x;
-    }
-    setSecond(x) {
-      this.second = x;
-    }
-    setFractionalSecond(x) {
-      this.fractionalSecond = x;
-    }
-    get hour24() {
-      return this.pm ? this.hour + 12 : this.hour;
-    }
-    verify(s) {
-      this[_verify](this.month, 1, 12, "month", s);
-      this[_verify](this.hour24, 0, 23, "hour", s);
-      this[_verify](this.minute, 0, 59, "minute", s);
-      this[_verify](this.second, 0, 59, "second", s);
-      this[_verify](this.fractionalSecond, 0, 999, "fractional second", s);
-      let date = this.asDate();
-      let minimumDate = this.dateOnly && date.hour === 1 ? 0 : date.hour;
-      this[_verify](this.hour24, minimumDate, date.hour, "hour", s, date);
-      if (this.dayOfYear > 0) {
-        let leapYear = date_computation.isLeapYear(date);
-        let correspondingDay = date_computation.dayOfYear(date.month, date.day, leapYear);
-        this[_verify](this.dayOfYear, correspondingDay, correspondingDay, "dayOfYear", s, date);
-      } else {
-        this[_verify](this.day, date.day, date.day, "day", s, date);
-      }
-      this[_verify](this.year, date.year, date.year, "year", s, date);
-    }
-    [_verify](value, min, max, desc, originalInput, parsed = null) {
-      let t0, t0$;
-      if (value < min || value > max) {
-        let parsedDescription = parsed == null ? "" : " Date parsed as " + dart.str(parsed) + ".";
-        let errorDescription = "Error parsing " + originalInput + ", invalid " + desc + " value: " + dart.str(value) + " in " + this[_locale$] + " with time zone offset " + dart.str((t0$ = (t0 = parsed, t0 == null ? null : t0.timeZoneOffset), t0$ == null ? "unknown" : t0$)) + "." + " Expected value between " + dart.str(min) + " and " + dart.str(max) + "." + parsedDescription + ".";
-        if (this[_retried] > 0) {
-          errorDescription = errorDescription + (" Failed after " + dart.str(this[_retried]) + " retries.");
-        }
-        dart.throw(new core.FormatException.new(errorDescription));
-      }
-    }
-    [_offsetYear](dateTime, offsetYears) {
-      let t7, t6, t5, t4, t3, t2, t1, t0;
-      t0 = dateTime.year + offsetYears;
-      t1 = dateTime.month;
-      t2 = dateTime.day;
-      t3 = dateTime.hour;
-      t4 = dateTime.minute;
-      t5 = dateTime.second;
-      t6 = dateTime.millisecond;
-      t7 = dateTime.isUtc;
-      return this[_dateTimeConstructor$](t0, t1, t2, t3, t4, t5, t6, t7);
-    }
-    asDate(opts) {
-      let t7, t6, t5, t4, t3, t2, t1, t0, t7$, t6$, t5$, t4$, t3$, t2$, t1$, t0$, t7$0, t6$0, t5$0, t4$0, t3$0, t2$0, t1$0, t0$0;
-      let retries = opts && 'retries' in opts ? opts.retries : 3;
-      if (this[_date] != null) return dart.nullCheck(this[_date]);
-      let preliminaryResult = null;
-      let hasCentury = !this[_hasAmbiguousCentury] || this.year < 0 || this.year >= 100;
-      if (hasCentury) {
-        preliminaryResult = (t0 = this.year, t1 = this.month, t2 = this.dayOrDayOfYear, t3 = this.hour24, t4 = this.minute, t5 = this.second, t6 = this.fractionalSecond, t7 = this.utc, this[_dateTimeConstructor$](t0, t1, t2, t3, t4, t5, t6, t7));
-      } else {
-        let now = $default.clock.now();
-        if (this.utc) {
-          now = now.toUtc();
-        }
-        let lowerDate = this[_offsetYear](now, -80);
-        let upperDate = this[_offsetYear](now, 100 - 80);
-        let lowerCentury = (lowerDate.year / 100)[$truncate]() * 100;
-        let upperCentury = (upperDate.year / 100)[$truncate]() * 100;
-        preliminaryResult = (t0$ = upperCentury + this.year, t1$ = this.month, t2$ = this.dayOrDayOfYear, t3$ = this.hour24, t4$ = this.minute, t5$ = this.second, t6$ = this.fractionalSecond, t7$ = this.utc, this[_dateTimeConstructor$](t0$, t1$, t2$, t3$, t4$, t5$, t6$, t7$));
-        if (preliminaryResult.compareTo(upperDate) <= 0) {
-          if (!(preliminaryResult.compareTo(lowerDate) > 0)) dart.assertFailed(null, I[0], 217, 16, "preliminaryResult.compareTo(lowerDate) > 0");
-        } else {
-          preliminaryResult = (t0$0 = lowerCentury + this.year, t1$0 = this.month, t2$0 = this.dayOrDayOfYear, t3$0 = this.hour24, t4$0 = this.minute, t5$0 = this.second, t6$0 = this.fractionalSecond, t7$0 = this.utc, this[_dateTimeConstructor$](t0$0, t1$0, t2$0, t3$0, t4$0, t5$0, t6$0, t7$0));
-        }
-      }
-      if (this.utc && hasCentury) {
-        this[_date] = preliminaryResult;
-      } else {
-        this[_date] = this[_correctForErrors](preliminaryResult, retries);
-      }
-      return dart.nullCheck(this[_date]);
-    }
-    [_correctForErrors](result, retries) {
-      if (retries <= 0) {
-        return result;
-      }
-      let leapYear = date_computation.isLeapYear(result);
-      let resultDayOfYear = date_computation.dayOfYear(result.month, result.day, leapYear);
-      if (!this.utc && result.isUtc && (result.hour !== this.hour24 || result.day !== resultDayOfYear || !new core.DateTime.now().isUtc)) {
-        this[_retried] = this[_retried] + 1;
-        return this.asDate({retries: retries - 1});
-      }
-      if (this.dateOnly && result.hour !== 0) {
-        let tryAgain = this.asDate({retries: retries - 1});
-        if (!tryAgain._equals(result)) {
-          return tryAgain;
-        }
-        let expectedDayOfYear = this.dayOfYear === 0 ? date_computation.dayOfYear(this.month, this.day, leapYear) : this.dayOfYear;
-        let daysPrevious = expectedDayOfYear - resultDayOfYear;
-        let offset = daysPrevious * 24 - result.hour;
-        let adjusted = result.add(new core.Duration.new({hours: offset}));
-        if (adjusted.hour === 0) {
-          return adjusted;
-        }
-        let adjustedDayOfYear = date_computation.dayOfYear(adjusted.month, adjusted.day, leapYear);
-        if (adjustedDayOfYear !== expectedDayOfYear) {
-          return result;
-        }
-        return adjusted;
-      }
-      return result;
+  var _name$ = dart.privateName(animated_size, "_name");
+  animated_size.RenderAnimatedSizeState = class RenderAnimatedSizeState extends core.Object {
+    toString() {
+      return this[_name$];
     }
   };
-  (date_builder.DateBuilder.new = function(_locale, _dateTimeConstructor) {
-    this[year] = 1970;
-    this[month] = 1;
-    this[day] = 1;
-    this[dayOfYear] = 0;
-    this[hour] = 0;
-    this[minute] = 0;
-    this[second] = 0;
-    this[fractionalSecond] = 0;
-    this[pm] = false;
-    this[utc] = false;
-    this[_hasAmbiguousCentury] = false;
-    this[_date] = null;
-    this[_retried] = 0;
-    this[dateOnly] = false;
-    this[_locale$] = _locale;
-    this[_dateTimeConstructor$] = _dateTimeConstructor;
+  (animated_size.RenderAnimatedSizeState.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
     ;
-  }).prototype = date_builder.DateBuilder.prototype;
-  dart.addTypeTests(date_builder.DateBuilder);
-  dart.addTypeCaches(date_builder.DateBuilder);
-  dart.setMethodSignature(date_builder.DateBuilder, () => ({
-    __proto__: dart.getMethods(date_builder.DateBuilder.__proto__),
-    setYear: dart.fnType(dart.void, [core.int]),
-    setHasAmbiguousCentury: dart.fnType(dart.void, [core.bool]),
-    setMonth: dart.fnType(dart.void, [core.int]),
-    setDay: dart.fnType(dart.void, [core.int]),
-    setDayOfYear: dart.fnType(dart.void, [core.int]),
-    setHour: dart.fnType(dart.void, [core.int]),
-    setMinute: dart.fnType(dart.void, [core.int]),
-    setSecond: dart.fnType(dart.void, [core.int]),
-    setFractionalSecond: dart.fnType(dart.void, [core.int]),
-    verify: dart.fnType(dart.void, [core.String]),
-    [_verify]: dart.fnType(dart.void, [core.int, core.int, core.int, core.String, core.String], [dart.nullable(core.DateTime)]),
-    [_offsetYear]: dart.fnType(core.DateTime, [core.DateTime, core.int]),
-    asDate: dart.fnType(core.DateTime, [], {retries: core.int}, {}),
-    [_correctForErrors]: dart.fnType(core.DateTime, [core.DateTime, core.int])
+  }).prototype = animated_size.RenderAnimatedSizeState.prototype;
+  dart.addTypeTests(animated_size.RenderAnimatedSizeState);
+  dart.addTypeCaches(animated_size.RenderAnimatedSizeState);
+  dart.setLibraryUri(animated_size.RenderAnimatedSizeState, I[0]);
+  dart.setFieldSignature(animated_size.RenderAnimatedSizeState, () => ({
+    __proto__: dart.getFields(animated_size.RenderAnimatedSizeState.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.setGetterSignature(date_builder.DateBuilder, () => ({
-    __proto__: dart.getGetters(date_builder.DateBuilder.__proto__),
-    dayOrDayOfYear: core.int,
-    hour24: core.int
+  dart.defineExtensionMethods(animated_size.RenderAnimatedSizeState, ['toString']);
+  animated_size.RenderAnimatedSizeState.start = C[0] || CT.C0;
+  animated_size.RenderAnimatedSizeState.stable = C[1] || CT.C1;
+  animated_size.RenderAnimatedSizeState.changed = C[2] || CT.C2;
+  animated_size.RenderAnimatedSizeState.unstable = C[3] || CT.C3;
+  animated_size.RenderAnimatedSizeState.values = C[4] || CT.C4;
+  var Alignment_y = dart.privateName(alignment, "Alignment.y");
+  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+  var _name = dart.privateName(ui, "_name");
+  var __RenderAnimatedSize__controller = dart.privateName(animated_size, "_#RenderAnimatedSize#_controller");
+  var __RenderAnimatedSize__animation = dart.privateName(animated_size, "_#RenderAnimatedSize#_animation");
+  var _sizeTween = dart.privateName(animated_size, "_sizeTween");
+  var __RenderAnimatedSize__hasVisualOverflow = dart.privateName(animated_size, "_#RenderAnimatedSize#_hasVisualOverflow");
+  var _lastValue = dart.privateName(animated_size, "_lastValue");
+  var _state = dart.privateName(animated_size, "_state");
+  var _clipBehavior = dart.privateName(animated_size, "_clipBehavior");
+  var _clipRectLayer = dart.privateName(animated_size, "_clipRectLayer");
+  var _vsync = dart.privateName(animated_size, "_vsync");
+  var _controller = dart.privateName(animated_size, "_controller");
+  var _animation = dart.privateName(animated_size, "_animation");
+  var _hasVisualOverflow = dart.privateName(animated_size, "_hasVisualOverflow");
+  var _animatedSize = dart.privateName(animated_size, "_animatedSize");
+  var _layoutStart = dart.privateName(animated_size, "_layoutStart");
+  var _layoutStable = dart.privateName(animated_size, "_layoutStable");
+  var _layoutChanged = dart.privateName(animated_size, "_layoutChanged");
+  var _layoutUnstable = dart.privateName(animated_size, "_layoutUnstable");
+  var _restartAnimation = dart.privateName(animated_size, "_restartAnimation");
+  animated_size.RenderAnimatedSize = class RenderAnimatedSize extends shifted_box.RenderAligningShiftedBox {
+    get [_controller]() {
+      let t0;
+      t0 = this[__RenderAnimatedSize__controller];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_controller")) : t0;
+    }
+    set [_controller](t0) {
+      if (this[__RenderAnimatedSize__controller] == null)
+        this[__RenderAnimatedSize__controller] = t0;
+      else
+        dart.throw(new _internal.LateError.fieldAI("_controller"));
+    }
+    get [_animation]() {
+      let t1;
+      t1 = this[__RenderAnimatedSize__animation];
+      return t1 == null ? dart.throw(new _internal.LateError.fieldNI("_animation")) : t1;
+    }
+    set [_animation](t1) {
+      if (this[__RenderAnimatedSize__animation] == null)
+        this[__RenderAnimatedSize__animation] = t1;
+      else
+        dart.throw(new _internal.LateError.fieldAI("_animation"));
+    }
+    get [_hasVisualOverflow]() {
+      let t2;
+      t2 = this[__RenderAnimatedSize__hasVisualOverflow];
+      return t2 == null ? dart.throw(new _internal.LateError.fieldNI("_hasVisualOverflow")) : t2;
+    }
+    set [_hasVisualOverflow](t2) {
+      this[__RenderAnimatedSize__hasVisualOverflow] = t2;
+    }
+    get state() {
+      return this[_state];
+    }
+    get duration() {
+      return dart.nullCheck(this[_controller].duration);
+    }
+    set duration(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 123, 12, "value != null");
+      if (value._equals(this[_controller].duration)) return;
+      this[_controller].duration = value;
+    }
+    get reverseDuration() {
+      return this[_controller].reverseDuration;
+    }
+    set reverseDuration(value) {
+      if (dart.equals(value, this[_controller].reverseDuration)) return;
+      this[_controller].reverseDuration = value;
+    }
+    get curve() {
+      return this[_animation].curve;
+    }
+    set curve(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 140, 12, "value != null");
+      if (value[$_equals](this[_animation].curve)) return;
+      this[_animation].curve = value;
+    }
+    get clipBehavior() {
+      return this[_clipBehavior];
+    }
+    set clipBehavior(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 152, 12, "value != null");
+      if (value !== this[_clipBehavior]) {
+        this[_clipBehavior] = value;
+        this.markNeedsPaint();
+        this.markNeedsSemanticsUpdate();
+      }
+    }
+    get isAnimating() {
+      return this[_controller].isAnimating;
+    }
+    get vsync() {
+      return this[_vsync];
+    }
+    set vsync(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 170, 12, "value != null");
+      if (value[$_equals](this[_vsync])) return;
+      this[_vsync] = value;
+      this[_controller].resync(this.vsync);
+    }
+    detach() {
+      this[_controller].stop();
+      super.detach();
+    }
+    get [_animatedSize]() {
+      return this[_sizeTween].evaluate(this[_animation]);
+    }
+    performLayout() {
+      let t3;
+      this[_lastValue] = this[_controller].value;
+      this[_hasVisualOverflow] = false;
+      let constraints = this.constraints;
+      if (this.child == null || constraints.isTight) {
+        this[_controller].stop();
+        this.size = this[_sizeTween].begin = this[_sizeTween].end = constraints.smallest;
+        this[_state] = animated_size.RenderAnimatedSizeState.start;
+        t3 = this.child;
+        t3 == null ? null : t3.layout(constraints);
+        return;
+      }
+      dart.nullCheck(this.child).layout(constraints, {parentUsesSize: true});
+      if (!(this[_state] !== null)) dart.assertFailed(null, I[1], 202, 12, "_state != null");
+      switch (this[_state]) {
+        case C[0] || CT.C0:
+        {
+          this[_layoutStart]();
+          break;
+        }
+        case C[1] || CT.C1:
+        {
+          this[_layoutStable]();
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          this[_layoutChanged]();
+          break;
+        }
+        case C[3] || CT.C3:
+        {
+          this[_layoutUnstable]();
+          break;
+        }
+      }
+      this.size = constraints.constrain(dart.nullCheck(this[_animatedSize]));
+      this.alignChild();
+      if (this.size.width < dart.nullCheck(this[_sizeTween].end).width || this.size.height < dart.nullCheck(this[_sizeTween].end).height) this[_hasVisualOverflow] = true;
+    }
+    computeDryLayout(constraints) {
+      if (this.child == null || constraints.isTight) {
+        return constraints.smallest;
+      }
+      let childSize = dart.nullCheck(this.child).getDryLayout(constraints);
+      if (!(this[_state] !== null)) dart.assertFailed(null, I[1], 236, 12, "_state != null");
+      switch (this[_state]) {
+        case C[0] || CT.C0:
+        {
+          return constraints.constrain(childSize);
+        }
+        case C[1] || CT.C1:
+        {
+          if (!dart.equals(this[_sizeTween].end, childSize)) {
+            return constraints.constrain(this.size);
+          } else if (this[_controller].value === this[_controller].upperBound) {
+            return constraints.constrain(childSize);
+          }
+          break;
+        }
+        case C[3] || CT.C3:
+        case C[2] || CT.C2:
+        {
+          if (!dart.equals(this[_sizeTween].end, childSize)) {
+            return constraints.constrain(childSize);
+          }
+          break;
+        }
+      }
+      return constraints.constrain(dart.nullCheck(this[_animatedSize]));
+    }
+    [_restartAnimation]() {
+      this[_lastValue] = 0.0;
+      this[_controller].forward({from: 0.0});
+    }
+    [_layoutStart]() {
+      this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+      this[_state] = animated_size.RenderAnimatedSizeState.stable;
+    }
+    [_layoutStable]() {
+      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
+        this[_sizeTween].begin = this.size;
+        this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+        this[_restartAnimation]();
+        this[_state] = animated_size.RenderAnimatedSizeState.changed;
+      } else if (this[_controller].value === this[_controller].upperBound) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+      } else if (!this[_controller].isAnimating) {
+        this[_controller].forward();
+      }
+    }
+    [_layoutChanged]() {
+      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+        this[_restartAnimation]();
+        this[_state] = animated_size.RenderAnimatedSizeState.unstable;
+      } else {
+        this[_state] = animated_size.RenderAnimatedSizeState.stable;
+        if (!this[_controller].isAnimating) this[_controller].forward();
+      }
+    }
+    [_layoutUnstable]() {
+      if (!dart.equals(this[_sizeTween].end, dart.nullCheck(this.child).size)) {
+        this[_sizeTween].begin = this[_sizeTween].end = this.debugAdoptSize(dart.nullCheck(this.child).size);
+        this[_restartAnimation]();
+      } else {
+        this[_controller].stop();
+        this[_state] = animated_size.RenderAnimatedSizeState.stable;
+      }
+    }
+    paint(context, offset) {
+      if (this.child != null && this[_hasVisualOverflow] && this.clipBehavior !== ui.Clip.none) {
+        let rect = ui.Offset.zero['&'](this.size);
+        this[_clipRectLayer] = context.pushClipRect(this.needsCompositing, offset, rect, dart.bind(this, 'paint', super.paint), {clipBehavior: this.clipBehavior, oldLayer: this[_clipRectLayer]});
+      } else {
+        this[_clipRectLayer] = null;
+        super.paint(context, offset);
+      }
+    }
+  };
+  (animated_size.RenderAnimatedSize.new = function(opts) {
+    let t0;
+    let vsync = opts && 'vsync' in opts ? opts.vsync : null;
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    let reverseDuration = opts && 'reverseDuration' in opts ? opts.reverseDuration : null;
+    let curve = opts && 'curve' in opts ? opts.curve : C[5] || CT.C5;
+    let alignment = opts && 'alignment' in opts ? opts.alignment : C[6] || CT.C6;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[7] || CT.C7;
+    this[__RenderAnimatedSize__controller] = null;
+    this[__RenderAnimatedSize__animation] = null;
+    this[_sizeTween] = new tween.SizeTween.new();
+    this[__RenderAnimatedSize__hasVisualOverflow] = null;
+    this[_lastValue] = null;
+    this[_state] = animated_size.RenderAnimatedSizeState.start;
+    this[_clipBehavior] = ui.Clip.hardEdge;
+    this[_clipRectLayer] = null;
+    if (!(vsync !== null)) dart.assertFailed(null, I[1], 86, 15, "vsync != null");
+    if (!(duration !== null)) dart.assertFailed(null, I[1], 87, 15, "duration != null");
+    if (!(curve !== null)) dart.assertFailed(null, I[1], 88, 15, "curve != null");
+    if (!(clipBehavior !== null)) dart.assertFailed(null, I[1], 89, 15, "clipBehavior != null");
+    this[_vsync] = vsync;
+    this[_clipBehavior] = clipBehavior;
+    animated_size.RenderAnimatedSize.__proto__.new.call(this, {child: child, alignment: alignment, textDirection: textDirection});
+    this[_controller] = (t0 = new animation_controller.AnimationController.new({vsync: vsync, duration: duration, reverseDuration: reverseDuration}), (() => {
+      t0.addListener(dart.fn(() => {
+        if (this[_controller].value !== this[_lastValue]) this.markNeedsLayout();
+      }, T.VoidTovoid()));
+      return t0;
+    })());
+    this[_animation] = new animations.CurvedAnimation.new({parent: this[_controller], curve: curve});
+  }).prototype = animated_size.RenderAnimatedSize.prototype;
+  dart.addTypeTests(animated_size.RenderAnimatedSize);
+  dart.addTypeCaches(animated_size.RenderAnimatedSize);
+  dart.setMethodSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getMethods(animated_size.RenderAnimatedSize.__proto__),
+    [_restartAnimation]: dart.fnType(dart.void, []),
+    [_layoutStart]: dart.fnType(dart.void, []),
+    [_layoutStable]: dart.fnType(dart.void, []),
+    [_layoutChanged]: dart.fnType(dart.void, []),
+    [_layoutUnstable]: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(date_builder.DateBuilder, I[1]);
-  dart.setFieldSignature(date_builder.DateBuilder, () => ({
-    __proto__: dart.getFields(date_builder.DateBuilder.__proto__),
-    year: dart.fieldType(core.int),
-    month: dart.fieldType(core.int),
-    day: dart.fieldType(core.int),
-    dayOfYear: dart.fieldType(core.int),
-    hour: dart.fieldType(core.int),
-    minute: dart.fieldType(core.int),
-    second: dart.fieldType(core.int),
-    fractionalSecond: dart.fieldType(core.int),
-    pm: dart.fieldType(core.bool),
-    utc: dart.fieldType(core.bool),
-    [_hasAmbiguousCentury]: dart.fieldType(core.bool),
-    [_locale$]: dart.finalFieldType(core.String),
-    [_date]: dart.fieldType(dart.nullable(core.DateTime)),
-    [_retried]: dart.fieldType(core.int),
-    dateOnly: dart.fieldType(core.bool),
-    [_dateTimeConstructor$]: dart.finalFieldType(dart.fnType(core.DateTime, [core.int, core.int, core.int, core.int, core.int, core.int, core.int, core.bool]))
+  dart.setGetterSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getGetters(animated_size.RenderAnimatedSize.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_animation]: animations.CurvedAnimation,
+    [_hasVisualOverflow]: core.bool,
+    state: animated_size.RenderAnimatedSizeState,
+    duration: core.Duration,
+    reverseDuration: dart.nullable(core.Duration),
+    curve: curves.Curve,
+    clipBehavior: ui.Clip,
+    isAnimating: core.bool,
+    vsync: ticker.TickerProvider,
+    [_animatedSize]: dart.nullable(ui.Size)
   }));
-  dart.trackLibraries("packages/intl/src/intl/date_builder.dart", {
-    "package:intl/src/intl/date_builder.dart": date_builder
+  dart.setSetterSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getSetters(animated_size.RenderAnimatedSize.__proto__),
+    [_controller]: animation_controller.AnimationController,
+    [_animation]: animations.CurvedAnimation,
+    [_hasVisualOverflow]: core.bool,
+    duration: core.Duration,
+    reverseDuration: dart.nullable(core.Duration),
+    curve: curves.Curve,
+    clipBehavior: ui.Clip,
+    vsync: ticker.TickerProvider
+  }));
+  dart.setLibraryUri(animated_size.RenderAnimatedSize, I[0]);
+  dart.setFieldSignature(animated_size.RenderAnimatedSize, () => ({
+    __proto__: dart.getFields(animated_size.RenderAnimatedSize.__proto__),
+    [__RenderAnimatedSize__controller]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
+    [__RenderAnimatedSize__animation]: dart.fieldType(dart.nullable(animations.CurvedAnimation)),
+    [_sizeTween]: dart.finalFieldType(tween.SizeTween),
+    [__RenderAnimatedSize__hasVisualOverflow]: dart.fieldType(dart.nullable(core.bool)),
+    [_lastValue]: dart.fieldType(dart.nullable(core.double)),
+    [_state]: dart.fieldType(animated_size.RenderAnimatedSizeState),
+    [_clipBehavior]: dart.fieldType(ui.Clip),
+    [_vsync]: dart.fieldType(ticker.TickerProvider),
+    [_clipRectLayer]: dart.fieldType(dart.nullable(layer.ClipRectLayer))
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/animated_size.dart", {
+    "package:flutter/src/rendering/animated_size.dart": animated_size
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["date_builder.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAaM;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACA;;;;;;IACC;;;;;;IACA;;;;;;IAgCD;;;;;;YAWa;AACP,MAAR,YAAO,CAAC;IACV;2BAIiC;AACG,MAAlC,6BAAuB,WAAW;IACpC;aAEkB;AACP,MAAT,aAAQ,CAAC;IACX;WAEgB;AACP,MAAP,WAAM,CAAC;IACT;iBAEsB;AACP,MAAb,iBAAY,CAAC;IACf;;AAI0B,YAAA,AAAU,oBAAG,IAAI,WAAM;IAAS;YAEzC;AACP,MAAR,YAAO,CAAC;IACV;cAEmB;AACP,MAAV,cAAS,CAAC;IACZ;cAEmB;AACP,MAAV,cAAS,CAAC;IACZ;wBAE6B;AACP,MAApB,wBAAmB,CAAC;IACtB;;AAEkB,uBAAK,AAAK,YAAE,KAAK;IAAI;WAKpB;AACgB,MAAjC,cAAQ,YAAO,GAAG,IAAI,SAAS,CAAC;AACC,MAAjC,cAAQ,aAAQ,GAAG,IAAI,QAAQ,CAAC;AACG,MAAnC,cAAQ,aAAQ,GAAG,IAAI,UAAU,CAAC;AACC,MAAnC,cAAQ,aAAQ,GAAG,IAAI,UAAU,CAAC;AACuB,MAAzD,cAAQ,uBAAkB,GAAG,KAAK,qBAAqB,CAAC;AAMpD,iBAAO;AAMP,wBAAc,AAAS,iBAAG,AAAK,AAAK,IAAN,UAAS,IAAI,IAAI,AAAK,IAAD;AACC,MAAxD,cAAQ,aAAQ,WAAW,EAAE,AAAK,IAAD,OAAO,QAAQ,CAAC,EAAE,IAAI;AACvD,UAAI,AAAU,iBAAE;AAGV,uBAAW,4BAA4B,IAAI;AAC3C,+BACA,2BAA2B,AAAK,IAAD,QAAQ,AAAK,IAAD,MAAM,QAAQ;AAEW,QADxE,cACI,gBAAW,gBAAgB,EAAE,gBAAgB,EAAE,aAAa,CAAC,EAAE,IAAI;;AAGvB,QAAhD,cAAQ,UAAK,AAAK,IAAD,MAAM,AAAK,IAAD,MAAM,OAAO,CAAC,EAAE,IAAI;;AAEG,MAApD,cAAQ,WAAM,AAAK,IAAD,OAAO,AAAK,IAAD,OAAO,QAAQ,CAAC,EAAE,IAAI;IACrD;cAEiB,OAAW,KAAS,KAAY,MAAa,eAC/C;;AACb,UAAI,AAAM,KAAD,GAAG,GAAG,IAAI,AAAM,KAAD,GAAG,GAAG;AACxB,gCAAoB,AAAO,MAAD,WAAW,KAAK,AAA0B,8BAAR,MAAM;AAClE,+BAAiB,AACjB,mBAAgB,aAAa,kBAAW,IAAI,yBAAS,KAAK,IAC1D,SAAM,iBACN,sCAAiD,YAAvB,MAAM,eAAN,OAAQ,oBAAR,cAA0B,oBAAU,MAC9D,sCAA0B,GAAG,uBAAM,GAAG,UAAE,iBAAiB;AAC7D,YAAI,AAAS,iBAAE;AACyC,UAAtD,mBAAA,AAAiB,gBAAD,IAAI,AAAkC,4BAAlB,kBAAQ;;AAEP,QAAvC,WAAM,6BAAgB,gBAAgB;;IAE1C;kBAO8B,UAAc;;AACxC,WACI,AAAS,AAAK,QAAN,QAAQ,WAAW;WAC3B,AAAS,QAAD;WACR,AAAS,QAAD;WACR,AAAS,QAAD;WACR,AAAS,QAAD;WACR,AAAS,QAAD;WACR,AAAS,QAAD;WACR,AAAS,QAAD;YARZ,AAAoB;IAQD;;;UAIF;AAGnB,UAAI,qBAAe,MAAY,gBAAL;AAEjB;AACH,uBAA+C,CAAjC,8BAAwB,AAAK,YAAE,KAAK,AAAK,aAAG;AAChE,UAAI,UAAU;AAEsC,QADlD,0BAAyC,gBAAM,iBAAO,0BAClD,kBAAQ,kBAAQ,kBAAQ,4BAAkB,UAD1B,AAAoB;;AAGpC,kBAAM,AAAM;AAChB,YAAI;AACe,UAAjB,MAAM,AAAI,GAAD;;AAIP,wBAAY,kBAAY,GAAG,EAAE;AAC7B,wBAAY,kBAAY,GAAG,EAAE,AAAI;AACjC,2BAA+B,AAAQ,CAAvB,AAAU,SAAD,QAAS,oBAAO;AACzC,2BAA+B,AAAQ,CAAvB,AAAU,SAAD,QAAS,oBAAO;AAEqB,QADlE,2BAAyC,AAAa,YAAD,GAAG,iBAAM,kBAC1D,2BAAgB,mBAAQ,mBAAQ,mBAAQ,6BAAkB,UAD1C,AAAoB;AAaxC,YAAI,AAAkB,AAAqB,iBAAtB,WAAW,SAAS,KAAK;AAE5C,gBAAO,AAAkB,AAAqB,iBAAtB,WAAW,SAAS,IAAI;;AAGkB,UADlE,4BAAyC,AAAa,YAAD,GAAG,kBAAM,mBAC1D,4BAAgB,oBAAQ,oBAAQ,oBAAQ,8BAAkB,UAD1C,AAAoB;;;AAK5C,UAAI,YAAO,UAAU;AACM,QAAzB,cAAQ,iBAAiB;;AAE4B,QAArD,cAAQ,wBAAkB,iBAAiB,EAAE,OAAO;;AAEtD,YAAY,gBAAL;IACT;wBAIoC,QAAY;AAwB9C,UAAI,AAAQ,OAAD,IAAI;AACb,cAAO,OAAM;;AAGX,qBAAW,4BAA4B,MAAM;AAC7C,4BACA,2BAA2B,AAAO,MAAD,QAAQ,AAAO,MAAD,MAAM,QAAQ;AAMjE,WAAK,YACD,AAAO,MAAD,WACL,AAAO,MAAD,UAAS,eACZ,AAAO,MAAD,SAAQ,eAAe,KACnB,AAAM;AAGZ,QAAV,iBAAA,AAAQ,iBAAA;AACR,cAAO,uBAAgB,AAAQ,OAAD,GAAG;;AAGnC,UAAI,iBAAY,AAAO,MAAD,UAAS;AAEzB,uBAAW,sBAAgB,AAAQ,OAAD,GAAG;AACzC,aAAI,QAAQ,SAAI,MAAM;AAEpB,gBAAO,SAAQ;;AAIb,gCAAoB,AAAU,mBAAG,IAC/B,2BAA2B,YAAO,UAAK,QAAQ,IAC/C;AAQF,2BAAe,AAAkB,iBAAD,GAAG,eAAe;AAGlD,qBAAU,AAAa,AAAM,YAAP,GAAG,KAAM,AAAO,MAAD;AACrC,uBAAW,AAAO,MAAD,KAAK,8BAAgB,MAAM;AAGhD,YAAI,AAAS,AAAK,QAAN,UAAS;AACnB,gBAAO,SAAQ;;AAQb,gCACA,2BAA2B,AAAS,QAAD,QAAQ,AAAS,QAAD,MAAM,QAAQ;AACrE,YAAI,iBAAiB,KAAI,iBAAiB;AACxC,gBAAO,OAAM;;AAEf,cAAO,SAAQ;;AAGjB,YAAO,OAAM;IACf;;2CAvQiB,SAAc;IAhD3B,aAAO;IACP,cAAQ;IACR,YAAM;IACN,kBAAY;IACZ,aAAO;IACP,eAAS;IACT,eAAS;IACT,yBAAmB;IAClB,WAAK;IACL,YAAM;IAKN,6BAAuB;IASlB;IAGN,iBAAW;IAeX,iBAAW;IAOE;IAAc;;EAAqB","file":"../../../../../../../../../../D:/packages/intl/src/intl/date_builder.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["animated_size.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/rendering/animated_size.dart.lib.js"}');
   // Exports:
   return {
-    src__intl__date_builder: date_builder
+    src__rendering__animated_size: animated_size
   };
 }));
 
-//# sourceMappingURL=date_builder.dart.lib.js.map
+//# sourceMappingURL=animated_size.dart.lib.js.map

@@ -99,6 +99,257 @@ class AnalyticsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     QuickStatsHolder(),
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                        flex: 3,
+                        child: Card(
+                          color: MyColor.White,
+                          margin: EdgeInsets.all(10),
+                          child: Theme(
+                            data: Theme.of(context)
+                                .copyWith(dividerColor: Colors.black),
+                            child: DataTable(
+                              horizontalMargin: 30,
+                              dataTextStyle:
+                                  TextStyle(color: MyColor.BlackFont),
+                              headingTextStyle:
+                                  TextStyle(color: MyColor.BlackFont),
+                              dividerThickness: 1,
+                              columns: const <DataColumn>[
+                                DataColumn(
+                                    label: Text(
+                                  "Sl.",
+                                )),
+                                DataColumn(
+                                    label: Text(
+                                  "Name",
+                                )),
+                                DataColumn(
+                                    label: Text(
+                                  "Date",
+                                )),
+                                DataColumn(
+                                    label: Text(
+                                  "Other",
+                                )),
+                              ],
+                              rows: const <DataRow>[
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '19',
+                                    )),
+                                    DataCell(Text(
+                                      'Sarah',
+                                    )),
+                                    DataCell(Text(
+                                      'Student',
+                                    )),
+                                    DataCell(Text(
+                                      'Student',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '43',
+                                    )),
+                                    DataCell(Text(
+                                      'Janine',
+                                    )),
+                                    DataCell(Text(
+                                      'Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                                DataRow(
+                                  cells: <DataCell>[
+                                    DataCell(Text(
+                                      '27',
+                                    )),
+                                    DataCell(Text(
+                                      'William',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                    DataCell(Text(
+                                      'Associate Professor',
+                                    )),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        )),
                     StoreDetailsHolder(chart: chart),
                   ],
                 ),
@@ -264,9 +515,12 @@ class QuickStatsHolder extends StatelessWidget {
                     QuickStats("400", "Engagements",
                         Icons.connect_without_contact, Colors.yellow),
                   ]),
-                  SfCartesianChart(
-                    series: getDefaultData(),
-                    plotAreaBorderWidth: .2,
+                  Card(
+                    color: MyColor.White,
+                    child: SfCartesianChart(
+                      series: getDefaultData(),
+                      plotAreaBorderWidth: .2,
+                    ),
                   )
                 ],
               ),

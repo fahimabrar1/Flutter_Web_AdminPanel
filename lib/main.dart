@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:flutterweb/Components/Mycolor.dart';
 import 'Screen/Langing_Screen.dart';

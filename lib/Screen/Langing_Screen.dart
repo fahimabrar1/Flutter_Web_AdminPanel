@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterweb/Components/Mycolor.dart';
 import 'package:flutterweb/Components/side_menu.dart';
 import 'package:flutterweb/Screen/dashboard/analytics_screen.dart';
+import 'package:flutterweb/Screen/dashboard/dashboard_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
@@ -16,6 +17,14 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+  List<Widget> sidebarPages = [DashboardScreen(), AnalyticsScreen()];
+  Widget screen = DashboardScreen();
+  void setScreen(int index) {
+    setState(() {
+      screen = sidebarPages.elementAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -33,32 +42,11 @@ class _LandingPageState extends State<LandingPage> {
               flex: 1,
               child: Column(
                 children: [
-                  Expanded(flex: 1, child: SideMenu()),
-                  // Expanded(
-                  //   flex: 5,
-                  //   child: Column(
-                  //     children: [
-                  //       Container(
-                  //         padding: EdgeInsets.only(left: 10),
-                  //         child: Align(
-                  //           alignment: Alignment.centerLeft,
-                  //           child: Text(
-                  //             "General",
-                  //             style: GoogleFonts.robotoCondensed(
-                  //               textStyle: TextStyle(
-                  //                   color: Colors.white, fontSize: 14),
-                  //             ),
-                  //           ),
-                  //         ),
-                  //       ),
-                  //       Column()
-                  //     ],
-                  //   ),
-                  // )
+                  Expanded(flex: 1, child: SideMenu(sidebarPages)),
                 ],
               ),
             ),
-            Expanded(flex: 5, child: AnalyticsScreen()),
+            Expanded(flex: 5, child: screen),
           ],
         ),
       ),
